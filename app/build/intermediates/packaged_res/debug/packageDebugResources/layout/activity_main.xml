@@ -7,78 +7,30 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <HorizontalScrollView
-        android:id="@+id/hsvButtons"
+    <LinearLayout
+        android:id="@+id/button_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        
-        <LinearLayout
-            android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnFetchMorning"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            
-            <Button
-                android:id="@+id/btnFetch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fetch_baidu" />
+            android:layout_weight="1"
+            android:text="获取早报"
+            android:layout_marginEnd="8dp"/>
 
-            <Button
-                android:id="@+id/btnFetchToutiao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_toutiao" />
-                
-            <Button
-                android:id="@+id/btnFetchTencent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_tencent" />
-
-            <Button
-                android:id="@+id/btnFetchBBC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_bbc" />
-                
-            <Button
-                android:id="@+id/btnFetchCNN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_cnn" />
-                
-            <Button
-                android:id="@+id/btnFetchNYT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_nyt" />
-                
-            <Button
-                android:id="@+id/btnFetchSky"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/fetch_sky" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <Button
-        android:id="@+id/btnGenerateReport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="One-Click Generate Daily Report (AI)"
-        app:layout_constraintTop_toBottomOf="@+id/hsvButtons"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/btnFetchEvening"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="获取晚报"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvStatus"
@@ -88,7 +40,7 @@
         android:text="Ready"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGenerateReport" />
+        app:layout_constraintTop_toBottomOf="@+id/button_bar" />
 
     <ScrollView
         android:layout_width="0dp"
@@ -99,13 +51,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvStatus">
 
-
         <TextView
             android:id="@+id/tvContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

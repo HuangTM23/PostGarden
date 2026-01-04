@@ -3181,15 +3181,10 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id btnFetch
-id btnFetchBBC
-id btnFetchCNN
-id btnFetchNYT
-id btnFetchSky
-id btnFetchTencent
-id btnFetchToutiao
-id btnGenerateReport
+id btnFetchEvening
+id btnFetchMorning
 id buttonPanel
+id button_bar
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3305,7 +3300,6 @@ id home
 id homeAsUp
 id honorRequest
 id horizontal_only
-id hsvButtons
 id icon
 id icon_group
 id ifRoom

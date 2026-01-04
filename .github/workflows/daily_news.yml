@@ -16,6 +16,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
 
     steps:
       # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

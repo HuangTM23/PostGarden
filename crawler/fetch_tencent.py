@@ -80,7 +80,12 @@ def get_article_details(url):
         response.encoding = 'utf-8'
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        title = (soup.find('h1') or soup.find('h2', class_='title')).get_text(strip=True)
+        title_tag = soup.find('h1') or soup.find('h2', class_='title')
+        if not title_tag:
+            # This is likely not a valid article page (e.g., an author page)
+            return None
+        title = title_tag.get_text(strip=True)
+
         content_div = soup.find('div', class_='content-article') or soup.find('div', id='ArticleContent')
         content = content_div.get_text(strip=True) if content_div else title
         og_img = soup.find('meta', property='og:image')

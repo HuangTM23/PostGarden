@@ -3180,15 +3180,10 @@ int id bounce 0x7f08005e
 int id bounceBoth 0x7f08005f
 int id bounceEnd 0x7f080060
 int id bounceStart 0x7f080061
-int id btnFetch 0x7f080062
-int id btnFetchBBC 0x7f080063
-int id btnFetchCNN 0x7f0801f4
-int id btnFetchNYT 0x7f0801f5
-int id btnFetchSky 0x7f0801f6
-int id btnFetchTencent 0x7f0801f7
-int id btnFetchToutiao 0x7f0801f8
-int id btnGenerateReport 0x7f0801fa
+int id btnFetchEvening 0x7f0801fb
+int id btnFetchMorning 0x7f0801fc
 int id buttonPanel 0x7f080064
+int id button_bar 0x7f0801fd
 int id cache_measures 0x7f080065
 int id callMeasure 0x7f080066
 int id cancel_button 0x7f080067
@@ -3304,7 +3299,6 @@ int id home 0x7f0800d4
 int id homeAsUp 0x7f0800d5
 int id honorRequest 0x7f0800d6
 int id horizontal_only 0x7f0800d7
-int id hsvButtons 0x7f0801f9
 int id icon 0x7f0800d8
 int id icon_group 0x7f0800d9
 int id ifRoom 0x7f0800da

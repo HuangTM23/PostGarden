@@ -21,7 +21,7 @@ class ApiClient {
     private val gson = Gson()
 
     // IMPORTANT: Replace with your actual GitHub Pages URL structure
-    private val BASE_URL = "https://<YOUR_USERNAME>.github.io/<YOUR_REPO_NAME>"
+    private val BASE_URL = "https://huangtm23.github.io/PostGarden"
 
     suspend fun getReport(reportType: String): List<PolishedNewsItem> {
         if (BASE_URL.contains("<YOUR_USERNAME>")) {
