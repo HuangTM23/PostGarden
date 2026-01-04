@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.postgarden.app-mergeDebugResources-31:/values-ja/values-ja.xml",
+            "outputFile": "com.example.postgarden.app-mergeDebugResources-32:/values-ja/values-ja.xml",
             "map": [
                 {
                     "source": "/home/dawn/.gradle/caches/9.0-milestone-1/transforms/ac6cbd3c45dd47a7855473ffb914ff88/transformed/core-1.12.0/res/values-ja/values-ja.xml",

@@ -61,6 +61,7 @@ jobs:
           mkdir -p docs/images
           # Copy generated files to the docs folder
           cp output/*.json docs/
+          cp output/*.zip docs/
           # -a preserves attributes, -v is verbose
           cp -av output/images/. docs/images/
 

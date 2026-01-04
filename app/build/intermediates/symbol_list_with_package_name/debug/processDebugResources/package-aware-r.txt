@@ -3181,6 +3181,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnDownloadZip
 id btnFetchEvening
 id btnFetchMorning
 id buttonPanel
@@ -3287,6 +3288,7 @@ id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -3314,6 +3316,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id iv_news_image
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3452,6 +3455,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvNews
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3559,8 +3563,11 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvContent
 id tvStatus
+id tv_content
+id tv_rank
+id tv_source
+id tv_title
 id unchecked
 id uniform
 id unlabeled
@@ -3717,6 +3724,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_news
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

@@ -3180,6 +3180,7 @@ int id bounce 0x7f08005e
 int id bounceBoth 0x7f08005f
 int id bounceEnd 0x7f080060
 int id bounceStart 0x7f080061
+int id btnDownloadZip 0x7f080204
 int id btnFetchEvening 0x7f0801fb
 int id btnFetchMorning 0x7f0801fc
 int id buttonPanel 0x7f080064
@@ -3286,6 +3287,7 @@ int id frost 0x7f0800c7
 int id fullscreen_header 0x7f0800c8
 int id ghost_view 0x7f0800c9
 int id ghost_view_holder 0x7f0800ca
+int id glide_custom_view_target_tag 0x7f0801fe
 int id gone 0x7f0800cb
 int id graph 0x7f0800cc
 int id graph_wrap 0x7f0800cd
@@ -3313,6 +3315,7 @@ int id invisible 0x7f0800e2
 int id inward 0x7f0800e3
 int id italic 0x7f0800e4
 int id item_touch_helper_previous_elevation 0x7f0800e5
+int id iv_news_image 0x7f0801ff
 int id jumpToEnd 0x7f0800e6
 int id jumpToStart 0x7f0800e7
 int id labeled 0x7f0800e8
@@ -3451,6 +3454,7 @@ int id right_icon 0x7f08016c
 int id right_side 0x7f08016d
 int id rounded 0x7f08016e
 int id row_index_key 0x7f08016f
+int id rvNews 0x7f080205
 int id save_non_transition_alpha 0x7f080170
 int id save_overlay_view 0x7f080171
 int id sawtooth 0x7f080172
@@ -3558,8 +3562,11 @@ int id transition_position 0x7f0801d7
 int id transition_scene_layoutid_cache 0x7f0801d8
 int id transition_transform 0x7f0801d9
 int id triangle 0x7f0801da
-int id tvContent 0x7f0801db
 int id tvStatus 0x7f0801dc
+int id tv_content 0x7f080200
+int id tv_rank 0x7f080201
+int id tv_source 0x7f080202
+int id tv_title 0x7f080203
 int id unchecked 0x7f0801dd
 int id uniform 0x7f0801de
 int id unlabeled 0x7f0801df
@@ -3716,6 +3723,7 @@ int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
 int layout ime_base_split_test_activity 0x7f0b002d
 int layout ime_secondary_split_test_activity 0x7f0b002e
+int layout item_news 0x7f0b006c
 int layout m3_alert_dialog 0x7f0b002f
 int layout m3_alert_dialog_actions 0x7f0b0030
 int layout m3_alert_dialog_title 0x7f0b0031

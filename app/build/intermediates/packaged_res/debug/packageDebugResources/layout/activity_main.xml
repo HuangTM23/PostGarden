@@ -32,6 +32,16 @@
             android:text="获取晚报"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnDownloadZip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="下载完整报告 (ZIP)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_bar" />
+
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="0dp"
@@ -40,23 +50,17 @@
         android:text="Ready"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDownloadZip" />
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNews"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStatus">
-
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:textSize="14sp" />
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+        tools:listitem="@layout/item_news" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

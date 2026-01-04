@@ -9,6 +9,9 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <permission
         android:name="com.example.postgarden.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
