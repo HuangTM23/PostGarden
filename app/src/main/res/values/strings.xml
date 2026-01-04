@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PostGarden</string>
+    <string name="fetch_baidu">Fetch Baidu</string>
+    <string name="fetch_toutiao">Fetch Toutiao</string>
+    <string name="fetch_tencent">Fetch Tencent</string>
+    <string name="fetch_bbc">Fetch BBC</string>
+    <string name="fetch_cnn">Fetch CNN</string>
+    <string name="fetch_nyt">Fetch NYT</string>
+    <string name="fetch_sky">Fetch Sky</string>
+    <string name="loading">Loading...</string>
+</resources>

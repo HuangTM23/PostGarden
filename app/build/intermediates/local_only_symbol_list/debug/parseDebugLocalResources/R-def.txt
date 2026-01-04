@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btnFetch
+id btnFetchBBC
+id btnFetchCNN
+id btnFetchNYT
+id btnFetchSky
+id btnFetchTencent
+id btnFetchToutiao
+id btnGenerateReport
+id hsvButtons
+id tvContent
+id tvStatus
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string fetch_baidu
+string fetch_bbc
+string fetch_cnn
+string fetch_nyt
+string fetch_sky
+string fetch_tencent
+string fetch_toutiao
+string loading
+style Theme.PostGarden
+xml backup_rules
+xml data_extraction_rules

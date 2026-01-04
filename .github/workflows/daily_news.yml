@@ -1,0 +1,76 @@
+name: Daily News CI
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow twice a day on a schedule.
+  # Note: GitHub Actions runners use UTC time.
+  # 22:00 UTC is 06:00 Beijing Time (UTC+8)
+  # 10:00 UTC is 18:00 Beijing Time (UTC+8)
+  schedule:
+    - cron: "0 22 * * *"
+    - cron: "0 10 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # Step 3: Install system dependencies (Chromium for Selenium)
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-driver
+
+      # Step 4: Install Python dependencies
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      # Step 5: Run Morning News Pipeline
+      - name: Run Morning Pipeline
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python crawler/pipeline.py morning
+
+      # Step 6: Run Evening News Pipeline
+      - name: Run Evening Pipeline
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python crawler/pipeline.py evening
+
+      # Step 7: Deploy results to docs folder for GitHub Pages
+      - name: Deploy results
+        run: |
+          # Create docs dir if it doesn't exist
+          mkdir -p docs/images
+          # Copy generated files to the docs folder
+          cp output/*.json docs/
+          # -a preserves attributes, -v is verbose
+          cp -av output/images/. docs/images/
+
+      # Step 8: Commit and push the generated files
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add docs/
+          # Commit only if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Automated daily news update"
+            git push
+          fi
