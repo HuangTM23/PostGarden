@@ -1,5 +1,6 @@
 package com.example.postgarden.data
 
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
@@ -20,37 +21,40 @@ class ApiClient {
     private val client = OkHttpClient()
     private val gson = Gson()
 
-    // IMPORTANT: Replace with your actual GitHub Pages URL structure
+    companion object {
+        private const val TAG = "ApiClient"
+    }
+
     private val BASE_URL = "https://huangtm23.github.io/PostGarden"
 
-    suspend fun getReport(reportType: String): List<PolishedNewsItem> {
-        if (BASE_URL.contains("<YOUR_USERNAME>")) {
-            // Return dummy data if URL is not configured
-            return listOf(PolishedNewsItem(
-                rank = 0,
-                title = "Please configure the URL in ApiClient.kt",
-                content = "The BASE_URL in ApiClient.kt needs to be updated with your GitHub Pages URL."
-            ))
-        }
+    suspend fun getReport(reportType: String): List<PolishedNewsItem> = withContext(Dispatchers.IO) {
+        val url = "$BASE_URL/$reportType.json"
+        Log.d(TAG, "Requesting URL: $url")
 
-        val url = "$BASE_URL/$reportType.json" // e.g. .../morning.json
         val request = Request.Builder().url(url).build()
 
         try {
             val response = client.newCall(request).execute()
+            Log.d(TAG, "Response Code: ${response.code}")
+
             if (!response.isSuccessful) {
+                Log.e(TAG, "Request failed with code ${response.code}: ${response.message}")
                 throw IOException("Failed to download file: $response")
             }
+            
             val body = response.body?.string()
+            Log.d(TAG, "Response Body Size: ${body?.length ?: 0}")
+
             if (body != null) {
-                // The JSON from the file is expected to have a "news" key containing the list
                 val type = object : TypeToken<Map<String, List<PolishedNewsItem>>>() {}.type
                 val resultMap: Map<String, List<PolishedNewsItem>> = gson.fromJson(body, type)
-                return resultMap["news"] ?: emptyList()
+                val newsList = resultMap["news"] ?: emptyList()
+                Log.d(TAG, "Successfully parsed ${newsList.size} news items.")
+                return@withContext newsList
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            Log.e(TAG, "Exception during API call: ${e.message}", e)
         }
-        return emptyList()
+        return@withContext emptyList<PolishedNewsItem>()
     }
 }
