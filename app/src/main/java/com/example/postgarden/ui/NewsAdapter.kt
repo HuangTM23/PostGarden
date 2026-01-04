@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.postgarden.data.PolishedNewsItem
 
-class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
+import com.example.postgarden.data.ApiClient // Import ApiClient
+import com.example.postgarden.R // Import the R class
 
-    // IMPORTANT: Base URL for images needs to be set correctly.
-    private val IMAGE_BASE_URL = "https://huangtm23.github.io/PostGarden/"
+class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
@@ -23,7 +23,7 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, IMAGE_BASE_URL)
+        holder.bind(item)
     }
 
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,7 +33,7 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
         private val sourceView: TextView = itemView.findViewById(R.id.tv_source)
         private val imageView: ImageView = itemView.findViewById(R.id.iv_news_image)
 
-        fun bind(item: PolishedNewsItem, imageBaseUrl: String) {
+        fun bind(item: PolishedNewsItem) {
             rankView.text = "${item.rank}."
             titleView.text = item.title
             contentView.text = item.content
@@ -44,7 +44,7 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
                 val imageUrl = if (item.image.startsWith("http")) {
                     item.image
                 } else {
-                    "$imageBaseUrl${item.image}"
+                    "${ApiClient.BASE_URL}/${item.image}" // Use ApiClient.BASE_URL
                 }
                 Glide.with(itemView.context)
                     .load(imageUrl)

@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun downloadZipReport(reportType: String) {
         val zipFileName = "${reportType}_report.zip"
-        val downloadUrl = "${apiClient.BASE_URL}/$zipFileName" // BASE_URL is public in ApiClient now
+        val downloadUrl = "${ApiClient.BASE_URL}/$zipFileName" // Access via class name
         
         try {
             val request = DownloadManager.Request(Uri.parse(downloadUrl))

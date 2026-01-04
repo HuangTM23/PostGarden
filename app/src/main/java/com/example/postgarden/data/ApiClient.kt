@@ -25,9 +25,8 @@ class ApiClient {
 
     companion object {
         private const val TAG = "ApiClient"
+        const val BASE_URL = "https://huangtm23.github.io/PostGarden" // Now public and accessible via ApiClient.BASE_URL
     }
-
-    private val BASE_URL = "https://huangtm23.github.io/PostGarden"
 
     suspend fun getReport(reportType: String): List<PolishedNewsItem> = withContext(Dispatchers.IO) {
         val url = "$BASE_URL/$reportType.json"
