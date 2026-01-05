@@ -10,51 +10,145 @@ on:
     - cron: "0 22 * * *"
     - cron: "0 10 * * *"
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    # Allows you to run this workflow manually from the Actions tab
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    workflow_dispatch:
 
+      inputs:
 
-    steps:
-      # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        report_type:
 
-      # Step 2: Set up Python environment
-      - name: Setup Python 3.10
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+          description: 'Report Type (morning/evening/auto)'
 
-      # Step 3: Install system dependencies (Chromium for Selenium)
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-driver
+          required: true
 
-      # Step 4: Install Python dependencies
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-      
-      # Step 5: Run Morning News Pipeline
-      - name: Run Morning Pipeline
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python crawler/pipeline.py morning
+          default: 'auto'
 
-      # Step 6: Run Evening News Pipeline
-      - name: Run Evening Pipeline
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python crawler/pipeline.py evening
+          type: choice
 
-      # Step 7: Deploy results to docs folder for GitHub Pages
+          options:
+
+          - auto
+
+          - morning
+
+          - evening
+
+  
+
+  jobs:
+
+    build-and-deploy:
+
+      runs-on: ubuntu-latest
+
+      permissions:
+
+        contents: write
+
+  
+
+  
+
+      steps:
+
+        # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+        - name: Checkout repository
+
+          uses: actions/checkout@v4
+
+  
+
+        # Step 2: Set up Python environment
+
+        - name: Setup Python 3.10
+
+          uses: actions/setup-python@v5
+
+          with:
+
+            python-version: "3.10"
+
+  
+
+        # Step 3: Install system dependencies (Chromium for Selenium)
+
+        - name: Install system dependencies
+
+          run: |
+
+            sudo apt-get update
+
+            sudo apt-get install -y chromium-browser chromium-driver
+
+  
+
+        # Step 4: Install Python dependencies
+
+        - name: Install Python dependencies
+
+          run: |
+
+            pip install -r requirements.txt
+
+        
+
+        # Step 5: Run News Pipeline (Auto-detect or Manual)
+
+        - name: Run News Pipeline
+
+          env:
+
+            DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
+            INPUT_TYPE: ${{ inputs.report_type }}
+
+          run: |
+
+            TYPE=$INPUT_TYPE
+
+            
+
+            # If triggered by schedule (INPUT_TYPE is empty) or set to auto
+
+            if [ -z "$TYPE" ] || [ "$TYPE" == "auto" ]; then
+
+              # Calculate Beijing Time (UTC+8)
+
+              current_hour=$(date +%H)
+
+              beijing_hour=$(( (current_hour + 8) % 24 ))
+
+              
+
+              # If Beijing time is before 12:00, it's morning news
+
+              if [ $beijing_hour -lt 12 ]; then
+
+                TYPE="morning"
+
+              else
+
+                TYPE="evening"
+
+              fi
+
+              echo "Auto-detected time: UTC $current_hour -> Beijing $beijing_hour. Selected: $TYPE"
+
+            fi
+
+            
+
+            echo "Running pipeline for: $TYPE"
+
+            python crawler/pipeline.py $TYPE
+
+  
+
+        # Step 6: Deploy results to docs folder for GitHub Pages
+
+  
       - name: Deploy results
         run: |
           # Create docs dir if it doesn't exist
