@@ -43,7 +43,8 @@ class JsonParsingTest {
         
         val item1 = newsList[1]
         assertEquals(1, item1.rank)
-        assertEquals("Baidu", item1.source_platform)
-        assertEquals("images/1.jpg", item1.image)
+        assertEquals("Baidu", item1.sourcePlatform)
+        assertEquals("images/1.jpg", item1.imagePath)
+        assertEquals("https://huangtm23.github.io/PostGarden/images/1.jpg", item1.fullImageUrl)
     }
 }

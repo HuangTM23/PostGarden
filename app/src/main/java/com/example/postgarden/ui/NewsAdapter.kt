@@ -37,17 +37,12 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
             rankView.text = "${item.rank}."
             titleView.text = item.title
             contentView.text = item.content
-            sourceView.text = "Source: ${item.source_platform}"
+            sourceView.text = "Source: ${item.sourcePlatform}"
             
             // Only load image if URL is valid
-            if (item.image.isNotEmpty()) {
-                val imageUrl = if (item.image.startsWith("http")) {
-                    item.image
-                } else {
-                    "${ApiClient.BASE_URL}/${item.image}" // Use ApiClient.BASE_URL
-                }
+            if (item.imagePath.isNotEmpty()) {
                 Glide.with(itemView.context)
-                    .load(imageUrl)
+                    .load(item.fullImageUrl)
                     .centerCrop()
                     .placeholder(android.R.drawable.ic_menu_gallery) // Placeholder while loading
                     .error(android.R.drawable.ic_delete) // Error placeholder
@@ -62,7 +57,7 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
 
 class NewsDiffCallback : DiffUtil.ItemCallback<PolishedNewsItem>() {
     override fun areItemsTheSame(oldItem: PolishedNewsItem, newItem: PolishedNewsItem): Boolean {
-        return oldItem.rank == newItem.rank && oldItem.source_url == newItem.source_url
+        return oldItem.rank == newItem.rank && oldItem.sourceUrl == newItem.sourceUrl
     }
 
     override fun areContentsTheSame(oldItem: PolishedNewsItem, newItem: PolishedNewsItem): Boolean {
