@@ -2,80 +2,81 @@
     "news": [
         {
             "rank": 0,
-            "title": "民生消费亮点频现，奇闻趣事引人关注",
-            "content": ""
+            "title": "科技民生热点纷呈，精选九条新闻速览",
+            "content": "",
+            "image": ""
         },
         {
             "rank": 1,
-            "title": "山姆车厘子价格大幅下跌",
-            "source_platform": "Baidu",
-            "source_url": "https://www.baidu.com/s?wd=%E5%B1%B1%E5%A7%86%E8%BD%A6%E5%8E%98%E5%AD%90%E6%AF%8F%E6%96%A4%E7%8B%82%E9%99%8D70%E5%85%83&sa=fyb_news&rsv_dl=fyb_news",
-            "content": "山姆会员超市3J智利车厘子价格较50天前下跌近70元/斤，主因南半球产季集中上市及海运到港量激增。",
-            "image": "images/rank1_Baidu_20260105.jpg"
+            "title": "全球首款可量产全固态电池问世",
+            "source_platform": "IT之家",
+            "source_url": "https://www.toutiao.com/article/7591799142926664198/",
+            "content": "全球首款可商业化量产的全固态电池正式发布，能量密度达400瓦时/千克，5分钟可充满电。",
+            "image": "images/rank1_IT之家_20260105.jpeg"
         },
         {
             "rank": 2,
-            "title": "2026年消费市场开局火热",
-            "source_platform": "Baidu",
-            "source_url": "https://www.baidu.com/s?wd=2026%E5%B9%B4%E5%B8%82%E5%9C%BA%E7%81%AB%E7%83%AD%E5%BC%80%E5%B1%80&sa=fyb_news&rsv_dl=fyb_news",
-            "content": "元旦假期文旅活动丰富，以旧换新政策带动家电市场，消费提振举措推动市场供需两旺。",
-            "image": "images/rank2_Baidu_20260105.jpg"
+            "title": "数字人民币开始计付利息",
+            "source_platform": "环球网",
+            "source_url": "https://news.qq.com/rain/a/20260105A03FTQ00#to-comment",
+            "content": "数字人民币App升级至2.0版本，钱包余额开始显示利息，执行年利率0.05%。",
+            "image": ""
         },
         {
             "rank": 3,
-            "title": "哈尔滨外国游客光腿穿短裤引热议",
-            "source_platform": "Baidu",
-            "source_url": "https://www.baidu.com/s?wd=%E5%93%88%E5%B0%94%E6%BB%A8%E9%9B%B6%E4%B8%8B20%E2%84%83%E5%A4%96%E5%9B%BD%E6%B8%B8%E5%AE%A2%E5%85%89%E8%85%BF%E7%A9%BF%E7%9F%AD%E8%A3%A4&sa=fyb_news&rsv_dl=fyb_news",
-            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，与本地人形成强烈对比。",
-            "image": "images/rank3_Baidu_20260105.jpg"
+            "title": "超千万人信用将获修复",
+            "source_platform": "Tencent",
+            "source_url": "https://news.qq.com/rain/a/20260105A06IPC00#to-comment",
+            "content": "央行出台一次性信用修复政策，覆盖千万级人群，小额逾期记录可自动清零。",
+            "image": ""
         },
         {
             "rank": 4,
-            "title": "冰箱贴需经常挪动位置",
-            "source_platform": "Baidu",
-            "source_url": "https://www.baidu.com/s?wd=%E5%86%B0%E7%AE%B1%E8%B4%B4%E4%B8%80%E5%AE%9A%E8%A6%81%E7%BB%8F%E5%B8%B8%E6%8C%AA%E6%8C%AA%E4%BD%8D%E7%BD%AE&sa=fyb_news&rsv_dl=fyb_news",
-            "content": "长期吸一个点或导致冰箱门板变形及形成色差，甚至产生物理吸附效应难以挪动。",
-            "image": "images/rank4_Baidu_20260105.jpg"
+            "title": "外国游客中国游“隐藏玩法”受热捧",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853456196752696664",
+            "content": "元旦假期免签入境外国人达29.2万人次，冰雪、海滨、古镇等多元旅游产品受青睐。",
+            "image": "images/rank4_央视新闻_20260105.jpg"
         },
         {
             "rank": 5,
-            "title": "新疆棉被制作过程治愈人心",
-            "source_platform": "Baidu",
-            "source_url": "https://www.baidu.com/s?wd=%E7%9C%8B%E6%96%B0%E7%96%86%E6%A3%89%E8%A2%AB%E7%9A%84%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%A4%AA%E6%B2%BB%E6%84%88%E4%BA%86&sa=fyb_news&rsv_dl=fyb_news",
-            "content": "兵团六师新湖农场披露新疆棉被制作过程，钢管卷棉胎形似“巨型棉花糖”被赞治愈。",
-            "image": "images/rank5_Baidu_20260105.jpg"
+            "title": "哈尔滨外国游客零下20℃光腿穿短裤",
+            "source_platform": "河山新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5603056933566803301",
+            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，引发网络热议。",
+            "image": "images/rank5_河山新闻_20260105.jpg"
         },
         {
             "rank": 6,
             "title": "1万多张2元人民币拍出83.16万元",
-            "source_platform": "Toutiao",
-            "source_url": "https://www.toutiao.com/trending/7591512300159959059/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227591512300159959059%22%2C%22hot_board_impr_id%22%3A%2220260105183057F6409D49B6B518170CED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%221%E4%B8%87%E5%A4%9A%E5%BC%A02%E5%85%83%E4%BA%BA%E6%B0%91%E5%B8%81%E6%8B%8D%E5%87%BA83.16%E4%B8%87%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7591512300159959059",
-            "content": "1万多张2元人民币在拍卖中以83.16万元成交，引发收藏市场关注。",
-            "image": "images/rank6_Toutiao_20260105.jpeg"
+            "source_platform": "都市快报橙柿互动",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_17734712930746225402",
+            "content": "浙江永嘉法院拍卖10500张2元面值人民币，以83.16万元成交，吸引44人报名。",
+            "image": "images/rank6_都市快报橙柿互动_20260105.jpg"
         },
         {
             "rank": 7,
-            "title": "17岁男子假退货薅羊毛获刑",
-            "source_platform": "Toutiao",
-            "source_url": "https://www.toutiao.com/trending/7591699374620491795/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227591699374620491795%22%2C%22hot_board_impr_id%22%3A%2220260105183057F6409D49B6B518170CED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%2217%E5%B2%81%E7%94%B7%E5%AD%90%E5%81%87%E9%80%80%E8%B4%A7%E8%96%85%E7%BE%8A%E6%AF%9B400%E5%A4%9A%E4%B8%87%E8%8E%B7%E5%88%91%22%7D&rank=&style_id=40132&topic_id=7591699374620491795",
-            "content": "17岁男子通过假退货方式薅羊毛400多万元，最终被判处刑罚。",
-            "image": "images/rank7_Toutiao_20260105.jpeg"
+            "title": "爸爸玩手机致孩子冲上马路被撞",
+            "source_platform": "大象新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_3358937790926958226",
+            "content": "广东一父亲低头玩手机未看管孩子，致其跑上马路被车撞倒，母亲声明父亲全责。",
+            "image": "images/rank7_大象新闻_20260105.jpg"
         },
         {
             "rank": 8,
-            "title": "辽宁孕妇一胎变四胞胎",
-            "source_platform": "Toutiao",
-            "source_url": "https://www.toutiao.com/trending/7590756085456371763/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227590756085456371763%22%2C%22hot_board_impr_id%22%3A%2220260105183057F6409D49B6B518170CED%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%BE%BD%E5%AE%81%E4%B8%80%E5%AD%95%E5%A6%87%E4%B8%A4%E4%B8%AA%E6%9C%88%E5%86%85%E4%BB%8E%E4%B8%80%E8%83%8E%E5%8F%98%E5%9B%9B%E8%83%9E%E8%83%8E%22%7D&rank=&style_id=40132&topic_id=7590756085456371763",
-            "content": "辽宁一孕妇在两个月内从一胎变为四胞胎，引发医学界和公众关注。",
-            "image": "images/rank8_Toutiao_20260105.jpeg"
+            "title": "精神病患者报警称邻居制毒引乌龙",
+            "source_platform": "潇湘晨报",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_13494921339286815424&sourceFrom=qmj",
+            "content": "河南一老人报警称楼上邻居制毒，引大批警察上门，实为精神疾病患者闹乌龙。",
+            "image": "images/rank8_潇湘晨报_20260105.jpg"
         },
         {
             "rank": 9,
-            "title": "中使馆提醒防范柬埔寨高薪陷阱",
-            "source_platform": "Tencent",
-            "source_url": "https://news.qq.com/rain/a/20260104A06I1S00#to-comment",
-            "content": "中使馆回应女网红在柬埔寨街头流浪事件，提醒公众切勿踏入“高薪陷阱”冒险。",
-            "image": "images/rank9_Tencent_20260105.jpg"
+            "title": "山姆车厘子每斤狂降70元",
+            "source_platform": "南方+客户端",
+            "source_url": "https://www.toutiao.com/video/7591793493714927626/",
+            "content": "山姆车厘子价格大幅下调，每斤降价70元，引发消费者关注。",
+            "image": "images/rank9_南方+客户端_20260105.jpeg"
         }
     ]
 }
