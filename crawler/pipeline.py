@@ -170,10 +170,10 @@ def run_pipeline(report_type):
                 print(f"  ✓ Rank {item['rank']} [{platform_safe}] image downloaded.")
             else:
                 item["image"] = ""
-                print(f"  ✗ Rank {item['rank']} [{platform_safe}] image failed: {reason}")
+                print(f"  ✗ Rank {item['rank']} [{platform_safe}] image failed: {reason} (URL: {remote_image_url})")
         else:
             item["image"] = ""
-            print(f"  - Rank {item['rank']} image skipped (No valid URL)")
+            print(f"  - Rank {item['rank']} image skipped (No valid URL or not http-prefixed)")
     
     print(f"\n  ✓ Successfully downloaded {download_count} images.")
 
