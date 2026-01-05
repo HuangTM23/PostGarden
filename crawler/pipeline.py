@@ -143,9 +143,12 @@ def run_pipeline(report_type):
     print("="*60)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2 or sys.argv[1] not in ['morning', 'evening']:
-        print("Usage: python pipeline.py [morning|evening]")
-        sys.exit(1)
+    # Default based on current hour
+    current_hour = datetime.now().hour
+    pipeline_type = "morning" if current_hour < 12 else "evening"
     
-    pipeline_type = sys.argv[1]
+    # Optional override via command line
+    if len(sys.argv) >= 2 and sys.argv[1] in ['morning', 'evening']:
+        pipeline_type = sys.argv[1]
+    
     run_pipeline(pipeline_type)
