@@ -9,7 +9,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: 云端管道修复' (Protocol in workflow.md) 137f700
 
 ## Phase 2: Android 端数据拉取与展示验证
-- [ ] Task: 在 Android 端编写针对 JSON 解析模型的单元测试
+- [x] Task: 在 Android 端编写针对 JSON 解析模型的单元测试 e08c948
 - [ ] Task: 更新 Android 端网络层，配置正确的 GitHub Actions 数据产物 URL
 - [ ] Task: 调整 MainActivity/UI 逻辑，确保 1+9 布局正确渲染
 - [ ] Task: 验证“保存到花园”功能的持久化逻辑（单元测试 + 实现）
