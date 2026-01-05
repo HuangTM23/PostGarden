@@ -2,7 +2,7 @@
     "news": [
         {
             "rank": 0,
-            "title": "科技民生热点纷呈，精选九条新闻速览",
+            "title": "今日热点：科技突破、民生趣闻、旅游新风",
             "content": "",
             "image": ""
         },
@@ -11,72 +11,72 @@
             "title": "全球首款可量产全固态电池问世",
             "source_platform": "IT之家",
             "source_url": "https://www.toutiao.com/article/7591799142926664198/",
-            "content": "全球首款可商业化量产的全固态电池正式发布，能量密度达400瓦时/千克，5分钟可充满电。",
+            "content": "Donut Lab公司发布全球首款可量产全固态电池，能量密度达400瓦时/千克，5分钟充满电，循环次数超10万次。",
             "image": "images/rank1_IT之家_20260105.jpeg"
         },
         {
             "rank": 2,
-            "title": "数字人民币开始计付利息",
-            "source_platform": "环球网",
-            "source_url": "https://news.qq.com/rain/a/20260105A03FTQ00#to-comment",
-            "content": "数字人民币App升级至2.0版本，钱包余额开始显示利息，执行年利率0.05%。",
-            "image": ""
+            "title": "外国游客中国游“隐藏玩法”走红",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853456196752696664",
+            "content": "元旦假期免签入境外国人达29.2万人次，同比增长35.8%，冰雪、海滨、古镇等多元旅游产品受青睐。",
+            "image": "images/rank2_央视新闻_20260105.jpg"
         },
         {
             "rank": 3,
-            "title": "超千万人信用将获修复",
-            "source_platform": "Tencent",
-            "source_url": "https://news.qq.com/rain/a/20260105A06IPC00#to-comment",
-            "content": "央行出台一次性信用修复政策，覆盖千万级人群，小额逾期记录可自动清零。",
-            "image": ""
-        },
-        {
-            "rank": 4,
-            "title": "外国游客中国游“隐藏玩法”受热捧",
-            "source_platform": "央视新闻",
-            "source_url": "https://baijiahao.baidu.com/s?id=1853456196752696664",
-            "content": "元旦假期免签入境外国人达29.2万人次，冰雪、海滨、古镇等多元旅游产品受青睐。",
-            "image": "images/rank4_央视新闻_20260105.jpg"
-        },
-        {
-            "rank": 5,
-            "title": "哈尔滨外国游客零下20℃光腿穿短裤",
-            "source_platform": "河山新闻",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5603056933566803301",
-            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，引发网络热议。",
-            "image": "images/rank5_河山新闻_20260105.jpg"
-        },
-        {
-            "rank": 6,
             "title": "1万多张2元人民币拍出83.16万元",
             "source_platform": "都市快报橙柿互动",
             "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_17734712930746225402",
-            "content": "浙江永嘉法院拍卖10500张2元面值人民币，以83.16万元成交，吸引44人报名。",
-            "image": "images/rank6_都市快报橙柿互动_20260105.jpg"
+            "content": "浙江永嘉法院拍卖10500张2元面值人民币，起拍价20.76万元，最终以83.16万元成交，44人报名竞拍。",
+            "image": "images/rank3_都市快报橙柿互动_20260105.jpg"
         },
         {
-            "rank": 7,
+            "rank": 4,
+            "title": "哈尔滨零下20℃外国游客光腿穿短裤",
+            "source_platform": "河山新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5603056933566803301",
+            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，与本地人厚重冬装形成对比，引发网络热议。",
+            "image": "images/rank4_河山新闻_20260105.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "精神病患者称邻居制毒引警察上门",
+            "source_platform": "潇湘晨报",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_13494921339286815424&sourceFrom=qmj",
+            "content": "河南75岁老人报警称楼上邻居制毒，大批警察上门后发现是乌龙事件，老人有精神疾病，警方已通知家属加强管理。",
+            "image": "images/rank5_潇湘晨报_20260105.jpg"
+        },
+        {
+            "rank": 6,
             "title": "爸爸玩手机致孩子冲上马路被撞",
             "source_platform": "大象新闻",
             "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_3358937790926958226",
-            "content": "广东一父亲低头玩手机未看管孩子，致其跑上马路被车撞倒，母亲声明父亲全责。",
-            "image": "images/rank7_大象新闻_20260105.jpg"
+            "content": "广东一父亲排队时低头玩手机未看管孩子，导致其跑上马路被车撞倒，母亲声明父亲全责，已向司机道歉且未索赔。",
+            "image": "images/rank6_大象新闻_20260105.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "浙江两座海岛挂牌出让3.7万当岛主",
+            "source_platform": "极目新闻",
+            "source_url": "https://www.toutiao.com/video/7591834845899128882/",
+            "content": "浙江两座海岛挂牌出让，起拍价3.7万元，吸引关注，公众可参与竞拍成为“岛主”。",
+            "image": "images/rank7_极目新闻_20260105.jpeg"
         },
         {
             "rank": 8,
-            "title": "精神病患者报警称邻居制毒引乌龙",
-            "source_platform": "潇湘晨报",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_13494921339286815424&sourceFrom=qmj",
-            "content": "河南一老人报警称楼上邻居制毒，引大批警察上门，实为精神疾病患者闹乌龙。",
-            "image": "images/rank8_潇湘晨报_20260105.jpg"
-        },
-        {
-            "rank": 9,
             "title": "山姆车厘子每斤狂降70元",
             "source_platform": "南方+客户端",
             "source_url": "https://www.toutiao.com/video/7591793493714927626/",
-            "content": "山姆车厘子价格大幅下调，每斤降价70元，引发消费者关注。",
-            "image": "images/rank9_南方+客户端_20260105.jpeg"
+            "content": "山姆会员店车厘子价格大幅下调，每斤降价70元，引发消费者关注和购买热潮。",
+            "image": "images/rank8_南方客户端_20260105.jpeg"
+        },
+        {
+            "rank": 9,
+            "title": "“黄河之水天上来”视频走红",
+            "source_platform": "齐鲁壹点",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_11835049717545184657",
+            "content": "河南网友发布视频，远看似晚霞，拉近后发现是“黄河之水天上来”的具象化景象，引发网络热议。",
+            "image": "images/rank9_齐鲁壹点_20260105.jpg"
         }
     ]
 }
