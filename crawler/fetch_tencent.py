@@ -212,31 +212,46 @@ def get_article_details(url, index, config):
 
         # --- 3. Source Platform ---
         source_platform = "未知平台"
-        media_elem = soup.find('a', class_='media-name') or soup.find('span', class_='media-name')
+        media_elem = soup.find('a', class_='media-name') or \
+                     soup.find('span', class_='media-name') or \
+                     soup.find('div', class_='author-txt') or \
+                     soup.find('div', class_='author-name')
+        
         if media_elem:
             source_platform = media_elem.get_text(strip=True)
         else:
-            author_meta = soup.find('meta', property='article:author')
-            if author_meta:
-                source_platform = author_meta['content']
+            # Fallback for some article types
+            meta_site = soup.find('meta', property='og:site_name') or \
+                        soup.find('meta', name='author')
+            if meta_site:
+                source_platform = meta_site.get('content', '未知平台')
             else:
-                author_div = soup.find('div', class_='author-name') or soup.find('span', class_='author')
-                if author_div:
-                    source_platform = author_div.get_text(strip=True)
+                author_meta = soup.find('meta', property='article:author')
+                if author_meta:
+                    source_platform = author_meta['content']
 
-        # --- 4. Image Extraction (OG First) ---
+        # --- 4. Image Extraction ---
         cover_image_url = ""
+        # Strategy A: OG Image
         og_img = soup.find('meta', property='og:image')
         if og_img and og_img.get('content'):
             cover_image_url = og_img['content']
         
-        if not cover_image_url and content_div:
-            main_img = content_div.find('img', class_='qnt-img-img')
-            if main_img:
-                cover_image_url = main_img.get('data-src') or main_img.get('src')
+        # Strategy B: First image in content
+        if not cover_image_url or "default" in cover_image_url:
+            if content_div:
+                img = content_div.find('img')
+                if img:
+                    cover_image_url = img.get('data-src') or img.get('src')
+        
+        # Strategy C: Video Poster (if video)
+        if not cover_image_url and is_video:
+            video_tag = soup.find('video')
+            if video_tag:
+                cover_image_url = video_tag.get('poster')
 
         local_image_path = "无图片"
-        if cover_image_url:
+        if cover_image_url and cover_image_url.startswith('http'):
             res = download_image(cover_image_url, config['img_dir'], index)
             if res and res != "下载失败":
                 local_image_path = res
@@ -293,7 +308,7 @@ def main(report_type="morning", limit=10, out_dir=None):
                 "rank": data["序号"],
                 "title": data["标题"],
                 "content": data["内容"],
-                "source_platform": "Tencent", # Uniform platform name
+                "source_platform": data["源平台"], # FIXED: Use real source instead of hardcoded 'Tencent'
                 "source_url": data["源平台的链接"],
                 "image": data["封面图片"]
             }

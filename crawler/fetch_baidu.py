@@ -195,13 +195,24 @@ def extract_from_html(html: str) -> Tuple[str, str, str]:
 
             # 3.2 Look for other standard classes if still no source
             if not found_source:
-                first_result = soup.select_one(".result, .c-container, .new-pmd")
-                if first_result:
-                    source_el = first_result.select_one(".source-text, .c-color-gray, span.c-gray, .newTimeFactor_vocab, .c-source")
-                    if source_el:
-                        src_text = source_el.get_text(strip=True)
-                        if src_text and len(src_text) < 20 and ":" not in src_text:
-                            found_source = src_text
+                # Try more specific Baidu search result selectors
+                source_el = soup.select_one(".c-showurl, .source_1V_v6, .c-source, .c-gray, .c-color-gray")
+                if source_el:
+                    src_text = source_el.get_text(strip=True)
+                    # Clean up: remove date, etc.
+                    src_text = re.sub(r'\d{4}-\d{2}-\d{2}.*', '', src_text).strip()
+                    src_text = src_text.split(' ')[0]
+                    if src_text and len(src_text) < 20:
+                        found_source = src_text
+                
+                if not found_source:
+                    first_result = soup.select_one(".result, .c-container, .new-pmd")
+                    if first_result:
+                        source_el = first_result.select_one(".source-text, .c-color-gray, span.c-gray, .newTimeFactor_vocab, .c-source")
+                        if source_el:
+                            src_text = source_el.get_text(strip=True)
+                            if src_text and len(src_text) < 20 and ":" not in src_text:
+                                found_source = src_text
                             
                     if not found_url:
                         link_el = first_result.select_one("a")

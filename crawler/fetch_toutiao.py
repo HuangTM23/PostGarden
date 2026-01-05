@@ -146,13 +146,21 @@ def resolve_data(rank, title, initial_url, hot_index, driver):
         # --- Step 4: Extract Data ---
         
         # A. Source Platform
-        # Priority: .author-info .name -> .article-meta .name -> .author-name
-        platform_el = soup.select_one(".author-info .name")
-        if not platform_el: platform_el = soup.select_one(".article-meta .name")
-        if not platform_el: platform_el = soup.select_one(".author-info .author-name")
+        # Priority: .author-info .name -> .article-meta .name -> .author-name -> .user-card-name
+        platform_el = soup.select_one(".author-info .name") or \
+                      soup.select_one(".article-meta .name") or \
+                      soup.select_one(".author-info .author-name") or \
+                      soup.select_one(".user-card-name") or \
+                      soup.select_one(".media-info .name")
         
         if platform_el:
             source_platform = platform_el.get_text(strip=True)
+        else:
+            # Fallback to meta tags
+            meta_name = soup.find('meta', attrs={'name': 'author'}) or \
+                        soup.find('meta', property='og:site_name')
+            if meta_name:
+                source_platform = meta_name.get('content', 'Toutiao')
 
         # B. Content
         if link_type == "video" or ("/video/" in source_url):
