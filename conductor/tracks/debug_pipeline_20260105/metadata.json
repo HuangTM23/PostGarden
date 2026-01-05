@@ -1,0 +1,8 @@
+{
+  "track_id": "debug_pipeline_20260105",
+  "type": "bug",
+  "status": "new",
+  "created_at": "2026-01-05T00:00:00Z",
+  "updated_at": "2026-01-05T00:00:00Z",
+  "description": "调试并完善云端数据管道（Pipeline），修复现有脚本中的 Bug，并验证 Android 端的 JSON 数据接收与展示。"
+}
