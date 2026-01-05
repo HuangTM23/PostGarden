@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -14,11 +15,14 @@ import com.bumptech.glide.Glide
 import com.example.postgarden.data.PolishedNewsItem
 import com.example.postgarden.R
 
-class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
+class NewsAdapter(
+    private val onFavoriteClick: (PolishedNewsItem) -> Unit,
+    private val isFavoriteCheck: (PolishedNewsItem) -> Boolean
+) : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
-        return NewsViewHolder(view)
+        return NewsViewHolder(view, onFavoriteClick, isFavoriteCheck)
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -26,12 +30,17 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
         holder.bind(item)
     }
 
-    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class NewsViewHolder(
+        itemView: View,
+        private val onFavoriteClick: (PolishedNewsItem) -> Unit,
+        private val isFavoriteCheck: (PolishedNewsItem) -> Boolean
+    ) : RecyclerView.ViewHolder(itemView) {
         private val rankView: TextView = itemView.findViewById(R.id.tv_rank)
         private val titleView: TextView = itemView.findViewById(R.id.tv_title)
         private val contentView: TextView = itemView.findViewById(R.id.tv_content)
         private val sourceView: TextView = itemView.findViewById(R.id.tv_source)
         private val imageView: ImageView = itemView.findViewById(R.id.iv_news_image)
+        private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
         fun bind(item: PolishedNewsItem) {
             rankView.text = "${item.rank}."
@@ -43,10 +52,23 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
             itemView.setOnClickListener {
                 if (item.sourceUrl.isNotEmpty()) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.sourceUrl))
-                    // Try to suggest to the browser that we want a mobile view if possible
-                    // (Though usually automatic)
                     itemView.context.startActivity(intent)
                 }
+            }
+
+            // Handle favorite click
+            val isFav = isFavoriteCheck(item)
+            favoriteBtn.setImageResource(
+                if (isFav) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
+            )
+            
+            favoriteBtn.setOnClickListener {
+                onFavoriteClick(item)
+                // Re-bind to update icon instantly
+                val nowFav = isFavoriteCheck(item)
+                favoriteBtn.setImageResource(
+                    if (nowFav) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
+                )
             }
 
             // Only load image if path is valid

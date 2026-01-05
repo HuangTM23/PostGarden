@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.postgarden.data.ApiClient
 import com.example.postgarden.data.PolishedNewsItem
 import com.example.postgarden.data.ReportRepository
+import com.example.postgarden.data.FavoriteRepository
 import com.example.postgarden.ui.HistoryActivity
 import com.example.postgarden.ui.NewsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newsAdapter: NewsAdapter
     private val apiClient = ApiClient()
     private lateinit var repository: ReportRepository
+    private lateinit var favRepository: FavoriteRepository
     private lateinit var toolbar: MaterialToolbar
     private lateinit var bottomNavigationView: BottomNavigationView
     
@@ -53,8 +55,24 @@ class MainActivity : AppCompatActivity() {
         val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         
-        newsAdapter = NewsAdapter()
         repository = ReportRepository(this)
+        favRepository = FavoriteRepository(this)
+
+        newsAdapter = NewsAdapter(
+            onFavoriteClick = { item ->
+                val isAdded = favRepository.toggleFavorite(item)
+                if (isAdded) {
+                    Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
+                    // If we are in favorites view, refresh the list immediately
+                    if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
+                        displayReport(favRepository.getFavorites())
+                    }
+                }
+            },
+            isFavoriteCheck = { item -> favRepository.isFavorite(item) }
+        )
 
         rvNews.layoutManager = LinearLayoutManager(this)
         rvNews.adapter = newsAdapter
@@ -68,9 +86,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // "国内" corresponds to current general news fetch
-                    currentReportType = "morning" // Default for home, could be dynamic
-                    fetchLatestReports()
+                    currentReportType = "morning"
+                    loadLatestReport()
                     true
                 }
                 R.id.nav_international -> {
@@ -82,14 +99,19 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_favorites -> {
-                    Toast.makeText(this@MainActivity, "收藏功能开发中...", Toast.LENGTH_SHORT).show()
+                    val favs = favRepository.getFavorites()
+                    displayReport(favs)
+                    Toast.makeText(this@MainActivity, "收藏夹", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
             }
         }
         
-        // Load latest if available
+        loadLatestReport()
+    }
+
+    private fun loadLatestReport() {
         val latest = repository.getLatestReport()
         if (latest != null && latest.isNotEmpty()) {
              displayReport(latest)
@@ -98,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                  updateCurrentTypeFromFile(latestFile)
              }
         } else {
-            Toast.makeText(this@MainActivity, "No reports found. Click refresh.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, "暂无新闻，请点击刷新。", Toast.LENGTH_SHORT).show()
         }
     }
 
