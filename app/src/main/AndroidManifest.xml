@@ -31,6 +31,6 @@
             android:name=".ui.WebViewActivity"
             android:exported="false"
             android:theme="@style/Theme.PostGarden.NoActionBar" />
-        <activity
+    </application>
 
 </manifest>

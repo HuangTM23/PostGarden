@@ -91,11 +91,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_international -> {
-                    Toast.makeText(this@MainActivity, "国际新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "全球新闻功能开发中...", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_entertainment -> {
-                    Toast.makeText(this@MainActivity, "娱乐新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "预测新闻功能开发中...", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_favorites -> {
