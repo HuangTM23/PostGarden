@@ -2,7 +2,7 @@
     "news": [
         {
             "rank": 0,
-            "title": "科技民生热点纷呈，精选九条新闻速览",
+            "title": "今日热点：科技突破、民生新政与奇闻趣事",
             "content": "",
             "image": ""
         },
@@ -11,72 +11,72 @@
             "title": "全球首款可量产全固态电池问世",
             "source_platform": "IT之家",
             "source_url": "https://www.toutiao.com/article/7591799142926664198/",
-            "content": "Donut Lab公司发布全球首款可量产全固态电池，能量密度达400瓦时/千克，5分钟可充满电。",
+            "content": "全球首款可量产全固态电池正式发布，能量密度达400瓦时/千克，5分钟可充满电，将变革电动汽车行业。",
             "image": "images/rank1_IT之家_20260105.jpeg"
         },
         {
             "rank": 2,
-            "title": "超千万人信用将被“修复”",
-            "source_platform": "国是直通车",
-            "source_url": "https://news.qq.com/rain/a/20260105A06IPC00#to-comment",
-            "content": "央行实施一次性信用修复政策，覆盖千万级人群，小额逾期记录可自动清零。",
-            "image": "images/rank2_国是直通车_20260105.jpg"
+            "title": "数字人民币开始计付利息",
+            "source_platform": "环球网",
+            "source_url": "https://news.qq.com/rain/a/20260105A03FTQ00#to-comment",
+            "content": "数字人民币App升级至2.0版本，钱包余额开始显示利息，年利率为0.05%，标志着其向数字存款货币时代迈进。",
+            "image": "images/rank2_环球网_20260105.jpg"
         },
         {
             "rank": 3,
-            "title": "数字人民币有利息了",
-            "source_platform": "环球网",
-            "source_url": "https://news.qq.com/rain/a/20260105A03FTQ00#to-comment",
-            "content": "数字人民币App升级至2.0版本，钱包余额开始计付利息，年利率为0.05%。",
-            "image": "images/rank3_环球网_20260105.jpg"
+            "title": "超千万人信用将获“修复”",
+            "source_platform": "国是直通车",
+            "source_url": "https://news.qq.com/rain/a/20260105A06IPC00#to-comment",
+            "content": "央行出台一次性信用修复政策，覆盖千万级别受益人群，符合条件的小额逾期记录可自动清零。",
+            "image": "images/rank3_国是直通车_20260105.jpg"
         },
         {
             "rank": 4,
-            "title": "外国游客的中国游“隐藏玩法”",
-            "source_platform": "央视新闻",
-            "source_url": "https://baijiahao.baidu.com/s?id=1853456196752696664",
-            "content": "元旦假期免签入境外国人达29.2万人次，冰雪、海滨、古镇等多元旅游产品受青睐。",
-            "image": "images/rank4_央视新闻_20260105.jpg"
+            "title": "苏州工业总产值将突破5万亿元",
+            "source_platform": "每日经济新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853495515292852530",
+            "content": "苏州宣布2026年规上工业总产值目标突破5万亿元，将成为继深圳后第二个五万亿工业城市。",
+            "image": "images/rank4_每日经济新闻_20260105.jpg"
         },
         {
             "rank": 5,
-            "title": "哈尔滨零下20℃外国游客光腿穿短裤",
-            "source_platform": "河山新闻",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5603056933566803301",
-            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，引发网络热议。",
-            "image": "images/rank5_河山新闻_20260105.jpg"
+            "title": "外国游客元旦免签入境大增",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853456196752696664",
+            "content": "元旦假期适用免签政策入境外国人达29.2万人次，同比增长35.8%，冰雪、海滨等多元旅游产品受青睐。",
+            "image": "images/rank5_央视新闻_20260105.jpg"
         },
         {
             "rank": 6,
-            "title": "1万多张2元人民币拍出83.16万元",
+            "title": "1万多张2元人民币拍出83万元",
             "source_platform": "都市快报橙柿互动",
             "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_17734712930746225402",
-            "content": "温州永嘉法院拍卖10500张2元面值人民币，以83.16万元成交，44人报名竞拍。",
+            "content": "温州永嘉法院拍卖10500张2元面值人民币，以83.16万元成交，吸引44人报名竞拍。",
             "image": "images/rank6_都市快报橙柿互动_20260105.jpg"
         },
         {
             "rank": 7,
-            "title": "爸爸低头玩手机孩子冲上马路被撞",
-            "source_platform": "大象新闻",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_3358937790926958226",
-            "content": "广东一父亲排队时低头玩手机，孩子跑上马路被车撞倒，母亲声明父亲全责。",
-            "image": "images/rank7_大象新闻_20260105.jpg"
+            "title": "哈尔滨外国游客零下20℃穿短裤",
+            "source_platform": "河山新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5603056933566803301",
+            "content": "哈尔滨中央大街外国游客在零下20多度环境中光腿穿短裤行走，与本地人形成对比，引发网络热议。",
+            "image": "images/rank7_河山新闻_20260105.jpg"
         },
         {
             "rank": 8,
-            "title": "山姆车厘子每斤狂降70元",
+            "title": "山姆车厘子每斤降价70元",
             "source_platform": "南方+客户端",
             "source_url": "https://www.toutiao.com/video/7591793493714927626/",
-            "content": "山姆车厘子价格大幅下调，每斤降价70元，引发消费者关注。",
+            "content": "山姆车厘子价格大幅下调，每斤降价70元，吸引消费者关注。",
             "image": "images/rank8_南方客户端_20260105.jpeg"
         },
         {
             "rank": 9,
-            "title": "“黄河之水天上来”具象化了",
-            "source_platform": "齐鲁壹点",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_11835049717545184657",
-            "content": "河南网友发布视频，远看似晚霞，拉近后发现“黄河之水天上来”的壮观景象。",
-            "image": "images/rank9_齐鲁壹点_20260105.jpg"
+            "title": "助产士剪脐带误伤婴儿手指",
+            "source_platform": "湖北头条",
+            "source_url": "https://news.qq.com/rain/a/20260105A070P600#to-comment",
+            "content": "江苏盱眙县人民医院助产士剪脐带时误剪断新生儿手指，涉事人员已停职，患儿经手术康复中。",
+            "image": "images/rank9_湖北头条_20260105.jpg"
         }
     ]
 }
