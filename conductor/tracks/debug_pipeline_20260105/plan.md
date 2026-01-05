@@ -8,9 +8,9 @@
 - [x] Task: 完善 `pipeline.py` 的串联逻辑，确保本地模拟运行成功 63fa6de
 - [x] Task: Conductor - User Manual Verification 'Phase 1: 云端管道修复' (Protocol in workflow.md) 137f700
 
-## Phase 2: Android 端数据拉取与展示验证
+## Phase 2: Android 端数据拉取与展示验证 [checkpoint: bf3ca3c]
 - [x] Task: 在 Android 端编写针对 JSON 解析模型的单元测试 e08c948
 - [x] Task: 更新 Android 端网络层，配置正确的 GitHub Actions 数据产物 URL 14ca250
 - [x] Task: 调整 MainActivity/UI 逻辑，确保 1+9 布局正确渲染 2bf8b14
 - [x] Task: 验证“保存到花园”功能的持久化逻辑（单元测试 + 实现） a92a7bf
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Android 端验证' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Android 端验证' (Protocol in workflow.md) bf3ca3c
