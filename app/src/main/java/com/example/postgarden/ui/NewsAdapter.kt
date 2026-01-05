@@ -48,10 +48,13 @@ class NewsAdapter(
             contentView.text = item.content
             sourceView.text = "来源: ${item.sourcePlatform}"
             
-            // Open in browser on click
+            // Open in internal WebView on click
             itemView.setOnClickListener {
                 if (item.sourceUrl.isNotEmpty()) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.sourceUrl))
+                    val intent = Intent(itemView.context, WebViewActivity::class.java).apply {
+                        putExtra("url", item.sourceUrl)
+                        putExtra("title", item.title)
+                    }
                     itemView.context.startActivity(intent)
                 }
             }

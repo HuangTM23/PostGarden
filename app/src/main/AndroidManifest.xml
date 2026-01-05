@@ -24,7 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HistoryActivity" />
-    </application>
+        <activity
+            android:name=".ui.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.WebViewActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PostGarden.NoActionBar" />
+        <activity
 
 </manifest>
