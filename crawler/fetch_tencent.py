@@ -263,11 +263,9 @@ def get_article_details(url, index, config):
             if video_tag:
                 cover_image_url = video_tag.get('poster')
 
-        local_image_path = "无图片"
+        local_image_path = ""
         if cover_image_url and cover_image_url.startswith('http'):
-            res = download_image(cover_image_url, config['img_dir'], index)
-            if res and res != "下载失败":
-                local_image_path = res
+            local_image_path = cover_image_url # Return REMOTE URL for pipeline
 
         return {
             "序号": index,
@@ -311,9 +309,6 @@ def main(report_type="morning", limit=10, out_dir=None):
 
     print(f"  [✓] Successfully discovered {len(links)} links. Parsing content...")
     
-    # 调整图片保存目录到指定的 out_dir 下
-    cfg['img_dir'] = os.path.join(out_dir, "images", news_type)
-
     all_data = []
     for i, link in enumerate(links, 1):
         print(f"\n  [#{i}] Processing: {link[:70]}...")
@@ -321,6 +316,8 @@ def main(report_type="morning", limit=10, out_dir=None):
         if data:
             print(f"      - Title: {data['标题']}")
             print(f"      - Source: {data['源平台']}")
+            if data['封面图片']:
+                print(f"      - Image URL found")
 
             # Map Chinese keys to English keys for pipeline compatibility
             record = {
@@ -329,12 +326,12 @@ def main(report_type="morning", limit=10, out_dir=None):
                 "content": data["内容"],
                 "source_platform": data["源平台"], 
                 "source_url": data["源平台的链接"],
-                "image": data["封面图片"]
+                "image": data["封面图片"] # REMOTE URL
             }
             all_data.append(record)
         time.sleep(random.uniform(0.5, 1.0))
         
-    # 4. 保存结果
+    # 4. 保存结果 (Optional standalone output)
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     filename = os.path.join(out_dir, f"{cfg['json_prefix']}_{len(all_data)}pcs.json")
