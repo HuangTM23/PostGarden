@@ -212,23 +212,36 @@ def get_article_details(url, index, config):
 
         # --- 3. Source Platform ---
         source_platform = "未知平台"
-        media_elem = soup.find('a', class_='media-name') or \
-                     soup.find('span', class_='media-name') or \
-                     soup.find('div', class_='author-txt') or \
-                     soup.find('div', class_='author-name')
         
-        if media_elem:
-            source_platform = media_elem.get_text(strip=True)
-        else:
-            # Fallback for some article types
-            meta_site = soup.find('meta', property='og:site_name') or \
-                        soup.find('meta', attrs={'name': 'author'})
+        # Priority 1: Specific OMN/Rain author selectors
+        author_info = soup.select_one(".author-info .name") or \
+                      soup.select_one(".media-info .media-name") or \
+                      soup.select_one(".author-name") or \
+                      soup.select_one(".media-name")
+        
+        if author_info:
+            source_platform = author_info.get_text(strip=True)
+        
+        # Priority 2: Meta tags (be careful with generic ones)
+        if not source_platform or source_platform in ["未知平台", "腾讯网", "腾讯新闻"]:
+            author_meta = soup.find('meta', property='article:author') or \
+                          soup.find('meta', attrs={'name': 'author'})
+            if author_meta:
+                source_platform = author_meta.get('content', source_platform)
+        
+        # Priority 3: Other common selectors
+        if not source_platform or source_platform in ["未知平台", "腾讯网", "腾讯新闻"]:
+            media_elem = soup.find('div', class_='author-txt') or \
+                         soup.find('div', class_='author-name') or \
+                         soup.find('span', class_='media-name')
+            if media_elem:
+                source_platform = media_elem.get_text(strip=True)
+
+        # Final check: If still "腾讯网", check og:site_name but only as last resort
+        if not source_platform or source_platform == "未知平台":
+            meta_site = soup.find('meta', property='og:site_name')
             if meta_site:
                 source_platform = meta_site.get('content', '未知平台')
-            else:
-                author_meta = soup.find('meta', property='article:author')
-                if author_meta:
-                    source_platform = author_meta['content']
 
         # --- 4. Image Extraction ---
         cover_image_url = ""
