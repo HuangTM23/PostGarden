@@ -192,38 +192,42 @@ def resolve_data(rank, title, initial_url, hot_index, driver):
     return source_platform, source_url, content
 
 def main(limit=10, out_dir="output"):
+    print("\n" + "-"*30)
+    print("🔍 [Toutiao] Starting Hot News Scraper")
+    print("-"*30)
+    
     # Clean proxy envs to avoid Selenium issues
     for k in list(os.environ.keys()):
         if k.lower().endswith('_proxy'): del os.environ[k]
 
     driver = init_driver()
     if not driver:
-        print("Selenium is required. Exiting.")
+        print("  [!] Selenium is required for Toutiao. Exiting.")
         return []
 
     try:
         items = fetch_hot_list(limit)
-        if not items: return []
+        if not items:
+            print("  [!] No items found from Toutiao API.")
+            return []
 
-        out_dir_path = Path(out_dir)
-        # images_dir = out_dir_path / "images" # Pipeline handles images
-        # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        # out_dir_path.mkdir(parents=True, exist_ok=True)
-        # images_dir.mkdir(parents=True, exist_ok=True)
+        print(f"  [✓] Successfully fetched hot list. Processing {len(items)} items...")
         
         results = []
         
-        print(f"Processing {len(items)} items from Toutiao...")
         for idx, item in enumerate(items, 1):
             title = item.get("Title", "N/A")
             hot_index = item.get("HotValue", "N/A")
             initial_url = item.get("Url", "")
             image_url = item.get("Image", {}).get("url", "")
             
-            print(f"#{idx}: {title} (Hot: {hot_index})")
+            print(f"\n  [#{idx}] Processing: {title} (Hot: {hot_index})")
             
             source_platform, source_url, content = resolve_data(idx, title, initial_url, hot_index, driver)
             
+            print(f"      - Resolved Source: {source_platform}")
+            print(f"      - Resolved URL: {source_url[:70]}...")
+
             # For pipeline, we just return the remote image URL.
             # Pipeline will handle downloading.
             saved_image_path = image_url 
@@ -241,7 +245,7 @@ def main(limit=10, out_dir="output"):
             # Small delay to be polite
             time.sleep(1)
 
-        print(f"\nDone. Fetched {len(results)} items from Toutiao.")
+        print(f"\n  [✓] Toutiao scraping complete. Total items: {len(results)}")
         return results
 
     finally:

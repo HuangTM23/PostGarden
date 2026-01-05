@@ -93,44 +93,65 @@ def run_pipeline(report_type):
     Main pipeline to fetch, process, and save news.
     :param report_type: 'morning' or 'evening'
     """
-    print("="*60)
-    print(f"🚀 Starting '{report_type}' news pipeline...")
-    print("="*60)
+    print("\n" + "█"*60)
+    print(f"  POSTGARDEN PIPELINE: {report_type.upper()}")
+    print("█"*60)
 
     # 1. Setup output directories
+    print(f"\n[Step 1/6] Preparing environment...")
     os.makedirs(IMAGES_DIR, exist_ok=True)
+    print(f"  ✓ Output directory: {OUTPUT_DIR}")
 
     # 2. Fetch raw news from all platforms
+    print(f"\n[Step 2/6] Fetching raw news from platforms...")
     all_raw_news = []
-    all_raw_news.extend(fetch_baidu.main(limit=NEWS_LIMIT_PER_PLATFORM))
-    all_raw_news.extend(fetch_toutiao.main(limit=NEWS_LIMIT_PER_PLATFORM))
-    all_raw_news.extend(fetch_tencent.main(report_type=report_type, limit=NEWS_LIMIT_PER_PLATFORM))
+    
+    try:
+        baidu_news = fetch_baidu.main(limit=NEWS_LIMIT_PER_PLATFORM)
+        all_raw_news.extend(baidu_news)
+        print(f"  ✓ Baidu: {len(baidu_news)} items")
+    except Exception as e:
+        print(f"  ✗ Baidu failed: {e}")
+
+    try:
+        toutiao_news = fetch_toutiao.main(limit=NEWS_LIMIT_PER_PLATFORM)
+        all_raw_news.extend(toutiao_news)
+        print(f"  ✓ Toutiao: {len(toutiao_news)} items")
+    except Exception as e:
+        print(f"  ✗ Toutiao failed: {e}")
+
+    try:
+        tencent_news = fetch_tencent.main(report_type=report_type, limit=NEWS_LIMIT_PER_PLATFORM)
+        all_raw_news.extend(tencent_news)
+        print(f"  ✓ Tencent: {len(tencent_news)} items")
+    except Exception as e:
+        print(f"  ✗ Tencent failed: {e}")
 
     if not all_raw_news:
-        print("❌ No news items fetched. Aborting pipeline.")
+        print("\n❌ CRITICAL: No news items fetched from any platform. Aborting.")
         return
 
-    print(f"\n✅ Total raw news items fetched: {len(all_raw_news)}")
+    print(f"\n✅ Total news items collected: {len(all_raw_news)}")
 
     # 3. Polish news with AI
+    print(f"\n[Step 3/6] Polishing and filtering news with AI...")
     polished_data = polish.main(all_raw_news)
 
     if not polished_data or "news" not in polished_data:
-        print("❌ AI polishing failed or returned invalid format. Aborting pipeline.")
+        print("❌ CRITICAL: AI polishing failed. Aborting.")
         return
     
     polished_items = polished_data["news"]
-    print(f"\n✅ AI polishing complete. Got {len(polished_items)} final items.")
 
     # 4. Download images for polished items and update paths
-    print("\n⏳ Downloading images for polished news...")
+    print(f"\n[Step 4/6] Downloading images for selected items...")
     timestamp = datetime.now().strftime('%Y%m%d')
+    download_count = 0
     for item in polished_items:
         if item.get("rank", 0) == 0: continue # Skip summary item
 
         remote_image_url = item.get("image")
         if remote_image_url and remote_image_url.startswith('http'):
-            # Create a unique, clean filename
             # Sanitize platform name for filename
             platform = item.get('source_platform', 'X')
             platform_safe = "".join([c for c in platform if c.isalnum() or c in ('-', '_')]).strip()
@@ -140,32 +161,34 @@ def run_pipeline(report_type):
             if ext not in ('.jpg', '.jpeg', '.png', '.webp'):
                 ext = '.jpg'
             
-            # e.g., images/rank1_Baidu_20240101.jpg
             filename = f"rank{item['rank']}_{platform_safe}_{timestamp}{ext}"
             local_image_path = os.path.join(IMAGES_DIR, filename)
             
             if download_image(remote_image_url, local_image_path):
-                # Update the image path to be a relative path for GitHub Pages
                 item["image"] = f"images/{filename}"
-                print(f"  ✓ Image downloaded for Rank {item['rank']} ({platform_safe})")
+                download_count += 1
+                print(f"  ✓ Rank {item['rank']} [{platform_safe}] image downloaded.")
             else:
-                item["image"] = "" # Clear image if download fails
+                item["image"] = ""
         else:
             item["image"] = ""
+    
+    print(f"  ✓ Downloaded {download_count} images.")
 
     # 5. Save final JSON to output directory
+    print(f"\n[Step 5/6] Saving final report...")
     output_json_path = os.path.join(OUTPUT_DIR, f"{report_type}.json")
     with open(output_json_path, 'w', encoding='utf-8') as f:
         json.dump(polished_data, f, ensure_ascii=False, indent=4)
-        
-    print(f"\n✅ Final {report_type}.json saved to {output_json_path}")
+    print(f"  ✓ {report_type}.json created.")
 
     # 6. Create ZIP archive
+    print(f"\n[Step 6/6] Packaging for distribution...")
     create_zip_archive(report_type)
 
-    print("\n" + "="*60)
-    print("🏆 Pipeline finished successfully!")
-    print("="*60)
+    print("\n" + "█"*60)
+    print("  🏆 PIPELINE COMPLETE!")
+    print("█"*60 + "\n")
 
 if __name__ == "__main__":
     # Default based on current hour

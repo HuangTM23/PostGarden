@@ -269,20 +269,22 @@ def get_article_details(url, index, config):
         return None
 
 def main(report_type="morning", limit=10, out_dir=None):
+    print("\n" + "-"*30)
+    print(f"🔍 [Tencent] Starting Hot News Scraper ({report_type})")
+    print("-"*30)
+    
     if out_dir is None:
         out_dir = os.getenv('TENCENT_OUT_DIR', 'tencent')
-    
-    print("=== 腾讯新闻自动化抓取工具 (早报/晚报) ===")
     
     # 1. 选择类型 (report_type maps to news_type logic)
     news_type = report_type
         
     if news_type not in TAG_CONFIG:
-        print(f"Unknown report type: {news_type}, defaulting to morning")
+        print(f"  [!] Unknown report type: {news_type}, defaulting to morning")
         news_type = "morning"
 
     cfg = TAG_CONFIG[news_type]
-    print(f"\n>>> 已选择：【{cfg['name']}】")
+    print(f"  [✓] Target: 【{cfg['name']}】")
     
     # 2. 设置数量
     target_count = limit
@@ -291,41 +293,42 @@ def main(report_type="morning", limit=10, out_dir=None):
     links = get_links_auto(cfg['id'], target_count)
     
     if not links:
-        print("未获取到任何链接，程序退出。")
+        print("  [!] No links found from Tencent tag page.")
         return []
 
-    print(f"\n成功获取 {len(links)} 条链接，开始解析内容...\n")
+    print(f"  [✓] Successfully discovered {len(links)} links. Parsing content...")
     
     # 调整图片保存目录到指定的 out_dir 下
     cfg['img_dir'] = os.path.join(out_dir, "images", news_type)
 
     all_data = []
     for i, link in enumerate(links, 1):
+        print(f"\n  [#{i}] Processing: {link[:70]}...")
         data = get_article_details(link, i, cfg)
         if data:
+            print(f"      - Title: {data['标题']}")
+            print(f"      - Source: {data['源平台']}")
+
             # Map Chinese keys to English keys for pipeline compatibility
             record = {
                 "rank": data["序号"],
                 "title": data["标题"],
                 "content": data["内容"],
-                "source_platform": data["源平台"], # FIXED: Use real source instead of hardcoded 'Tencent'
+                "source_platform": data["源平台"], 
                 "source_url": data["源平台的链接"],
                 "image": data["封面图片"]
             }
             all_data.append(record)
         time.sleep(random.uniform(0.5, 1.0))
         
-    # 4. 保存结果 (Optional now, pipeline handles aggregation)
+    # 4. 保存结果
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     filename = os.path.join(out_dir, f"{cfg['json_prefix']}_{len(all_data)}pcs.json")
     with open(filename, "w", encoding='utf-8') as f:
         json.dump(all_data, f, ensure_ascii=False, indent=4)
         
-    print(f"\n任务完成！")
-    print(f"数据文件: {filename}")
-    print(f"图片目录: {cfg['img_dir']}/")
-    
+    print(f"\n  [✓] Tencent scraping complete. Total items: {len(all_data)}")
     return all_data
 
 if __name__ == "__main__":

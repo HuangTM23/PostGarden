@@ -56,8 +56,12 @@ SYSTEM_PROMPT = """你是一名专业中文新闻编辑与内容策划人员，�
 """
 
 def main(all_news_items, max_retries=3):
+    print("\n" + "-"*30)
+    print("🤖 [AI] Starting News Polishing & Selection")
+    print("-"*30)
+
     if not DEEPSEEK_API_KEY:
-        print("[!] 错误: 未设置 DEEPSEEK_API_KEY")
+        print("  [!] Error: DEEPSEEK_API_KEY not found in environment.")
         return None
 
     input_payload = []
@@ -77,7 +81,7 @@ def main(all_news_items, max_retries=3):
             input_payload.append(entry)
 
     json_payload_str = json.dumps(input_payload, ensure_ascii=False)
-    print(f"    [AI] Sending {len(input_payload)} news items for polishing... (Payload size: {len(json_payload_str)} chars)")
+    print(f"  [>] Sending {len(input_payload)} items to AI (Payload: {len(json_payload_str)} chars)...")
 
     headers = {
         "Content-Type": "application/json",
@@ -97,29 +101,36 @@ def main(all_news_items, max_retries=3):
 
     for attempt in range(max_retries):
         try:
+            start_time = time.time()
             response = requests.post(DEEPSEEK_BASE_URL, headers=headers, json=data, timeout=120)
             response.raise_for_status()
             result_json = response.json()
             answer_content = result_json["choices"][0]["message"]["content"]
             parsed_data = json.loads(answer_content)
             
+            elapsed = time.time() - start_time
             if isinstance(parsed_data, dict) and "news" in parsed_data:
                 news_list = parsed_data["news"]
                 if not isinstance(news_list, list):
-                     print(f"    [!] 'news' field is not a list: {type(news_list)}")
-                     continue # Retry
+                     print(f"  [!] Error: 'news' field is not a list: {type(news_list)}")
+                     continue
                 
-                print(f"    [AI] Successfully parsed response. Item count: {len(news_list)}")
+                print(f"  [✓] AI polishing complete ({elapsed:.1f}s). Result count: {len(news_list)}")
+                if len(news_list) > 0:
+                    summary = news_list[0].get('title', 'No Summary Title')
+                    print(f"      Summary: {summary}")
+                
                 if len(news_list) < 10:
-                    print(f"    [!] Warning: AI returned fewer items than requested ({len(news_list)}/10)")
+                    print(f"  [!] Warning: AI returned fewer items than requested ({len(news_list)}/10)")
                 
                 return parsed_data
             else:
-                 print(f"    [!] API response format unexpected: {str(parsed_data)[:200]}")
+                 print(f"  [!] API response format unexpected.")
 
         except Exception as e:
-            print(f"    [!] AI API call failed (Attempt {attempt + 1}/{max_retries}): {e}")
+            print(f"  [!] AI API call failed (Attempt {attempt + 1}/{max_retries}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(3)
                 
+    print("  [!] All AI retries failed.")
     return None

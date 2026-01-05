@@ -326,37 +326,31 @@ def download_image(url: str, save_path: Path) -> bool:
     return False
 
 def main(limit=10, out_dir="output", use_selenium=False):
+    print("\n" + "-"*30)
+    print("🔍 [Baidu] Starting Hot News Scraper")
+    print("-"*30)
+    
     # Init Driver if requested
     driver = None
     if use_selenium:
         driver = init_driver()
         if not driver:
-            print("Falling back to requests (Selenium init failed).")
+            print("  [!] Falling back to requests (Selenium init failed).")
     
     try:
         # 1. Get Top List
         items = fetch_top_list(limit=limit)
         if not items:
-            print("No items found.")
+            print("  [!] No items found from Baidu API.")
             return []
 
-        # Prepare output
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        out_dir_path = Path(out_dir)
-        # Note: Pipeline handles image aggregation, but we can still download locally if run standalone.
-        # But pipeline.py downloads images itself based on 'image' key.
-        # To avoid duplication and path issues, we can skip downloading here if run by pipeline,
-        # OR just return the remote URL in 'image' key and let pipeline handle it.
-        # The provided code downloaded images. I will keep it but pipeline expects remote URL in 'image' key 
-        # initially, then pipeline downloads it. 
-        # Wait, pipeline says: "Download images for polished items". 
-        # So fetchers should return REMOTE image URLs.
+        print(f"  [✓] Successfully fetched top list. Processing {len(items)} items...")
         
         results = []
         
         # 2. Process each item
         for item in items:
-            print(f"Processing #{item['rank']}: {item['title']}")
+            print(f"\n  [#{item['rank']}] Processing: {item['title']}")
             
             # Resolve real source
             real_url, source_name, _ = resolve_real_source(item['search_url'], driver=driver)
@@ -365,6 +359,9 @@ def main(limit=10, out_dir="output", use_selenium=False):
             final_url = real_url if real_url else item['search_url']
             final_source = source_name if source_name else "Baidu"
             
+            print(f"      - Source: {final_source}")
+            print(f"      - URL: {final_url[:70]}...")
+
             # Logic: If content is empty, use title
             content_val = item['desc']
             if not content_val:
@@ -384,7 +381,7 @@ def main(limit=10, out_dir="output", use_selenium=False):
             if not use_selenium:
                 time.sleep(1) # sleep if using requests
 
-        print(f"\nDone. Fetched {len(results)} items.")
+        print(f"\n  [✓] Baidu scraping complete. Total items: {len(results)}")
         return results
 
     finally:
