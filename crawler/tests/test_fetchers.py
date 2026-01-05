@@ -113,5 +113,27 @@ class TestFetchers(unittest.TestCase):
         self.assertIn("This is a test paragraph", details['内容'])
         self.assertEqual(details['源平台'], "Tencent News")
 
+    @patch('fetch_tencent.get_links_auto')
+    @patch('fetch_tencent.get_article_details')
+    @patch('os.makedirs')
+    @patch('builtins.open')
+    def test_fetch_tencent_main(self, mock_open, mock_makedirs, mock_details, mock_get_links):
+        mock_get_links.return_value = ["http://news.qq.com/1"]
+        mock_details.return_value = {
+            "序号": 1,
+            "标题": "Test Title",
+            "内容": "Test Content",
+            "源平台": "Tencent News",
+            "源平台的链接": "http://news.qq.com/1",
+            "封面图片": "test.jpg"
+        }
+        
+        results = fetch_tencent.main(report_type="morning", limit=1)
+        
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]['title'], "Test Title")
+        self.assertEqual(results[0]['source_platform'], "Tencent")
+
+
 if __name__ == '__main__':
     unittest.main()
