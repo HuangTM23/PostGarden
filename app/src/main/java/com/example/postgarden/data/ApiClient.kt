@@ -37,33 +37,33 @@ class ApiClient {
     }
 
     suspend fun getReport(reportType: String): List<PolishedNewsItem> = withContext(Dispatchers.IO) {
+        val json = fetchRaw(reportType)
+        if (json != null) {
+            try {
+                val type = object : TypeToken<Map<String, List<PolishedNewsItem>>>() {}.type
+                val resultMap: Map<String, List<PolishedNewsItem>> = gson.fromJson(json, type)
+                val newsList = resultMap["news"] ?: emptyList()
+                Log.d(TAG, "Successfully parsed ${newsList.size} news items.")
+                return@withContext newsList
+            } catch (e: Exception) {
+                Log.e(TAG, "Exception during parsing: ${e.message}", e)
+            }
+        }
+        return@withContext emptyList<PolishedNewsItem>()
+    }
+
+    suspend fun fetchRaw(reportType: String): String? = withContext(Dispatchers.IO) {
         val url = "$BASE_URL/$reportType.json"
         Log.d(TAG, "Requesting URL: $url")
-
         val request = Request.Builder().url(url).build()
 
         try {
             val response = client.newCall(request).execute()
-            Log.d(TAG, "Response Code: ${response.code}")
-
-            if (!response.isSuccessful) {
-                Log.e(TAG, "Request failed with code ${response.code}: ${response.message}")
-                throw IOException("Failed to download file: $response")
-            }
-            
-            val body = response.body?.string()
-            Log.d(TAG, "Response Body Size: ${body?.length ?: 0}")
-
-            if (body != null) {
-                val type = object : TypeToken<Map<String, List<PolishedNewsItem>>>() {}.type
-                val resultMap: Map<String, List<PolishedNewsItem>> = gson.fromJson(body, type)
-                val newsList = resultMap["news"] ?: emptyList()
-                Log.d(TAG, "Successfully parsed ${newsList.size} news items.")
-                return@withContext newsList
-            }
+            if (!response.isSuccessful) return@withContext null
+            return@withContext response.body?.string()
         } catch (e: Exception) {
             Log.e(TAG, "Exception during API call: ${e.message}", e)
+            return@withContext null
         }
-        return@withContext emptyList<PolishedNewsItem>()
     }
 }
