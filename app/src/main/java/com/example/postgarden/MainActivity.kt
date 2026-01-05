@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +20,8 @@ import com.example.postgarden.data.ReportRepository
 import com.example.postgarden.ui.HistoryActivity
 import com.example.postgarden.ui.NewsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
@@ -28,15 +29,19 @@ import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvStatus: TextView
     private lateinit var rvNews: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     private val apiClient = ApiClient()
     private lateinit var repository: ReportRepository
+    private lateinit var toolbar: MaterialToolbar
+    private lateinit var bottomNavigationView: BottomNavigationView
     
     // Track what is currently being viewed
     private var currentReportType: String = "morning" // Default
     
+    // For refresh button animation
+    private var isRefreshing = false
+
     private val historyLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             val path = result.data?.getStringExtra("selected_file_path")
@@ -51,9 +56,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvStatus = findViewById(R.id.tvStatus)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         rvNews = findViewById(R.id.rvNews)
         val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
         
         newsAdapter = NewsAdapter()
         repository = ReportRepository(this)
@@ -62,9 +70,35 @@ class MainActivity : AppCompatActivity() {
         rvNews.adapter = newsAdapter
 
         fabRefresh.setOnClickListener {
-            fetchLatestReports()
+            if (!isRefreshing) {
+                fetchLatestReports()
+            }
         }
 
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // "国内" corresponds to current general news fetch
+                    currentReportType = "morning" // Default for home, could be dynamic
+                    fetchLatestReports()
+                    true
+                }
+                R.id.nav_international -> {
+                    Toast.makeText(this, "国际新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_entertainment -> {
+                    Toast.makeText(this, "娱乐新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_favorites -> {
+                    Toast.makeText(this, "收藏功能开发中...", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+        
         // Load latest if available
         val latest = repository.getLatestReport()
         if (latest != null && latest.isNotEmpty()) {
@@ -74,24 +108,26 @@ class MainActivity : AppCompatActivity() {
                  updateCurrentTypeFromFile(latestFile)
              }
         } else {
-            tvStatus.text = "No reports found. Click button to refresh."
+            Toast.makeText(this, "No reports found. Click refresh.", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        // Optionally hide history item here if it's completely removed
+        menu?.findItem(R.id.action_history)?.isVisible = false
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_history -> {
-                val intent = Intent(this, HistoryActivity::class.java)
-                historyLauncher.launch(intent)
-                true
-            }
             R.id.action_save_zip -> {
                 downloadZipReport(currentReportType)
+                true
+            }
+            R.id.action_history -> { // Removed from menu, but keeping this for completeness in case it's brought back
+                val intent = Intent(this, HistoryActivity::class.java)
+                historyLauncher.launch(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -115,8 +151,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchLatestReports() {
-        tvStatus.text = "Fetching latest reports..."
+        // tvStatus.text = "Fetching latest reports..."
+        Toast.makeText(this, "Fetching latest reports...", Toast.LENGTH_SHORT).show()
         lifecycleScope.launch {
+            val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
+            isRefreshing = true
+            fabRefresh.isEnabled = false // Disable to prevent multiple clicks
+            fabRefresh.setImageResource(R.drawable.ic_refresh) // Ensure refresh icon is set
+
             try {
                 val morningDeferred = async { apiClient.fetchRaw("morning") }
                 val eveningDeferred = async { apiClient.fetchRaw("evening") }
@@ -140,21 +182,31 @@ class MainActivity : AppCompatActivity() {
                         val latestFile = repository.getHistoryFiles().firstOrNull()
                         if (latestFile != null) updateCurrentTypeFromFile(latestFile)
                     }
-                    tvStatus.text = "Fetch complete."
+                    // tvStatus.text = "Fetch complete."
+                    Toast.makeText(this, "Fetch complete.", Toast.LENGTH_SHORT).show()
+                    fabRefresh.setImageResource(R.drawable.ic_check_green) // Success icon
+                    kotlinx.coroutines.delay(1500) // Show checkmark for 1.5 seconds
                 } else {
-                    tvStatus.text = "No new reports found on server."
+                    // tvStatus.text = "No new reports found on server."
+                    Toast.makeText(this, "No new reports found on server.", Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
-                tvStatus.text = "Error fetching: ${e.message}"
+                // tvStatus.text = "Error fetching: ${e.message}"
+                Toast.makeText(this, "Error fetching: ${e.message}", Toast.LENGTH_LONG).show()
                 e.printStackTrace()
+            } finally {
+                fabRefresh.setImageResource(R.drawable.ic_refresh) // Revert to refresh icon
+                fabRefresh.isEnabled = true // Re-enable button
+                isRefreshing = false
             }
         }
     }
 
     private fun displayReport(items: List<PolishedNewsItem>) {
         if (items.isEmpty()) {
-            tvStatus.text = "Report is empty."
+            // tvStatus.text = "Report is empty."
+            Toast.makeText(this, "Report is empty.", Toast.LENGTH_SHORT).show()
             newsAdapter.submitList(emptyList())
             return
         }
@@ -164,9 +216,11 @@ class MainActivity : AppCompatActivity() {
 
         val summary = items.find { it.rank == 0 }
         if (summary != null) {
-            tvStatus.text = "${summary.title}\n\n${summary.content}"
+            // tvStatus.text = "${summary.title}\n\n${summary.content}"
+            Toast.makeText(this, "摘要: ${summary.title}", Toast.LENGTH_LONG).show()
         } else {
-            tvStatus.text = "Report loaded."
+            // tvStatus.text = "Report loaded."
+            Toast.makeText(this, "Report loaded.", Toast.LENGTH_SHORT).show()
         }
     }
 
