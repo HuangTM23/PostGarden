@@ -262,6 +262,9 @@ def get_article_details(url, index, config):
             video_tag = soup.find('video')
             if video_tag:
                 cover_image_url = video_tag.get('poster')
+        
+        # Debugging: Print original cover_image_url before processing
+        print(f"      - Debug: Original cover_image_url: {cover_image_url}")
 
         # --- URL Fix & Cleanup ---
         final_image_url = ""
@@ -275,6 +278,9 @@ def get_article_details(url, index, config):
                 # Basic filter for common generic logos
                 if "logo_gray" not in cover_image_url and "default" not in cover_image_url:
                     final_image_url = cover_image_url
+        
+        # Debugging: Print final_image_url before returning
+        print(f"      - Debug: Final image_url: {final_image_url}")
 
         return {
             "序号": index,
