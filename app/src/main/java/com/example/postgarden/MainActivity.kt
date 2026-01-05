@@ -78,9 +78,13 @@ class MainActivity : AppCompatActivity() {
         val newsItemsForDisplay = items.filter { it.rank > 0 }
         newsAdapter.submitList(newsItemsForDisplay)
 
-        // Set status text to summary title
+        // Set status text to summary title and content
         val summary = items.find { it.rank == 0 }
-        tvStatus.text = summary?.title ?: "Report fetched successfully."
+        if (summary != null) {
+            tvStatus.text = "${summary.title}\n\n${summary.content}"
+        } else {
+            tvStatus.text = "Report fetched successfully."
+        }
     }
 
     private fun downloadZipReport(reportType: String) {
