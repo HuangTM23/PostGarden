@@ -21,3 +21,9 @@ app/build
 # Python
 __pycache__/
 *.pyc
+
+# Crawler Output
+crawler/output/
+crawler/tencent/
+output/
+tencent/
