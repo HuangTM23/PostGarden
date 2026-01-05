@@ -222,7 +222,7 @@ def get_article_details(url, index, config):
         else:
             # Fallback for some article types
             meta_site = soup.find('meta', property='og:site_name') or \
-                        soup.find('meta', name='author')
+                        soup.find('meta', attrs={'name': 'author'})
             if meta_site:
                 source_platform = meta_site.get('content', '未知平台')
             else:
