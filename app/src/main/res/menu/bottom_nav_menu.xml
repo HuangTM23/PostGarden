@@ -6,11 +6,11 @@
         android:title="国内" />
     <item
         android:id="@+id/nav_international"
-        android:icon="@drawable/ic_public"
+        android:icon="@drawable/ic_globe"
         android:title="国际" />
     <item
         android:id="@+id/nav_entertainment"
-        android:icon="@drawable/ic_face"
+        android:icon="@drawable/ic_dolphin"
         android:title="娱乐" />
     <item
         android:id="@+id/nav_favorites"
