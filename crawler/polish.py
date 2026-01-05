@@ -25,15 +25,32 @@ SYSTEM_PROMPT = """你是一名专业中文新闻编辑与内容策划人员，�
 - 单条新闻标题：不超过 20 个汉字。
 - 整体总结性标题：15-25字，具有吸引力。
 
+数据完整性要求：
+- 对于选中的每条新闻，必须保留其原始的 `source_platform`, `source_url` 和 `image` 字段。
+- `image` 字段必须原样复制，不要修改链接地址。
+
 输出格式要求（必须严格遵守）
 你必须输出一个包含 "news" 字段的 JSON 对象。
-"news" 字段是一个列表，包含 10 条数据（1条总结 + 9条精选新闻）。
+"news" 字段是一个列表，必须严格包含 10 条数据（Rank 0 为总结 + Rank 1-9 为 9 条精选新闻）。
 
 {
   "news": [
-    { "rank": 0, "title": "...", "content": "" },
-    { "rank": 1, "title": "...", "source_platform": "...", "source_url": "...", "content": "...", "image": "..." },
+    { 
+      "rank": 0, 
+      "title": "整体总结标题", 
+      "content": "这里留空或写简短引导语",
+      "image": "" 
+    },
+    { 
+      "rank": 1, 
+      "title": "新闻1标题", 
+      "source_platform": "来源平台", 
+      "source_url": "原始链接", 
+      "content": "新闻1正文...", 
+      "image": "原始图片链接(必须保留)" 
+    },
     ...
+    { "rank": 9, ... }
   ]
 }
 """
@@ -87,6 +104,15 @@ def main(all_news_items, max_retries=3):
             parsed_data = json.loads(answer_content)
             
             if isinstance(parsed_data, dict) and "news" in parsed_data:
+                news_list = parsed_data["news"]
+                if not isinstance(news_list, list):
+                     print(f"    [!] 'news' field is not a list: {type(news_list)}")
+                     continue # Retry
+                
+                print(f"    [AI] Successfully parsed response. Item count: {len(news_list)}")
+                if len(news_list) < 10:
+                    print(f"    [!] Warning: AI returned fewer items than requested ({len(news_list)}/10)")
+                
                 return parsed_data
             else:
                  print(f"    [!] API response format unexpected: {str(parsed_data)[:200]}")

@@ -89,5 +89,29 @@ class TestPolish(unittest.TestCase):
             
         self.assertIsNone(result)
 
+    @patch('polish.requests.post')
+    def test_invalid_news_type(self, mock_post):
+        # Mock API to return "news" as a string instead of list
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_content = {
+            "choices": [
+                {
+                    "message": {
+                        "content": json.dumps({
+                            "news": "This is not a list"
+                        })
+                    }
+                }
+            ]
+        }
+        mock_response.json.return_value = mock_content
+        mock_post.return_value = mock_response
+        
+        with patch('polish.DEEPSEEK_API_KEY', "test_key"):
+            result = polish.main([], max_retries=1)
+            
+        self.assertIsNone(result)
+
 if __name__ == '__main__':
     unittest.main()
