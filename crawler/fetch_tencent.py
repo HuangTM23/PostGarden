@@ -251,11 +251,11 @@ def get_article_details(url, index, config):
             cover_image_url = og_img['content']
         
         # Strategy B: First image in content
-        if not cover_image_url or "default" in cover_image_url:
+        if not cover_image_url or "default" in cover_image_url or "logo" in cover_image_url:
             if content_div:
                 img = content_div.find('img')
                 if img:
-                    cover_image_url = img.get('data-src') or img.get('src')
+                    cover_image_url = img.get('data-src') or img.get('src') or cover_image_url
         
         # Strategy C: Video Poster (if video)
         if not cover_image_url and is_video:
@@ -263,9 +263,18 @@ def get_article_details(url, index, config):
             if video_tag:
                 cover_image_url = video_tag.get('poster')
 
-        local_image_path = ""
-        if cover_image_url and cover_image_url.startswith('http'):
-            local_image_path = cover_image_url # Return REMOTE URL for pipeline
+        # --- URL Fix & Cleanup ---
+        final_image_url = ""
+        if cover_image_url:
+            # Fix protocol-relative URLs
+            if cover_image_url.startswith('//'):
+                cover_image_url = 'https:' + cover_image_url
+            
+            # Final validation: must be http and not a generic tiny logo
+            if cover_image_url.startswith('http'):
+                # Basic filter for common generic logos
+                if "logo_gray" not in cover_image_url and "default" not in cover_image_url:
+                    final_image_url = cover_image_url
 
         return {
             "序号": index,
@@ -273,7 +282,7 @@ def get_article_details(url, index, config):
             "内容": content,
             "源平台": source_platform,
             "源平台的链接": url,
-            "封面图片": local_image_path
+            "封面图片": final_image_url
         }
     except Exception as e:
         print(f"解析失败: {e}")

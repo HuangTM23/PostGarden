@@ -57,11 +57,11 @@ def create_zip_archive(report_type):
 def download_image(url, local_path):
     """Downloads an image from a URL to a local path."""
     if not url or not url.startswith('http'):
-        return False
+        return False, "Invalid URL"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://www.baidu.com/" # Some images require a referer
+        "Referer": "https://www.qq.com/" # Use a common referer
     }
 
     try:
@@ -71,22 +71,21 @@ def download_image(url, local_path):
         # Check if content is actually an image
         content_type = response.headers.get('Content-Type', '')
         if 'image' not in content_type and not url.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
-            print(f"  Skipping non-image content type: {content_type} for {url}")
-            return False
+            return False, f"Non-image content type: {content_type}"
 
         with open(local_path, 'wb') as f:
             for chunk in response.iter_content(chunk_size=8192):
                 f.write(chunk)
         
-        # Minimum size check (e.g., skip tiny icons)
-        if os.path.getsize(local_path) < 2048: # 2KB
+        # Minimum size check (skip tiny icons/placeholders)
+        file_size = os.path.getsize(local_path)
+        if file_size < 3072: # 3KB
             os.remove(local_path)
-            return False
+            return False, f"File too small ({file_size} bytes)"
             
-        return True
+        return True, "Success"
     except Exception as e:
-        print(f"  Failed to download image {url}: {e}")
-        return False
+        return False, str(e)
 
 def run_pipeline(report_type):
     """
@@ -164,16 +163,19 @@ def run_pipeline(report_type):
             filename = f"rank{item['rank']}_{platform_safe}_{timestamp}{ext}"
             local_image_path = os.path.join(IMAGES_DIR, filename)
             
-            if download_image(remote_image_url, local_image_path):
+            success, reason = download_image(remote_image_url, local_image_path)
+            if success:
                 item["image"] = f"images/{filename}"
                 download_count += 1
                 print(f"  ✓ Rank {item['rank']} [{platform_safe}] image downloaded.")
             else:
                 item["image"] = ""
+                print(f"  ✗ Rank {item['rank']} [{platform_safe}] image failed: {reason}")
         else:
             item["image"] = ""
+            print(f"  - Rank {item['rank']} image skipped (No valid URL)")
     
-    print(f"  ✓ Downloaded {download_count} images.")
+    print(f"\n  ✓ Successfully downloaded {download_count} images.")
 
     # 5. Save final JSON to output directory
     print(f"\n[Step 5/6] Saving final report...")
