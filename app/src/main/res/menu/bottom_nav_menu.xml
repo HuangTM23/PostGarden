@@ -7,11 +7,11 @@
     <item
         android:id="@+id/nav_international"
         android:icon="@drawable/ic_globe"
-        android:title="全球" />
+        android:title="国际" />
     <item
         android:id="@+id/nav_entertainment"
         android:icon="@drawable/ic_dolphin"
-        android:title="预测" />
+        android:title="娱乐" />
     <item
         android:id="@+id/nav_favorites"
         android:icon="@drawable/ic_favorite"
