@@ -6,9 +6,4 @@
         android:icon="@drawable/ic_save"
         android:title="Save Zip"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_history"
-        android:icon="@drawable/ic_history"
-        android:title="History"
-        app:showAsAction="ifRoom" />
 </menu>

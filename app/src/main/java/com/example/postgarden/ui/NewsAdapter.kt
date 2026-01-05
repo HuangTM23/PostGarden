@@ -1,5 +1,7 @@
 package com.example.postgarden.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.postgarden.data.PolishedNewsItem
-
-import com.example.postgarden.data.ApiClient // Import ApiClient
-import com.example.postgarden.R // Import the R class
+import com.example.postgarden.R
 
 class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
@@ -37,18 +37,27 @@ class NewsAdapter : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(Ne
             rankView.text = "${item.rank}."
             titleView.text = item.title
             contentView.text = item.content
-            sourceView.text = "Source: ${item.sourcePlatform}"
+            sourceView.text = "来源: ${item.sourcePlatform}"
             
-            // Only load image if URL is valid
+            // Open in browser on click
+            itemView.setOnClickListener {
+                if (item.sourceUrl.isNotEmpty()) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.sourceUrl))
+                    // Try to suggest to the browser that we want a mobile view if possible
+                    // (Though usually automatic)
+                    itemView.context.startActivity(intent)
+                }
+            }
+
+            // Only load image if path is valid
             if (item.imagePath.isNotEmpty()) {
                 Glide.with(itemView.context)
                     .load(item.fullImageUrl)
                     .centerCrop()
-                    .placeholder(android.R.drawable.ic_menu_gallery) // Placeholder while loading
-                    .error(android.R.drawable.ic_delete) // Error placeholder
+                    .placeholder(android.R.drawable.ic_menu_gallery)
+                    .error(android.R.drawable.ic_menu_report_image)
                     .into(imageView)
             } else {
-                // You can set a placeholder image here if you have one
                 imageView.setImageResource(android.R.drawable.ic_menu_gallery)
             }
         }

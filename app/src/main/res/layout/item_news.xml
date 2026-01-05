@@ -11,12 +11,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
         <ImageView
             android:id="@+id/iv_news_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/iv_news_image"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1." />
@@ -44,23 +45,23 @@
             android:maxLines="2"
             android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_rank"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_rank"
-            app:layout_constraintBottom_toBottomOf="@id/tv_rank"
             tools:text="News Title Goes Here and Can Be Quite Long" />
 
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
             android:maxLines="2"
             android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="13sp"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="@id/tv_rank"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,9 +71,9 @@
             android:id="@+id/tv_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            android:textSize="11sp"
             android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
             app:layout_constraintStart_toStartOf="@id/tv_rank"
