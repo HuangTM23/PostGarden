@@ -20,40 +20,6 @@ OUTPUT_DIR = "output"
 IMAGES_DIR = os.path.join(OUTPUT_DIR, "images")
 NEWS_LIMIT_PER_PLATFORM = 9
 
-def create_zip_archive(report_type):
-    """
-    Creates a zip archive containing the report json and images.
-    """
-    json_path = os.path.join(OUTPUT_DIR, f"{report_type}.json")
-    zip_path = os.path.join(OUTPUT_DIR, f"{report_type}_report.zip")
-    
-    if not os.path.exists(json_path):
-        print(f"  JSON file not found at {json_path}, skipping ZIP creation.")
-        return
-
-    print(f"  Creating ZIP archive at {zip_path}...")
-    try:
-        with open(json_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        
-        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-            # 1. Add the JSON file
-            zf.write(json_path, arcname=f"{report_type}.json")
-            
-            # 2. Add images
-            image_folder_in_zip = "images"
-            for item in data.get("news", []):
-                relative_image_path = item.get("image")
-                if relative_image_path:
-                    # e.g., images/rank1_Baidu_20260104.jpg
-                    full_image_path = os.path.join(OUTPUT_DIR, relative_image_path)
-                    if os.path.exists(full_image_path):
-                        zf.write(full_image_path, arcname=relative_image_path)
-        
-        print(f"  ✓ ZIP archive created successfully.")
-    except Exception as e:
-        print(f"  ✗ Failed to create ZIP archive: {e}")
-
 def download_image(url, local_path):
     """Downloads an image from a URL to a local path."""
     if not url or not url.startswith('http'):
@@ -179,18 +145,67 @@ def run_pipeline(report_type):
 
     # 5. Save final JSON to output directory
     print(f"\n[Step 5/6] Saving final report...")
-    output_json_path = os.path.join(OUTPUT_DIR, f"{report_type}.json")
+    now = datetime.now()
+    timestamp_str = now.strftime('%Y%m%d_%H%M%S')
+    new_json_name = f"polished_all_{timestamp_str}.json"
+    output_json_path = os.path.join(OUTPUT_DIR, new_json_name)
+    
     with open(output_json_path, 'w', encoding='utf-8') as f:
         json.dump(polished_data, f, ensure_ascii=False, indent=4)
-    print(f"  ✓ {report_type}.json created.")
+    
+    # Also keep a legacy copy for the App's direct JSON fetch if needed (optional)
+    legacy_json_path = os.path.join(OUTPUT_DIR, f"{report_type}.json")
+    shutil.copy2(output_json_path, legacy_json_path)
+    
+    print(f"  ✓ {new_json_name} created.")
+    print(f"  ✓ Legacy {report_type}.json updated for compatibility.")
 
     # 6. Create ZIP archive
     print(f"\n[Step 6/6] Packaging for distribution...")
-    create_zip_archive(report_type)
+    create_zip_archive_v2(report_type, output_json_path, timestamp_str)
 
     print("\n" + "█"*60)
     print("  🏆 PIPELINE COMPLETE!")
     print("█"*60 + "\n")
+
+def create_zip_archive_v2(report_type, json_path, timestamp):
+    """
+    Improved zip creation using the already generated polished_all_...json.
+    """
+    new_json_name = os.path.basename(json_path)
+    new_zip_name = f"SampleNews_{timestamp}.zip"
+    legacy_zip_name = f"{report_type}_report.zip"
+    
+    zip_path = os.path.join(OUTPUT_DIR, new_zip_name)
+    legacy_zip_path = os.path.join(OUTPUT_DIR, legacy_zip_name)
+
+    print(f"  Creating ZIP archive at {zip_path}...")
+    try:
+        # 1. Clean up legacy zip to ensure fresh overwrite
+        if os.path.exists(legacy_zip_path):
+            os.remove(legacy_zip_path)
+
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+            # 2. Add the JSON file with the EXACT new name
+            zf.write(json_path, arcname=new_json_name)
+            
+            # 3. Add images
+            for item in data.get("news", []):
+                relative_image_path = item.get("image")
+                if relative_image_path:
+                    full_image_path = os.path.join(OUTPUT_DIR, relative_image_path)
+                    if os.path.exists(full_image_path):
+                        zf.write(full_image_path, arcname=relative_image_path)
+        
+        # 4. Copy to legacy name
+        shutil.copy2(zip_path, legacy_zip_path)
+        print(f"  ✓ ZIP created: {new_zip_name}")
+        print(f"  ✓ Inside ZIP: {new_json_name}")
+    except Exception as e:
+        print(f"  ✗ Failed to create ZIP archive: {e}")
 
 if __name__ == "__main__":
     # Default based on current hour

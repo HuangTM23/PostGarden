@@ -21,8 +21,8 @@ class ReportRepository(private val context: Context) {
 
     fun saveReport(type: String, jsonContent: String) {
         val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        // filename: history_20260105_100000_morning.json
-        val filename = "history_${timestamp}_${type}.json"
+        // filename: polished_all_20260105_122029_morning.json
+        val filename = "polished_all_${timestamp}_${type}.json"
         val file = File(historyDir, filename)
         file.writeText(jsonContent)
     }

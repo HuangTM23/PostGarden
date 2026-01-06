@@ -27,6 +27,9 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -214,24 +217,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun downloadZipReport(reportType: String) {
-        val zipFileName = "${reportType}_report.zip"
-        val downloadUrl = "${ApiClient.BASE_URL}/$zipFileName"
+        val remoteZipName = "${reportType}_report.zip"
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val localZipName = "SampleNews_${timestamp}.zip"
+        val downloadUrl = "${ApiClient.BASE_URL}/$remoteZipName"
         
         try {
             val request = DownloadManager.Request(Uri.parse(downloadUrl))
-                .setTitle(zipFileName)
+                .setTitle(localZipName)
                 .setDescription("Downloading $reportType news report from PostGarden.")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, zipFileName)
+                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, localZipName)
                 .setRequiresCharging(false)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
 
             val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             downloadManager.enqueue(request)
-            Toast.makeText(this, "Starting download: $zipFileName", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "开始下载: $localZipName", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
-            Toast.makeText(this, "Download failed: ${e.message}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "下载失败: ${e.message}", Toast.LENGTH_LONG).show()
             e.printStackTrace()
         }
     }
