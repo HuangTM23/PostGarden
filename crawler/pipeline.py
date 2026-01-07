@@ -117,26 +117,33 @@ def run_pipeline(report_type):
 
         remote_image_url = item.get("image")
         if remote_image_url and remote_image_url.startswith('http'):
-            # Sanitize platform name for filename
-            platform = item.get('source_platform', 'X')
-            platform_safe = "".join([c for c in platform if c.isalnum() or c in ('-', '_')]).strip()
-            if not platform_safe: platform_safe = "Source"
+            # Sanitize title for filename (use first 10 chars of title as keyword)
+            title = item.get('title', 'NoTitle')
+            # Remove special chars and spaces
+            title_safe = "".join([c for c in title if c.isalnum() or c in ('-', '_')])
+            title_safe = title_safe[:10] # Limit length
+            if not title_safe: title_safe = "Image"
 
             ext = os.path.splitext(remote_image_url.split('?')[0])[-1].lower()
             if ext not in ('.jpg', '.jpeg', '.png', '.webp'):
                 ext = '.jpg'
             
-            filename = f"rank{item['rank']}_{platform_safe}_{timestamp}{ext}"
+            # Format: rank1_Keywords_YYYYMMDD_HHMMSS.jpg
+            # We need full timestamp for image too? User example: 20260107_151952
+            # The 'timestamp' variable earlier was just YYYYMMDD. Let's use the full one.
+            img_timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            
+            filename = f"rank{item['rank']}_{title_safe}_{img_timestamp}{ext}"
             local_image_path = os.path.join(IMAGES_DIR, filename)
             
             success, reason = download_image(remote_image_url, local_image_path)
             if success:
                 item["image"] = f"images/{filename}"
                 download_count += 1
-                print(f"  ✓ Rank {item['rank']} [{platform_safe}] image downloaded.")
+                print(f"  ✓ Rank {item['rank']} [{title_safe}] image downloaded.")
             else:
                 item["image"] = ""
-                print(f"  ✗ Rank {item['rank']} [{platform_safe}] image failed: {reason} (URL: {remote_image_url})")
+                print(f"  ✗ Rank {item['rank']} [{title_safe}] image failed: {reason} (URL: {remote_image_url})")
         else:
             item["image"] = ""
             print(f"  - Rank {item['rank']} image skipped (No valid URL or not http-prefixed)")
