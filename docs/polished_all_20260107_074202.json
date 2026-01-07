@@ -1,0 +1,82 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "今日热点：民生百态与消费新趋势",
+            "content": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "郑州玉石山爆火 实为废渣无价值",
+            "source_platform": "河南都市频道",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5495437800330119454",
+            "content": "河南郑州新密市一座山因可捡玉石走红，但自然资源局证实其为玉矿废渣，无经济价值。",
+            "image": "images/rank1_郑州玉石山爆火实为废_20260107_074135.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "宁波舟山港年吞吐量破14亿吨",
+            "source_platform": "中国青年网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853612285584251961",
+            "content": "2025年宁波舟山港货物吞吐量超14亿吨，连续17年全球第一，成为首个突破此量级大港。",
+            "image": "images/rank2_宁波舟山港年吞吐量破_20260107_074139.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "夫妻小吃摊年入超百万元",
+            "source_platform": "极目新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_6008867441511204652",
+            "content": "湖北随州夫妻在荆州摆摊十年，从负债到月入约12万元，年进账超100万元。",
+            "image": "images/rank3_夫妻小吃摊年入超百万_20260107_074141.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "大爷拍“素颜巴黎”照片走红",
+            "source_platform": "红星视频",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_12686668319009842650",
+            "content": "一位大爷拍摄的无美颜巴黎照片引发热议，埃菲尔铁塔被调侃像“电线塔”。",
+            "image": "images/rank4_大爷拍素颜巴黎照片走_20260107_074145.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "加油站作弊黑幕引关注",
+            "source_platform": "新华网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853613699181227903",
+            "content": "加油站作弊手段升级，篡改数据骗油偷税，专家呼吁加大惩处与建立诚信机制。",
+            "image": "images/rank5_加油站作弊黑幕引关注_20260107_074149.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "81岁大爷考驾照所有科目一把过",
+            "source_platform": "红星视频",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_11407770540357820786",
+            "content": "81岁肖大爷成功考取C2驾照，所有科目均一次通过，引发社会热议。",
+            "image": "images/rank6_81岁大爷考驾照所有_20260107_074156.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "情绪消费赛道崛起 规模超万亿元",
+            "source_platform": "央视新闻",
+            "source_url": "https://www.toutiao.com/article/7592306798942487075",
+            "content": "2025年情绪消费市场达2.72万亿元，年轻群体成主力，从性价比转向心价比。",
+            "image": "images/rank7_情绪消费赛道崛起规模_20260107_074158.jpeg"
+        },
+        {
+            "rank": 8,
+            "title": "武大靖自曝伤痛时生活难自理",
+            "source_platform": "直播吧",
+            "source_url": "https://www.toutiao.com/article/7592464611736175114/",
+            "content": "短道速滑名将武大靖宣布退役，曾自曝伤痛时从床爬到洗手间需半小时。",
+            "image": "images/rank8_武大靖自曝伤痛时生活_20260107_074159.jpeg"
+        },
+        {
+            "rank": 9,
+            "title": "老人免费洗金 手镯少4.87克",
+            "source_platform": "环球网",
+            "source_url": "https://www.toutiao.com/article/7592398797163053603/",
+            "content": "浙江台州一老人免费洗金手镯，被用“王水”溶解盗取4.87克黄金，涉案者被判刑。",
+            "image": "images/rank9_老人免费洗金手镯少4_20260107_074200.jpeg"
+        }
+    ]
+}

@@ -2,81 +2,81 @@
     "news": [
         {
             "rank": 0,
-            "title": "今日热点：民生新规、科技前沿与社会百态",
+            "title": "今日热点：民生百态与消费新趋势",
             "content": "",
             "image": ""
         },
         {
             "rank": 1,
-            "title": "最高法明确医保可先行支付",
-            "source_platform": "第一财经",
-            "source_url": "https://news.qq.com/rain/a/20260106A03H1F00#to-comment",
-            "content": "最高法批复明确，参保人因第三人侵权受伤，第三人不支付或无法确定时，可由医保基金先行支付。",
-            "image": "images/rank1_第一财经_20260106.jpg"
+            "title": "郑州玉石山爆火 实为废渣无价值",
+            "source_platform": "河南都市频道",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5495437800330119454",
+            "content": "河南郑州新密市一座山因可捡玉石走红，但自然资源局证实其为玉矿废渣，无经济价值。",
+            "image": "images/rank1_郑州玉石山爆火实为废_20260107_074135.jpg"
         },
         {
             "rank": 2,
-            "title": "沪指创纪录13连阳",
-            "source_platform": "财联社",
-            "source_url": "https://www.toutiao.com/article/7592140503898997263/",
-            "content": "A股三大指数集体收涨，沪指高开高走，实现13连阳，再创十年新高，两市成交额突破2.8万亿元。",
-            "image": "images/rank2_财联社_20260106.jpeg"
+            "title": "宁波舟山港年吞吐量破14亿吨",
+            "source_platform": "中国青年网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853612285584251961",
+            "content": "2025年宁波舟山港货物吞吐量超14亿吨，连续17年全球第一，成为首个突破此量级大港。",
+            "image": "images/rank2_宁波舟山港年吞吐量破_20260107_074139.jpg"
         },
         {
             "rank": 3,
-            "title": "马斯克宣判奇点就在2026",
-            "source_platform": "36氪",
-            "source_url": "https://www.toutiao.com/article/7591785838632059407/",
-            "content": "马斯克断言2026年为技术奇点之年，起因是Claude Code展现的强大编程能力引发全球关注。",
-            "image": "images/rank3_36氪_20260106.jpeg"
+            "title": "夫妻小吃摊年入超百万元",
+            "source_platform": "极目新闻",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_6008867441511204652",
+            "content": "湖北随州夫妻在荆州摆摊十年，从负债到月入约12万元，年进账超100万元。",
+            "image": "images/rank3_夫妻小吃摊年入超百万_20260107_074141.jpg"
         },
         {
             "rank": 4,
-            "title": "2026年“国补”计划优化开启",
-            "source_platform": "中国经济网",
-            "source_url": "https://baijiahao.baidu.com/s?id=1853484629116774683",
-            "content": "2026年新一轮“国补”正式开启，优化支持范围，突出节能降碳导向，聚焦汽车、家电等领域。",
-            "image": "images/rank4_中国经济网_20260106.jpg"
+            "title": "大爷拍“素颜巴黎”照片走红",
+            "source_platform": "红星视频",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_12686668319009842650",
+            "content": "一位大爷拍摄的无美颜巴黎照片引发热议，埃菲尔铁塔被调侃像“电线塔”。",
+            "image": "images/rank4_大爷拍素颜巴黎照片走_20260107_074145.jpg"
         },
         {
             "rank": 5,
-            "title": "网友奔现被设局勒索9万",
-            "source_platform": "大象新闻",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_3845292139952248598",
-            "content": "赵姓女子与网友见面后，被对方伙同他人设局劝酒并诱导酒驾，随后制造碰瓷事故，勒索9.3万元。",
-            "image": "images/rank5_大象新闻_20260106.jpg"
+            "title": "加油站作弊黑幕引关注",
+            "source_platform": "新华网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1853613699181227903",
+            "content": "加油站作弊手段升级，篡改数据骗油偷税，专家呼吁加大惩处与建立诚信机制。",
+            "image": "images/rank5_加油站作弊黑幕引关注_20260107_074149.jpg"
         },
         {
             "rank": 6,
-            "title": "全国多地取消期末统考",
-            "source_platform": "九派新闻",
-            "source_url": "https://baijiahao.baidu.com/s?id=1853557294772419798",
-            "content": "成都、青岛等多地取消高一、高二年级全市期末统一调研考试，专家呼吁推进教育评价改革。",
-            "image": "images/rank6_九派新闻_20260106.jpg"
+            "title": "81岁大爷考驾照所有科目一把过",
+            "source_platform": "红星视频",
+            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_11407770540357820786",
+            "content": "81岁肖大爷成功考取C2驾照，所有科目均一次通过，引发社会热议。",
+            "image": "images/rank6_81岁大爷考驾照所有_20260107_074156.jpg"
         },
         {
             "rank": 7,
-            "title": "男子身无分文刮800元彩票",
-            "source_platform": "AHTV第一时间",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_7875642253784723297",
-            "content": "河南许昌一男子身无分文到彩票店刮800余元彩票，中奖300余元后仍欠款，警方介入扣押其手机。",
-            "image": "images/rank7_AHTV第一时间_20260106.jpg"
+            "title": "情绪消费赛道崛起 规模超万亿元",
+            "source_platform": "央视新闻",
+            "source_url": "https://www.toutiao.com/article/7592306798942487075",
+            "content": "2025年情绪消费市场达2.72万亿元，年轻群体成主力，从性价比转向心价比。",
+            "image": "images/rank7_情绪消费赛道崛起规模_20260107_074158.jpeg"
         },
         {
             "rank": 8,
-            "title": "南方游客开窗冻坏东北地暖",
-            "source_platform": "融媒先锋号",
-            "source_url": "https://mbd.baidu.com/newspage/data/videolanding?nid=sv_5661641906657294034",
-            "content": "哈尔滨一老板娘称，有南方游客开窗一天导致地暖被冻坏，引发对东北室内保暖常识的讨论。",
-            "image": "images/rank8_融媒先锋号_20260106.jpg"
+            "title": "武大靖自曝伤痛时生活难自理",
+            "source_platform": "直播吧",
+            "source_url": "https://www.toutiao.com/article/7592464611736175114/",
+            "content": "短道速滑名将武大靖宣布退役，曾自曝伤痛时从床爬到洗手间需半小时。",
+            "image": "images/rank8_武大靖自曝伤痛时生活_20260107_074159.jpeg"
         },
         {
             "rank": 9,
-            "title": "马年生肖茅台上市遭热炒",
-            "source_platform": "第一财经",
-            "source_url": "https://news.qq.com/rain/a/20260106A03ABX00#to-comment",
-            "content": "马年生肖茅台上市首日遭黄牛热炒，1899元基础款回收价喊至3000元，但专家称长期难现爆炒行情。",
-            "image": "images/rank9_第一财经_20260106.jpg"
+            "title": "老人免费洗金 手镯少4.87克",
+            "source_platform": "环球网",
+            "source_url": "https://www.toutiao.com/article/7592398797163053603/",
+            "content": "浙江台州一老人免费洗金手镯，被用“王水”溶解盗取4.87克黄金，涉案者被判刑。",
+            "image": "images/rank9_老人免费洗金手镯少4_20260107_074200.jpeg"
         }
     ]
 }
