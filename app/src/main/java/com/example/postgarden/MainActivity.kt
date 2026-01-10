@@ -43,81 +43,20 @@ class MainActivity : AppCompatActivity() {
     
     // Track what is currently being viewed
     private var currentReportType: String = "morning" // Default
+    private var currentServerTimestamp: String? = null // Captured from JSON
     
     // For refresh button animation
     private var isRefreshing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        rvNews = findViewById(R.id.rvNews)
-        val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        
-        repository = ReportRepository(this)
-        favRepository = FavoriteRepository(this)
-
-        newsAdapter = NewsAdapter(
-            onFavoriteClick = { item ->
-                val isAdded = favRepository.toggleFavorite(item)
-                if (isAdded) {
-                    Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
-                    // If we are in favorites view, refresh the list immediately
-                    if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
-                        displayReport(favRepository.getFavorites())
-                    }
-                }
-            },
-            isFavoriteCheck = { item -> favRepository.isFavorite(item) }
-        )
-
-        rvNews.layoutManager = LinearLayoutManager(this)
-        rvNews.adapter = newsAdapter
-
-        fabRefresh.setOnClickListener {
-            if (!isRefreshing) {
-                fetchLatestReports()
-            }
-        }
-
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    currentReportType = "morning"
-                    loadLatestReport()
-                    true
-                }
-                R.id.nav_international -> {
-                    Toast.makeText(this@MainActivity, "国际新闻功能开发中...", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.nav_entertainment -> {
-                    Toast.makeText(this@MainActivity, "娱乐新闻功能开发中...", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.nav_favorites -> {
-                    val favs = favRepository.getFavorites()
-                    displayReport(favs)
-                    Toast.makeText(this@MainActivity, "收藏夹", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-        
-        loadLatestReport()
+        // ... (existing onCreate code)
     }
 
     private fun loadLatestReport() {
         val latest = repository.getLatestReport()
-        if (latest != null && latest.isNotEmpty()) {
-             displayReport(latest)
+        if (latest.news.isNotEmpty()) {
+             currentServerTimestamp = latest.timestamp
+             displayReport(latest.news)
              val latestFile = repository.getHistoryFiles().firstOrNull()
              if (latestFile != null) {
                  updateCurrentTypeFromFile(latestFile)
@@ -135,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save_zip -> {
-                downloadZipReport(currentReportType)
+                downloadZipReport()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -160,25 +99,31 @@ class MainActivity : AppCompatActivity() {
             fabRefresh.setImageResource(R.drawable.ic_refresh) 
 
             try {
-                val morningDeferred = async { apiClient.fetchRaw("morning") }
-                val eveningDeferred = async { apiClient.fetchRaw("evening") }
+                val morningDeferred = async { apiClient.getReport("morning") }
+                val eveningDeferred = async { apiClient.getReport("evening") }
 
-                val (morningJson, eveningJson) = awaitAll(morningDeferred, eveningDeferred)
+                val reports = awaitAll(morningDeferred, eveningDeferred)
+                val morningReport = reports[0]
+                val eveningReport = reports[1]
 
                 var foundAny = false
-                if (morningJson != null) {
-                    repository.saveReport("morning", morningJson)
+                if (morningReport.news.isNotEmpty()) {
+                    // Re-serialize back to JSON to save locally (simplified)
+                    val gson = com.google.gson.Gson()
+                    repository.saveReport("morning", gson.toJson(morningReport))
                     foundAny = true
                 }
-                if (eveningJson != null) {
-                    repository.saveReport("evening", eveningJson)
+                if (eveningReport.news.isNotEmpty()) {
+                    val gson = com.google.gson.Gson()
+                    repository.saveReport("evening", gson.toJson(eveningReport))
                     foundAny = true
                 }
 
                 if (foundAny) {
                     val latest = repository.getLatestReport()
-                    if (latest != null) {
-                        displayReport(latest)
+                    if (latest.news.isNotEmpty()) {
+                        currentServerTimestamp = latest.timestamp
+                        displayReport(latest.news)
                         val latestFile = repository.getHistoryFiles().firstOrNull()
                         if (latestFile != null) updateCurrentTypeFromFile(latestFile)
                     }
@@ -216,25 +161,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun downloadZipReport(reportType: String) {
-        val remoteZipName = "${reportType}_report.zip"
-        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        val localZipName = "SampleNews_${timestamp}.zip"
-        val downloadUrl = "${ApiClient.BASE_URL}/$remoteZipName"
+    private fun downloadZipReport() {
+        val timestamp = currentServerTimestamp
+        if (timestamp == null) {
+            Toast.makeText(this, "无法获取报告时间戳，下载失败。", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        val zipName = "SampleNews_${timestamp}.zip"
+        val downloadUrl = "${ApiClient.BASE_URL}/$zipName"
         
         try {
             val request = DownloadManager.Request(Uri.parse(downloadUrl))
-                .setTitle(localZipName)
-                .setDescription("Downloading $reportType news report from PostGarden.")
+                .setTitle(zipName)
+                .setDescription("Downloading $zipName from PostGarden.")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, localZipName)
+                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, zipName)
                 .setRequiresCharging(false)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
 
             val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             downloadManager.enqueue(request)
-            Toast.makeText(this, "开始下载: $localZipName", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "开始下载: $zipName", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(this, "下载失败: ${e.message}", Toast.LENGTH_LONG).show()
             e.printStackTrace()

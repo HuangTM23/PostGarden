@@ -31,18 +31,20 @@ class ReportRepository(private val context: Context) {
         return historyDir.listFiles()?.toList()?.sortedByDescending { it.lastModified() } ?: emptyList()
     }
 
-    fun loadReport(file: File): List<PolishedNewsItem> {
+    fun loadReport(file: File): PolishedReport {
         val json = file.readText()
-        val type = object : TypeToken<Map<String, List<PolishedNewsItem>>>() {}.type
-        val resultMap: Map<String, List<PolishedNewsItem>> = gson.fromJson(json, type)
-        return resultMap["news"] ?: emptyList()
+        return try {
+            gson.fromJson(json, PolishedReport::class.java)
+        } catch (e: Exception) {
+            PolishedReport()
+        }
     }
     
-    fun getLatestReport(): List<PolishedNewsItem>? {
+    fun getLatestReport(): PolishedReport {
         val files = getHistoryFiles()
         if (files.isNotEmpty()) {
             return loadReport(files.first())
         }
-        return null
+        return PolishedReport()
     }
 }

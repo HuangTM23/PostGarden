@@ -107,43 +107,42 @@ def run_pipeline(report_type):
         return
     
     polished_items = polished_data["news"]
+    
+    # Define unified timestamp for this run (Polished Time)
+    timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
+    polished_data["timestamp"] = timestamp_str  # Inject into JSON
 
     # 4. Download images for polished items and update paths
     print(f"\n[Step 4/6] Downloading images for selected items...")
-    timestamp = datetime.now().strftime('%Y%m%d')
     download_count = 0
     for item in polished_items:
         if item.get("rank", 0) == 0: continue # Skip summary item
 
         remote_image_url = item.get("image")
         if remote_image_url and remote_image_url.startswith('http'):
-            # Sanitize title for filename (use first 10 chars of title as keyword)
+            # Sanitize title for filename (use first 4 chars of title as prefix)
             title = item.get('title', 'NoTitle')
-            # Remove special chars and spaces
-            title_safe = "".join([c for c in title if c.isalnum() or c in ('-', '_')])
-            title_safe = title_safe[:10] # Limit length
-            if not title_safe: title_safe = "Image"
+            raw_prefix = title[:4]
+            # FS safe: replace / \ : * ? " < > |
+            safe_prefix = "".join([c if c not in r'/\:*?"<>|' else '_' for c in raw_prefix])
+            if not safe_prefix: safe_prefix = "Img"
 
             ext = os.path.splitext(remote_image_url.split('?')[0])[-1].lower()
             if ext not in ('.jpg', '.jpeg', '.png', '.webp'):
                 ext = '.jpg'
             
-            # Format: rank1_Keywords_YYYYMMDD_HHMMSS.jpg
-            # We need full timestamp for image too? User example: 20260107_151952
-            # The 'timestamp' variable earlier was just YYYYMMDD. Let's use the full one.
-            img_timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            
-            filename = f"rank{item['rank']}_{title_safe}_{img_timestamp}{ext}"
+            # Format: rank{N}_{Prefix}_{Timestamp}.{ext}
+            filename = f"rank{item['rank']}_{safe_prefix}_{timestamp_str}{ext}"
             local_image_path = os.path.join(IMAGES_DIR, filename)
             
             success, reason = download_image(remote_image_url, local_image_path)
             if success:
                 item["image"] = f"images/{filename}"
                 download_count += 1
-                print(f"  ✓ Rank {item['rank']} [{title_safe}] image downloaded.")
+                print(f"  ✓ Rank {item['rank']} [{safe_prefix}] image downloaded.")
             else:
                 item["image"] = ""
-                print(f"  ✗ Rank {item['rank']} [{title_safe}] image failed: {reason} (URL: {remote_image_url})")
+                print(f"  ✗ Rank {item['rank']} [{safe_prefix}] image failed: {reason} (URL: {remote_image_url})")
         else:
             item["image"] = ""
             print(f"  - Rank {item['rank']} image skipped (No valid URL or not http-prefixed)")
@@ -152,20 +151,18 @@ def run_pipeline(report_type):
 
     # 5. Save final JSON to output directory
     print(f"\n[Step 5/6] Saving final report...")
-    now = datetime.now()
-    timestamp_str = now.strftime('%Y%m%d_%H%M%S')
     new_json_name = f"polished_all_{timestamp_str}.json"
     output_json_path = os.path.join(OUTPUT_DIR, new_json_name)
     
     with open(output_json_path, 'w', encoding='utf-8') as f:
         json.dump(polished_data, f, ensure_ascii=False, indent=4)
     
-    # Also keep a legacy copy for the App's direct JSON fetch if needed (optional)
+    # Also keep a legacy copy for the App's direct JSON fetch
     legacy_json_path = os.path.join(OUTPUT_DIR, f"{report_type}.json")
     shutil.copy2(output_json_path, legacy_json_path)
     
     print(f"  ✓ {new_json_name} created.")
-    print(f"  ✓ Legacy {report_type}.json updated for compatibility.")
+    print(f"  ✓ Legacy {report_type}.json updated.")
 
     # 6. Create ZIP archive
     print(f"\n[Step 6/6] Packaging for distribution...")

@@ -36,20 +36,18 @@ class ApiClient {
         const val BASE_URL = "https://huangtm23.github.io/PostGarden" // Now public and accessible via ApiClient.BASE_URL
     }
 
-    suspend fun getReport(reportType: String): List<PolishedNewsItem> = withContext(Dispatchers.IO) {
+    suspend fun getReport(reportType: String): PolishedReport = withContext(Dispatchers.IO) {
         val json = fetchRaw(reportType)
         if (json != null) {
             try {
-                val type = object : TypeToken<Map<String, List<PolishedNewsItem>>>() {}.type
-                val resultMap: Map<String, List<PolishedNewsItem>> = gson.fromJson(json, type)
-                val newsList = resultMap["news"] ?: emptyList()
-                Log.d(TAG, "Successfully parsed ${newsList.size} news items.")
-                return@withContext newsList
+                val report = gson.fromJson(json, PolishedReport::class.java)
+                Log.d(TAG, "Successfully parsed ${report.news.size} news items, timestamp: ${report.timestamp}")
+                return@withContext report
             } catch (e: Exception) {
                 Log.e(TAG, "Exception during parsing: ${e.message}", e)
             }
         }
-        return@withContext emptyList<PolishedNewsItem>()
+        return@withContext PolishedReport()
     }
 
     suspend fun fetchRaw(reportType: String): String? = withContext(Dispatchers.IO) {
