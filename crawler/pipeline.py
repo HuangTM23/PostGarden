@@ -168,9 +168,71 @@ def run_pipeline(report_type):
     print(f"\n[Step 6/6] Packaging for distribution...")
     create_zip_archive_v2(report_type, output_json_path, timestamp_str)
 
+    # 7. Cleanup old files (Keep only recent 4 sets)
+    cleanup_old_files()
+
     print("\n" + "█"*60)
     print("  🏆 PIPELINE COMPLETE!")
     print("█"*60 + "\n")
+
+def cleanup_old_files(keep_count=4):
+    """
+    Keeps only the latest `keep_count` ZIP reports and deletes older ZIPs, JSONs, and images.
+    Based on timestamp in filename: SampleNews_{TIMESTAMP}.zip
+    """
+    print(f"\n[Cleanup] Checking for old files to remove (keeping latest {keep_count})...")
+    
+    # 1. Find all SampleNews zip files
+    zip_files = []
+    for f in os.listdir(OUTPUT_DIR):
+        if f.startswith("SampleNews_") and f.endswith(".zip"):
+            path = os.path.join(OUTPUT_DIR, f)
+            zip_files.append(path)
+    
+    # Sort by modification time (or name, since name has timestamp) -> Newest first
+    # Name format: SampleNews_YYYYMMDD_HHMMSS.zip, so sorting by name works perfectly
+    zip_files.sort(reverse=True)
+    
+    if len(zip_files) <= keep_count:
+        print(f"  ✓ Found {len(zip_files)} reports. No cleanup needed.")
+        return
+
+    files_to_remove = zip_files[keep_count:]
+    print(f"  ! Found {len(zip_files)} reports. Removing {len(files_to_remove)} old sets...")
+
+    for zip_path in files_to_remove:
+        try:
+            filename = os.path.basename(zip_path)
+            # Extract timestamp from filename: SampleNews_20260105_123000.zip
+            # Length of "SampleNews_" is 11, ".zip" is 4
+            timestamp = filename[11:-4]
+            
+            # 1. Remove ZIP
+            os.remove(zip_path)
+            print(f"    - Deleted ZIP: {filename}")
+            
+            # 2. Remove associated JSON
+            json_name = f"polished_all_{timestamp}.json"
+            json_path = os.path.join(OUTPUT_DIR, json_name)
+            if os.path.exists(json_path):
+                os.remove(json_path)
+                print(f"    - Deleted JSON: {json_name}")
+            
+            # 3. Remove associated Images
+            # Image format: rank*_*_{timestamp}.*
+            # We scan images dir for files ending with _{timestamp}.ext
+            images_removed = 0
+            if os.path.exists(IMAGES_DIR):
+                for img in os.listdir(IMAGES_DIR):
+                    name, ext = os.path.splitext(img)
+                    if name.endswith(f"_{timestamp}"):
+                        os.remove(os.path.join(IMAGES_DIR, img))
+                        images_removed += 1
+            if images_removed > 0:
+                print(f"    - Deleted {images_removed} images for {timestamp}")
+                
+        except Exception as e:
+            print(f"    ✗ Error cleaning up {zip_path}: {e}")
 
 def create_zip_archive_v2(report_type, json_path, timestamp):
     """

@@ -80,13 +80,9 @@ jobs:
       # Step 6: Deploy results to docs folder for GitHub Pages
       - name: Deploy results
         run: |
-          # Create docs dir if it doesn't exist
-          mkdir -p docs/images
-          # Copy generated files to the docs folder
-          cp output/*.json docs/
-          cp output/*.zip docs/
-          # -a preserves attributes, -v is verbose
-          cp -av output/images/. docs/images/
+          # Use rsync to mirror output/ to docs/, effectively deleting old files in docs/
+          # that are no longer in output/ (due to python cleanup script)
+          rsync -av --delete --exclude='.git*' output/ docs/
 
       # Step 7: Commit and push the generated files
       - name: Commit and push changes
@@ -99,5 +95,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Automated daily news update"
-            git push
+            # Pull latest changes to avoid conflicts
+            git pull --rebase origin main
+            git push origin main
           fi
