@@ -48,6 +48,19 @@ class MainActivity : AppCompatActivity() {
     // For refresh button animation
     private var isRefreshing = false
 
+    private val historyLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val type = result.data?.getStringExtra("selected_type")
+            if (type != null) {
+                when(type) {
+                    "home" -> bottomNavigationView.selectedItemId = R.id.nav_home
+                    "world" -> bottomNavigationView.selectedItemId = R.id.nav_international
+                    "entertainment" -> bottomNavigationView.selectedItemId = R.id.nav_entertainment
+                }
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -134,6 +147,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_history -> {
+                val intent = Intent(this, HistoryActivity::class.java)
+                historyLauncher.launch(intent)
+                true
+            }
             R.id.action_save_zip -> {
                 downloadZipReport()
                 true

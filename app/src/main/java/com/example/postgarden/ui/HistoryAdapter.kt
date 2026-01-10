@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postgarden.R
-import java.io.File
+import com.example.postgarden.data.CachedReport
 
 class HistoryAdapter(
-    private val onItemClick: (File) -> Unit
+    private val onItemClick: (CachedReport) -> Unit
 ) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
-    private var files: List<File> = emptyList()
+    private var items: List<CachedReport> = emptyList()
 
-    fun submitList(newFiles: List<File>) {
-        files = newFiles
+    fun submitList(newItems: List<CachedReport>) {
+        items = newItems
         notifyDataSetChanged()
     }
 
@@ -26,31 +26,20 @@ class HistoryAdapter(
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        val file = files[position]
-        holder.bind(file)
+        val item = items[position]
+        holder.bind(item)
     }
 
-    override fun getItemCount(): Int = files.size
+    override fun getItemCount(): Int = items.size
 
     inner class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvTitle: TextView = itemView.findViewById(R.id.tvHistoryTitle)
 
-        fun bind(file: File) {
-            // file name format: history_20260105_100000_morning.json
-            val name = file.name
-            val parts = name.split("_")
-            if (parts.size >= 4) {
-                // simple parsing
-                val date = parts[1]
-                val time = parts[2]
-                val type = parts[3].removeSuffix(".json")
-                tvTitle.text = "$date $time - $type"
-            } else {
-                tvTitle.text = name
-            }
-
+        fun bind(item: CachedReport) {
+            tvTitle.text = "${item.type.uppercase()} - ${item.version}"
+            
             itemView.setOnClickListener {
-                onItemClick(file)
+                onItemClick(item)
             }
         }
     }

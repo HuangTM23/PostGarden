@@ -12,6 +12,12 @@ import java.io.File
 import java.io.FileOutputStream
 import java.util.zip.ZipInputStream
 
+data class CachedReport(
+    val type: String,
+    val version: String,
+    val timestamp: Long
+)
+
 class ReportRepository(private val context: Context) {
 
     private val gson = Gson()
@@ -19,6 +25,19 @@ class ReportRepository(private val context: Context) {
     
     // Directory structure: filesDir/extracted/{type}/
     private val extractedRoot = File(context.filesDir, "extracted")
+
+    fun getCachedReports(): List<CachedReport> {
+        val list = mutableListOf<CachedReport>()
+        val types = listOf("home", "world", "entertainment")
+        for (type in types) {
+            val typeDir = File(extractedRoot, type)
+            val versionFile = File(typeDir, "version.txt")
+            if (typeDir.exists() && versionFile.exists()) {
+                 list.add(CachedReport(type, versionFile.readText().trim(), versionFile.lastModified()))
+            }
+        }
+        return list
+    }
 
     fun isVersionCached(type: String, zipFilename: String): Boolean {
         // We use the zipFilename (which includes timestamp) to verify cache
