@@ -49,7 +49,70 @@ class MainActivity : AppCompatActivity() {
     private var isRefreshing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // ... (existing onCreate code)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        rvNews = findViewById(R.id.rvNews)
+        val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        
+        repository = ReportRepository(this)
+        favRepository = FavoriteRepository(this)
+
+        newsAdapter = NewsAdapter(
+            onFavoriteClick = { item ->
+                val isAdded = favRepository.toggleFavorite(item)
+                if (isAdded) {
+                    Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
+                    // If we are in favorites view, refresh the list immediately
+                    if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
+                        displayReport(favRepository.getFavorites())
+                    }
+                }
+            },
+            isFavoriteCheck = { item -> favRepository.isFavorite(item) }
+        )
+
+        rvNews.layoutManager = LinearLayoutManager(this)
+        rvNews.adapter = newsAdapter
+
+        fabRefresh.setOnClickListener {
+            if (!isRefreshing) {
+                fetchLatestReports()
+            }
+        }
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    currentReportType = "morning"
+                    loadLatestReport()
+                    true
+                }
+                R.id.nav_international -> {
+                    Toast.makeText(this@MainActivity, "国际新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_entertainment -> {
+                    Toast.makeText(this@MainActivity, "娱乐新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_favorites -> {
+                    val favs = favRepository.getFavorites()
+                    displayReport(favs)
+                    Toast.makeText(this@MainActivity, "收藏夹", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+        
+        loadLatestReport()
     }
 
     private fun loadLatestReport() {
