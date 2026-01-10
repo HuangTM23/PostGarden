@@ -29,8 +29,15 @@ class ApiClient {
 
         try {
             val response = client.newCall(request).execute()
-            if (!response.isSuccessful) return@withContext null
-            val json = response.body?.string() ?: return@withContext null
+            if (!response.isSuccessful) {
+                Log.e(TAG, "Fetch failed. Code: ${response.code}, Msg: ${response.message}")
+                return@withContext null
+            }
+            val json = response.body?.string()
+            if (json == null) {
+                Log.e(TAG, "Response body is null")
+                return@withContext null
+            }
             return@withContext gson.fromJson(json, LatestVersions::class.java)
         } catch (e: Exception) {
             Log.e(TAG, "Exception fetching versions: ${e.message}", e)

@@ -29,6 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.WebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false"
             android:theme="@style/Theme.PostGarden.NoActionBar" />
     </application>

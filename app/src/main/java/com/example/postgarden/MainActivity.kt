@@ -23,13 +23,16 @@ import com.example.postgarden.ui.NewsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.app.Activity
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,16 +50,19 @@ class MainActivity : AppCompatActivity() {
     
     // For refresh button animation
     private var isRefreshing = false
+    private lateinit var progressBar: android.widget.ProgressBar
 
     private val historyLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val type = result.data?.getStringExtra("selected_type")
             if (type != null) {
+                currentReportType = type
                 when(type) {
                     "home" -> bottomNavigationView.selectedItemId = R.id.nav_home
                     "world" -> bottomNavigationView.selectedItemId = R.id.nav_international
                     "entertainment" -> bottomNavigationView.selectedItemId = R.id.nav_entertainment
                 }
+                loadLocalData()
             }
         }
     }
@@ -67,6 +73,8 @@ class MainActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        
+        progressBar = findViewById(R.id.progressBar)
 
         rvNews = findViewById(R.id.rvNews)
         val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
@@ -95,7 +103,7 @@ class MainActivity : AppCompatActivity() {
 
         fabRefresh.setOnClickListener {
             if (!isRefreshing) {
-                fetchLatestReports()
+                manualRefresh()
             }
         }
 
@@ -103,17 +111,23 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     currentReportType = "home"
-                    loadLocalOrFetch()
+                    if (!loadLocalData()) {
+                        manualRefresh() // Auto fetch if empty
+                    }
                     true
                 }
                 R.id.nav_international -> {
                     currentReportType = "world"
-                    loadLocalOrFetch()
+                    if (!loadLocalData()) {
+                        manualRefresh()
+                    }
                     true
                 }
                 R.id.nav_entertainment -> {
                     currentReportType = "entertainment"
-                    loadLocalOrFetch()
+                    if (!loadLocalData()) {
+                        manualRefresh()
+                    }
                     true
                 }
                 R.id.nav_favorites -> {
@@ -126,17 +140,109 @@ class MainActivity : AppCompatActivity() {
             }
         }
         
-        // Initial load
-        fetchLatestReports()
+        // 1. Show Local Data Immediately
+        if (!loadLocalData()) {
+            // First run or empty cache
+            progressBar.visibility = android.view.View.VISIBLE
+        }
+        
+        // 2. Start Background Update
+        startBackgroundUpdate()
     }
 
-    private fun loadLocalOrFetch() {
+    private fun loadLocalData(): Boolean {
         val report = repository.getLocalReport(currentReportType)
         if (report.news.isNotEmpty()) {
             displayReport(report.news)
+            return true
         } else {
-            // If local is empty, try to fetch
-            fetchLatestReports()
+            // Explicitly clear adapter to avoid showing stale data from previous tab
+            newsAdapter.submitList(emptyList())
+            Toast.makeText(this, "暂无本地数据", Toast.LENGTH_SHORT).show()
+            return false
+        }
+    }
+
+    private fun startBackgroundUpdate() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // 1. Fetch Server Versions
+                val serverVersions = apiClient.fetchLatestVersions() ?: run {
+                    withContext(Dispatchers.Main) { 
+                        progressBar.visibility = android.view.View.GONE
+                        Toast.makeText(this@MainActivity, "无法连接服务器，请检查网络", Toast.LENGTH_SHORT).show()
+                    }
+                    return@launch
+                }
+                
+                // 2. Load Local Versions for comparison
+                val localVersions = repository.getLocalVersions()
+                
+                // 3. Determine if update is needed
+                val needsUpdate = localVersions == null ||
+                        serverVersions.home != localVersions.home ||
+                        serverVersions.world != localVersions.world ||
+                        serverVersions.entertainment != localVersions.entertainment
+                
+                if (needsUpdate) {
+                    // Update latestVersions variable for UI tracking
+                    latestVersions = serverVersions
+                    
+                    // 4. Download ALL ZIPs in parallel
+                    val types = mapOf(
+                        "home" to serverVersions.home,
+                        "world" to serverVersions.world,
+                        "entertainment" to serverVersions.entertainment
+                    )
+                    
+                    val deferreds = types.map { (type, version) ->
+                        async {
+                            if (version != null) {
+                                repository.downloadAndPrepare(type, version)
+                            } else true
+                        }
+                    }
+                    
+                    val results = deferreds.awaitAll()
+                    val allSuccess = results.all { it }
+                    
+                    if (allSuccess) {
+                        // 5. Atomic switch: Save local version index
+                        repository.saveLocalVersions(serverVersions)
+                        
+                        withContext(Dispatchers.Main) {
+                            loadLocalData()
+                            Toast.makeText(this@MainActivity, "内容已同步最新", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                
+                withContext(Dispatchers.Main) {
+                    progressBar.visibility = android.view.View.GONE
+                }
+                
+            } catch (e: Exception) {
+                e.printStackTrace()
+                withContext(Dispatchers.Main) { progressBar.visibility = android.view.View.GONE }
+            }
+        }
+    }
+    
+    private fun manualRefresh() {
+        val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
+        isRefreshing = true
+        fabRefresh.isEnabled = false 
+        fabRefresh.setImageResource(R.drawable.ic_refresh)
+        progressBar.visibility = android.view.View.VISIBLE
+        
+        lifecycleScope.launch {
+            // Re-use background update logic for simplicity and consistency
+            startBackgroundUpdate()
+            
+            kotlinx.coroutines.delay(1500)
+            fabRefresh.setImageResource(R.drawable.ic_refresh) 
+            fabRefresh.isEnabled = true 
+            isRefreshing = false
         }
     }
 
@@ -159,69 +265,9 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun fetchLatestReports() {
-        if (isRefreshing) return
-        
-        Toast.makeText(this@MainActivity, "正在检查更新...", Toast.LENGTH_SHORT).show()
-        lifecycleScope.launch {
-            val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
-            isRefreshing = true
-            fabRefresh.isEnabled = false 
-            fabRefresh.setImageResource(R.drawable.ic_refresh) 
-
-            try {
-                // 1. Fetch Version Index
-                val versions = apiClient.fetchLatestVersions()
-                latestVersions = versions
-                
-                if (versions != null) {
-                    // 2. Check and Download for current type (or all if desired, here just current for speed)
-                    // We can also trigger background sync for others.
-                    
-                    val targetZip = when(currentReportType) {
-                        "home" -> versions.home
-                        "world" -> versions.world
-                        "entertainment" -> versions.entertainment
-                        else -> null
-                    }
-                    
-                    if (targetZip != null) {
-                        if (!repository.isVersionCached(currentReportType, targetZip)) {
-                            Toast.makeText(this@MainActivity, "发现新版本，正在下载...", Toast.LENGTH_SHORT).show()
-                            val success = repository.downloadAndExtract(currentReportType, targetZip)
-                            if (success) {
-                                Toast.makeText(this@MainActivity, "更新完成", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this@MainActivity, "下载失败", Toast.LENGTH_SHORT).show()
-                            }
-                        } else {
-                            // Already latest
-                        }
-                        
-                        // 3. Display
-                        val report = repository.getLocalReport(currentReportType)
-                        displayReport(report.news)
-                        fabRefresh.setImageResource(R.drawable.ic_check_green)
-                    } else {
-                         Toast.makeText(this@MainActivity, "当前板块暂无数据", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(this@MainActivity, "无法获取版本信息", Toast.LENGTH_SHORT).show()
-                }
-
-            } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, "错误: ${e.message}", Toast.LENGTH_LONG).show()
-                e.printStackTrace()
-            } finally {
-                kotlinx.coroutines.delay(1000)
-                fabRefresh.setImageResource(R.drawable.ic_refresh) 
-                fabRefresh.isEnabled = true 
-                isRefreshing = false
-            }
-        }
-    }
-
+    
+    // fetchLatestReports is removed, logic moved to startBackgroundUpdate and manualRefresh
+    
     private fun displayReport(items: List<PolishedNewsItem>) {
         if (items.isEmpty()) {
             newsAdapter.submitList(emptyList())
@@ -229,7 +275,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val newsItemsForDisplay = items.filter { it.rank > 0 }
-        newsAdapter.submitList(newsItemsForDisplay)
+        newsAdapter.submitList(newsItemsForDisplay) {
+            rvNews.scrollToPosition(0)
+        }
 
         val summary = items.find { it.rank == 0 }
         if (summary != null) {

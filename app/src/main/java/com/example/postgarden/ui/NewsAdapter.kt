@@ -40,6 +40,7 @@ class NewsAdapter(
         private val contentView: TextView = itemView.findViewById(R.id.tv_content)
         private val sourceView: TextView = itemView.findViewById(R.id.tv_source)
         private val imageView: ImageView = itemView.findViewById(R.id.iv_news_image)
+        private val playIcon: ImageView = itemView.findViewById(R.id.iv_play_icon)
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
         fun bind(item: PolishedNewsItem) {
@@ -48,12 +49,16 @@ class NewsAdapter(
             contentView.text = item.content
             sourceView.text = "来源: ${item.sourcePlatform}"
             
+            // Show play icon for video platforms
+            val isVideoPlatform = item.sourcePlatform == "抖音" || item.sourcePlatform == "哔哩哔哩"
+            playIcon.visibility = if (isVideoPlatform) View.VISIBLE else View.GONE
+            
             // Open in internal WebView on click
             itemView.setOnClickListener {
-                if (item.sourceUrl.isNotEmpty()) {
+                if (!item.sourceUrl.isNullOrEmpty()) {
                     val intent = Intent(itemView.context, WebViewActivity::class.java).apply {
                         putExtra("url", item.sourceUrl)
-                        putExtra("title", item.title)
+                        putExtra("title", item.title ?: "")
                     }
                     itemView.context.startActivity(intent)
                 }
@@ -75,7 +80,7 @@ class NewsAdapter(
             }
 
             // Only load image if path is valid
-            if (item.imagePath.isNotEmpty()) {
+            if (!item.imagePath.isNullOrEmpty()) {
                 Glide.with(itemView.context)
                     .load(item.fullImageUrl)
                     .centerCrop()

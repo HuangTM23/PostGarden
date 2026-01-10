@@ -23,64 +23,81 @@ class ReportRepository(private val context: Context) {
     private val gson = Gson()
     private val client = OkHttpClient()
     
-    // Directory structure: filesDir/extracted/{type}/
-    private val extractedRoot = File(context.filesDir, "extracted")
+    // Directory structure: /Android/data/package/files/PostGarden/data/
+    // Use getExternalFilesDir to make it accessible to user (and visible in file manager)
+    private val rootDir = context.getExternalFilesDir(null) ?: context.filesDir
+    private val baseDir = File(rootDir, "PostGarden")
+    private val dataDir = File(baseDir, "data")
+    private val extractedDir = File(dataDir, "extracted")
+    private val localVersionFile = File(dataDir, "latest_versions.json")
+
+    init {
+        Log.d("ReportRepository", "Storage Path: ${dataDir.absolutePath}")
+        if (!dataDir.exists()) dataDir.mkdirs()
+        if (!extractedDir.exists()) extractedDir.mkdirs()
+    }
+
+    fun getLocalVersions(): LatestVersions? {
+        if (!localVersionFile.exists()) return null
+        return try {
+            gson.fromJson(localVersionFile.readText(), LatestVersions::class.java)
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    fun saveLocalVersions(versions: LatestVersions) {
+        try {
+            localVersionFile.writeText(gson.toJson(versions))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
     fun getCachedReports(): List<CachedReport> {
         val list = mutableListOf<CachedReport>()
         val types = listOf("home", "world", "entertainment")
         for (type in types) {
-            val typeDir = File(extractedRoot, type)
+            val typeDir = File(extractedDir, type)
             val versionFile = File(typeDir, "version.txt")
             if (typeDir.exists() && versionFile.exists()) {
-                 list.add(CachedReport(type, versionFile.readText().trim(), versionFile.lastModified()))
+                val version = versionFile.readText().trim()
+                list.add(CachedReport(type, version, versionFile.lastModified()))
             }
         }
         return list
     }
 
     fun isVersionCached(type: String, zipFilename: String): Boolean {
-        // We use the zipFilename (which includes timestamp) to verify cache
-        // Simple check: Is there a marker file or does the directory exist and match expectation?
-        // Since we extract to 'extracted/home/', we need to know WHICH version is there.
-        // We can store a 'version.txt' inside the extracted dir.
-        val typeDir = File(extractedRoot, type)
+        val typeDir = File(extractedDir, type)
         val versionFile = File(typeDir, "version.txt")
-        if (typeDir.exists() && versionFile.exists()) {
-            val cachedVersion = versionFile.readText().trim()
-            return cachedVersion == zipFilename
-        }
-        return false
+        return versionFile.exists() && versionFile.readText().trim() == zipFilename
     }
 
-    suspend fun downloadAndExtract(type: String, zipFilename: String): Boolean = withContext(Dispatchers.IO) {
+    suspend fun downloadAndPrepare(type: String, zipFilename: String): Boolean = withContext(Dispatchers.IO) {
         val url = "${ApiClient.BASE_URL}/$zipFilename"
-        val typeDir = File(extractedRoot, type)
-        
-        // 1. Download ZIP to temp file
-        val tempZip = File(context.cacheDir, "temp_$type.zip")
-        val request = Request.Builder().url(url).build()
+        val zipFile = File(dataDir, zipFilename)
+        val typeExtractedDir = File(extractedDir, type)
         
         try {
+            // 1. Download to dataDir
+            val request = Request.Builder().url(url).build()
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) return@withContext false
             
             val source = response.body?.byteStream() ?: return@withContext false
-            tempZip.outputStream().use { output ->
+            zipFile.outputStream().use { output ->
                 source.copyTo(output)
             }
             
-            // 2. Clear old data
-            if (typeDir.exists()) {
-                typeDir.deleteRecursively()
-            }
-            typeDir.mkdirs()
+            // 2. Unzip immediately for UI
+            if (typeExtractedDir.exists()) typeExtractedDir.deleteRecursively()
+            typeExtractedDir.mkdirs()
             
-            // 3. Unzip
-            ZipInputStream(BufferedInputStream(tempZip.inputStream())).use { zis ->
+            ZipInputStream(BufferedInputStream(zipFile.inputStream())).use { zis ->
                 var entry = zis.nextEntry
                 while (entry != null) {
-                    val file = File(typeDir, entry.name)
+                    val file = File(typeExtractedDir, entry.name)
                     if (entry.isDirectory) {
                         file.mkdirs()
                     } else {
@@ -93,43 +110,74 @@ class ReportRepository(private val context: Context) {
                 }
             }
             
-            // 4. Mark version
-            File(typeDir, "version.txt").writeText(zipFilename)
+            // 3. Mark version
+            File(typeExtractedDir, "version.txt").writeText(zipFilename)
             
-            // Clean temp
-            tempZip.delete()
+            // 4. Cleanup old archives
+            cleanupOldArchives()
+            
             return@withContext true
-            
         } catch (e: Exception) {
-            Log.e("ReportRepository", "Error downloading/extracting zip", e)
+            Log.e("ReportRepository", "Error updating $type", e)
             return@withContext false
         }
     }
 
-    fun getLocalReport(type: String): PolishedReport {
-        val typeDir = File(extractedRoot, type)
-        if (!typeDir.exists()) return PolishedReport()
+    private fun cleanupOldArchives() {
+        val now = System.currentTimeMillis()
+        val threeDaysMillis = 3L * 24 * 60 * 60 * 1000
         
-        // Find the JSON file (polished_all_TIMESTAMP.json)
-        val jsonFile = typeDir.listFiles()?.find { it.name.startsWith("polished_all_") && it.name.endsWith(".json") }
-        
-        if (jsonFile != null) {
-            try {
-                val report = gson.fromJson(jsonFile.readText(), PolishedReport::class.java)
-                
-                // Update image paths to absolute local paths
-                val updatedNews = report.news.map { item ->
-                    if (item.imagePath.isNotEmpty()) {
-                        val imgFile = File(typeDir, item.imagePath)
-                        item.apply { localImageFile = imgFile }
-                    } else {
-                        item
-                    }
+        dataDir.listFiles()?.forEach { file ->
+            if (file.name.endsWith(".zip")) {
+                if (now - file.lastModified() > threeDaysMillis) {
+                    file.delete()
                 }
-                return report.copy(news = updatedNews)
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
+        }
+    }
+
+    fun getLocalReport(type: String): PolishedReport {
+        val typeDir = File(extractedDir, type)
+        Log.d("ReportRepository", "Loading local report for $type from ${typeDir.absolutePath}")
+        
+        if (typeDir.exists()) {
+            // Recursive search for ANY JSON file (except metadata like version.txt or latest_versions.json if they accidentally got there)
+            // Prioritize "polished_" but fallback to others
+            val jsonFiles = typeDir.walk()
+                .filter { it.isFile && it.name.endsWith(".json") && !it.name.equals("version.txt") }
+                .toList()
+            
+            // Sort to try polished_ first
+            val jsonFile = jsonFiles.sortedByDescending { it.name.startsWith("polished_") }.firstOrNull()
+                
+            if (jsonFile != null) {
+                Log.d("ReportRepository", "Found JSON: ${jsonFile.name} at ${jsonFile.absolutePath}")
+                try {
+                    val jsonContent = jsonFile.readText()
+                    val report = gson.fromJson(jsonContent, PolishedReport::class.java)
+                    
+                    if (report.news.isNullOrEmpty()) {
+                         Log.e("ReportRepository", "Parsed report but news list is empty/null.")
+                    } else {
+                        Log.d("ReportRepository", "Parsed ${report.news.size} items")
+                    }
+                    
+                    val updatedNews = report.news.map { item ->
+                        if (!item.imagePath.isNullOrEmpty()) {
+                            val imgFile = File(typeDir, item.imagePath)
+                            item.apply { localImageFile = imgFile }
+                        } else item
+                    }
+                    return report.copy(news = updatedNews)
+                } catch (e: Exception) {
+                    Log.e("ReportRepository", "Error parsing JSON from ${jsonFile.name}", e)
+                    e.printStackTrace()
+                }
+            } else {
+                Log.e("ReportRepository", "No JSON file found in ${typeDir.absolutePath}. Files found: ${typeDir.list()?.joinToString()}")
+            }
+        } else {
+            Log.e("ReportRepository", "Directory not found: ${typeDir.absolutePath}")
         }
         return PolishedReport()
     }
