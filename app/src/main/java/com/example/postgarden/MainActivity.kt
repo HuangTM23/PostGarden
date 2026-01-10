@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     
     // Track what is currently being viewed
-    private var currentReportType: String = "morning" // Default
-    private var currentServerTimestamp: String? = null // Captured from JSON
+    private var currentReportType: String = "home" // Default: home, world, entertainment
+    private var latestVersions: com.example.postgarden.data.LatestVersions? = null
     
     // For refresh button animation
     private var isRefreshing = false
@@ -69,7 +69,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
-                    // If we are in favorites view, refresh the list immediately
                     if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
                         displayReport(favRepository.getFavorites())
                     }
@@ -90,16 +89,18 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    currentReportType = "morning"
-                    loadLatestReport()
+                    currentReportType = "home"
+                    loadLocalOrFetch()
                     true
                 }
                 R.id.nav_international -> {
-                    Toast.makeText(this@MainActivity, "国际新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    currentReportType = "world"
+                    loadLocalOrFetch()
                     true
                 }
                 R.id.nav_entertainment -> {
-                    Toast.makeText(this@MainActivity, "娱乐新闻功能开发中...", Toast.LENGTH_SHORT).show()
+                    currentReportType = "entertainment"
+                    loadLocalOrFetch()
                     true
                 }
                 R.id.nav_favorites -> {
@@ -112,20 +113,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
         
-        loadLatestReport()
+        // Initial load
+        fetchLatestReports()
     }
 
-    private fun loadLatestReport() {
-        val latest = repository.getLatestReport()
-        if (latest.news.isNotEmpty()) {
-             currentServerTimestamp = latest.timestamp
-             displayReport(latest.news)
-             val latestFile = repository.getHistoryFiles().firstOrNull()
-             if (latestFile != null) {
-                 updateCurrentTypeFromFile(latestFile)
-             }
+    private fun loadLocalOrFetch() {
+        val report = repository.getLocalReport(currentReportType)
+        if (report.news.isNotEmpty()) {
+            displayReport(report.news)
         } else {
-            Toast.makeText(this@MainActivity, "暂无新闻，请点击刷新。", Toast.LENGTH_SHORT).show()
+            // If local is empty, try to fetch
+            fetchLatestReports()
         }
     }
 
@@ -144,17 +142,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateCurrentTypeFromFile(file: File) {
-        val name = file.name
-        if (name.contains("morning")) {
-            currentReportType = "morning"
-        } else if (name.contains("evening")) {
-            currentReportType = "evening"
-        }
-    }
-
     private fun fetchLatestReports() {
-        Toast.makeText(this@MainActivity, "正在获取最新新闻...", Toast.LENGTH_SHORT).show()
+        if (isRefreshing) return
+        
+        Toast.makeText(this@MainActivity, "正在检查更新...", Toast.LENGTH_SHORT).show()
         lifecycleScope.launch {
             val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
             isRefreshing = true
@@ -162,45 +153,50 @@ class MainActivity : AppCompatActivity() {
             fabRefresh.setImageResource(R.drawable.ic_refresh) 
 
             try {
-                val morningDeferred = async { apiClient.getReport("morning") }
-                val eveningDeferred = async { apiClient.getReport("evening") }
-
-                val reports = awaitAll(morningDeferred, eveningDeferred)
-                val morningReport = reports[0]
-                val eveningReport = reports[1]
-
-                var foundAny = false
-                if (morningReport.news.isNotEmpty()) {
-                    // Re-serialize back to JSON to save locally (simplified)
-                    val gson = com.google.gson.Gson()
-                    repository.saveReport("morning", gson.toJson(morningReport))
-                    foundAny = true
-                }
-                if (eveningReport.news.isNotEmpty()) {
-                    val gson = com.google.gson.Gson()
-                    repository.saveReport("evening", gson.toJson(eveningReport))
-                    foundAny = true
-                }
-
-                if (foundAny) {
-                    val latest = repository.getLatestReport()
-                    if (latest.news.isNotEmpty()) {
-                        currentServerTimestamp = latest.timestamp
-                        displayReport(latest.news)
-                        val latestFile = repository.getHistoryFiles().firstOrNull()
-                        if (latestFile != null) updateCurrentTypeFromFile(latestFile)
+                // 1. Fetch Version Index
+                val versions = apiClient.fetchLatestVersions()
+                latestVersions = versions
+                
+                if (versions != null) {
+                    // 2. Check and Download for current type (or all if desired, here just current for speed)
+                    // We can also trigger background sync for others.
+                    
+                    val targetZip = when(currentReportType) {
+                        "home" -> versions.home
+                        "world" -> versions.world
+                        "entertainment" -> versions.entertainment
+                        else -> null
                     }
-                    Toast.makeText(this@MainActivity, "获取成功！", Toast.LENGTH_SHORT).show()
-                    fabRefresh.setImageResource(R.drawable.ic_check_green) // Success icon
-                    kotlinx.coroutines.delay(1500) 
+                    
+                    if (targetZip != null) {
+                        if (!repository.isVersionCached(currentReportType, targetZip)) {
+                            Toast.makeText(this@MainActivity, "发现新版本，正在下载...", Toast.LENGTH_SHORT).show()
+                            val success = repository.downloadAndExtract(currentReportType, targetZip)
+                            if (success) {
+                                Toast.makeText(this@MainActivity, "更新完成", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(this@MainActivity, "下载失败", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            // Already latest
+                        }
+                        
+                        // 3. Display
+                        val report = repository.getLocalReport(currentReportType)
+                        displayReport(report.news)
+                        fabRefresh.setImageResource(R.drawable.ic_check_green)
+                    } else {
+                         Toast.makeText(this@MainActivity, "当前板块暂无数据", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
-                    Toast.makeText(this@MainActivity, "未发现新报告。", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "无法获取版本信息", Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
                 Toast.makeText(this@MainActivity, "错误: ${e.message}", Toast.LENGTH_LONG).show()
                 e.printStackTrace()
             } finally {
+                kotlinx.coroutines.delay(1000)
                 fabRefresh.setImageResource(R.drawable.ic_refresh) 
                 fabRefresh.isEnabled = true 
                 isRefreshing = false
@@ -210,7 +206,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayReport(items: List<PolishedNewsItem>) {
         if (items.isEmpty()) {
-            Toast.makeText(this@MainActivity, "报告内容为空。", Toast.LENGTH_SHORT).show()
             newsAdapter.submitList(emptyList())
             return
         }
@@ -225,28 +220,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun downloadZipReport() {
-        val timestamp = currentServerTimestamp
-        if (timestamp == null) {
-            Toast.makeText(this, "无法获取报告时间戳，下载失败。", Toast.LENGTH_SHORT).show()
+        val versions = latestVersions ?: return
+        val targetZip = when(currentReportType) {
+            "home" -> versions.home
+            "world" -> versions.world
+            "entertainment" -> versions.entertainment
+            else -> null
+        }
+        
+        if (targetZip == null) {
+            Toast.makeText(this, "暂无文件可下载", Toast.LENGTH_SHORT).show()
             return
         }
         
-        val zipName = "SampleNews_${timestamp}.zip"
-        val downloadUrl = "${ApiClient.BASE_URL}/$zipName"
+        val downloadUrl = "${ApiClient.BASE_URL}/$targetZip"
         
         try {
             val request = DownloadManager.Request(Uri.parse(downloadUrl))
-                .setTitle(zipName)
-                .setDescription("Downloading $zipName from PostGarden.")
+                .setTitle(targetZip)
+                .setDescription("Downloading $currentReportType news report from PostGarden.")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, zipName)
-                .setRequiresCharging(false)
+                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, targetZip)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
 
             val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             downloadManager.enqueue(request)
-            Toast.makeText(this, "开始下载: $zipName", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "开始下载: $targetZip", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(this, "下载失败: ${e.message}", Toast.LENGTH_LONG).show()
             e.printStackTrace()

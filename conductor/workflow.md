@@ -1,5 +1,11 @@
 # Project Workflow
 
+## Interaction Rules (交互规则)
+
+1. **语言要求**：AI 必须使用 **中文** 回答所有问题。
+2. **操作批准**：在执行任何修改文件、运行命令等实质性操作之前，必须以 **简洁的列表形式** 列出接下来的操作建议。
+3. **强制确认**：必须得到用户的 **明确批准**（如回复 "ok" 或 "同意"）后，方可调用工具执行操作。
+
 ## Guiding Principles
 
 1. **The Plan is the Source of Truth:** All work must be tracked in `plan.md`
