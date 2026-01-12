@@ -1,34 +1,37 @@
 package com.example.postgarden.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postgarden.R
-import com.example.postgarden.data.ReportRepository
+import com.example.postgarden.data.ReadHistoryRepository
 
 class HistoryActivity : AppCompatActivity() {
 
-    private lateinit var repository: ReportRepository
+    private lateinit var repository: ReadHistoryRepository
     private lateinit var adapter: HistoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
-        title = "Local Cache"
+        title = "阅读历史"
 
-        repository = ReportRepository(this)
+        repository = ReadHistoryRepository(this)
         
         val rvHistory = findViewById<RecyclerView>(R.id.rvHistory)
         rvHistory.layoutManager = LinearLayoutManager(this)
         
-        adapter = HistoryAdapter { report ->
-            val resultIntent = Intent()
-            resultIntent.putExtra("selected_type", report.type)
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
+        adapter = HistoryAdapter { item ->
+            // Open the history item (url) directly in WebView
+            if (item.url.isNotEmpty()) {
+                val intent = Intent(this, WebViewActivity::class.java).apply {
+                    putExtra("url", item.url)
+                    putExtra("title", item.title)
+                }
+                startActivity(intent)
+            }
         }
         
         rvHistory.adapter = adapter
@@ -37,7 +40,7 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun loadHistory() {
-        val reports = repository.getCachedReports()
-        adapter.submitList(reports)
+        val historyItems = repository.getHistory()
+        adapter.submitList(historyItems)
     }
 }

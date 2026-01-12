@@ -4,7 +4,7 @@ import sys
 import shutil
 import requests
 import zipfile
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Add crawler subdirectories to path
 sys.path.append(os.path.dirname(__file__))
@@ -355,8 +355,10 @@ def cleanup_intermediate_dirs():
 
 def main():
     ensure_dirs()
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    print(f"Global Timestamp: {timestamp}")
+    # Use UTC+8 (Beijing Time)
+    beijing_time = datetime.utcnow() + timedelta(hours=8)
+    timestamp = beijing_time.strftime('%Y%m%d_%H%M%S')
+    print(f"Global Timestamp (Beijing Time): {timestamp}")
     
     run_home_news(timestamp)
     run_world_news(timestamp)

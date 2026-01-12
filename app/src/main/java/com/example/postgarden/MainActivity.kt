@@ -1,38 +1,38 @@
 package com.example.postgarden
 
-import android.app.DownloadManager
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postgarden.data.ApiClient
+import com.example.postgarden.data.FavoritesManager
 import com.example.postgarden.data.PolishedNewsItem
+import com.example.postgarden.data.ReadHistoryRepository
 import com.example.postgarden.data.ReportRepository
-import com.example.postgarden.data.FavoriteRepository
-import com.example.postgarden.ui.HistoryActivity
+import com.example.postgarden.ui.HistoryAdapter
 import com.example.postgarden.ui.NewsAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.postgarden.ui.WebViewActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import java.io.File
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-import android.app.Activity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,32 +40,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newsAdapter: NewsAdapter
     private val apiClient = ApiClient()
     private lateinit var repository: ReportRepository
-    private lateinit var favRepository: FavoriteRepository
+    private lateinit var favManager: FavoritesManager // New Manager
     private lateinit var toolbar: MaterialToolbar
     private lateinit var bottomNavigationView: BottomNavigationView
     
     // Track what is currently being viewed
-    private var currentReportType: String = "home" // Default: home, world, entertainment
+    private var currentReportType: String = "home"
     private var latestVersions: com.example.postgarden.data.LatestVersions? = null
     
     // For refresh button animation
     private var isRefreshing = false
     private lateinit var progressBar: android.widget.ProgressBar
-
-    private val historyLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val type = result.data?.getStringExtra("selected_type")
-            if (type != null) {
-                currentReportType = type
-                when(type) {
-                    "home" -> bottomNavigationView.selectedItemId = R.id.nav_home
-                    "world" -> bottomNavigationView.selectedItemId = R.id.nav_international
-                    "entertainment" -> bottomNavigationView.selectedItemId = R.id.nav_entertainment
-                }
-                loadLocalData()
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,21 +66,18 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         
         repository = ReportRepository(this)
-        favRepository = FavoriteRepository(this)
+        favManager = FavoritesManager(this) // Initialize new manager
 
         newsAdapter = NewsAdapter(
             onFavoriteClick = { item ->
-                val isAdded = favRepository.toggleFavorite(item)
-                if (isAdded) {
-                    Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
-                    if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
-                        displayReport(favRepository.getFavorites())
-                    }
-                }
+                handleFavoriteClick(item)
             },
-            isFavoriteCheck = { item -> favRepository.isFavorite(item) }
+            // This checker needs to be synchronous for bind(), so we might need a synchronous way 
+            // OR the adapter should not rely on a callback for binding state if it's expensive.
+            // But checking memory cache in FavManager is fast and now thread-safe.
+            // However, runBlocking on UI thread is bad. 
+            // Better approach: Adapter holds a Set of favorite IDs.
+            isFavoriteCheck = { false } // Placeholder, will update logic below
         )
 
         rvNews.layoutManager = LinearLayoutManager(this)
@@ -108,57 +90,96 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    currentReportType = "home"
-                    if (!loadLocalData()) {
-                        manualRefresh() // Auto fetch if empty
+            try {
+                when (item.itemId) {
+                    R.id.nav_home -> {
+                        currentReportType = "home"
+                        if (!loadLocalData()) manualRefresh()
+                        true
                     }
-                    true
-                }
-                R.id.nav_international -> {
-                    currentReportType = "world"
-                    if (!loadLocalData()) {
-                        manualRefresh()
+                    R.id.nav_international -> {
+                        currentReportType = "world"
+                        if (!loadLocalData()) manualRefresh()
+                        true
                     }
-                    true
-                }
-                R.id.nav_entertainment -> {
-                    currentReportType = "entertainment"
-                    if (!loadLocalData()) {
-                        manualRefresh()
+                    R.id.nav_entertainment -> {
+                        currentReportType = "entertainment"
+                        if (!loadLocalData()) manualRefresh()
+                        true
                     }
-                    true
+                    R.id.nav_favorites -> {
+                        loadFavorites()
+                        true
+                    }
+                    else -> false
                 }
-                R.id.nav_favorites -> {
-                    val favs = favRepository.getFavorites()
-                    displayReport(favs)
-                    Toast.makeText(this@MainActivity, "收藏夹", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
+            } catch (e: Exception) {
+                e.printStackTrace()
+                false
             }
         }
         
         // 1. Show Local Data Immediately
         if (!loadLocalData()) {
-            // First run or empty cache
-            progressBar.visibility = android.view.View.VISIBLE
+            progressBar.visibility = View.VISIBLE
         }
         
         // 2. Start Background Update
         startBackgroundUpdate()
+        
+        // 3. Pre-load favorites into memory
+        lifecycleScope.launch { favManager.getFavorites() }
+    }
+
+    private fun handleFavoriteClick(item: PolishedNewsItem) {
+        lifecycleScope.launch {
+            try {
+                val isFav = favManager.isFavorite(item.sourceUrl)
+                if (isFav) {
+                    favManager.removeFavorite(item)
+                    Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
+                    // If we are currently viewing favorites, refresh the list
+                    if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
+                        loadFavorites()
+                    }
+                } else {
+                    favManager.addFavorite(item)
+                    Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
+                }
+                
+                // Notify adapter to update this specific item's appearance
+                // Since we don't have the position easily here, we might need to rely on 
+                // notifying dataset changed or finding the item.
+                // For simplicity/robustness, let's just refresh the visible list's state binding.
+                newsAdapter.notifyDataSetChanged()
+                
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@MainActivity, "操作失败", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun loadFavorites() {
+        lifecycleScope.launch {
+            val favs = favManager.getFavorites()
+            displayReport(favs)
+        }
     }
 
     private fun loadLocalData(): Boolean {
+        // If we are on favorites tab, don't load regular report
+        if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
+            loadFavorites()
+            return true
+        }
+        
         val report = repository.getLocalReport(currentReportType)
         if (report.news.isNotEmpty()) {
             displayReport(report.news)
             return true
         } else {
-            // Explicitly clear adapter to avoid showing stale data from previous tab
             newsAdapter.submitList(emptyList())
-            Toast.makeText(this, "暂无本地数据", Toast.LENGTH_SHORT).show()
             return false
         }
     }
@@ -166,29 +187,19 @@ class MainActivity : AppCompatActivity() {
     private fun startBackgroundUpdate() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // 1. Fetch Server Versions
                 val serverVersions = apiClient.fetchLatestVersions() ?: run {
-                    withContext(Dispatchers.Main) { 
-                        progressBar.visibility = android.view.View.GONE
-                        Toast.makeText(this@MainActivity, "无法连接服务器，请检查网络", Toast.LENGTH_SHORT).show()
-                    }
+                    withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
                     return@launch
                 }
                 
-                // 2. Load Local Versions for comparison
                 val localVersions = repository.getLocalVersions()
-                
-                // 3. Determine if update is needed
                 val needsUpdate = localVersions == null ||
                         serverVersions.home != localVersions.home ||
                         serverVersions.world != localVersions.world ||
                         serverVersions.entertainment != localVersions.entertainment
                 
                 if (needsUpdate) {
-                    // Update latestVersions variable for UI tracking
                     latestVersions = serverVersions
-                    
-                    // 4. Download ALL ZIPs in parallel
                     val types = mapOf(
                         "home" to serverVersions.home,
                         "world" to serverVersions.world,
@@ -196,50 +207,44 @@ class MainActivity : AppCompatActivity() {
                     )
                     
                     val deferreds = types.map { (type, version) ->
-                        async {
-                            if (version != null) {
-                                repository.downloadAndPrepare(type, version)
-                            } else true
-                        }
+                        async { if (version != null) repository.downloadAndPrepare(type, version) else true }
                     }
                     
                     val results = deferreds.awaitAll()
-                    val allSuccess = results.all { it }
-                    
-                    if (allSuccess) {
-                        // 5. Atomic switch: Save local version index
+                    if (results.all { it }) {
                         repository.saveLocalVersions(serverVersions)
-                        
                         withContext(Dispatchers.Main) {
-                            loadLocalData()
-                            Toast.makeText(this@MainActivity, "内容已同步最新", Toast.LENGTH_SHORT).show()
+                            // Only refresh if not viewing favorites
+                            if (bottomNavigationView.selectedItemId != R.id.nav_favorites) {
+                                loadLocalData()
+                            }
                         }
                     }
                 }
-                
-                withContext(Dispatchers.Main) {
-                    progressBar.visibility = android.view.View.GONE
-                }
-                
+                withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
             } catch (e: Exception) {
                 e.printStackTrace()
-                withContext(Dispatchers.Main) { progressBar.visibility = android.view.View.GONE }
+                withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
             }
         }
     }
     
     private fun manualRefresh() {
+        // If on favorites, just reload favorites
+        if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
+            loadFavorites()
+            return
+        }
+        
         val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
         isRefreshing = true
         fabRefresh.isEnabled = false 
         fabRefresh.setImageResource(R.drawable.ic_refresh)
-        progressBar.visibility = android.view.View.VISIBLE
+        progressBar.visibility = View.VISIBLE
         
         lifecycleScope.launch {
-            // Re-use background update logic for simplicity and consistency
             startBackgroundUpdate()
-            
-            kotlinx.coroutines.delay(1500)
+            delay(1500)
             fabRefresh.setImageResource(R.drawable.ic_refresh) 
             fabRefresh.isEnabled = true 
             isRefreshing = false
@@ -254,68 +259,81 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_history -> {
-                val intent = Intent(this, HistoryActivity::class.java)
-                historyLauncher.launch(intent)
-                true
-            }
-            R.id.action_save_zip -> {
-                downloadZipReport()
+                showHistoryDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
-    
-    // fetchLatestReports is removed, logic moved to startBackgroundUpdate and manualRefresh
-    
-    private fun displayReport(items: List<PolishedNewsItem>) {
-        if (items.isEmpty()) {
-            newsAdapter.submitList(emptyList())
-            return
+
+    private fun showHistoryDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_history, null)
+        val rvHistory = dialogView.findViewById<RecyclerView>(R.id.rvHistoryDialog)
+        val btnClose = dialogView.findViewById<ImageButton>(R.id.btn_close_history)
+        
+        rvHistory.layoutManager = LinearLayoutManager(this)
+        val historyRepo = ReadHistoryRepository(this)
+        val historyItems = historyRepo.getHistory()
+        
+        val historyAdapter = HistoryAdapter { item ->
+            if (item.url.isNotEmpty()) {
+                val intent = Intent(this, WebViewActivity::class.java).apply {
+                    putExtra("url", item.url)
+                    putExtra("title", item.title)
+                }
+                startActivity(intent)
+            }
+        }
+        
+        rvHistory.adapter = historyAdapter
+        historyAdapter.submitList(historyItems)
+        
+        // Dynamic Height Logic
+        val density = resources.displayMetrics.density
+        val itemHeightPx = (60 * density).toInt() 
+        val totalEstimatedHeight = historyItems.size * itemHeightPx
+        val halfScreenHeight = resources.displayMetrics.heightPixels / 2
+        
+        if (totalEstimatedHeight > halfScreenHeight) {
+            rvHistory.layoutParams.height = halfScreenHeight
+        } else {
+            rvHistory.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
         }
 
-        val newsItemsForDisplay = items.filter { it.rank > 0 }
-        newsAdapter.submitList(newsItemsForDisplay) {
-            rvNews.scrollToPosition(0)
-        }
-
-        val summary = items.find { it.rank == 0 }
-        if (summary != null) {
-            Toast.makeText(this@MainActivity, "今日摘要: ${summary.title}", Toast.LENGTH_LONG).show()
-        }
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true) 
+            .create()
+            
+        btnClose.setOnClickListener { dialog.dismiss() }
+            
+        dialog.show()
+        dialog.setCanceledOnTouchOutside(true)
+        
+        val window = dialog.window
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val width = (resources.displayMetrics.widthPixels * 0.9).toInt()
+        window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    private fun downloadZipReport() {
-        val versions = latestVersions ?: return
-        val targetZip = when(currentReportType) {
-            "home" -> versions.home
-            "world" -> versions.world
-            "entertainment" -> versions.entertainment
-            else -> null
-        }
-        
-        if (targetZip == null) {
-            Toast.makeText(this, "暂无文件可下载", Toast.LENGTH_SHORT).show()
-            return
-        }
-        
-        val downloadUrl = "${ApiClient.BASE_URL}/$targetZip"
-        
-        try {
-            val request = DownloadManager.Request(Uri.parse(downloadUrl))
-                .setTitle(targetZip)
-                .setDescription("Downloading $currentReportType news report from PostGarden.")
-                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, targetZip)
-                .setAllowedOverMetered(true)
-                .setAllowedOverRoaming(true)
-
-            val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-            downloadManager.enqueue(request)
-            Toast.makeText(this, "开始下载: $targetZip", Toast.LENGTH_SHORT).show()
-        } catch (e: Exception) {
-            Toast.makeText(this, "下载失败: ${e.message}", Toast.LENGTH_LONG).show()
-            e.printStackTrace()
+    private fun displayReport(items: List<PolishedNewsItem>) {
+        // Need to update adapter with a way to check favorites synchronously or async
+        // We will pass a set of favorite URLs to the adapter
+        lifecycleScope.launch {
+            // Get all favorite URLs for quick checking
+            val favs = favManager.getFavorites()
+            val favUrls = favs.mapNotNull { it.sourceUrl }.toSet()
+            
+            newsAdapter.updateFavoriteSet(favUrls)
+            
+            if (items.isEmpty()) {
+                newsAdapter.submitList(emptyList())
+            } else {
+                val newsItemsForDisplay = items.filter { it.rank > 0 }
+                newsAdapter.submitList(newsItemsForDisplay) {
+                    rvNews.scrollToPosition(0)
+                }
+            }
         }
     }
 }

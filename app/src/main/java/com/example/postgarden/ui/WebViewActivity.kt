@@ -9,6 +9,7 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.postgarden.R
+import com.example.postgarden.data.ReadHistoryRepository
 import com.google.android.material.appbar.MaterialToolbar
 
 class WebViewActivity : AppCompatActivity() {
@@ -19,6 +20,11 @@ class WebViewActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra("url") ?: ""
         val title = intent.getStringExtra("title") ?: "新闻详情"
+
+        // Save to History
+        if (url.isNotEmpty() && title.isNotEmpty()) {
+            ReadHistoryRepository(this).addHistory(title, url)
+        }
 
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_webview)
         toolbar.title = title

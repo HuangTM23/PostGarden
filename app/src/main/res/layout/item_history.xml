@@ -5,4 +5,9 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:textSize="16sp"
+    android:textColor="#212121"
+    android:textStyle="bold"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:background="?attr/selectableItemBackground"
     android:text="History Item" />

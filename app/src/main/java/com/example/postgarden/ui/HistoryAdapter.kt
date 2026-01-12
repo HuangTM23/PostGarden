@@ -6,15 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postgarden.R
-import com.example.postgarden.data.CachedReport
+import com.example.postgarden.data.ReadHistoryItem
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HistoryAdapter(
-    private val onItemClick: (CachedReport) -> Unit
+    private val onItemClick: (ReadHistoryItem) -> Unit
 ) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
-    private var items: List<CachedReport> = emptyList()
+    private var items: List<ReadHistoryItem> = emptyList()
 
-    fun submitList(newItems: List<CachedReport>) {
+    fun submitList(newItems: List<ReadHistoryItem>) {
         items = newItems
         notifyDataSetChanged()
     }
@@ -35,8 +38,9 @@ class HistoryAdapter(
     inner class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvTitle: TextView = itemView.findViewById(R.id.tvHistoryTitle)
 
-        fun bind(item: CachedReport) {
-            tvTitle.text = "${item.type.uppercase()} - ${item.version}"
+        fun bind(item: ReadHistoryItem) {
+            // Only show title as requested
+            tvTitle.text = item.title
             
             itemView.setOnClickListener {
                 onItemClick(item)

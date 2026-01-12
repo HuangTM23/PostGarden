@@ -17,23 +17,31 @@ import com.example.postgarden.R
 
 class NewsAdapter(
     private val onFavoriteClick: (PolishedNewsItem) -> Unit,
+    // Deprecated: isFavoriteCheck removed, we use internal set
     private val isFavoriteCheck: (PolishedNewsItem) -> Boolean
 ) : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
+    private var favoriteUrls: Set<String> = emptySet()
+
+    fun updateFavoriteSet(newSet: Set<String>) {
+        favoriteUrls = newSet
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
-        return NewsViewHolder(view, onFavoriteClick, isFavoriteCheck)
+        return NewsViewHolder(view, onFavoriteClick)
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        val isFav = favoriteUrls.contains(item.sourceUrl)
+        holder.bind(item, isFav)
     }
 
     class NewsViewHolder(
         itemView: View,
-        private val onFavoriteClick: (PolishedNewsItem) -> Unit,
-        private val isFavoriteCheck: (PolishedNewsItem) -> Boolean
+        private val onFavoriteClick: (PolishedNewsItem) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
         private val rankView: TextView = itemView.findViewById(R.id.tv_rank)
         private val titleView: TextView = itemView.findViewById(R.id.tv_title)
@@ -43,17 +51,15 @@ class NewsAdapter(
         private val playIcon: ImageView = itemView.findViewById(R.id.iv_play_icon)
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
-        fun bind(item: PolishedNewsItem) {
+        fun bind(item: PolishedNewsItem, isFavorite: Boolean) {
             rankView.text = "${item.rank}."
             titleView.text = item.title
             contentView.text = item.content
             sourceView.text = "来源: ${item.sourcePlatform}"
             
-            // Show play icon for video platforms
             val isVideoPlatform = item.sourcePlatform == "抖音" || item.sourcePlatform == "哔哩哔哩"
             playIcon.visibility = if (isVideoPlatform) View.VISIBLE else View.GONE
             
-            // Open in internal WebView on click
             itemView.setOnClickListener {
                 if (!item.sourceUrl.isNullOrEmpty()) {
                     val intent = Intent(itemView.context, WebViewActivity::class.java).apply {
@@ -64,22 +70,15 @@ class NewsAdapter(
                 }
             }
 
-            // Handle favorite click
-            val isFav = isFavoriteCheck(item)
+            // Set icon based on passed state
             favoriteBtn.setImageResource(
-                if (isFav) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
+                if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
             )
             
             favoriteBtn.setOnClickListener {
                 onFavoriteClick(item)
-                // Re-bind to update icon instantly
-                val nowFav = isFavoriteCheck(item)
-                favoriteBtn.setImageResource(
-                    if (nowFav) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
-                )
             }
 
-            // Only load image if path is valid
             if (!item.imagePath.isNullOrEmpty()) {
                 Glide.with(itemView.context)
                     .load(item.fullImageUrl)

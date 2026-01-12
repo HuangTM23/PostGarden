@@ -9,7 +9,7 @@ import json
 import os
 import shutil
 import zipfile
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 import requests
 from PIL import Image
@@ -534,7 +534,8 @@ def aggregate_news(timestamp):
     selected_news, summary_text = filter_content_by_rules(all_news)
 
     # Limit summary title length
-    summary_title = f"娱乐资讯精选 | {datetime.now().strftime('%m月%d日')}热点"
+    beijing_time = datetime.utcnow() + timedelta(hours=8)
+    summary_title = f"娱乐资讯精选 | {beijing_time.strftime('%m月%d日')}热点"
 
     # 创建临时目录用于处理图片
     temp_images_dir = os.path.join(os.getcwd(), f"temp_images_ent_{timestamp}")

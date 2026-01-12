@@ -15,9 +15,5 @@ data class PolishedNewsItem(
     var localImageFile: File? = null
 
     val fullImageUrl: Any
-        get() = if (localImageFile != null && localImageFile!!.exists()) {
-            localImageFile!!
-        } else {
-            imagePath ?: ""
-        }
+        get() = localImageFile ?: (imagePath ?: "")
 }
