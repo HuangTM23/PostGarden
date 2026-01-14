@@ -1,0 +1,114 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美伊战云密布！特朗普威胁“强行动武”对抗伊朗处决抗议者？",
+            "title0": "",
+            "content": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美英从卡塔尔军事基地撤出部分人员",
+            "title0": "US and UK pulling some personnel from Qatar military base",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c701xywwxw8o",
+            "content": "美英两国因地区紧张局势升级，开始从卡塔尔乌代德空军基地撤出部分军事人员。",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/06b4/live/d44d2ca0-f15f-11f0-bfbc-db36ba7a9ce1.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "特朗普政府暂停75国移民签证处理",
+            "title0": "Trump administration pauses immigrant visa processing for 75 countries",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy7mnzgkp7go",
+            "content": "特朗普政府宣布无限期暂停来自75个国家的移民签证处理，进一步限制进入美国的合法途径。",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5208/live/0f2ba650-f172-11f0-adde-9114e6d28169.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "伊朗抗议者被快速判处死刑，特朗普发出警告",
+            "title0": "Iran Prepares to Execute a Protester as Trump Threatens ‘Strong Action’",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/01/14/world/middleeast/iran-protests-soltani-execution-trump.html",
+            "content": "伊朗一名26岁抗议者被捕数日后即被判处死刑，特朗普警告若处决将采取“强有力行动”。",
+            "index": 75,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/01/14/multimedia/14Iran-execution-kpfz/14Iran-execution-kpfz-facebookJumbo.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美国宣布启动加沙和平计划第二阶段",
+            "title0": "US announces start of phase two of Gaza peace plan",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cjw1nxe5pvlo",
+            "content": "美国宣布启动加沙和平计划第二阶段，将建立技术官僚政府并推动加沙非军事化。",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/9952/live/d8cccae0-f16b-11f0-b5f7-49f0357294ff.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "英国承认无全面战争防御计划",
+            "title0": "UK has no plan for defending nation in event of war, military chief reveals",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/uk-has-no-defence-plan-despite-threat-from-putins-russia-13493493",
+            "content": "英国军方最高负责人承认，该国没有在发生战争时保卫国家的全面防御计划。",
+            "index": 6,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/01/1600x900/skynews-richard-knighton-defence_7133482.jpg?20260112140835"
+        },
+        {
+            "rank": 6,
+            "title": "俄罗斯被指利用“一次性特工”对欧洲发动混合战争",
+            "title0": "Russia is waging hybrid war on UK and Europe through 'disposable agents'",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/how-russia-is-using-disposable-agents-to-sabotage-europe-13494007",
+            "content": "研究称俄罗斯情报机构正招募乌克兰人等作为“一次性特工”，在欧洲进行破坏活动以削弱北约。",
+            "index": 5,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/01/1600x900/skynews-putin-russia_7134733.jpg?20260114005531"
+        },
+        {
+            "rank": 7,
+            "title": "演员基弗·萨瑟兰因涉嫌袭击网约车司机被捕",
+            "title0": "Actor Kiefer Sutherland arrested over alleged assault of ride-share driver",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cql40ze5pkpo",
+            "content": "著名演员基弗·萨瑟兰在好莱坞涉嫌袭击并威胁一名网约车司机，目前已被警方逮捕。",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ea67/live/b489dff0-f0ef-11f0-88ad-55371262ee5a.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "加拿大两省因皇冠威士忌厂搬迁爆发争端",
+            "title0": "Why two Canadian provinces are in a spat over Crown Royal whisky",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c8x9v241z2qo",
+            "content": "因酒商计划关闭安大略省装瓶厂，安省与曼尼托巴省就皇冠威士忌品牌爆发激烈政治争端。",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/9b79/live/db200680-f167-11f0-b5f7-49f0357294ff.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "斯汀向前警察乐队成员支付60万英镑版税",
+            "title0": "Sting pays Police bandmates £600,000 in royalties",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn42lp1135vo",
+            "content": "歌手斯汀承认少付版税后，已向前警察乐队成员支付超过60万英镑，但双方法律纠纷仍在继续。",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3bc3/live/8348ddf0-f14a-11f0-b108-71580feedafc.jpg"
+        }
+    ]
+}
