@@ -1,17 +1,16 @@
 # Renamed from fetch_toutiao_hot.py
 import argparse
-import csv
 import json
+import time
+import random
+import requests
 import os
 import re
-import time
-from collections import OrderedDict
-from datetime import datetime
-from pathlib import Path
-
-import requests
+import sys
+from typing import Tuple, List
 from bs4 import BeautifulSoup
 
+# Selenium 导入
 try:
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service as ChromeService
@@ -27,12 +26,38 @@ except ImportError:
 API_URL = "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-def get_headers():
-    return {"User-Agent": USER_AGENT, "Accept": "*/*", "Referer": "https://www.toutiao.com/"}
+HEADERS = {
+    "User-Agent": USER_AGENT,
+    "Accept": "*/*",
+    "Referer": "https://www.toutiao.com/"
+}
+
+def get_no_proxy_session():
+    """创建一个不使用系统代理的 Session"""
+    session = requests.Session()
+    session.trust_env = False
+    return session
+
+def install_selenium_hint():
+    """提示安装 Selenium"""
+    print("\n" + "!"*50)
+    print("❌ 错误：未检测到 Selenium 库")
+    print("!"*50)
+    print("\nSelenium 是浏览器自动化库,今日头条需要它来提取真实新闻来源。")
+    print("\n📦 安装步骤：")
+    print("\n1. 安装 Selenium 相关库：")
+    print("   pip install selenium webdriver-manager")
+    print("\n2. 安装 Chrome 浏览器（如未安装）")
+    print("\n安装完成后，请重新运行本脚本。")
+    print("\n" + "!"*50 + "\n")
+    sys.exit(1)
 
 def init_driver():
-    if not SELENIUM_AVAILABLE: return None
-    print("Initializing Selenium...")
+    """初始化 Selenium WebDriver"""
+    if not SELENIUM_AVAILABLE:
+        install_selenium_hint()
+    
+    print("    [*] 正在初始化浏览器...")
     try:
         options = ChromeOptions()
         options.add_argument("--headless")
@@ -45,15 +70,12 @@ def init_driver():
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
         options.add_argument(f"user-agent={USER_AGENT}")
-
-        # 设置页面加载策略为 eager (不等待图片加载完成)
         options.page_load_strategy = 'eager'
-
-        options.binary_location = "/usr/bin/google-chrome"
+        
         service = ChromeService(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=options)
         
-        # 注入 JS 隐藏 Selenium 特征
+        # 隐藏 Selenium 特征
         driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
           "source": """
             Object.defineProperty(navigator, 'webdriver', {
@@ -62,205 +84,231 @@ def init_driver():
           """
         })
         
-        driver.set_page_load_timeout(60) # 增加到60秒
+        driver.set_page_load_timeout(60)
+        print("    [✓] 浏览器初始化成功")
         return driver
     except Exception as e:
-        print(f"Failed to init driver: {e}")
+        print(f"    [!] 浏览器初始化失败: {type(e).__name__}")
         return None
 
-def fetch_hot_list(limit=10):
-    print(f"Fetching hot list...")
+def fetch_hot_list(limit: int = 9) -> List[dict]:
+    """从今日头条热榜API获取链接"""
     try:
-        resp = requests.get(API_URL, headers=get_headers(), timeout=15)
-        return resp.json().get("data", [])[:limit]
+        print("    [*] 从热榜API获取文章列表...")
+        session = get_no_proxy_session()
+        response = session.get(API_URL, headers=HEADERS, timeout=15)
+        response.raise_for_status()
+        
+        data = response.json()
+        items = data.get('data', [])[:limit]
+        
+        if items:
+            print(f"    [✓] 热榜API获取成功，获得 {len(items)} 条链接")
+        return items
+        
     except Exception as e:
-        print(f"  [Error] Failed to fetch hot list: {e}")
+        print(f"    [!] 热榜API获取失败: {type(e).__name__}")
         return []
 
-def download_image(url, path):
-    try:
-        resp = requests.get(url, headers=get_headers(), timeout=15, stream=True)
-        if resp.status_code == 200:
-            with open(path, "wb") as f:
-                for chunk in resp.iter_content(8192): f.write(chunk)
-            return True
-    except: return False
-
-def resolve_data(rank, title, initial_url, hot_index, driver):
+def resolve_article_data(rank: int, title: str, initial_url: str, driver) -> Tuple[str, str, str, str]:
     """
-    Core Logic (Synced with verify_toutiao_logic.py):
-    1. Visit initial URL.
-    2. If it's a 'Trending' page, find the specific content link (/video/, /w/, /article/).
-    3. Visit the content page.
-    4. Extract Platform and Content using verified selectors.
+    核心逻辑：
+    1. 访问初始URL
+    2. 如果是trending页面,找到具体内容链接
+    3. 访问内容页面
+    4. 提取真实来源和内容
     """
-    source_platform = "Toutiao"
+    source_platform = "今日头条"
     source_url = initial_url
-    content = ""
-
+    content = title
+    image_url = ""
+    
     try:
-        # --- Step 1 & 2: Resolve Target URL ---
+        # 步骤1 & 2: 解析目标URL
         if "/trending/" in initial_url:
             driver.get(initial_url)
             target_href = None
             link_type = "unknown"
             
             try:
-                # Wait for any valid content link
+                # 等待内容链接出现
                 WebDriverWait(driver, 10).until(
-                    EC.presence_of_element_located((By.XPATH, "//a[contains(@href, '/video/') or contains(@href, '/w/') or contains(@href, '/article/')]" ))
+                    EC.presence_of_element_located((By.XPATH, 
+                        "//a[contains(@href, '/video/') or contains(@href, '/w/') or contains(@href, '/article/')]"))
                 )
-                links = driver.find_elements(By.XPATH, "//a[contains(@href, '/video/') or contains(@href, '/w/') or contains(@href, '/article/')]" )
+                links = driver.find_elements(By.XPATH, 
+                    "//a[contains(@href, '/video/') or contains(@href, '/w/') or contains(@href, '/article/')]")
                 
                 for link in links:
                     h = link.get_attribute("href")
-                    if not h: continue
+                    if not h:
+                        continue
                     
                     if "/video/" in h and re.search(r"/video/\d+", h):
-                        target_href = h; link_type = "video"; break
+                        target_href = h
+                        link_type = "video"
+                        break
                     if "/w/" in h and re.search(r"/w/\d+", h):
-                        target_href = h; link_type = "w"; break
+                        target_href = h
+                        link_type = "w"
+                        break
                     if "/article/" in h and re.search(r"/article/\d+", h):
-                        target_href = h; link_type = "article"; break
+                        target_href = h
+                        link_type = "article"
+                        break
             except Exception as e:
-                print(f"  [Warn] No content link found on trending page: {e}")
-
+                print(f"        未找到内容链接: {type(e).__name__}")
+            
             if target_href:
                 source_url = target_href
-                if source_url.startswith("//"): source_url = "https:" + source_url
-                elif source_url.startswith("/"): source_url = "https://www.toutiao.com" + source_url
-            else:
-                print(f"  [Warn] Failed to resolve trending URL, using original.")
+                if source_url.startswith("//"):
+                    source_url = "https:" + source_url
+                elif source_url.startswith("/"):
+                    source_url = "https://www.toutiao.com" + source_url
         else:
-            # Direct article link
-            link_type = "article" 
-
-        # --- Step 3: Visit Target Content Page ---
+            link_type = "article"
+        
+        # 步骤3: 访问目标内容页面
         if source_url != driver.current_url:
             driver.get(source_url)
         
-        # Wait slightly for render
         time.sleep(2)
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # --- Step 4: Extract Data ---
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
         
-        # A. Source Platform
-        # Priority: .author-info .name -> .article-meta .name -> .author-name -> .user-card-name
-        platform_el = soup.select_one(".author-info .name") or \
-                      soup.select_one(".article-meta .name") or \
-                      soup.select_one(".author-info .author-name") or \
-                      soup.select_one(".user-card-name") or \
-                      soup.select_one(".media-info .name")
+        # 步骤4: 提取数据
+        
+        # A. 提取来源平台
+        platform_el = soup.select_one(".author-info .name, .article-meta .name, .author-name, .user-card-name, .media-info .name")
         
         if platform_el:
             source_platform = platform_el.get_text(strip=True)
         else:
-            # Fallback to meta tags
             meta_name = soup.find('meta', attrs={'name': 'author'}) or \
-                        soup.find('meta', property='og:site_name')
+                       soup.find('meta', property='og:site_name')
             if meta_name:
-                source_platform = meta_name.get('content', 'Toutiao')
-
-        # B. Content
-        if link_type == "video" or ("/video/" in source_url):
-            # Video: Use Title
+                source_platform = meta_name.get('content', '今日头条')
+        
+        # B. 提取内容
+        if link_type == "video" or "/video/" in source_url:
+            # 视频：使用标题
             content = title
         else:
-            # Article / Micro Headline
-            # Priority 1: Specific Article Tag (syl-article-base, etc.)
+            # 文章/微头条
             article_tag = soup.select_one('article.syl-page-article, article.tt-article-content, article.syl-article-base')
             
             if article_tag:
-                content = article_tag.get_text(separator="\n", strip=True)
+                content = article_tag.get_text(separator="\n", strip=True)[:200]
             else:
-                # Priority 2: Micro Headline HTML
                 w_div = soup.select_one(".weitoutiao-html")
                 if w_div:
-                    content = w_div.get_text(separator="\n", strip=True)
+                    content = w_div.get_text(separator="\n", strip=True)[:200]
                 else:
-                    # Priority 3: Fallback Paragraphs
                     ps = soup.select(".article-content p, article p")
                     if ps:
-                        content = "\n".join([p.get_text(strip=True) for p in ps])
-
-        if not content: content = title # Fallback
-
+                        content = "\n".join([p.get_text(strip=True) for p in ps[:3]])
+        
+        if not content:
+            content = title
+        
+        # C. 提取图片
+        og_img = soup.find('meta', property='og:image')
+        if og_img:
+            image_url = og_img.get('content', '')
+            if image_url.startswith('//'):
+                image_url = 'https:' + image_url
+        
+        print(f"        来源: {source_platform}")
+        
     except Exception as e:
-        print(f"  [Error] Processing {initial_url}: {e}")
-
-    return source_platform, source_url, content
-
-def main(limit=10, out_dir="output"):
-    print("\n" + "-"*30)
-    print("🔍 [Toutiao] Starting Hot News Scraper")
-    print("-"*30)
+        print(f"        [!] 处理失败: {type(e).__name__}")
     
-    # Clean proxy envs to avoid Selenium issues
-    for k in list(os.environ.keys()):
-        if k.lower().endswith('_proxy'): del os.environ[k]
+    return source_platform, source_url, content, image_url
 
+def get_toutiao_news(count: int = 9) -> List[dict]:
+    """
+    抓取今日头条新闻（提取真实新闻来源）
+    :param count: 返回数量
+    :return: JSON格式的列表
+    """
+    print("[Toutiao] 开始抓取热搜新闻...")
+    
+    # 初始化浏览器
     driver = init_driver()
     if not driver:
-        print("  [!] Selenium is required for Toutiao. Exiting.")
+        print("[Toutiao] ✗ 浏览器初始化失败")
         return []
-
+    
     try:
-        items = fetch_hot_list(limit)
-        if not items:
-            print("  [!] No items found from Toutiao API.")
-            return []
-
-        print(f"  [✓] Successfully fetched hot list. Processing {len(items)} items...")
+        # 获取热榜链接
+        items = fetch_hot_list(limit=count)
         
+        if not items:
+            print("[Toutiao] ✗ 未找到任何文章链接")
+            return []
+        
+        print(f"[Toutiao] ✓ 获取{len(items)}条文章链接")
         results = []
         
         for idx, item in enumerate(items, 1):
-            title = item.get("Title", "N/A")
-            hot_index = item.get("HotValue", "N/A")
+            if len(results) >= count:
+                break
+            
+            title = item.get("Title", "")
             initial_url = item.get("Url", "")
-            image_url = item.get("Image", {}).get("url", "")
+            hot_index = item.get("HotValue", 0)
+            api_image = item.get("Image", {}).get("url", "") if isinstance(item.get("Image"), dict) else ""
             
-            print(f"\n  [#{idx}] Processing: {title} (Hot: {hot_index})")
+            print(f"\n[Toutiao] 处理第{len(results)+1}/{count}条:")
+            print(f"  标题: {title}")
+            print(f"  热度: {hot_index}")
             
-            source_platform, source_url, content = resolve_data(idx, title, initial_url, hot_index, driver)
+            # 解析文章数据
+            source_platform, source_url, content, image_url = resolve_article_data(
+                len(results) + 1, title, initial_url, driver
+            )
             
-            print(f"      - Resolved Source: {source_platform}")
-            print(f"      - Resolved URL: {source_url[:70]}...")
-
-            # For pipeline, we just return the remote image URL.
-            # Pipeline will handle downloading.
-            saved_image_path = image_url 
+            if not source_platform:
+                print(f"  ✗ 解析失败，跳过此条")
+                continue
             
-            record = {
-                "rank": idx,
+            if len(content) > 100:
+                content_preview = content[:100] + "..."
+            else:
+                content_preview = content
+            print(f"  内容: {content_preview}")
+            
+            # 优先使用页面提取的图片,备选API图片
+            final_image = image_url or api_image
+            if final_image:
+                print(f"  图片: {final_image[:50]}...")
+            
+            results.append({
+                "rank": len(results) + 1,
                 "title": title,
-                "hot_index": hot_index,
-                "source_platform": source_platform,
-                "source_url": source_url,
+                "title0": "",
                 "content": content,
-                "image": saved_image_path
-            }
-            results.append(record)
-            # Small delay to be polite
-            time.sleep(1)
-
-        print(f"\n  [✓] Toutiao scraping complete. Total items: {len(results)}")
+                "index": hot_index,
+                "author": "toutiao",
+                "source_platform": source_platform,  # 真实新闻源
+                "source_url": source_url,
+                "image": final_image
+            })
+            print(f"  ✓ 第{len(results)}条新闻已保存")
+            
+            time.sleep(random.uniform(0.8, 1.5))
+        
+        print(f"\n[Toutiao] ✓ 抓取完成，共{len(results)}条新闻\n")
         return results
-
+    
     finally:
-        if driver: driver.quit()
+        if driver:
+            driver.quit()
+            print("    [✓] 浏览器已关闭")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Toutiao Hot News Scraper")
-    parser.add_argument("--limit", type=int, default=10, help="Number of items")
-    parser.add_argument("--out-dir", type=str, default="toutiao", help="Output directory")
+    parser.add_argument("--limit", type=int, default=9, help="Number of items to scrape")
     args = parser.parse_args()
     
-    results = main(limit=args.limit, out_dir=args.out_dir)
-    
-    if results:
-        out_path = Path(args.out_dir) / "toutiao_raw.json"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(results, f, ensure_ascii=False, indent=4)
+    result = get_toutiao_news(count=args.limit)
+    print(json.dumps(result, ensure_ascii=False, indent=2))

@@ -2,7 +2,6 @@ import os
 import json
 import sys
 import shutil
-import requests
 import zipfile
 from datetime import datetime, timedelta
 
@@ -10,50 +9,17 @@ from datetime import datetime, timedelta
 sys.path.append(os.path.dirname(__file__))
 
 # Import modules
-from homenews import fetch_baidu, fetch_toutiao, fetch_tencent, polish as home_polish
-from worldnews import process_news as world_process
-from entertainment import aggregator as ent_aggregator
-from history_manager import HistoryManager
+from homenews import home_polish
+from worldnews import world_polish
+from entertainment import ent_polish
+import image_utils
 
 # --- Configuration ---
 OUTPUT_DIR = "output"
 LATEST_VERSION_FILE = os.path.join(OUTPUT_DIR, "latest_versions.json")
-KEEP_COUNT = 4  # Keep last 4 sets
-
-history_mgr = HistoryManager()
 
 def ensure_dirs():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-def download_image(url, local_path):
-    """Generic image downloader."""
-    if not url or not url.startswith('http'):
-        return False, "Invalid URL"
-    
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    }
-    
-    try:
-        response = requests.get(url, stream=True, timeout=15, headers=headers)
-        response.raise_for_status()
-        
-        content_type = response.headers.get('Content-Type', '')
-        # Flexible check
-        if 'image' not in content_type and not url.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
-            pass
-
-        with open(local_path, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                f.write(chunk)
-        
-        if os.path.getsize(local_path) < 3072: # 3KB
-            os.remove(local_path)
-            return False, "File too small"
-            
-        return True, "Success"
-    except Exception as e:
-        return False, str(e)
 
 def update_latest_version(section, zip_filename):
     """Updates the latest_versions.json file."""
@@ -69,78 +35,120 @@ def update_latest_version(section, zip_filename):
     
     with open(LATEST_VERSION_FILE, 'w') as f:
         json.dump(versions, f, indent=4)
-    print(f"  ✓ Updated latest_versions.json: {section} -> {zip_filename}")
+    print(f"  [✓] 更新最新版本记录: {section} -> {zip_filename}")
 
 def package_section(section_prefix, polished_data, timestamp_str):
     """
-    Creates ZIP archive in a temporary way, then moves result to output.
-    Does NOT leave loose images or json in output.
+    通用打包函数：
+    1. 下载/处理图片 (长图用公版替代)
+    2. 失败则使用公版图片
+    3. 生成 ZIP 包
     """
-    print(f"\n[{section_prefix}] Packaging...")
+    print(f"\n[{section_prefix}] 正在打包数据...")
     
-    # Create a temp dir for this packaging session
+    # 临时目录
     temp_dir = os.path.join(OUTPUT_DIR, f"temp_{section_prefix}_{timestamp_str}")
     temp_images_dir = os.path.join(temp_dir, "images")
     os.makedirs(temp_images_dir, exist_ok=True)
     
     try:
         polished_items = polished_data.get("news", [])
-        polished_data["timestamp"] = timestamp_str
         
-        # 1. Process Images (Download to temp_images_dir)
-        for item in polished_items:
-            if item.get("rank", 0) == 0: continue
-
-            remote_url = item.get("image")
-            is_local = not remote_url.startswith("http") if remote_url else False
-            
-            if remote_url:
-                title = item.get('title', 'NoTitle')
-                raw_prefix = title[:4]
-                safe_prefix = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in raw_prefix])
-                if not safe_prefix: safe_prefix = "Img"
-                
-                ext = ".jpg"
-                if remote_url.lower().endswith(".png"): ext = ".png"
-                if remote_url.lower().endswith(".webp"): ext = ".webp"
-                
-                filename = f"rank{item['rank']}_{safe_prefix}_{timestamp_str}{ext}"
-                local_path = os.path.join(temp_images_dir, filename)
-                
-                success = False
-                if is_local:
-                    pass
-                else:
-                    success, _ = download_image(remote_url, local_path)
-                
-                if success:
-                    item["image"] = f"images/{filename}"
-                elif is_local:
-                    pass
-                else:
-                    item["image"] = ""
-
-        # 2. Save JSON to temp dir
-        json_filename_in_zip = f"polished_all_{timestamp_str}.json"
-        json_path = os.path.join(temp_dir, json_filename_in_zip)
-        
-        with open(json_path, 'w', encoding='utf-8') as f:
+        # 先保存调试版（保存原始的 polished_data，图片URL未修改）
+        debug_json_path = os.path.join(OUTPUT_DIR, f"test_{section_prefix}_{timestamp_str}.json")
+        with open(debug_json_path, 'w', encoding='utf-8') as f:
             json.dump(polished_data, f, ensure_ascii=False, indent=4)
+        print(f"  [✓] 调试文件已保存: test_{section_prefix}_{timestamp_str}.json")
+        
+        # 1. 处理图片
+        print(f"  正在处理 {len(polished_items)-1} 条新闻图片...")
+        
+        for item in polished_items:
+            rank = item.get("rank", 0)
+            if rank == 0: 
+                continue
+
+            remote_url = item.get("image", "")
+            title = item.get('title', 'NoTitle')
+            author = item.get('author', '')
             
-        # 3. Create ZIP directly in OUTPUT_DIR
+            # 生成安全文件名
+            raw_prefix = title[:6]
+            safe_prefix = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in raw_prefix])
+            if not safe_prefix: 
+                safe_prefix = "Img"
+            
+            # 统一使用 jpg 或根据原 url 后缀
+            ext = ".jpg"
+            if remote_url and ".png" in remote_url.lower(): 
+                ext = ".png"
+            if remote_url and ".webp" in remote_url.lower(): 
+                ext = ".webp"
+            
+            filename = f"rank{rank}_{safe_prefix}_{timestamp_str}{ext}"
+            local_path = os.path.join(temp_images_dir, filename)
+            rel_path = f"images/{filename}"
+            
+            success = False
+            
+            # 尝试下载并处理（包含长图检测）
+            if remote_url and remote_url.startswith("http"):
+                success = image_utils.download_and_process(remote_url, local_path)
+            
+            # 失败或无效 URL，使用公版图片
+            if not success:
+                print(f"    [!] 图片获取失败 (Rank {rank})，使用公版图片: {author}")
+                success = image_utils.copy_placeholder(author, local_path)
+
+            # 更新 item.image 字段
+            if success:
+                item["image"] = rel_path
+            else:
+                # 彻底失败，保留空值或使用默认值
+                item["image"] = ""
+        
+        # 2. 统一化 JSON 格式：只保留必要字段
+        # 对于 ZIP 包内的 JSON，只保留：rank, title, source_platform, source_url, content, image
+        cleaned_news = []
+        for item in polished_items:
+            cleaned_item = {
+                "rank": item.get("rank", 0),
+                "title": item.get("title", ""),
+                "original_title": item.get("title0", ""),
+                "source_platform": item.get("source_platform", ""),
+                "source_url": item.get("source_url", ""),
+                "content": item.get("content", ""),
+                "image": item.get("image", "")
+            }
+            cleaned_news.append(cleaned_item)
+            
+        # 3. 保存用于 zip 的 json（图片路径已修改为本地相对路径）
+        json_filename_in_zip = f"polished_all_{timestamp_str}.json"
+        json_path_temp = os.path.join(temp_dir, json_filename_in_zip)
+        
+        # 重新组织 JSON 顺序：news 数组 + timestamp
+        polished_data_ordered = {
+            "news": cleaned_news,
+            "timestamp": timestamp_str
+        }
+        
+        with open(json_path_temp, 'w', encoding='utf-8') as f:
+            json.dump(polished_data_ordered, f, ensure_ascii=False, indent=4)
+            
+        # 4. 创建 ZIP
         zip_name = f"{section_prefix}_{timestamp_str}.zip"
         zip_path = os.path.join(OUTPUT_DIR, zip_name)
         
+        print(f"  正在生成压缩包: {zip_name}")
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-            zf.write(json_path, arcname=json_filename_in_zip)
+            zf.write(json_path_temp, arcname=json_filename_in_zip)
             for root, _, files in os.walk(temp_images_dir):
                 for file in files:
                     abs_path = os.path.join(root, file)
                     rel_path = f"images/{file}"
                     zf.write(abs_path, arcname=rel_path)
                         
-        print(f"  ✓ Created {zip_name}")
-        
+        print(f"  [✓] 打包完成。")
         update_latest_version(section_prefix.lower(), zip_name)
         
         return True
@@ -150,229 +158,257 @@ def package_section(section_prefix, polished_data, timestamp_str):
             shutil.rmtree(temp_dir)
 
 # --- HOME NEWS PIPELINE ---
-def run_home_news(timestamp_str):
-    print("\n--- Running Home News ---")
-    all_news = []
-    try: all_news.extend(fetch_baidu.main(limit=15)) # Increase limit to allow for filtering
-    except Exception as e: print(e)
-    try: all_news.extend(fetch_toutiao.main(limit=15))
-    except Exception as e: print(e)
-    try: all_news.extend(fetch_tencent.main(report_type="morning", limit=15))
-    except Exception as e: print(e)
+def run_home_news(count=9):
+    print("\n" + "="*40)
+    print("🏠 [Home] 开始执行国内新闻流程")
+    print("="*40)
     
-    if not all_news: return
-    
-    # Filter duplicates before polishing
-    print(f"  Total raw news: {len(all_news)}")
-    filtered_news = [n for n in all_news if not history_mgr.is_duplicate(n.get('title'), n.get('content', ''))]
-    print(f"  After history filtering: {len(filtered_news)}")
-    
-    if not filtered_news:
-        print("  No new news found after filtering.")
-        return
-
-    polished = home_polish.main(filtered_news)
-    if not polished or "news" not in polished: return
-    
-    package_section("Home", polished, timestamp_str)
-    
-    # Add finalized news to history
-    history_mgr.add_news(polished['news'], "home")
+    try:
+        # 调用主流程，传入新闻数量参数
+        polished = home_polish.main(count=count)
+        
+        if not polished or "news" not in polished:
+            print("  [!] 国内新闻润色失败。")
+            return None
+        
+        return polished
+        
+    except Exception as e:
+        print(f"  [!] Home 流程异常: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 # --- WORLD NEWS PIPELINE ---
-def run_world_news(timestamp_str):
-    print("\n--- Running World News ---")
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    world_dir = os.path.join(base_dir, "worldnews")
-    
-    world_process.SCRAPERS = [
-        os.path.join(world_dir, 'scrape_bbc_news.py'),
-        os.path.join(world_dir, 'scrape_cnn.py'),
-        os.path.join(world_dir, 'scrape_nytimes.py'),
-        os.path.join(world_dir, 'scrape_sky_news.py')
-    ]
+def run_world_news(count=9):
+    print("\n" + "="*40)
+    print("🌍 [World] 开始执行国际新闻流程")
+    print("="*40)
     
     try:
-        world_process.setup_directories()
-        world_process.run_scrapers(limit=15) # Increase limit
-        all_news, url_map = world_process.aggregate_data()
+        # 调用主流程，传入新闻数量参数（使用 limit 参数名）
+        world_polish.main(limit=count)
         
-        if not all_news: return
-
-        # Filter
-        print(f"  [World] Total raw: {len(all_news)}")
-        filtered_news = [n for n in all_news if not history_mgr.is_duplicate(n.get('title'), n.get('content', ''))]
-        print(f"  [World] After history filtering: {len(filtered_news)}")
-        
-        if not filtered_news: return
-
-        final_data_list = world_process.call_deepseek_v2(filtered_news, limit=10)
-        if not final_data_list: return
-            
-        print(f"\n[World] Packaging...")
-        
-        temp_dir = os.path.join(OUTPUT_DIR, f"temp_World_{timestamp_str}")
-        temp_images_dir = os.path.join(temp_dir, "images")
-        os.makedirs(temp_images_dir, exist_ok=True)
-        
-        try:
-            polished_data = {"news": final_data_list, "timestamp": timestamp_str}
-            
-            for item in final_data_list:
-                rank = item.get('rank', 0)
-                if rank == 0: continue
+        # 从 worldnews/output 读取最新生成的文件
+        worldnews_output = os.path.join(os.path.dirname(__file__), "worldnews", "output")
+        if os.path.exists(worldnews_output):
+            files = os.listdir(worldnews_output)
+            json_files = [f for f in files if f.endswith('.json')]
+            if json_files:
+                json_files.sort(reverse=True)
+                latest_json = json_files[0]
+                json_path = os.path.join(worldnews_output, latest_json)
                 
-                url = item.get('source_url')
-                original_data = url_map.get(url)
-                item['image'] = "" 
+                with open(json_path, 'r', encoding='utf-8') as f:
+                    polished_data = json.load(f)
                 
-                if original_data:
-                    src_path = original_data.get('local_image_path')
-                    if src_path and os.path.exists(src_path):
-                        title = item.get('title', 'NoTitle')
-                        raw_prefix = title[:4]
-                        safe_prefix = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in raw_prefix])
-                        if not safe_prefix: safe_prefix = "Img"
-                        
-                        ext = os.path.splitext(src_path)[1]
-                        if not ext: ext = ".jpg"
-                        
-                        filename = f"rank{rank}_{safe_prefix}_{timestamp_str}{ext}"
-                        dest_path = os.path.join(temp_images_dir, filename)
-                        
-                        shutil.copy2(src_path, dest_path)
-                        item['image'] = f"images/{filename}"
-            
-            json_filename = f"polished_all_{timestamp_str}.json"
-            json_path = os.path.join(temp_dir, json_filename)
-            with open(json_path, 'w', encoding='utf-8') as f:
-                json.dump(polished_data, f, ensure_ascii=False, indent=4)
-                
-            zip_name = f"World_{timestamp_str}.zip"
-            zip_path = os.path.join(OUTPUT_DIR, zip_name)
-            
-            with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-                zf.write(json_path, arcname=json_filename)
-                for root, _, files in os.walk(temp_images_dir):
-                    for file in files:
-                        abs_path = os.path.join(root, file)
-                        rel_path = f"images/{file}"
-                        zf.write(abs_path, arcname=rel_path)
-            
-            print(f"  ✓ Created {zip_name}")
-            update_latest_version("world", zip_name)
-            
-            # Add to history
-            history_mgr.add_news(final_data_list, "world")
-            
-        finally:
-            if os.path.exists(temp_dir): shutil.rmtree(temp_dir)
+                polished_data = {"news": polished_data} if isinstance(polished_data, list) else polished_data
+                return polished_data
+            else:
+                print("  [!] 未找到生成的 JSON 文件。")
+                return None
+        else:
+            print("  [!] worldnews/output 目录不存在。")
+            return None
         
     except Exception as e:
-        print(f"Error in World News Pipeline: {e}")
+        print(f"  [!] World 流程异常: {e}")
         import traceback
         traceback.print_exc()
+        return None
 
 # --- ENTERTAINMENT NEWS PIPELINE ---
-def run_entertainment_news(timestamp_str):
-    print("\n--- Running Entertainment News ---")
+def run_entertainment_news(count=9):
+    print("\n" + "="*40)
+    print("🎉 [Entertainment] 开始执行娱乐新闻流程")
+    print("="*40)
+    
     try:
-        # Pass history manager to aggregator? Or filter afterwards?
-        # Aggregator does scraping AND polishing.
-        # It's better to modify aggregator.py to accept history manager or filter internally.
-        # For now, let's assume we modify aggregator to return raw data OR we accept that ent news 
-        # might have some duplicates until we modify aggregator.py deeply.
-        
-        # Actually, let's modify aggregator.py in the next step to support filtering.
-        # Here we just pass the history_mgr if possible, or we filter the FINAL result
-        # but that doesn't save tokens.
-        
-        # Let's run it as is, and just RECORD history for now.
-        # Then in next step we modify aggregator.py to use the history.
-        
-        polished_data, temp_img_dir = ent_aggregator.aggregate_news(timestamp_str)
+        # 调用主流程，传入新闻数量参数
+        polished_data = ent_polish.aggregate_news(count=count)
         
         if not polished_data or not polished_data.get("news"):
-            return
-
-        print(f"[Entertainment] Packaging from {temp_img_dir}...")
+            print("  [!] 娱乐新闻聚合失败。")
+            return None
         
-        json_filename = f"polished_ent_{timestamp_str}.json"
-        json_path = os.path.join(OUTPUT_DIR, json_filename)
-        with open(json_path, 'w', encoding='utf-8') as f:
-            json.dump(polished_data, f, ensure_ascii=False, indent=4)
-            
-        zip_name = f"Entertainment_{timestamp_str}.zip"
-        zip_path = os.path.join(OUTPUT_DIR, zip_name)
+        return polished_data
         
-        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-            zf.write(json_path, arcname=f"polished_all_{timestamp_str}.json")
-            if os.path.exists(temp_img_dir):
-                for root, _, files in os.walk(temp_img_dir):
-                    for file in files:
-                        abs_path = os.path.join(root, file)
-                        zf.write(abs_path, arcname=f"images/{file}")
-        
-        print(f"  ✓ Created {zip_name}")
-        update_latest_version("entertainment", zip_name)
-        
-        # Add to history
-        history_mgr.add_news(polished_data['news'], "entertainment")
-        
-        if os.path.exists(temp_img_dir):
-            shutil.rmtree(temp_img_dir)
-
     except Exception as e:
-        print(f"Error in Entertainment News Pipeline: {e}")
+        print(f"  [!] Entertainment 流程异常: {e}")
         import traceback
         traceback.print_exc()
+        return None
 
-def cleanup(keep_count):
-    print("\n--- Cleaning up ---")
+def cleanup_output_directory():
+    """
+    清理 output 目录：
+    1. 删除其他非 ZIP、非 latest_versions.json、非 test_*.json 的文件
+    2. 对于每个平台（Home/World/Entertainment），只保留最新的 1 个 ZIP
+    3. 保留最新的 3 个 test_*.json 调试文件（每个平台 1 个）
+    4. 最终结果：3 个最新 ZIP + 3 个 test JSON + latest_versions.json
+    """
+    print("\n" + "="*40)
+    print("🧹 [Cleanup] 清理输出目录")
+    print("="*40)
+    
+    if not os.path.exists(OUTPUT_DIR):
+        print("  output 目录不存在")
+        return
+    
+    all_files = os.listdir(OUTPUT_DIR)
+    
+    # 1. 删除其他非 ZIP、非 latest_versions.json、非 test_*.json 的文件
+    print("  正在删除无效文件...")
+    invalid_files = [
+        f for f in all_files 
+        if not f.endswith('.zip') 
+        and f != 'latest_versions.json' 
+        and not f.startswith('test_')
+        and not f.startswith('temp_')
+    ]
+    for f in invalid_files:
+        try:
+            full_path = os.path.join(OUTPUT_DIR, f)
+            if os.path.isfile(full_path):
+                os.remove(full_path)
+                print(f"    [✓] 删除: {f}")
+        except Exception as e:
+            print(f"    [!] 删除失败 {f}: {e}")
+    
+    # 2. 清理过期的 ZIP 包（每个平台只保留最新的 1 个）
+    print("  正在清理过期 ZIP 包...")
     prefixes = ["Home_", "World_", "Entertainment_"]
+    
     for prefix in prefixes:
-        files = [f for f in os.listdir(OUTPUT_DIR) if f.startswith(prefix) and f.endswith(".zip")]
-        files.sort(reverse=True)
-        to_remove = files[keep_count:]
-        for f in to_remove:
+        zip_files = [f for f in os.listdir(OUTPUT_DIR) if f.startswith(prefix) and f.endswith(".zip")]
+        
+        if not zip_files:
+            print(f"    {prefix}: 未找到 ZIP 文件")
+            continue
+        
+        # 按时间戳倒序排序（最新的在前）
+        zip_files.sort(reverse=True)
+        
+        print(f"    {prefix}: 现有 {len(zip_files)} 个，保留最新 1 个")
+        
+        # 删除除了最新的以外的所有文件
+        for zip_file in zip_files[1:]:
             try:
-                os.remove(os.path.join(OUTPUT_DIR, f))
-            except Exception: pass
+                full_path = os.path.join(OUTPUT_DIR, zip_file)
+                os.remove(full_path)
+                print(f"      [✓] 删除旧版本: {zip_file}")
+            except Exception as e:
+                print(f"      [!] 删除失败 {zip_file}: {e}")
+    
+    # 3. 清理过期的 test_*.json 调试文件（每个平台只保留最新的 1 个）
+    print("  正在清理过期调试文件...")
+    test_prefixes = ["test_Home_", "test_World_", "test_Entertainment_"]
+    
+    for test_prefix in test_prefixes:
+        test_files = [f for f in os.listdir(OUTPUT_DIR) if f.startswith(test_prefix) and f.endswith(".json")]
+        
+        if not test_files:
+            continue
+        
+        # 按时间戳倒序排序（最新的在前）
+        test_files.sort(reverse=True)
+        
+        # 删除除了最新的以外的所有调试文件
+        for test_file in test_files[1:]:
+            try:
+                full_path = os.path.join(OUTPUT_DIR, test_file)
+                os.remove(full_path)
+                print(f"    [✓] 删除旧调试文件: {test_file}")
+            except Exception as e:
+                print(f"    [!] 删除失败 {test_file}: {e}")
+    
+    # 4. 验证最终状态
+    print("\n  最终文件状态：")
+    remaining_files = os.listdir(OUTPUT_DIR)
+    zip_count = 0
+    test_count = 0
+    
+    for f in sorted(remaining_files):
+        file_path = os.path.join(OUTPUT_DIR, f)
+        if os.path.isfile(file_path):
+            size = os.path.getsize(file_path)
+            if size > 1024*1024:
+                size_str = f"{size / (1024*1024):.1f} MB"
+            elif size > 1024:
+                size_str = f"{size / 1024:.1f} KB"
+            else:
+                size_str = f"{size} B"
+            print(f"    ✓ {f} ({size_str})")
+            
+            if f.endswith('.zip'):
+                zip_count += 1
+            elif f.startswith('test_') and f.endswith('.json'):
+                test_count += 1
+    
+    print(f"\n  [✓] 清理完成。保留 {zip_count} 个 ZIP + {test_count} 个调试文件 + latest_versions.json")
 
 def cleanup_intermediate_dirs():
+    """清理临时目录"""
+    print("\n  正在清理临时抓取目录...")
     base_dir = os.path.dirname(os.path.abspath(__file__))
     dirs_to_remove = [
         "bbc_news_data", "cnn_data", "nytimes_data", "sky_news_data", 
-        "SampleNewsG", "RawData_Backup", "tencent_ent_hot", "tencent", "images",
-        os.path.join(OUTPUT_DIR, "images")
+        "SampleNewsG", "RawData_Backup"
     ]
     for d in dirs_to_remove:
         path = d if os.path.isabs(d) else os.path.join(base_dir, d)
         if os.path.exists(path):
-            try: shutil.rmtree(path)
-            except Exception: pass
-    if os.path.exists(OUTPUT_DIR):
-        for f in os.listdir(OUTPUT_DIR):
-            if f.startswith("polished_") and f.endswith(".json"):
-                try: os.remove(os.path.join(OUTPUT_DIR, f))
-                except Exception: pass
+            try: 
+                shutil.rmtree(path)
+            except Exception: 
+                pass
 
 def main():
+    print("\n" + "#"*50)
+    print(f"🚀 启动 PostGarden 全流程爬虫任务")
+    print(f"📅 时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("#"*50)
+
     ensure_dirs()
     
-    # 1. Clean old history
-    history_mgr.clean_old_history()
-    
+    # Timestamp for packaging
     beijing_time = datetime.utcnow() + timedelta(hours=8)
     timestamp = beijing_time.strftime('%Y%m%d_%H%M%S')
-    print(f"Global Timestamp (Beijing Time): {timestamp}")
+    print(f"⏳ 全局时间戳 (北京时间): {timestamp}")
     
-    run_home_news(timestamp)
-    run_world_news(timestamp)
-    run_entertainment_news(timestamp)
+    # 配置：每个平台抓取的新闻数量
+    news_count = 9
     
-    cleanup(KEEP_COUNT)
+    # 运行三大板块，只传入新闻数量参数
+    print("\n" + "="*50)
+    print("📋 启动各平台数据采集和润色")
+    print("="*50)
+    
+    home_data = run_home_news(count=news_count)
+    world_data = run_world_news(count=news_count)
+    ent_data = run_entertainment_news(count=news_count)
+    
+    # 打包阶段：使用时间戳为 ZIP 命名
+    print("\n" + "="*50)
+    print("📦 启动数据打包阶段")
+    print("="*50)
+    
+    if home_data:
+        package_section("Home", home_data, timestamp)
+    
+    if world_data:
+        package_section("World", world_data, timestamp)
+    
+    if ent_data:
+        package_section("Entertainment", ent_data, timestamp)
+    
+    # 收尾
+    cleanup_output_directory()
     cleanup_intermediate_dirs()
+    
+    print("\n" + "#"*50)
+    print("✅ 全流程任务执行完毕！")
+    print("#"*50 + "\n")
 
 if __name__ == "__main__":
     main()

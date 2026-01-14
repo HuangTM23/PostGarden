@@ -27,3 +27,9 @@ crawler/output/
 crawler/tencent/
 output/
 tencent/
+
+# Runtime History
+**/*_history.json
+
+# IDE
+**/.vscode/

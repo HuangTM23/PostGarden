@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -26,7 +27,6 @@ import com.example.postgarden.ui.NewsAdapter
 import com.example.postgarden.ui.WebViewActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -34,15 +34,20 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.core.content.FileProvider
+import java.io.File
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rvNews: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     private val apiClient = ApiClient()
     private lateinit var repository: ReportRepository
-    private lateinit var favManager: FavoritesManager // New Manager
+    private lateinit var favManager: FavoritesManager 
     private lateinit var toolbar: MaterialToolbar
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     
     // Track what is currently being viewed
     private var currentReportType: String = "home"
@@ -62,31 +67,24 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
         rvNews = findViewById(R.id.rvNews)
-        val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         
         repository = ReportRepository(this)
-        favManager = FavoritesManager(this) // Initialize new manager
+        favManager = FavoritesManager(this)
 
         newsAdapter = NewsAdapter(
             onFavoriteClick = { item ->
                 handleFavoriteClick(item)
             },
-            // This checker needs to be synchronous for bind(), so we might need a synchronous way 
-            // OR the adapter should not rely on a callback for binding state if it's expensive.
-            // But checking memory cache in FavManager is fast and now thread-safe.
-            // However, runBlocking on UI thread is bad. 
-            // Better approach: Adapter holds a Set of favorite IDs.
-            isFavoriteCheck = { false } // Placeholder, will update logic below
+            isFavoriteCheck = { false } 
         )
 
         rvNews.layoutManager = LinearLayoutManager(this)
         rvNews.adapter = newsAdapter
 
-        fabRefresh.setOnClickListener {
-            if (!isRefreshing) {
-                manualRefresh()
-            }
+        swipeRefreshLayout.setOnRefreshListener {
+            manualRefresh()
         }
 
         bottomNavigationView.setOnItemSelectedListener { item ->
@@ -124,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
         }
         
-        // 2. Start Background Update
+        // 2. Start Background Update Automatically
         startBackgroundUpdate()
         
         // 3. Pre-load favorites into memory
@@ -134,11 +132,12 @@ class MainActivity : AppCompatActivity() {
     private fun handleFavoriteClick(item: PolishedNewsItem) {
         lifecycleScope.launch {
             try {
+                // Determine if we are adding or removing using sourceUrl as unique key
                 val isFav = favManager.isFavorite(item.sourceUrl)
                 if (isFav) {
                     favManager.removeFavorite(item)
                     Toast.makeText(this@MainActivity, "已取消收藏", Toast.LENGTH_SHORT).show()
-                    // If we are currently viewing favorites, refresh the list
+                    // If we are currently viewing favorites, refresh the list to remove the item
                     if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
                         loadFavorites()
                     }
@@ -147,11 +146,17 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "已加入收藏", Toast.LENGTH_SHORT).show()
                 }
                 
-                // Notify adapter to update this specific item's appearance
-                // Since we don't have the position easily here, we might need to rely on 
-                // notifying dataset changed or finding the item.
-                // For simplicity/robustness, let's just refresh the visible list's state binding.
-                newsAdapter.notifyDataSetChanged()
+                // Notify adapter that data set might have changed or specific item needs redraw.
+                // Since we update the favorite status in the manager, next time we check it will be correct.
+                // But for immediate visual feedback of the HEART icon, we rely on the adapter's click listener
+                // updating the UI immediately, and here we just sync the backend state.
+                // However, to be safe, we can notify data changed to re-bind all ViewHolders with correct favorite state.
+                if (bottomNavigationView.selectedItemId != R.id.nav_favorites) {
+                     // Get all favorite URLs for quick checking
+                    val favs = favManager.getFavorites()
+                    val favUrls = favs.mapNotNull { it.sourceUrl }.toSet()
+                    newsAdapter.updateFavoriteSet(favUrls)
+                }
                 
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -164,16 +169,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val favs = favManager.getFavorites()
             displayReport(favs)
+            swipeRefreshLayout.isRefreshing = false
         }
     }
 
     private fun loadLocalData(): Boolean {
-        // If we are on favorites tab, don't load regular report
-        if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
-            loadFavorites()
-            return true
-        }
-        
         val report = repository.getLocalReport(currentReportType)
         if (report.news.isNotEmpty()) {
             displayReport(report.news)
@@ -188,7 +188,10 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 val serverVersions = apiClient.fetchLatestVersions() ?: run {
-                    withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
+                    withContext(Dispatchers.Main) { 
+                        progressBar.visibility = View.GONE 
+                        swipeRefreshLayout.isRefreshing = false
+                    }
                     return@launch
                 }
                 
@@ -214,39 +217,39 @@ class MainActivity : AppCompatActivity() {
                     if (results.all { it }) {
                         repository.saveLocalVersions(serverVersions)
                         withContext(Dispatchers.Main) {
-                            // Only refresh if not viewing favorites
                             if (bottomNavigationView.selectedItemId != R.id.nav_favorites) {
                                 loadLocalData()
                             }
                         }
                     }
                 }
-                withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
+                withContext(Dispatchers.Main) { 
+                    progressBar.visibility = View.GONE 
+                    swipeRefreshLayout.isRefreshing = false
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
-                withContext(Dispatchers.Main) { progressBar.visibility = View.GONE }
+                withContext(Dispatchers.Main) { 
+                    progressBar.visibility = View.GONE 
+                    swipeRefreshLayout.isRefreshing = false
+                }
             }
         }
     }
     
     private fun manualRefresh() {
-        // If on favorites, just reload favorites
         if (bottomNavigationView.selectedItemId == R.id.nav_favorites) {
             loadFavorites()
             return
         }
         
-        val fabRefresh = findViewById<FloatingActionButton>(R.id.fabRefresh)
         isRefreshing = true
-        fabRefresh.isEnabled = false 
-        fabRefresh.setImageResource(R.drawable.ic_refresh)
-        progressBar.visibility = View.VISIBLE
+        swipeRefreshLayout.isRefreshing = true
         
         lifecycleScope.launch {
             startBackgroundUpdate()
-            delay(1500)
-            fabRefresh.setImageResource(R.drawable.ic_refresh) 
-            fabRefresh.isEnabled = true 
+            delay(1000)
+            swipeRefreshLayout.isRefreshing = false
             isRefreshing = false
         }
     }
@@ -262,7 +265,111 @@ class MainActivity : AppCompatActivity() {
                 showHistoryDialog()
                 true
             }
+            R.id.action_share -> {
+                shareZipFiles()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+    
+    private fun shareZipFiles() {
+        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val savedEmail = prefs.getString("share_email", "")
+        
+        val input = android.widget.EditText(this)
+        input.hint = "接收邮箱 (选填)"
+        input.setText(savedEmail)
+        
+        AlertDialog.Builder(this)
+            .setTitle("分享新闻包")
+            .setMessage("请输入接收邮箱（留空则手动选择分享应用）")
+            .setView(input)
+            .setPositiveButton("分享") { _, _ ->
+                val email = input.text.toString().trim()
+                if (email.isNotEmpty()) {
+                    prefs.edit().putString("share_email", email).apply()
+                }
+                executeShare(email)
+            }
+            .setNegativeButton("取消", null)
+            .show()
+    }
+
+    private fun executeShare(targetEmail: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            // Correct path: /Android/data/pkg/files/PostGarden/data/
+            val rootDir = getExternalFilesDir(null) ?: filesDir
+            val dataDir = File(File(rootDir, "PostGarden"), "data")
+            val versionFile = File(dataDir, "latest_versions.json")
+            
+            val zipFiles = ArrayList<File>()
+            
+            if (versionFile.exists()) {
+                try {
+                    val json = versionFile.readText()
+                    // Simple parsing to avoid dependency on specific data class structure if it changes
+                    // Or use the Repository's data class
+                    val versions = com.google.gson.Gson().fromJson(json, com.example.postgarden.data.LatestVersions::class.java)
+                    
+                    if (versions != null) {
+                        if (!versions.home.isNullOrEmpty()) zipFiles.add(File(dataDir, versions.home))
+                        if (!versions.world.isNullOrEmpty()) zipFiles.add(File(dataDir, versions.world))
+                        if (!versions.entertainment.isNullOrEmpty()) zipFiles.add(File(dataDir, versions.entertainment))
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            } else {
+                 // Fallback: If no version file, try latest by time
+                 dataDir.listFiles { file -> 
+                    file.extension == "zip" && 
+                    (file.name.startsWith("Home_") || 
+                     file.name.startsWith("World_") || 
+                     file.name.startsWith("Entertainment_"))
+                }?.sortedByDescending { it.lastModified() }?.take(3)?.let { zipFiles.addAll(it) }
+            }
+            
+            // Filter out non-existent files
+            val existingFiles = zipFiles.filter { it.exists() }
+
+            if (existingFiles.isEmpty()) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@MainActivity, "没有可分享的文件 (目录: ${dataDir.name})", Toast.LENGTH_LONG).show()
+                }
+                return@launch
+            }
+
+            val uris = ArrayList<Uri>()
+            for (file in existingFiles) {
+                val uri = FileProvider.getUriForFile(
+                    this@MainActivity,
+                    "${packageName}.fileprovider",
+                    file
+                )
+                uris.add(uri)
+            }
+
+            val shareIntent = Intent().apply {
+                if (uris.size == 1) {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_STREAM, uris[0])
+                } else {
+                    action = Intent.ACTION_SEND_MULTIPLE
+                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
+                }
+                type = "application/zip"
+                if (targetEmail.isNotEmpty()) {
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf(targetEmail))
+                    putExtra(Intent.EXTRA_SUBJECT, "PostGarden News Report")
+                    putExtra(Intent.EXTRA_TEXT, "Here are the latest news reports from PostGarden.")
+                }
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+
+            withContext(Dispatchers.Main) {
+                startActivity(Intent.createChooser(shareIntent, "发送给..."))
+            }
         }
     }
 
@@ -288,7 +395,6 @@ class MainActivity : AppCompatActivity() {
         rvHistory.adapter = historyAdapter
         historyAdapter.submitList(historyItems)
         
-        // Dynamic Height Logic
         val density = resources.displayMetrics.density
         val itemHeightPx = (60 * density).toInt() 
         val totalEstimatedHeight = historyItems.size * itemHeightPx
@@ -317,10 +423,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayReport(items: List<PolishedNewsItem>) {
-        // Need to update adapter with a way to check favorites synchronously or async
-        // We will pass a set of favorite URLs to the adapter
         lifecycleScope.launch {
-            // Get all favorite URLs for quick checking
+            // Update the favorites set in adapter for correct icon state
             val favs = favManager.getFavorites()
             val favUrls = favs.mapNotNull { it.sourceUrl }.toSet()
             

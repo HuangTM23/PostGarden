@@ -1,9 +1,9 @@
 name: Daily News CI
 
-# Controls when the action will run.
+# Controls when the action will run. 
 on:
   # Triggers the workflow twice a day on a schedule.
-  # Note: GitHub Actions runners use UTC time.
+  # Note: GitHub Actions runners use UTC time. 
   # 22:00 UTC is 06:00 Beijing Time (UTC+8)
   # 10:00 UTC is 18:00 Beijing Time (UTC+8)
   schedule:
@@ -11,17 +11,7 @@ on:
     - cron: "0 10 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      report_type:
-        description: 'Report Type (morning/evening/auto)'
-        required: true
-        default: 'auto'
-        type: choice
-        options:
-        - auto
-        - morning
-        - evening
+  workflow_dispatch: 
 
 jobs:
   build-and-deploy:
@@ -35,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
 
       # Step 2: Set up Python environment
-      - name: Setup Python 3.10
+      - name:  Setup Python 3.10
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
@@ -51,31 +41,13 @@ jobs:
         run: |
           pip install -r requirements.txt
       
-      # Step 5: Run News Pipeline (Auto-detect or Manual)
+      # Step 5: Run News Pipeline
       - name: Run News Pipeline
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          INPUT_TYPE: ${{ inputs.report_type }}
-        run: |
-          TYPE=$INPUT_TYPE
-          
-          # If triggered by schedule (INPUT_TYPE is empty) or set to auto
-          if [ -z "$TYPE" ] || [ "$TYPE" == "auto" ]; then
-            # Calculate Beijing Time (UTC+8)
-            current_hour=$(date +%H)
-            beijing_hour=$(( (current_hour + 8) % 24 ))
-            
-            # If Beijing time is before 12:00, it's morning news
-            if [ $beijing_hour -lt 12 ]; then
-              TYPE="morning"
-            else
-              TYPE="evening"
-            fi
-            echo "Auto-detected time: UTC $current_hour -> Beijing $beijing_hour. Selected: $TYPE"
-          fi
-          
-          echo "Running pipeline for: $TYPE"
-          python crawler/pipeline.py $TYPE
+        run:  |
+          echo "Running news pipeline"
+          python crawler/pipeline.py
 
       # Step 6: Deploy results to docs folder for GitHub Pages
       - name: Deploy results
@@ -99,3 +71,4 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
+

@@ -1,28 +1,21 @@
 import argparse
-import csv
 import json
-import os
 import re
 import time
-from collections import OrderedDict
-from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+import os
+import sys
+from typing import Dict, List, Tuple
 
 import requests
 from bs4 import BeautifulSoup
 
-# Clear system proxy settings to avoid connection errors if proxy is down
-for k in ["http_proxy", "https_proxy", "all_proxy", "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY"]:
-    if k in os.environ:
-        del os.environ[k]
-
-# Try importing Selenium
+# Selenium 导入
 try:
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service as ChromeService
     from selenium.webdriver.chrome.options import Options as ChromeOptions
     from webdriver_manager.chrome import ChromeDriverManager
+    from selenium.webdriver.common.by import By
     SELENIUM_AVAILABLE = True
 except ImportError:
     SELENIUM_AVAILABLE = False
@@ -41,46 +34,77 @@ def get_headers() -> Dict[str, str]:
         "Upgrade-Insecure-Requests": "1",
     }
 
+def get_no_proxy_session():
+    """创建一个不使用系统代理的 Session"""
+    session = requests.Session()
+    session.trust_env = False
+    return session
+
+def install_selenium_hint():
+    """提示安装 Selenium"""
+    print("\n" + "!"*50)
+    print("❌ 错误：未检测到 Selenium 库")
+    print("!"*50)
+    print("\n百度热搜需要 Selenium 来绕过验证并提取真实新闻源。")
+    print("\n📦 安装步骤：")
+    print("\n1. 安装 Selenium：")
+    print("   pip install selenium webdriver-manager")
+    print("\n2. 确保已安装 Chrome 浏览器")
+    print("\n安装完成后，请重新运行本脚本。")
+    print("\n" + "!"*50 + "\n")
+    sys.exit(1)
+
 def init_driver():
-    """Initialize Headless Chrome Driver"""
+    """初始化 Selenium WebDriver"""
     if not SELENIUM_AVAILABLE:
-        print("Error: Selenium not installed or failed to import.")
-        return None
-        
-    print("Initializing Selenium WebDriver...")
+        install_selenium_hint()
+    
+    print("    [*] 正在初始化浏览器...")
     try:
         options = ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
-        # Explicitly disable proxy for Selenium to avoid environment variable issues
         options.add_argument("--no-proxy-server")
-        
-        # options.add_argument(f"user-agent={USER_AGENT}") # Optional, sometimes helps
-        options.binary_location = "/usr/bin/google-chrome"
+        options.add_argument("--disable-images")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        options.add_argument(f"user-agent={USER_AGENT}")
+        options.page_load_strategy = 'eager'
         
         service = ChromeService(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=options)
-        driver.set_page_load_timeout(20)
+        
+        # 隐藏 Selenium 特征
+        driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+          "source": """
+            Object.defineProperty(navigator, 'webdriver', {
+              get: () => undefined
+            })
+          """
+        })
+        
+        driver.set_page_load_timeout(60)
+        print("    [✓] 浏览器初始化成功")
         return driver
     except Exception as e:
-        print(f"Failed to init driver: {e}")
+        print(f"    [!] 浏览器初始化失败: {type(e).__name__}")
         return None
 
-def fetch_top_list(limit: int = 10) -> List[Dict]:
-    """
-    Fetch the top news list from Baidu Hot Board API.
-    """
-    print(f"Fetching top {limit} items from {BOARD_API_URL}...")
+def fetch_top_list(limit: int = 9) -> List[Dict]:
+    """从百度热搜API获取榜单"""
+    print(f"    [*] 从API获取前{limit}条热搜...")
     try:
-        resp = requests.get(BOARD_API_URL, headers=get_headers(), timeout=10)
+        session = get_no_proxy_session()
+        resp = session.get(BOARD_API_URL, headers=get_headers(), timeout=10)
         resp.raise_for_status()
         data = resp.json()
         
         cards = data.get("data", {}).get("cards", [])
         if not cards:
-            print("Warning: No cards found in API response.")
+            print("    [!] API 响应中未找到cards")
             return []
             
         content = cards[0].get("content", [])
@@ -93,21 +117,21 @@ def fetch_top_list(limit: int = 10) -> List[Dict]:
                 "desc": item.get("desc") or "",
                 "search_url": search_url,
                 "image_url": item.get("img") or "",
-                "hot_score": item.get("hotScore") or ""
+                "hot_score": item.get("hotScore") or 0
             })
+        
+        print(f"    [✓] API 获取成功，共{len(items)}条")
         return items
     except Exception as e:
-        print(f"Error fetching top list: {e}")
+        print(f"    [!] API 获取失败: {type(e).__name__}")
         return []
 
-def extract_from_html(html: str) -> Tuple[str, str, str]:
-    """
-    Helper to parse HTML content using the s-data logic.
-    """
+def extract_from_html(html: str) -> Tuple[str, str]:
+    """从HTML中提取真实URL和来源"""
     found_url = ""
     found_source = ""
 
-    # Logic: Look for <!--s-data:{...}-->
+    # 策略1: 从<!--s-data:{...}-->提取
     s_data_pattern = r'<!--s-data:(.*?)-->'
     matches = re.findall(s_data_pattern, html, re.DOTALL)
     
@@ -116,7 +140,7 @@ def extract_from_html(html: str) -> Tuple[str, str, str]:
             try:
                 data = json.loads(match)
                 
-                # Strategy 1: Check citationList (Preferred for Baijiahao URLs)
+                # 子策略1: citationList (优先)
                 card_data = data.get("cardData", {})
                 citation_list = card_data.get("citationList", {})
                 
@@ -135,22 +159,19 @@ def extract_from_html(html: str) -> Tuple[str, str, str]:
                         if real_url:
                             found_url = real_url
                             found_source = str(source)
-                            # If we have both, we can break, but maybe we want to keep checking if source is empty?
                             if found_source:
                                 break
 
-                # Strategy 2: Check blocksList for "sourceList" (Fallback)
+                # 子策略2: blocksList (备选)
                 if not found_url:
                     blocks_list = data.get("cardData", {}).get("blocksList", [])
                     for block in blocks_list:
                         items = block.get("data", {}).get("items", [])
                         for item in items:
-                            # Check sourceList
                             source_list = item.get("sourceList", [])
                             if source_list and isinstance(source_list, list) and len(source_list) > 0:
                                 src_text = source_list[0].get("text", "")
                                 if src_text:
-                                    # Try to find a link in this item too
                                     link_info = item.get("linkInfo", {})
                                     link = link_info.get("href", "") or link_info.get("url", "")
                                     
@@ -161,45 +182,40 @@ def extract_from_html(html: str) -> Tuple[str, str, str]:
                         if found_url and found_source:
                             break
 
-            except json.JSONDecodeError:
-                continue
-            except Exception:
+            except (json.JSONDecodeError, Exception):
                 continue
             
             if found_url and found_source:
                 break
     else:
-        # Fallback: simple Baijiahao links if no s-data
+        # 备选: 简单的百家号链接
         bjh_pattern = r'https://baijiahao\.baidu\.com/s\?id=\d+'
         bjh_matches = re.findall(bjh_pattern, html)
         if bjh_matches:
-             found_url = bjh_matches[0]
-             found_source = "Baidu (Fallback)"
+            found_url = bjh_matches[0]
+            found_source = "Baidu (Fallback)"
 
-    # Strategy 3: BeautifulSoup DOM Parsing
+    # 策略2: BeautifulSoup DOM 解析
     if not found_source or found_source == "Baidu (Fallback)":
         try:
             soup = BeautifulSoup(html, "html.parser")
             
-            # 3.1 Check for specific "cosc-source-text"
+            # 查找 cosc-source-text
             cosc_source = soup.select_one(".cosc-source-text")
             if cosc_source:
                 src_text = cosc_source.get_text(strip=True)
                 if src_text:
                     found_source = src_text
                     
-                    # If we also missed the URL, try to find it near the source
                     if not found_url:
                         link_el = soup.select_one("a.title_dIF3B, a.c-blocka")
                         found_url = link_el.get("href", "") if link_el else ""
 
-            # 3.2 Look for other standard classes if still no source
+            # 更多标准选择器
             if not found_source:
-                # Try more specific Baidu search result selectors
                 source_el = soup.select_one(".c-showurl, .source_1V_v6, .c-source, .c-gray, .c-color-gray")
                 if source_el:
                     src_text = source_el.get_text(strip=True)
-                    # Clean up: remove date, etc.
                     src_text = re.sub(r'\d{4}-\d{2}-\d{2}.*', '', src_text).strip()
                     src_text = src_text.split(' ')[0]
                     if src_text and len(src_text) < 20:
@@ -215,193 +231,179 @@ def extract_from_html(html: str) -> Tuple[str, str, str]:
                                 found_source = src_text
                             
                     if not found_url:
-                        link_el = first_result.select_one("a")
+                        link_el = first_result.select_one("a") if first_result else None
                         found_url = link_el.get("href", "") if link_el else ""
 
         except Exception:
             pass
 
-    return found_url, found_source, ""
+    return found_url, found_source
 
-def resolve_real_source(search_url: str, driver=None) -> Tuple[str, str, str]:
-    """
-    Access the search page and extract real info.
-    Uses Selenium if 'driver' is provided, else 'requests'.
-    """
+def resolve_real_source(search_url: str, driver=None) -> Tuple[str, str]:
+    """访问搜索页面提取真实URL和来源（Selenium优先）"""
     if not search_url:
-        return "", "", ""
+        return "", "百度"
 
-    print(f"  -> resolving: {search_url[:60]}...")
+    print(f"        正在解析: {search_url[:60]}...")
     html = ""
     
-    # 1. Try Selenium if available
+    # 使用 Selenium
     if driver:
         try:
             driver.get(search_url)
-            time.sleep(2) 
+            time.sleep(2)
             html = driver.page_source
             
-            # Check for Captcha immediately
+            # 检测验证码
             if "百度安全验证" in driver.title or "security-verification" in html:
-                print("    [!] BLOCKING DETECTED: Baidu Security Verification (Captcha).")
-                return "", "Baidu (Captcha Blocked)", ""
+                print(f"        [!] 检测到百度安全验证")
+                return search_url, "百度"
                 
         except Exception as e:
-            print(f"    [!] Selenium error: {e}")
-            return "", "Selenium Error", ""
+            print(f"        [!] Selenium 错误: {type(e).__name__}")
+            return search_url, "百度"
     else:
-        # 2. Try Requests
+        # 备选: requests
         try:
-            resp = requests.get(search_url, headers=get_headers(), timeout=10)
+            session = get_no_proxy_session()
+            resp = session.get(search_url, headers=get_headers(), timeout=10)
             if "wappass.baidu.com" in resp.url or "security-verification" in resp.text:
-                print("    [!] Captcha detected (Requests).")
-                return "", "Security Check", ""
+                print(f"        [!] 检测到验证码 (requests)")
+                return search_url, "百度"
             html = resp.text
         except Exception as e:
-            print(f"    [!] Request error: {e}")
-            return "", "Request Error", ""
+            print(f"        [!] Request 错误: {type(e).__name__}")
+            return search_url, "百度"
 
-    # Parse what we got
-    real_url, source, content = extract_from_html(html)
+    # 解析 HTML
+    real_url, source = extract_from_html(html)
     
-    # If we got a Baijiahao link but no specific source, try to resolve it from the article page
+    # 如果是百家号且来源未知,尝试进一步解析
     if real_url and "baijiahao.baidu.com" in real_url and source == "Baidu (Fallback)":
-        print(f"    [+] Resolving specific source from Baijiahao: {real_url}")
-        bj_source = resolve_baijiahao_source(real_url, driver)
+        print(f"        [+] 解析百家号来源: {real_url[:50]}...")
+        bj_source = resolve_baijiahao_source(real_url, driver=driver)
         if bj_source:
             source = bj_source
-            
-    return real_url, source, content
+    
+    final_url = real_url if real_url else search_url
+    final_source = source if source else "百度"
+    
+    return final_url, final_source
 
 def resolve_baijiahao_source(url: str, driver=None) -> str:
-    """
-    Visit a Baijiahao page and extract the author/source name using BeautifulSoup.
-    """
+    """访问百家号页面提取作者名"""
     try:
         html = ""
-        if driver:
+        if driver:  # Selenium driver object
             driver.get(url)
-            time.sleep(3)
+            time.sleep(2)
             html = driver.page_source
         else:
-            resp = requests.get(url, headers=get_headers(), timeout=10)
+            session = get_no_proxy_session()
+            resp = session.get(url, headers=get_headers(), timeout=10)
             html = resp.text
             
         soup = BeautifulSoup(html, "html.parser")
         
-        # 1. Try author name selectors
+        # 1. 作者名选择器
         author = soup.select_one(".author-name, span.author-name, a.author-name, span[class*='author'], a[class*='author']")
         if author:
             name = author.get_text(strip=True)
             if 1 < len(name) < 30:
                 return name
 
-        # 2. Try meta og:site_name
+        # 2. Meta 标签
         meta = soup.find("meta", attrs={"property": "og:site_name"})
         if meta and meta.get("content"):
             return meta["content"].strip()
             
-        # 3. Try meta name=source
         meta = soup.find("meta", attrs={"name": "source"})
         if meta and meta.get("content"):
             return meta["content"].strip()
 
     except Exception as e:
-        print(f"    [!] Error resolving Baijiahao source: {e}")
+        print(f"        [!] 解析百家号失败: {type(e).__name__}")
         
     return ""
 
-def download_image(url: str, save_path: Path) -> bool:
-    if not url:
-        return False
-    try:
-        resp = requests.get(url, headers=get_headers(), timeout=10)
-        if resp.status_code == 200:
-            save_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(save_path, "wb") as f:
-                f.write(resp.content)
-            return True
-    except Exception:
-        pass
-    return False
-
-def main(limit=10, out_dir="output", use_selenium=False):
-    print("\n" + "-"*30)
-    print("🔍 [Baidu] Starting Hot News Scraper")
-    print("-"*30)
+def get_baidu_news(count: int = 9) -> List[dict]:
+    """
+    抓取百度热搜新闻
+    :param count: 返回数量
+    :return: JSON格式的列表
+    """
+    print("[Baidu] 开始抓取热搜新闻...")
     
-    # Init Driver if requested
-    driver = None
-    if use_selenium:
-        driver = init_driver()
-        if not driver:
-            print("  [!] Falling back to requests (Selenium init failed).")
+    # 检查 Selenium
+    if not SELENIUM_AVAILABLE:
+        install_selenium_hint()
+    
+    # 1. 获取热榜列表
+    items = fetch_top_list(limit=count)
+    if not items:
+        print("[Baidu] ✗ 未获取到任何新闻")
+        return []
+    
+    print(f"[Baidu] ✓ 获取{len(items)}条候选新闻")
+    results = []
+    
+    # 2. 初始化 Selenium
+    driver = init_driver()
+    if not driver:
+        print("[Baidu] ✗ 浏览器初始化失败")
+        return []
     
     try:
-        # 1. Get Top List
-        items = fetch_top_list(limit=limit)
-        if not items:
-            print("  [!] No items found from Baidu API.")
-            return []
-
-        print(f"  [✓] Successfully fetched top list. Processing {len(items)} items...")
-        
-        results = []
-        
-        # 2. Process each item
         for item in items:
-            print(f"\n  [#{item['rank']}] Processing: {item['title']}")
+            print(f"\n[Baidu] 处理第{item['rank']}/{len(items)}条:")
+            print(f"  标题: {item['title']}")
             
-            # Resolve real source
-            real_url, source_name, _ = resolve_real_source(item['search_url'], driver=driver)
+            # 解析真实来源
+            real_url, source_name = resolve_real_source(item['search_url'], driver=driver)
             
-            # If we couldn't resolve, fallback
-            final_url = real_url if real_url else item['search_url']
-            final_source = source_name if source_name else "Baidu"
+            print(f"  来源: {source_name}")
             
-            print(f"      - Source: {final_source}")
-            print(f"      - URL: {final_url[:70]}...")
-
-            # Logic: If content is empty, use title
-            content_val = item['desc']
-            if not content_val:
-                content_val = item['title']
-
-            record = {
-                "rank": item['rank'],
+            # 内容优先使用desc
+            content_val = item['desc'] or item['title']
+            if len(content_val) > 100:
+                content_preview = content_val[:100] + "..."
+            else:
+                content_preview = content_val
+            print(f"  内容: {content_preview}")
+            print(f"  链接: {real_url[:60]}...")
+            
+            results.append({
+                "rank": len(results) + 1,
                 "title": item['title'],
-                "source_platform": final_source,
-                "source_url": final_url,
+                "title0": "",
                 "content": content_val,
-                "hot_index": item['hot_score'],
-                "image": item['image_url'] # Return REMOTE URL for pipeline
-            }
-            results.append(record)
+                "index": item['hot_score'],
+                "author": "baidu",
+                "source_platform": source_name,
+                "source_url": real_url,
+                "image": item['image_url']
+            })
+            print(f"  ✓ 第{len(results)}条新闻已保存")
             
-            if not use_selenium:
-                time.sleep(1) # sleep if using requests
-
-        print(f"\n  [✓] Baidu scraping complete. Total items: {len(results)}")
-        return results
-
+            time.sleep(0.5)
+    
     finally:
         if driver:
-            print("Closing Selenium Driver...")
             driver.quit()
+            print("    [✓] 浏览器已关闭")
+    
+    print(f"\n[Baidu] ✓ 抓取完成，共{len(results)}条新闻\n")
+    return results
+
+def main(limit: int = 9):
+    results = get_baidu_news(count=limit)
+    if results:
+        print(json.dumps(results, ensure_ascii=False, indent=2))
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Detailed Baidu Hot News Scraper")
-    parser.add_argument("--limit", type=int, default=10, help="Number of items to scrape")
-    parser.add_argument("--out-dir", type=str, default="output", help="Output directory")
-    parser.add_argument("--use-selenium", action="store_true", help="Use Selenium for better anti-bot evasion")
+    parser = argparse.ArgumentParser(description="Baidu Hot News Scraper")
+    parser.add_argument("--limit", type=int, default=9, help="Number of items to scrape")
     args = parser.parse_args()
     
-    results = main(limit=args.limit, out_dir=args.out_dir, use_selenium=args.use_selenium)
-    
-    # Dump to JSON for verification if run standalone
-    if results:
-        out_path = Path(args.out_dir) / "baidu_raw.json"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(results, f, ensure_ascii=False, indent=4)
+    main(limit=args.limit)
 

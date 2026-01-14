@@ -1,0 +1,11 @@
+{
+            "rank": 1,
+            "title": title,（中文标题，也是最终的标题），
+            “title0”:title0(国际新闻对应原始英文标题)，
+            "content": content,（新闻的具体内容），
+            “index”:index(新闻 热度指数),
+            “author”：BBC（抓取的新闻平台，例如baidu、tencent、CNN等）
+            "source_platform": source（新闻的源平台）,
+            "source_url": real_url（新闻源地址，对于B站和抖音来说据说video_link）,
+            "image": image_url （图片的网页地址，在任何时候通过链接可访问图片）
+        }

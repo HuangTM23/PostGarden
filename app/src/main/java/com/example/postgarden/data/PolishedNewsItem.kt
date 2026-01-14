@@ -6,6 +6,7 @@ import java.io.File
 data class PolishedNewsItem(
     @SerializedName("rank") val rank: Int = 0,
     @SerializedName("title") val title: String? = "",
+    @SerializedName("original_title") val originalTitle: String? = "",
     @SerializedName("content") val content: String? = "",
     @SerializedName("source_platform") val sourcePlatform: String? = "",
     @SerializedName("source_url") val sourceUrl: String? = "",

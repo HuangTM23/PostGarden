@@ -43,7 +43,7 @@ class NewsAdapter(
         itemView: View,
         private val onFavoriteClick: (PolishedNewsItem) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
-        private val rankView: TextView = itemView.findViewById(R.id.tv_rank)
+        private val originalTitleView: TextView = itemView.findViewById(R.id.tv_original_title)
         private val titleView: TextView = itemView.findViewById(R.id.tv_title)
         private val contentView: TextView = itemView.findViewById(R.id.tv_content)
         private val sourceView: TextView = itemView.findViewById(R.id.tv_source)
@@ -52,8 +52,16 @@ class NewsAdapter(
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
         fun bind(item: PolishedNewsItem, isFavorite: Boolean) {
-            rankView.text = "${item.rank}."
-            titleView.text = item.title
+            // 双语标题处理
+            if (!item.originalTitle.isNullOrEmpty()) {
+                originalTitleView.text = item.originalTitle
+                originalTitleView.visibility = View.VISIBLE
+                titleView.text = item.title
+            } else {
+                originalTitleView.visibility = View.GONE
+                titleView.text = item.title
+            }
+            
             contentView.text = item.content
             sourceView.text = "来源: ${item.sourcePlatform}"
             
@@ -71,11 +79,18 @@ class NewsAdapter(
             }
 
             // Set icon based on passed state
-            favoriteBtn.setImageResource(
-                if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
-            )
+            updateFavoriteIcon(isFavorite)
             
             favoriteBtn.setOnClickListener {
+                // Immediate UI feedback
+                val newStatus = !isFavorite
+                // Note: This local visual toggle is temporary until the list refreshes
+                // Ideally, we should update the adapter's state, but for instant feedback:
+                if (newStatus) {
+                    favoriteBtn.setImageResource(R.drawable.ic_favorite_filled)
+                } else {
+                    favoriteBtn.setImageResource(R.drawable.ic_favorite_border)
+                }
                 onFavoriteClick(item)
             }
 
@@ -89,6 +104,12 @@ class NewsAdapter(
             } else {
                 imageView.setImageResource(android.R.drawable.ic_menu_gallery)
             }
+        }
+
+        private fun updateFavoriteIcon(isFavorite: Boolean) {
+             favoriteBtn.setImageResource(
+                if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
+            )
         }
     }
 }
