@@ -1,0 +1,114 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "伊朗抗议者面临处决！美伊大战一触即发？",
+            "title0": "",
+            "content": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美国暂停75国移民签证处理",
+            "title0": "Trump administration pauses immigrant visa processing for 75 countries",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy7mnzgkp7go",
+            "content": "特朗普政府无限期暂停来自75个国家的移民签证处理，进一步限制进入美国的合法途径。",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5208/live/0f2ba650-f172-11f0-adde-9114e6d28169.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "斯汀向警察乐队前成员支付59.5万英镑版税",
+            "title0": "Sting pays Police bandmates £600,000 in royalties",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn42lp1135vo",
+            "content": "斯汀在承认少付版税后，已向其警察乐队前成员支付超过59.5万英镑。双方就流媒体收入分成仍存法律纠纷。",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3bc3/live/8348ddf0-f14a-11f0-b108-71580feedafc.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "加拿大两省因皇冠威士忌爆发争端",
+            "title0": "Why two Canadian provinces are in a spat over Crown Royal whisky",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c8x9v241z2qo",
+            "content": "因酒商计划关闭安大略省装瓶厂，安省省长怒倒皇冠威士忌并威胁下架，引发产地马尼托巴省的强烈不满。",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/9b79/live/db200680-f167-11f0-b5f7-49f0357294ff.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "特朗普对抗议者竖中指，白宫称“恰当明确”",
+            "title0": "'Appropriate and unambiguous': White House defends Trump over middle-finger gesture at heckler",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c62w8exgw1zo",
+            "content": "特朗普在底特律演讲时对一名抗议者做出竖中指手势，白宫为其辩护，称这是对“疯狂尖叫者”的恰当回应。",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/4fd2/live/09c26c60-f15b-11f0-9fdd-27d7df3706fc.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "演员基弗·萨瑟兰涉嫌袭击网约车司机被捕",
+            "title0": "Actor Kiefer Sutherland arrested over alleged assault of ride-share driver",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cql40ze5pkpo",
+            "content": "演员基弗·萨瑟兰因涉嫌在好莱坞袭击并威胁一名网约车司机而被捕，目前已获保释。",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ea67/live/b489dff0-f0ef-11f0-88ad-55371262ee5a.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "美英从卡塔尔军事基地撤出部分人员",
+            "title0": "US and UK pulling some personnel from Qatar military base",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c701xywwxw8o",
+            "content": "因应伊朗局势紧张，美国和英国作为预防措施，从卡塔尔的乌代德空军基地撤出部分军事人员。",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/06b4/live/d44d2ca0-f15f-11f0-bfbc-db36ba7a9ce1.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "伊朗抗议者索尔塔尼被判处死刑",
+            "title0": "'Sentenced to death within days': Who is Erfan Soltani, Iranian protester reportedly facing execution?",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cd9e7vv042xo",
+            "content": "26岁的伊朗抗议者埃尔凡·索尔塔尼被捕后，在极短时间内被判处死刑，引发国际社会对伊朗镇压手段的严重关切。",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/47da/live/1039dc70-f13a-11f0-bac6-01fa62f5abf0.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "泰国起重机倒塌致列车多人死亡",
+            "title0": "Multiple fatalities as construction crane collapses onto moving train in Thailand",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/01/14/asia/thailand-train-deaths-intl-hnk",
+            "content": "泰国一处建筑起重机倒塌，砸中一列行驶中的火车，造成多人死亡。",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-01-14t082338z-1111287009-rc2w0jaj1px4-rtrmadp-3-thailand-accident.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "NASA因宇航员重病紧急撤离空间站",
+            "title0": "NASA latest: Evacuation from space after astronaut suffers 'serious medical condition'",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/nasa-latest-spacex-crew-to-return-early-after-serious-medical-condition-13494209",
+            "content": "国际空间站一名宇航员出现“严重健康状况”，NASA决定让SpaceX载人龙飞船上的四名宇航员全部提前返回地球。",
+            "index": 10,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/01/1600x900/skynews-nasa-space_7135473.jpg?20260114202003"
+        }
+    ]
+}
