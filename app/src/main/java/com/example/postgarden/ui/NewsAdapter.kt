@@ -1,7 +1,6 @@
 package com.example.postgarden.ui
 
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.postgarden.data.PolishedNewsItem
 import com.example.postgarden.R
+import com.example.postgarden.data.PolishedNewsItem
 
 class NewsAdapter(
     private val onFavoriteClick: (PolishedNewsItem) -> Unit,
-    // Deprecated: isFavoriteCheck removed, we use internal set
     private val isFavoriteCheck: (PolishedNewsItem) -> Boolean
 ) : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
@@ -52,19 +50,33 @@ class NewsAdapter(
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
         fun bind(item: PolishedNewsItem, isFavorite: Boolean) {
-            // 双语标题处理
-            if (!item.originalTitle.isNullOrEmpty()) {
+            val isForeign = !item.originalTitle.isNullOrEmpty()
+
+            // 1. Titles
+            if (isForeign) {
                 originalTitleView.text = item.originalTitle
                 originalTitleView.visibility = View.VISIBLE
                 titleView.text = item.title
+                titleView.visibility = View.VISIBLE
             } else {
                 originalTitleView.visibility = View.GONE
                 titleView.text = item.title
+                titleView.visibility = View.VISIBLE
             }
             
-            contentView.text = item.content
-            sourceView.text = "来源: ${item.sourcePlatform}"
-            
+            // 2. Content (Summary pre-fetched in Repository)
+            if (isForeign) {
+                contentView.visibility = View.VISIBLE
+                if (!item.summary.isNullOrEmpty()) {
+                    contentView.text = item.summary
+                } else {
+                    contentView.text = "Summary loading failed or not available."
+                }
+            } else {
+                contentView.visibility = View.GONE
+            }
+
+            sourceView.text = "Source: ${item.sourcePlatform}"
             val isVideoPlatform = item.sourcePlatform == "抖音" || item.sourcePlatform == "哔哩哔哩"
             playIcon.visibility = if (isVideoPlatform) View.VISIBLE else View.GONE
             
@@ -78,26 +90,15 @@ class NewsAdapter(
                 }
             }
 
-            // Set icon based on passed state
             updateFavoriteIcon(isFavorite)
-            
             favoriteBtn.setOnClickListener {
-                // Immediate UI feedback
-                val newStatus = !isFavorite
-                // Note: This local visual toggle is temporary until the list refreshes
-                // Ideally, we should update the adapter's state, but for instant feedback:
-                if (newStatus) {
-                    favoriteBtn.setImageResource(R.drawable.ic_favorite_filled)
-                } else {
-                    favoriteBtn.setImageResource(R.drawable.ic_favorite_border)
-                }
                 onFavoriteClick(item)
             }
 
             if (!item.imagePath.isNullOrEmpty()) {
                 Glide.with(itemView.context)
                     .load(item.fullImageUrl)
-                    .centerCrop()
+                    .fitCenter() 
                     .placeholder(android.R.drawable.ic_menu_gallery)
                     .error(android.R.drawable.ic_menu_report_image)
                     .into(imageView)
@@ -120,6 +121,9 @@ class NewsDiffCallback : DiffUtil.ItemCallback<PolishedNewsItem>() {
     }
 
     override fun areContentsTheSame(oldItem: PolishedNewsItem, newItem: PolishedNewsItem): Boolean {
-        return oldItem == newItem
+        // Since summary might change, we check it too
+        return oldItem.title == newItem.title && 
+               oldItem.summary == newItem.summary && 
+               oldItem.originalTitle == newItem.originalTitle
     }
 }

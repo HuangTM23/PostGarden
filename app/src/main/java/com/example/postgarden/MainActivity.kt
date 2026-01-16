@@ -177,6 +177,16 @@ class MainActivity : AppCompatActivity() {
         val report = repository.getLocalReport(currentReportType)
         if (report.news.isNotEmpty()) {
             displayReport(report.news)
+            // Background check for summaries
+            lifecycleScope.launch(Dispatchers.IO) {
+                if (repository.ensureSummaries(currentReportType)) {
+                    withContext(Dispatchers.Main) {
+                        // Reload if changed
+                        val updated = repository.getLocalReport(currentReportType)
+                        displayReport(updated.news)
+                    }
+                }
+            }
             return true
         } else {
             newsAdapter.submitList(emptyList())

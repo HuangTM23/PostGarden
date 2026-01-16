@@ -10,7 +10,8 @@ data class PolishedNewsItem(
     @SerializedName("content") val content: String? = "",
     @SerializedName("source_platform") val sourcePlatform: String? = "",
     @SerializedName("source_url") val sourceUrl: String? = "",
-    @SerializedName("image") val imagePath: String? = ""
+    @SerializedName("image") val imagePath: String? = "",
+    @SerializedName("summary") var summary: String? = ""
 ) {
     // This will be set dynamically after parsing to point to local file
     var localImageFile: File? = null
