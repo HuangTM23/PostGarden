@@ -265,6 +265,7 @@ def cleanup_output_directory():
         and f != 'latest_versions.json' 
         and not f.startswith('test_')
         and not f.startswith('temp_')
+        and not f.endswith('_history.json') # 防止误删历史记录文件
     ]
     for f in invalid_files:
         try:

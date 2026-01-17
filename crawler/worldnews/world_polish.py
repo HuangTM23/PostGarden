@@ -59,7 +59,7 @@ V2_PROMPT_TEMPLATE = """
 - **必须翻译**：将英文标题和内容翻译成中文。
 
 **Rank 0 总结标题（核心任务）**：
-你是一名顶级"标题党"编辑，擅长制作**极具爆炸性和冲击力的新闻标题**。
+你是一名顶级"标题党"编辑，擅长制作**极具爆炸性、创新性和冲击力的新闻标题**。
 
 【核心策略】
 1. **不必面面俱到**：可以只聚焦 9 条新闻中**最具冲击力的 1-2 条事件**
@@ -67,6 +67,7 @@ V2_PROMPT_TEMPLATE = """
 3. **突出对抗**：强调冲突、博弈、撕裂、反转
 4. **引发好奇**：可以用疑问句或感叹句结尾
 5. **具体胜于抽象**：可以提及具体国家/地区/事件，但要有冲击力
+6. **创新表达**：拒绝陈词滥调，使用新颖、独特的视角和措辞
 
 【标题公式（任选其一）】
 - **对抗型**：XX vs XX！谁将胜出？
@@ -78,8 +79,9 @@ V2_PROMPT_TEMPLATE = """
 
 【标题要求】
 - 字数：**15-25 个汉字**
-- 风格：**爆炸性、刺激性、冲突对抗**
+- 风格：**爆炸性、创新性、刺激性、冲突对抗**
 - **必须使用**："！"或"？"结尾
+- **绝对禁止包含具体日期或时间**（如“今天”、“本周”、“月日”等）。
 - **可以包含**：具体国家、地区、人物、事件名称
 - **禁止**：危言耸听、虚假信息、过度夸张
 
@@ -101,6 +103,7 @@ V2_PROMPT_TEMPLATE = """
     "title": "爆炸性中文总结标题！或？",
     "title0": "",
     "content": "",
+    "content0": "",
     "index": 0,
     "author": "",
     "source_platform": "",
@@ -114,6 +117,7 @@ V2_PROMPT_TEMPLATE = """
     "source_platform": "来源平台",
     "source_url": "原始链接",
     "content": "50字以内中文正文",
+    "content0": "直接复制输入数据中该条新闻的 content0 字段，必须保持原样，不得翻译或修改",
     "index": 热度指数,
     "author": "平台名称",
     "image": "图片URL"
@@ -124,6 +128,18 @@ V2_PROMPT_TEMPLATE = """
 以下是原始新闻数据:
 {news_data}
 """
+
+def extract_first_paragraph(content):
+    """提取内容的第一段"""
+    if not content:
+        return ""
+    # 按双换行符分割并取第一部分
+    paragraphs = content.split('\n\n')
+    for p in paragraphs:
+        p = p.strip()
+        if p and len(p) > 10: # 简单的过滤，防止是短语或元数据
+            return p
+    return content.strip()
 
 def clear_output_directory():
     """清空输出目录"""
@@ -352,6 +368,11 @@ def main(limit=9):
         print("\n[!] 未获取到任何新闻，退出。")
         return None
     
+    # 2.5 预处理 content0 (提取原始第一段)
+    print(f"\n[Pre-process] 正在为 {len(raw_news)} 条新闻提取原始第一段...")
+    for item in raw_news:
+        item['content0'] = extract_first_paragraph(item.get('content', ''))
+    
     # 3. 调用 DeepSeek 处理
     final_news = call_deepseek(raw_news, history_context=history)
     
@@ -367,6 +388,14 @@ def main(limit=9):
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(final_news, f, ensure_ascii=False, indent=2)
         print(f"\n[✓] 已保存到: {output_file}")
+        
+        # 4.1 保存带 content0 的测试文件 (用于 App 端展示英文原文)
+        # 注意：这个文件名格式要与 pipeline 中清理逻辑兼容，或者在 pipeline 中增加保护
+        test_output_file = os.path.join(OUTPUT_DIR, f"test_World_{timestamp}.json")
+        with open(test_output_file, 'w', encoding='utf-8') as f:
+            json.dump(final_news, f, ensure_ascii=False, indent=2)
+        print(f"[✓] 已保存测试文件: {test_output_file}")
+            
     except Exception as e:
         print(f"\n[!] 保存文件失败: {e}")
         return None

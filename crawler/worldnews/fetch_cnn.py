@@ -97,19 +97,35 @@ def process_article_card(article_card, current_rank, processed_urls, section_nam
         elif 'data-src' in img_tag.attrs:
             img_url = absolute_url(img_tag.get('data-src'))
 
-    # 如果列表页没有图片，进入详情页获取
-    if not img_url:
-        try:
-            print(f"      ℹ 列表页无图，尝试访问详情页: {source_url[:60]}...")
+    # 如果列表页没有图片，或者我们需要获取内容，进入详情页
+    content = ""
+    try:
+        if not img_url or True: # 强制进入详情页获取内容
+            print(f"      ℹ 访问详情页获取内容: {source_url[:60]}...")
             resp = requests.get(source_url, headers=HEADERS, verify=False, timeout=10)
             if resp.status_code == 200:
                 detail_soup = BeautifulSoup(resp.content, 'html.parser')
-                og_img = detail_soup.find('meta', property='og:image')
-                if og_img:
-                    img_url = og_img.get('content', '')
-                    print(f"      ✓ 详情页获取图片成功")
-        except Exception as e:
-            print(f"      [!] 详情页图片获取失败: {type(e).__name__}")
+                
+                # 获取图片
+                if not img_url:
+                    og_img = detail_soup.find('meta', property='og:image')
+                    if og_img:
+                        img_url = og_img.get('content', '')
+                        print(f"      ✓ 详情页获取图片成功")
+                
+                # 获取内容
+                # CNN 新闻内容通常在 class 包含 "article__content" 或 "paragraph" 的标签中
+                paragraphs = detail_soup.find_all('p', class_=re.compile(r'paragraph|article__content'))
+                if not paragraphs:
+                    paragraphs = detail_soup.find_all('p')
+                
+                if paragraphs:
+                    # 过滤掉太短的段落
+                    valid_paragraphs = [p.get_text(strip=True) for p in paragraphs if len(p.get_text(strip=True)) > 20]
+                    content = "\n\n".join(valid_paragraphs[:3])
+                    print(f"      ✓ 详情页获取内容成功 ({len(valid_paragraphs)} 段)")
+    except Exception as e:
+        print(f"      [!] 详情页内容获取失败: {type(e).__name__}")
 
     # 确保图片 URL 完整
     if img_url and not img_url.startswith('http'):
@@ -120,7 +136,7 @@ def process_article_card(article_card, current_rank, processed_urls, section_nam
         "rank": current_rank,
         "title": title,
         "title0": title,
-        "content": "",
+        "content": content,
         "index": current_rank,
         "author": "CNN",
         "source_platform": "CNN",

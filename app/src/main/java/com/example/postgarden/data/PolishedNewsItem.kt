@@ -8,6 +8,7 @@ data class PolishedNewsItem(
     @SerializedName("title") val title: String? = "",
     @SerializedName("original_title") val originalTitle: String? = "",
     @SerializedName("content") val content: String? = "",
+    @SerializedName("content0") val content0: String? = "",
     @SerializedName("source_platform") val sourcePlatform: String? = "",
     @SerializedName("source_url") val sourceUrl: String? = "",
     @SerializedName("image") val imagePath: String? = "",

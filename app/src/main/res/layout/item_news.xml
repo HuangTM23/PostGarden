@@ -49,6 +49,9 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:lineSpacingMultiplier="1.2"
+            android:breakStrategy="high_quality"
+            android:hyphenationFrequency="full"
+            android:justificationMode="inter_word"
             app:layout_constraintTop_toBottomOf="@id/iv_news_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,13 +79,28 @@
             android:layout_marginHorizontal="12dp"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textSize="12sp"
-            android:maxLines="4"
-            android:ellipsize="end"
             android:lineSpacingExtra="2dp"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="This is the news summary content, it provides a brief overview of the article. It will now show fully without truncation." />
+
+        <TextView
+            android:id="@+id/tv_content0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="12dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"
+            android:breakStrategy="high_quality"
+            android:hyphenationFrequency="full"
+            android:justificationMode="inter_word"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="This is the original English content (content0). It should be displayed with hyphenation to fill the lines as much as possible." />
         
         <TextView
             android:id="@+id/tv_source"
@@ -93,7 +111,7 @@
             android:layout_marginStart="12dp"
             android:textSize="12sp"
             android:textStyle="italic"
-            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_content0"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Source: Baidu" />
 

@@ -44,6 +44,7 @@ class NewsAdapter(
         private val originalTitleView: TextView = itemView.findViewById(R.id.tv_original_title)
         private val titleView: TextView = itemView.findViewById(R.id.tv_title)
         private val contentView: TextView = itemView.findViewById(R.id.tv_content)
+        private val content0View: TextView = itemView.findViewById(R.id.tv_content0)
         private val sourceView: TextView = itemView.findViewById(R.id.tv_source)
         private val imageView: ImageView = itemView.findViewById(R.id.iv_news_image)
         private val playIcon: ImageView = itemView.findViewById(R.id.iv_play_icon)
@@ -70,10 +71,22 @@ class NewsAdapter(
                 if (!item.summary.isNullOrEmpty()) {
                     contentView.text = item.summary
                 } else {
-                    contentView.text = "Summary loading failed or not available."
+                    // Fallback to regular content if summary is missing, but for foreign news, content is usually the Chinese translation
+                     contentView.text = item.content ?: "Summary not available."
                 }
+
+                // 3. Original Content (content0)
+                if (!item.content0.isNullOrEmpty()) {
+                    content0View.text = item.content0
+                    content0View.visibility = View.VISIBLE
+                } else {
+                    content0View.visibility = View.GONE
+                }
+
             } else {
-                contentView.visibility = View.GONE
+                contentView.visibility = View.VISIBLE
+                contentView.text = item.content // For local news, just show content
+                content0View.visibility = View.GONE
             }
 
             sourceView.text = "Source: ${item.sourcePlatform}"
