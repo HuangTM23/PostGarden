@@ -125,6 +125,10 @@ class ReportRepository(private val context: Context) {
                     if (testResponse.isSuccessful) {
                         val testJson = testResponse.body?.string()
                         if (testJson != null) {
+                            // Save to local file
+                            val localTestFile = File(typeExtractedDir, testFilename)
+                            localTestFile.writeText(testJson)
+
                             val listType = object : com.google.gson.reflect.TypeToken<List<PolishedNewsItem>>() {}.type
                             val testItems: List<PolishedNewsItem> = gson.fromJson(testJson, listType)
                             

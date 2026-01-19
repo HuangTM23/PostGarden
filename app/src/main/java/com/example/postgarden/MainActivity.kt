@@ -92,20 +92,24 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.nav_home -> {
                         currentReportType = "home"
+                        newsAdapter.updateType(currentReportType)
                         if (!loadLocalData()) manualRefresh()
                         true
                     }
                     R.id.nav_international -> {
                         currentReportType = "world"
+                        newsAdapter.updateType(currentReportType)
                         if (!loadLocalData()) manualRefresh()
                         true
                     }
                     R.id.nav_entertainment -> {
                         currentReportType = "entertainment"
+                        newsAdapter.updateType(currentReportType)
                         if (!loadLocalData()) manualRefresh()
                         true
                     }
                     R.id.nav_favorites -> {
+                        newsAdapter.updateType("favorites")
                         loadFavorites()
                         true
                     }

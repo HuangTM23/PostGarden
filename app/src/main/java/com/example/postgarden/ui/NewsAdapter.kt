@@ -20,9 +20,15 @@ class NewsAdapter(
 ) : ListAdapter<PolishedNewsItem, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
     private var favoriteUrls: Set<String> = emptySet()
+    private var currentType: String = "home"
 
     fun updateFavoriteSet(newSet: Set<String>) {
         favoriteUrls = newSet
+        notifyDataSetChanged()
+    }
+
+    fun updateType(type: String) {
+        currentType = type
         notifyDataSetChanged()
     }
 
@@ -34,7 +40,7 @@ class NewsAdapter(
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = getItem(position)
         val isFav = favoriteUrls.contains(item.sourceUrl)
-        holder.bind(item, isFav)
+        holder.bind(item, isFav, currentType)
     }
 
     class NewsViewHolder(
@@ -50,11 +56,16 @@ class NewsAdapter(
         private val playIcon: ImageView = itemView.findViewById(R.id.iv_play_icon)
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
-        fun bind(item: PolishedNewsItem, isFavorite: Boolean) {
+        fun bind(item: PolishedNewsItem, isFavorite: Boolean, type: String) {
             val isForeign = !item.originalTitle.isNullOrEmpty()
+            val isEntertainment = type == "entertainment"
 
             // 1. Titles
-            if (isForeign) {
+            if (isEntertainment) {
+                originalTitleView.visibility = View.GONE
+                titleView.text = item.title
+                titleView.visibility = View.VISIBLE
+            } else if (isForeign) {
                 originalTitleView.text = item.originalTitle
                 originalTitleView.textLocale = java.util.Locale.ENGLISH
                 originalTitleView.visibility = View.VISIBLE
@@ -66,17 +77,21 @@ class NewsAdapter(
                 titleView.visibility = View.VISIBLE
             }
             
-            // 2. Content (Summary pre-fetched in Repository)
-            if (isForeign) {
+            // 2. Content & Images
+            if (isEntertainment) {
+                contentView.visibility = View.GONE
+                content0View.visibility = View.GONE
+                // Show image for entertainment
+                imageView.visibility = View.VISIBLE
+            } else if (isForeign) {
+                imageView.visibility = View.VISIBLE
                 contentView.visibility = View.VISIBLE
                 if (!item.summary.isNullOrEmpty()) {
                     contentView.text = item.summary
                 } else {
-                    // Fallback to regular content if summary is missing, but for foreign news, content is usually the Chinese translation
-                     contentView.text = item.content ?: "Summary not available."
+                    contentView.text = item.content ?: "Summary not available."
                 }
 
-                // 3. Original Content (content0)
                 if (!item.content0.isNullOrEmpty()) {
                     content0View.text = item.content0
                     content0View.textLocale = java.util.Locale.ENGLISH
@@ -84,16 +99,16 @@ class NewsAdapter(
                 } else {
                     content0View.visibility = View.GONE
                 }
-
             } else {
+                imageView.visibility = View.VISIBLE
                 contentView.visibility = View.VISIBLE
-                contentView.text = item.content // For local news, just show content
+                contentView.text = item.content
                 content0View.visibility = View.GONE
             }
 
             sourceView.text = "Source: ${item.sourcePlatform}"
             val isVideoPlatform = item.sourcePlatform == "抖音" || item.sourcePlatform == "哔哩哔哩"
-            playIcon.visibility = if (isVideoPlatform) View.VISIBLE else View.GONE
+            playIcon.visibility = if (isVideoPlatform && !isEntertainment) View.VISIBLE else View.GONE
             
             itemView.setOnClickListener {
                 if (!item.sourceUrl.isNullOrEmpty()) {
