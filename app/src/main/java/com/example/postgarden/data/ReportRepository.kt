@@ -114,6 +114,55 @@ class ReportRepository(private val context: Context) {
             
             File(typeExtractedDir, "version.txt").writeText(zipFilename)
             
+            // --- MERGE content0 for WORLD NEWS ---
+            if (type == "world") {
+                try {
+                    val testFilename = "test_${zipFilename.replace(".zip", ".json")}"
+                    val testUrl = "${ApiClient.BASE_URL}/$testFilename"
+                    val testRequest = Request.Builder().url(testUrl).build()
+                    val testResponse = client.newCall(testRequest).execute()
+                    
+                    if (testResponse.isSuccessful) {
+                        val testJson = testResponse.body?.string()
+                        if (testJson != null) {
+                            val listType = object : com.google.gson.reflect.TypeToken<List<PolishedNewsItem>>() {}.type
+                            val testItems: List<PolishedNewsItem> = gson.fromJson(testJson, listType)
+                            
+                            // Map rank -> content0
+                            val content0Map = testItems.associate { it.rank to it.content0 }
+                            
+                            // Update local report
+                            val report = getLocalReport(type)
+                            if (report.news.isNotEmpty()) {
+                                val mergedNews = report.news.map { item ->
+                                    val c0 = content0Map[item.rank]
+                                    if (!c0.isNullOrEmpty()) {
+                                        item.copy(content0 = c0)
+                                    } else {
+                                        item
+                                    }
+                                }
+                                
+                                // Write back
+                                val jsonFile = typeExtractedDir.walk()
+                                    .filter { it.isFile && it.name.endsWith(".json") && !it.name.equals("version.txt") }
+                                    .sortedByDescending { it.name.startsWith("polished_") }
+                                    .firstOrNull()
+                                
+                                if (jsonFile != null) {
+                                    jsonFile.writeText(gson.toJson(report.copy(news = mergedNews)))
+                                }
+                            }
+                        }
+                    } else {
+                        Log.w("ReportRepository", "Failed to download test json: $testUrl")
+                    }
+                } catch (e: Exception) {
+                    Log.e("ReportRepository", "Error merging content0", e)
+                }
+            }
+            // -------------------------------------
+            
             // --- NEW: Pre-fetch summaries before finishing preparation ---
             val report = getLocalReport(type)
             if (report.news.isNotEmpty()) {

@@ -56,6 +56,7 @@ class NewsAdapter(
             // 1. Titles
             if (isForeign) {
                 originalTitleView.text = item.originalTitle
+                originalTitleView.textLocale = java.util.Locale.ENGLISH
                 originalTitleView.visibility = View.VISIBLE
                 titleView.text = item.title
                 titleView.visibility = View.VISIBLE
@@ -78,6 +79,7 @@ class NewsAdapter(
                 // 3. Original Content (content0)
                 if (!item.content0.isNullOrEmpty()) {
                     content0View.text = item.content0
+                    content0View.textLocale = java.util.Locale.ENGLISH
                     content0View.visibility = View.VISIBLE
                 } else {
                     content0View.visibility = View.GONE
