@@ -29,7 +29,7 @@ output/
 tencent/
 
 # Runtime History
-**/*_history.json
+# **/*_history.json
 
 # IDE
 **/.vscode/

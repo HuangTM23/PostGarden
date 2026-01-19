@@ -61,7 +61,15 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Add generated docs
           git add docs/
+          
+          # Add history files to persist state
+          git add crawler/homenews/homenews_history.json || true
+          git add crawler/worldnews/worldnews_history.json || true
+          git add crawler/entertainment/entertainment_history.json || true
+          
           # Commit only if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit."
