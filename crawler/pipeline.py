@@ -78,12 +78,8 @@ def package_section(section_prefix, polished_data, timestamp_str):
             if not safe_prefix: 
                 safe_prefix = "Img"
             
-            # 统一使用 jpg 或根据原 url 后缀
+            # 强制统一使用 jpg 格式
             ext = ".jpg"
-            if remote_url and ".png" in remote_url.lower(): 
-                ext = ".png"
-            if remote_url and ".webp" in remote_url.lower(): 
-                ext = ".webp"
             
             filename = f"rank{rank}_{safe_prefix}_{timestamp_str}{ext}"
             local_path = os.path.join(temp_images_dir, filename)
