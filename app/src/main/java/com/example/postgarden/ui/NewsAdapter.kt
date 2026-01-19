@@ -57,7 +57,7 @@ class NewsAdapter(
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.btn_favorite)
 
         fun bind(item: PolishedNewsItem, isFavorite: Boolean, type: String) {
-            val isForeign = !item.originalTitle.isNullOrEmpty()
+            val isForeign = !item.originalTitle.isNullOrEmpty() || !item.content0.isNullOrEmpty()
             val isEntertainment = type == "entertainment"
 
             // 1. Titles
@@ -85,15 +85,26 @@ class NewsAdapter(
                 imageView.visibility = View.VISIBLE
             } else if (isForeign) {
                 imageView.visibility = View.VISIBLE
-                contentView.visibility = View.VISIBLE
-                if (!item.summary.isNullOrEmpty()) {
-                    contentView.text = item.summary
-                } else {
-                    contentView.text = item.content ?: "Summary not available."
-                }
+                
+                // Hide Chinese summary/content for foreign news, only show English content0
+                contentView.visibility = View.GONE
 
                 if (!item.content0.isNullOrEmpty()) {
-                    content0View.text = item.content0
+                    val fullText = item.content0
+                    // Fix missing spaces between sentences (e.g., "end.Start" -> "end. Start")
+                    val sanitizedText = fullText.replace(Regex("\\.(?=[A-Z])"), ". ")
+                    
+                    val iterator = java.text.BreakIterator.getSentenceInstance(java.util.Locale.US)
+                    iterator.setText(sanitizedText)
+                    val end = iterator.next()
+                    
+                    val firstSentence = if (end != java.text.BreakIterator.DONE) {
+                        sanitizedText.substring(0, end)
+                    } else {
+                        sanitizedText
+                    }
+                    
+                    content0View.text = firstSentence
                     content0View.textLocale = java.util.Locale.ENGLISH
                     content0View.visibility = View.VISIBLE
                 } else {

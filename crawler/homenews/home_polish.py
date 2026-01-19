@@ -18,7 +18,7 @@ SYSTEM_PROMPT = """你是一名专业中文新闻编辑与内容策划人员，�
 核心目标是：从"最新抓取新闻"中，通过"事件级去重 + 内容筛选"，直接选出 9 条"完全不同新闻事件"的新闻。
 
 【重要：历史排重参考】
-以下是过去发布过的新闻（History），请严格回避与这些历史内容重复或高度相似的事件（即不要选旧闻）：
+以下是过去发布过的全部历史新闻（History），请严格回避与这些历史内容重复或高度相似的事件（即不要选旧闻）。你的输出必须与历史库中的任何一条都完全不同：
 {history_context_str}
 
 ⚠️ 强制过滤规则 (Negative Filter) - 优先级最高
@@ -231,7 +231,7 @@ def call_deepseek_api(all_news_items, history_context, max_retries=3):
     history_str = "无历史记录"
     if history_context:
         history_lines = [f"- {h.get('title')} ({h.get('timestamp', '')[:10]})" for h in history_context]
-        history_str = "\n".join(history_lines[:10])  # 只显示最新10条
+        history_str = "\n".join(history_lines)  # 发送全部历史记录，不做切片
 
     input_payload = []
     for item in all_news_items:

@@ -125,15 +125,15 @@ class ReportRepository(private val context: Context) {
                     if (testResponse.isSuccessful) {
                         val testJson = testResponse.body?.string()
                         if (testJson != null) {
-                            // Save to local file
-                            val localTestFile = File(typeExtractedDir, testFilename)
+                            // Save to local file in dataDir (alongside zip)
+                            val localTestFile = File(dataDir, testFilename)
                             localTestFile.writeText(testJson)
 
-                            val listType = object : com.google.gson.reflect.TypeToken<List<PolishedNewsItem>>() {}.type
-                            val testItems: List<PolishedNewsItem> = gson.fromJson(testJson, listType)
+                            // FIX: Parse as PolishedReport object
+                            val testReport = gson.fromJson(testJson, PolishedReport::class.java)
                             
                             // Map rank -> content0
-                            val content0Map = testItems.associate { it.rank to it.content0 }
+                            val content0Map = testReport.news.associate { it.rank to it.content0 }
                             
                             // Update local report
                             val report = getLocalReport(type)
@@ -221,7 +221,49 @@ class ReportRepository(private val context: Context) {
                 try {
                     val jsonContent = jsonFile.readText()
                     val report = gson.fromJson(jsonContent, PolishedReport::class.java)
-                    val updatedNews = report.news.map { item ->
+                    
+                    // --- DYNAMIC MERGE: content0 from local test_*.json ---
+                    var newsItems = report.news
+                    if (type == "world") {
+                        val versionFile = File(typeDir, "version.txt")
+                        if (versionFile.exists()) {
+                            val zipFilename = versionFile.readText().trim()
+                            val testFilename = "test_${zipFilename.replace(".zip", ".json")}"
+                            val localTestFile = File(dataDir, testFilename)
+                            
+                            Log.d("ReportRepository", "Dynamic Merge: Checking for $localTestFile (Exists: ${localTestFile.exists()})")
+                            
+                            if (localTestFile.exists()) {
+                                try {
+                                    val testJson = localTestFile.readText()
+                                    // FIX: Parse as PolishedReport object, not List
+                                    val testReport = gson.fromJson(testJson, PolishedReport::class.java)
+                                    val content0Map = testReport.news.associate { it.rank to it.content0 }
+                                    
+                                    Log.d("ReportRepository", "Dynamic Merge: Loaded ${content0Map.size} content0 items from test file")
+
+                                    newsItems = newsItems.map { item ->
+                                        val c0 = content0Map[item.rank]
+                                        // Force update if content0 exists in test file
+                                        if (!c0.isNullOrEmpty()) {
+                                            if (item.rank == 1) Log.d("ReportRepository", "Dynamic Merge: Updating Rank 1 content0. Length: ${c0.length}")
+                                            item.copy(content0 = c0) 
+                                        } else {
+                                            item
+                                        }
+                                    }
+                                } catch (e: Exception) {
+                                    Log.e("ReportRepository", "Dynamic Merge Error", e)
+                                    e.printStackTrace()
+                                }
+                            }
+                        } else {
+                            Log.d("ReportRepository", "Dynamic Merge: version.txt not found in $typeDir")
+                        }
+                    }
+                    // -----------------------------------------------------
+
+                    val updatedNews = newsItems.map { item ->
                         if (!item.imagePath.isNullOrEmpty()) {
                             val imgFile = File(typeDir, item.imagePath)
                             item.apply { localImageFile = imgFile }
