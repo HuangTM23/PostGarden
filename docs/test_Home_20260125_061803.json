@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "银价破百，银行卖光？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "国际银价破百，银行银质品售罄",
+            "content": "国际银价突破每盎司100美元关口，涨幅超44%。银行渠道多款银质品已售罄，部分产品需摇号购买。",
+            "source_platform": "贝果财经",
+            "source_url": "https://news.qq.com/rain/a/20260124A053G200",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O4yqzxSgEZmccIaFypPQxZhrqMLS25wI63KrTG3JTJdyYAA_640330/0"
+        },
+        {
+            "rank": 2,
+            "title": "消费贷利率有望降至“2字头”",
+            "content": "个人消费贷“国补”政策加码，多家银行迅速响应。实际利率有望降至“2字头”，信用卡账单分期首次纳入财政贴息范围。",
+            "source_platform": "大众日报",
+            "source_url": "https://news.qq.com/rain/a/20260124A04UTW00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/On90ZhTtgM660sslD-4pkYR_xo8-ESOkXOyojcF3S5eSwAA_640330/0"
+        },
+        {
+            "rank": 3,
+            "title": "46名学者学术不端被通报",
+            "content": "国家自然科学基金委员会集中通报批评46名涉科研不端及项目资金违规的学者，并公布处理结果。",
+            "source_platform": "政事儿",
+            "source_url": "https://news.qq.com/rain/a/20260124A03WFJ00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/OwZrdoJnhr1Edaas6q1lShWYGoDAmLI9262_Baas48Gc8AA_640330/0"
+        },
+        {
+            "rank": 4,
+            "title": "男子留遗书徒步22天，检查无大碍",
+            "content": "46岁男子被诊断肝病后留遗书离家，徒步22天至200公里外。被找到后就医，发现病情不严重，戒酒即可治疗。",
+            "source_platform": "潇湘晨报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855207447655126097",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/abf92827983dac47a2d217ab8cddb594"
+        },
+        {
+            "rank": 5,
+            "title": "女教师校内宿舍病亡两天才被发现",
+            "content": "25岁女教师带病工作后在校内宿舍死亡，两天后才被发现。家属称学校未尽注意义务，学校建议起诉。",
+            "source_platform": "封面新闻",
+            "source_url": "https://news.qq.com/rain/a/20260124A05VAN00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O8CxdubgmJQaWFWZBv9uVBvoblvS9RETKfYNS18e0uZicAA_640330/0"
+        },
+        {
+            "rank": 6,
+            "title": "中国专利“含金量”持续提升",
+            "content": "2025年国内发明专利有效量达532万件，专利密集型产业增加值突破18万亿元，创新质量与效益加速显现。",
+            "source_platform": "中国经济网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855106096846633295",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/a4bb5ed347d9097498ad958bb8265cfe"
+        },
+        {
+            "rank": 7,
+            "title": "扎哈罗娃挑战制作中国煎饼",
+            "content": "俄罗斯外交部发言人扎哈罗娃在社交媒体上发布视频，挑战制作中国煎饼，引发网友关注。",
+            "source_platform": "环看全球",
+            "source_url": "https://www.toutiao.com/video/7598769248400900136/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-dy/5550d58661ad4891a00cd19438167e6c~tplv-tt-profile_shortvideo:720:1280.jpeg?_iz=3710&bid=676&from=shortvideo&gid=7598769248400900136&lk3s=06827d14&x-expires=1769897972&x-signature=DIFnMEAKZRqF4PU%2F13kJr9pdp%2Bg%3D"
+        },
+        {
+            "rank": 8,
+            "title": "40年教龄教师待遇引讨论",
+            "content": "达到40年教龄的教师数量稀少，引发关于其退休待遇的讨论。有观点认为这是历史的“丰碑”。",
+            "source_platform": "彦子视野",
+            "source_url": "https://www.toutiao.com/w/1855155193245696/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/user-avatar/cf8e6a12a1daf70935979d168f4d662a~300x300.image?_iz=112761&from=tt_user.wtt&lk3s=06827d14&x-expires=1769904000&x-signature=ZIneEna8YQFsnYc4MrTCZFJhCSs%3D"
+        },
+        {
+            "rank": 9,
+            "title": "任泽平：未来仅20%城市房价会涨",
+            "content": "经济学家任泽平提出楼市“二八现象”：未来只有20%的核心城市房价会再创新高，80%城市将长期阴跌。",
+            "source_platform": "大河财立方",
+            "source_url": "https://www.toutiao.com/article/7598705149641261603/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/e6de4539557653943a06d047fccec7e3~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOWkp-ays-i0oueri-aWuQ==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1769897988&x-signature=HWQWL9E7E4DGNyyXgv0LDcIUJDU%3D"
+        }
+    ]
+}
