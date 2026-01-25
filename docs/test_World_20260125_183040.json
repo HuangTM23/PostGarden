@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "世界重回丛林法则？",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美国边境巡逻队在明尼阿波利斯枪杀公民护士",
+            "title0": "What we know about fatal shooting of Alex Pretti by federal agents in Minneapolis",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c20zjyxep99o",
+            "content": "美国联邦特工在明尼阿波利斯枪杀一名37岁的ICU护士，家属指控当局关于其持枪的说法是“令人作呕的谎言”。",
+            "content0": "Federal agents shot and killed a man in Minneapolis on Saturday, the second person to be fatally shot in the city during the Trump administration's immigration enforcement crackdown this month.Local officials identified the man as 37-year-old Alex Pretti, a US citizen who lived in Minneapolis and worked as a nurse.Videos have emerged showing a scuffle between Border Patrol agents and the man in the lead up to the shooting. The Department of Homeland Security (DHS) said the agents fired in self-defence after Pretti, who they say had a handgun, resisted their attempts to disarm him.Eyewitnesses, local officials and the victim's family have challenged that account, pointing out he had a phone in his hand, not a weapon. His parents accused the administration of spreading \"sickening lies\" about what happened. \"Please get the truth out about our son,\" they added.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/fdf1/live/82c53a10-f9d1-11f0-b5f7-49f0357294ff.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "徒手攀岩家霍诺德无保护登顶台北101",
+            "title0": "Climber Alex Honnold scales 101-floor skyscraper without safety gear",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4gl0njzxjdo",
+            "content": "美国著名徒手攀岩家亚历克斯·霍诺德在无绳索保护下，耗时1小时31分钟成功登顶508米高的台北101摩天大楼。",
+            "content0": "American climber Alex Honnold has successfully scaled a Taiwan skyscraper without a rope, harness or safety equipment.The building, named Taipei 101 for the number of its floors, stands at 508m (1,667ft) of steel, glass and concrete and is designed to resemble a stick of bamboo.Honnold is renowned for being the first person to climb El Capitan, the vertical granite cliff in California's Yosemite national park - also without ropes or safety gear.The climb was originally set to take place on Saturday but wasdelayed by wet weather.His ascent in Taiwan's capital was streamed live on Netflix, which said there would be a delay on the live feed should the worst happen.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/7e80/live/be958110-f9d3-11f0-a422-4ba8a094a8fa.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "特朗普威胁对加拿大商品征收100%关税",
+            "title0": "Trump threatens Canada with 100% tariffs if it 'makes a deal with China'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy4qww3w72lo",
+            "content": "美国总统特朗普威胁称，若加拿大与中国达成贸易协议，将对所有加拿大输美商品征收100%的关税。",
+            "content0": "US President Donald Trump has threatened to slap a 100% tariff on Canadian goods if the country strikes a trade deal with China.\"If Canada makes a deal with China, it will immediately be hit with a 100% Tariff against all Canadian goods and products coming into the U.S.A.,\" Trump said on Truth Social.It is unclear what deal Trump is referring to in his social media post. Last week, Canada's Prime Minister Carneyannounced a \"strategic partnership\"with China, and agreed to reduce tariffs.At the time, Trump called the move \"a good thing\". But tensions between the US and Canada have grown in recent days, after Carney said in a speech in Davos that the US-led world order had been ruptured.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ef43/live/2a5f94f0-f937-11f0-814e-71ff186d4f46.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美财长称阿尔伯塔是美国的“天然伙伴”",
+            "title0": "'A natural partner': US treasury secretary weighs in on Alberta separatism",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy8ylqx0zw4o",
+            "content": "美国财政部长贝森特称加拿大阿尔伯塔省是美国的“天然伙伴”，此番言论介入该省分离主义运动，引发加方不满。",
+            "content0": "US Treasury Secretary Scott Bessent has weighed in on a separatist movement in Alberta, saying the western Canadian province is a \"natural partner for the US\".\"Alberta has a wealth of natural resources, but they won't let them build a pipeline to the Pacific,\" Bessent told an American right-wing commentator in an interview on Thursday.\"I think we should let them come down into the US, and Alberta is a natural partner for the US. They have great resources. The Albertans are very independent people.\"The top US official's comments come amid strained ties between US and Canada, and as signatures are being collected in the province seeking an independence referendum.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1ab7/live/8bdfe0c0-f8cb-11f0-b5f7-49f0357294ff.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "美俄乌三方和平会谈结束，战火未停",
+            "title0": "Peace talks on Russia-Ukraine war end as fighting rages",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwyr6p30054o",
+            "content": "俄罗斯、乌克兰和美国在阿布扎比举行的三方和平会谈结束，未取得明显突破。会谈期间，俄军对乌能源设施发动空袭。",
+            "content0": "The first three-way peace talks between Russia, Ukraine and the US have ended in Abu Dhabi with no apparent breakthrough, as fighting rages.Ukrainian President Volodymyr Zelensky raised the possibility of a second meeting as early as next week, while an American official said a new round would begin on 1 February.The two-day talks ended after waves of Russian air strikes targeted Ukraine's badly damaged energy infrastructure, killing one person and injuring 35 others, Ukrainian officials said.Russia accused Ukraine of attacking an ambulance in Ukrainian territory under its control, killing three medics. Later, it reported a Ukrainian missile attack on energy infrastructure in Belgorod.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1e52/live/0d3f3e30-f94a-11f0-b385-5f48925de19a.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "伊朗安全部队武力镇压抗议活动",
+            "title0": "How Iran Crushed a Citizen Uprising With Lethal Force",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/01/25/world/middleeast/iran-how-crackdown-was-done.html",
+            "content": "伊朗安全部队在多个城市向抗议者开火，以致命武力镇压了因经济衰退而引发的大规模民众起义。",
+            "content0": "In Tehran, the capital of Iran, security forces opened fire at protesters from the roof of a police station. In Karaj, they fired live rounds into a march, shooting one person in the head. In Isfahan, young men barricaded themselves in an alley as gunfire and explosions rang out.Scattered protests had percolated since late December, starting with a strike in Tehran’s bazaar and fueled by a plunging economy.But by early January, Iranians had revolted en masse, and the security forces began to crack down with deadly force.It was not just the protests unnerving the regime. President Trump encouraged the demonstrators and threatened military intervention. In many places, riots flared in parallel with peaceful protests; government buildings, commercial properties, mosques and police stations were set on fire.",
+            "index": 75,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/01/20/world/middleeast/1-ILAM_2x3-still/1-ILAM_2x3-still-facebookJumbo.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "日本首位女首相因性别禁忌缺席相扑颁奖",
+            "title0": "Why Japan’s Leader Won’t Enter the Male-Dominated Sumo Ring",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/01/25/world/asia/japan-takaichi-sumo-gender.html",
+            "content": "日本首位女首相高市早苗因相扑界禁止女性登上土俵的传统，未出席新年大相扑颁奖典礼，改由男性教育大臣代劳。",
+            "content0": "When the New Year Grand Sumo Tournament in Tokyo reached its adrenaline-pumping conclusion on Sunday, thousands of spectators cheered as star athletes were feted inside Japan’s most prestigious wrestling ring.But someone was missing: Japan’s prime minister, who typically hands out a giant gilded trophy at the tournament.Sanae Takaichi, the first woman to serve as prime minister in Japan’s history, skipped the ceremony, yielding to a longstanding ban on women inside the sumo ring, known as the dohyo. She dispatched the Japanese education minister, a man, to present a certificate and the prime minister’s cup on her behalf; officials said she wanted to respect sumo’s “traditional culture.”",
+            "index": 71,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/01/25/multimedia/25int-japan-gender-01-cwbl/25int-japan-gender-01-cwbl-facebookJumbo.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "美国将组建“英国版FBI”打击严重犯罪",
+            "title0": "National Police Service: New 'British FBI' to fight serious crime and help local police tackle everyday offences",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/national-police-service-new-british-fbi-to-fight-serious-crime-and-help-local-police-tackle-everyday-offences-13498076",
+            "content": "英国将成立国家警察局，专注于打击恐怖主义、欺诈和有组织犯罪等严重罪行，被形容为“英国版FBI”。",
+            "content0": "A \"British FBI\" will be created to fight the most serious crime and help local police forces focus on tackling everyday offences.The National Police Service (NPS) will be established in England and Wales to tackle crimes such as terrorism, fraud and organised crime that are not constrained by areas, the home secretary will announce on Sunday.Shabana Mahmoodwill say the NPS will attract \"world-class talent\" and use \"state-of-the-art\" technology - although a start date has not been revealed.",
+            "index": 5,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/01/1600x900/skynews-shabana-mahmood-with-police-policing_7144966.jpg?20260124235443"
+        },
+        {
+            "rank": 9,
+            "title": "美国遭遇“危及生命”的冬季风暴袭击",
+            "title0": "'Life-threatening' storm forecast in US as more than a dozen states declare emergency",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/life-threatening-winter-storm-to-hit-us-with-snow-ice-and-dangerously-cold-temperatures-13497899",
+            "content": "一场“危及生命”的冬季风暴袭击美国，超十州进入紧急状态，约1.4亿人受影响，部分地区风寒温度低至零下46摄氏度。",
+            "content0": "President Trump has approved emergency declarations in multiple states as a life-threatening storm bears down on about 140 million Americans.Snow, ice and freezing temperatures are forecast from the Rocky Mountains and New Mexico all the way to the east coast.Frostbite in under 10 minutes is possible in parts of Minnesota and North Dakota, where wind chill temperatures as low as -46C (-50F) are possible.",
+            "index": 3,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/01/1600x900/skynews-united-states-winter-storm_7143323.jpg?20260123100526"
+        }
+    ]
+}
