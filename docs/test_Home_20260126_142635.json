@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "睡20小时竟能长寿？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "网购坚果礼盒仅33克坚果",
+            "content": "网友发现某品牌坚果大礼盒宣传重958克，实际仅含33克坚果，其余为饮料。客服称将向上反馈。",
+            "source_platform": "长江云新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855343883332713875",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/212079735c9476b4f92f3a3c1f1f5ce4"
+        },
+        {
+            "rank": 2,
+            "title": "95后高空架起移动充电宝",
+            "content": "95后团队在宜宾升空全球首台城市兆瓦级浮空风电系统，可稳驻2000米高空并网发电，发电效率远超地面。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855334536714748191",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/26ec80436c7fa513788dbe8a0f183293"
+        },
+        {
+            "rank": 3,
+            "title": "00后刮腻子年入百万",
+            "content": "两名00后美术生在东北刮腻子期间，用十天复刻宇航员浮雕，一年营收超过100万元。",
+            "source_platform": "大象新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855353956139373522",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/051af9914cde18ece1f3c2c71424eb7c"
+        },
+        {
+            "rank": 4,
+            "title": "92岁奶奶每天睡20小时",
+            "content": "湖北武汉92岁刘奶奶自称每天睡觉超20小时，身体倍棒无烦恼，家属回应称觉得是个谜。",
+            "source_platform": "帮女郎在行动",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855358557634502729",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/1b19152e3245cdc6f44c463de03b64bb"
+        },
+        {
+            "rank": 5,
+            "title": "夫妻网购娃娃菜中毒进ICU",
+            "content": "浙江台州夫妻吃网购娃娃菜后中毒进ICU，警方查明毒源为包装蔬菜的旧报纸沾染杀鼠剂，商家已下架失联。",
+            "source_platform": "红星新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855297800233204109",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/165ba4bf5a951fd06e0b4a28994f7e9c"
+        },
+        {
+            "rank": 6,
+            "title": "严寒席卷美国 留学生称比南极冷",
+            "content": "冬季风暴横扫美国中南部，带来极端低温天气，严重影响交通民生。在美留学生称水管冻裂，感觉比南极洲还冷。",
+            "source_platform": "潇湘晨报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855352744971998405",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/62147ced5707820be3b045bbb6b64d8b"
+        },
+        {
+            "rank": 7,
+            "title": "妻子每天上厕所顺路存1000元",
+            "content": "江苏宿迁男子发现妻子两本记事本里夹着约200张千元存单，总金额20万元。妻子每天借上厕所之便到银行存钱。",
+            "source_platform": "大象新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855353057282105000",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/52a7c5d5c87ba444444ec38ac26ec984"
+        },
+        {
+            "rank": 8,
+            "title": "上海人均收入首破9万元",
+            "content": "2025年全国居民人均可支配收入43377元，上海人均收入首次突破9万元，11个省份人均收入超过4万元。",
+            "source_platform": "时代周报",
+            "source_url": "https://news.qq.com/rain/a/20260125A05ALS00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O7v6cv3azHfdOkHMj52depJJxEPrkM8KoGU8A3ViFbiikAA_640330/0"
+        },
+        {
+            "rank": 9,
+            "title": "浙江嵊泗取消中考全员直升",
+            "content": "浙江嵊泗县取消中考选拔功能，确保本县户籍及符合条件的随迁子女初中毕业生100%能够升入普通高中。",
+            "source_platform": "澎湃新闻",
+            "source_url": "https://news.qq.com/rain/a/20260125A054UP00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O4g8uqQdhXSMJJlZD8UCuXYCrFjjVvh2_JB9mscOAlJdEAA_640330/0"
+        }
+    ]
+}
