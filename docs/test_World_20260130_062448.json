@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "北极熊胖了，世界乱了",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "加拿大总理要求美国尊重其主权",
+            "title0": "'Respect Canadian sovereignty', Carney tells US officials after they meet Alberta separatists",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cr57j780pgmo",
+            "content": "加拿大总理就美国官员会见阿尔伯塔省分离主义者一事，要求美方尊重加拿大主权。",
+            "content0": "Prime Minister Mark Carney and Alberta's premier say the US should respect Canadian sovereignty after reports emerged that Alberta separatists had talked to the Trump administration about the province possibly leaving Canada.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/52d7/live/bb4c7a40-fd39-11f0-85f9-892da4472ee9.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "梅拉尼娅纪录片在南非遭禁映",
+            "title0": "Melania Trump documentary not showing in South African cinemas",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c89q287qxelo",
+            "content": "南非院线决定不放映关于美国前第一夫人梅拉尼娅·特朗普的纪录片，原因未明。",
+            "content0": "Cinemas in South Africa will not be showing the documentary about US First Lady Melania Trump that is due to be released around the world on Friday.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/df54/live/5bd8b5d0-fd2d-11f0-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "特朗普称普京同意暂停攻击乌克兰城市",
+            "title0": "Trump says Putin will not attack Ukraine cities during cold week",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4g4yj92kwro",
+            "content": "美国总统特朗普称，普京已同意因严寒天气暂停攻击基辅等乌克兰城市一周。",
+            "content0": "US President Donald Trump says Russia's Vladimir Putin has agreed not to attack Ukraine's capital, Kyiv, and other cities and towns for a week due to \"extraordinary cold\" weather.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/61a6/live/6382f330-fd51-11f0-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美参议院否决拨款法案，政府面临停摆",
+            "title0": "US Senate blocks government funding bill as ICE negotiations continue",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn9zp0nyvxdo",
+            "content": "美国参议院否决了避免政府停摆的拨款法案，因两党就移民执法行动谈判陷入僵局。",
+            "content0": "The US Senate blocked a funding package needed to avert a government shutdown, as the White House and Democratic leaders continue negotiations over the Trump administration's immigration enforcement operation.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/c3b8/live/3bbd2080-fc7c-11f0-b9c1-0d3cbd49d190.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "演员因选角争议退出新电影",
+            "title0": "Marty Supreme actress quits new film after casting backlash",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c24gyz3j6e1o",
+            "content": "女演员奥德萨·阿齐翁因选角争议，宣布退出A24新片《Deep Cuts》。",
+            "content0": "Actress Odessa A'zion has pulled out of A24's latest film, Deep Cuts, after online backlash over her casting.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a303/live/ec0f1090-fcf6-11f0-9c55-8bade468c676.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "挪威北极熊变胖，健康状况改善",
+            "title0": "Polar bears on Norwegian islands fatter and healthier despite ice loss, scientists say",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2l1xpz03no",
+            "content": "科学家发现，尽管海冰减少，挪威斯瓦尔巴群岛的北极熊自90年代以来变得更胖、更健康。",
+            "content0": "Scientists expected the opposite, but polar bears in the Norwegian Arctic archipelago of Svalbard have become fatter and healthier since the early 1990s, all while sea ice has steadily declined due to climate change.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d035/live/b0bca750-fd50-11f0-a8b8-bdd2c5f9bcad.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "布里斯班公布23亿澳元奥运主场馆设计",
+            "title0": "Plans for $2.3 billion stadium ignite debate in 2032 Olympics host city",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/01/07/style/australia-brisbane-olympic-stadium-victoria-park-hnk-intl",
+            "content": "澳大利亚布里斯班公布2032年奥运会主场馆设计，耗资23亿澳元，灵感源于当地住宅风格。",
+            "content0": "Officials in Brisbane, Australia, have revealed plans for 2032’s Olympic stadium: a $2.3 billion venue inspired by the state’s typical suburban homes, known as “Queenslanders” — residential architecture that may be familiar to fans of Brisbane-based cartoon, “Bluey.”",
+            "index": 1,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2-20260106054802176.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "马斯克押注特斯拉未来在于人形机器人",
+            "title0": "Elon Musk is betting Tesla’s future isn’t about cars at all",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/business/tech/elon-musk-tesla-risk-takers",
+            "content": "面对电动汽车销售下滑，特斯拉CEO马斯克正将公司未来押注于人形机器人业务。",
+            "content0": "Tesla dominated the electric vehicle industry by the mid-2010s with sleek, fast cars that helped combat the public perception that EVs were severely limited by short ranges.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1434797482.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "美国无美军参与北约军事演习",
+            "title0": "NATO Is Having a Military Exercise. The U.S., Its Largest Member, Won’t Be There.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/01/29/world/europe/nato-military-exercise-spain-germany.html",
+            "content": "北约举行大规模军事演习，但其最大成员国美国将不派任何部队或装备参与。",
+            "content0": "At a Spanish port 50 miles northwest of Gibraltar, four Turkish Navy ships, including a brand-new amphibious assault ship that doubles as an aircraft carrier, were set to arrive Friday to take part in NATO military exercises.",
+            "index": 69,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/01/29/multimedia/29int-germany-nato-gpcl/29int-germany-nato-gpcl-facebookJumbo.jpg"
+        }
+    ]
+}
