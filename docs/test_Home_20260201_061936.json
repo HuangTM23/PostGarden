@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "机器人上春晚要花1亿？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "机器人扎堆抢上春晚 出场要花1亿",
+            "content": "各大智能机器人厂商争相登陆2026年央视春晚，宇树科技报价高达1亿元，创下春晚史上最庞大机器人阵容。",
+            "source_platform": "财经杂志",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855828072769370227",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/bc36479088d3d326da388e3ac2574c68"
+        },
+        {
+            "rank": 2,
+            "title": "首个0员工公司诞生 7×24h永不下班",
+            "content": "硅谷公司Clawdbot推出“全职AI员工”，将顶尖LLM集成到手机中，实现7×24小时不间断工作，彻底改变生产力模式。",
+            "source_platform": "新浪财经",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855346190636994683",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/1e2a0f887f7c1bd9dc3520d582d0f9bd"
+        },
+        {
+            "rank": 3,
+            "title": "年轻人开始抛弃投影仪",
+            "content": "2025年投影仪销量同比下降13.9%，销售额下滑16.5%，创下自2020年品类兴起以来最大降幅，显示年轻人客厅消费习惯转变。",
+            "source_platform": "螺旋实验室",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855828480196298133",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/42a3eef60b1f260699885769f1af24d5"
+        },
+        {
+            "rank": 4,
+            "title": "OpenClaw爆红 会抢走谁的饭碗",
+            "content": "个人开发的AI助手OpenClaw通过聊天软件远程操控电脑执行复杂任务，其开源特性引发开发热潮，可能冲击传统应用软件市场。",
+            "source_platform": "AIX财经",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855742558034012078",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/0b9cf4645f1cc6f2e129e13b9284ba12"
+        },
+        {
+            "rank": 5,
+            "title": "花生这辈子没想到还能被切丝",
+            "content": "博主展示将花生米切成发丝般细缕的极端刀工视频，反常识视觉效果迅速引爆社交平台，引发网友热议。",
+            "source_platform": "湖南日报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855831451007532605",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/49b5a1f97b52578f39a212831846a88f"
+        },
+        {
+            "rank": 6,
+            "title": "国产“电力心脏”变压器全球爆单",
+            "content": "全球AI算力建设爆发带动变压器需求激增，国内工厂满产，订单已排至2027年底，首台全绝缘超高压大容量变压器发往北美。",
+            "source_platform": "同花顺财经",
+            "source_url": "https://www.toutiao.com/article/7601425300680950314/",
+            "source": "toutiao",
+            "image": "https://lf3-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/216.png"
+        },
+        {
+            "rank": 7,
+            "title": "零跑员工吐槽公司年会拉垮",
+            "content": "零跑汽车员工在社交媒体吐槽年会没午饭、没空调、厕所不足，环境简陋，公司暂未回应此事。",
+            "source_platform": "新浪财经",
+            "source_url": "https://www.toutiao.com/article/7601525442142634539/",
+            "source": "toutiao",
+            "image": "https://lf3-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/216.png"
+        },
+        {
+            "rank": 8,
+            "title": "贵州多家店铺一夜之间遭砌墙封堵",
+            "content": "毕节市七星关区临街门面被连夜砌砖封堵，次日墙体已被拆除，商户恢复营业，当地街道办正调查原因。",
+            "source_platform": "大风新闻",
+            "source_url": "https://www.toutiao.com/article/7601431710177247750/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-6w9my0ksvp/ccfd1e2a95054191932158649150ae04~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOWkp-mjjuaWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1770502877&x-signature=lqinUW6K1bwHUsDnj56e1mzYnkU%3D"
+        },
+        {
+            "rank": 9,
+            "title": "感受家乡的浓浓味道",
+            "content": "贵州铜仁思南县传统年货麻圆迎来制作高峰，选用本地高山糯米，浸泡十天后磨粉与红糖混合，炸出年味与团圆。",
+            "source_platform": "央视新闻",
+            "source_url": "https://www.toutiao.com/article/7601434746681311795",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/d227f9be8f8a6d11daaa58286219dba0~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOWkruinhuaWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1770502853&x-signature=DHpnvQpURGQCMwNol45EQL17%2Bg4%3D"
+        }
+    ]
+}
