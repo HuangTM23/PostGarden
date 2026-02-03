@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美伊冲突再升级！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美司法部撤下数千份爱泼斯坦文件",
+            "title0": "Thousands of Epstein documents taken down after victims identified",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn0k65pnxjxo",
+            "content": "美国司法部因受害者身份信息泄露，从其网站上撤下了数千份与杰弗里·爱泼斯坦相关的文件。",
+            "content0": "The US Department of Justice (DOJ) has removed thousands ofdocuments related to Jeffrey Epstein from its website after victims said their identities had been compromised.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a5c4/live/211248f0-00f5-11f1-8067-e14d6844f3f6.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "吉尔·拜登前夫被控谋杀现任妻子",
+            "title0": "Jill Biden's ex-husband charged with murdering his wife",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c20zw5z669no",
+            "content": "美国前第一夫人吉尔·拜登的前夫威廉·史蒂文森被指控谋杀了其现任妻子琳达·史蒂文森。",
+            "content0": "Former US First Lady Jill Biden's ex-husband William Stevenson has been charged with murdering his current wife, Linda Stevenson, officials said.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d039/live/5684e440-012a-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "美军击落逼近航母的伊朗无人机",
+            "title0": "US says it shot down Iranian drone flying towards aircraft carrier",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c3dmjn7n985o",
+            "content": "美军称，一架伊朗无人机在阿拉伯海“激进地”逼近美国航母，被F-35C战机击落。",
+            "content0": "An Iranian drone was shot down as it \"aggressively approached\" an American aircraft carrier in the Arabian Sea on Tuesday, a US military spokesman has said.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ee7b/live/4ad86aa0-0129-11f1-9f22-c9b288f3a22b.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "百事公司将在美国下调部分零食价格",
+            "title0": "PepsiCo to cut some US snack prices after backlash",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cm2y38v4prvo",
+            "content": "百事公司宣布将在美国下调包括多力多滋、乐事等在内的部分零食产品价格。",
+            "content0": "PepsiCo is to cut the prices of some of its snack products in the US, following backlash against previous price hikes and pressure in the face of appetite-suppressing GLP-1 jabs.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8ce7/live/da8622b0-0119-11f1-a88f-113f60a613fb.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "美国主播母亲失踪案疑为绑架",
+            "title0": "'We hope' Savannah Guthrie's mother is still alive, sheriff says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c14rd1ny5gdo",
+            "content": "美国NBC主播萨凡纳·格思里的母亲失踪超48小时，警方认为她遭绑架，正全力搜寻。",
+            "content0": "More than 48 hours since the mother of US news anchor Savannah Guthrie was reported missing, law enforcement officials are still seeking clues in the disappearance of the 84-year-old from her home in Tuscon, Arizona.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1c1a/live/9aa45580-002f-11f1-9713-f92c5182d77b.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "特朗普呼吁共和党“接管”美国选举",
+            "title0": "Trump says Republicans 'should take over the voting' and 'nationalise' US elections",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0mke841zj0o",
+            "content": "美国总统特朗普敦促共和党“接管”并“国有化”选举，并再次提出未经证实的2020年选举欺诈指控。",
+            "content0": "US President Donald Trump has urged Republicans to \"nationalise\" elections and repeated his false claims of 2020 election fraud in a new podcast interview.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e760/live/8eee1e30-00fa-11f1-8373-25a35d9e886f.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "日本连降大雪致至少30人死亡",
+            "title0": "At Least 30 Dead After Weeks of Heavy Snowfall in Japan",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/03/world/asia/japan-snow-deaths.html",
+            "content": "日本连续两周的强降雪已造成至少30人死亡，200多人受伤，部分地区交通瘫痪。",
+            "content0": "Two weeks of heavy snowfall has wreaked havoc in Japan, killing at least 30 people and injuring at least 200 others, according to Japan’s government, with local officials warning that the toll could rise.",
+            "index": 68,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/03/multimedia/03xp-japan-hkbp/03xp-japan-hkbp-facebookJumbo.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "尼泊尔逮捕6名涉珠峰救援诈骗官员",
+            "title0": "Nepal Arrests 6 Officials, Accusing Them of Fraudulent Everest Rescues",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/03/world/asia/mount-everest-helicopter-insurance-fraud.html",
+            "content": "尼泊尔当局逮捕6人，指控其通过组织不必要的珠峰直升机救援，诈骗国际保险公司数百万美元。",
+            "content0": "The authorities in Nepal have arrested six people in a crackdown on an elaborate helicopter rescue scam in which mountain rescue companies carried out hundreds of unnecessary evacuations of climbers from Mount Everest and other peaks to bilk insurance companies out of millions of dollars.",
+            "index": 67,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/03/multimedia/03xp-nepal1-hzbt/03xp-nepal1-hzbt-facebookJumbo.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "澳13岁少年游泳4小时救被困家人",
+            "title0": "Teenage boy swims for four hours to save family swept out to sea",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/australian-boy-13-swims-four-hours-to-save-family-swept-out-to-sea-13502670",
+            "content": "澳大利亚一名13岁男孩在家人被卷入大海后，与巨浪搏斗约4小时游回岸边报警求救。",
+            "content0": "A 13-year-old Australian boy has described battling \"massive\" waves to swim around four hours to shore and raise the alarm after his family were swept out to sea.",
+            "index": 6,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-austin-appelbee-australia_7154232.png?20260203105942"
+        }
+    ]
+}
