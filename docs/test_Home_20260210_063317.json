@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "AI说谢谢会耗电？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "不要对AI说谢谢",
+            "content": "对AI说“谢谢”会被视为指令，每次回复消耗0.0003度电，建议避免以节约能源。",
+            "source_platform": "人民日报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1855639982975907679",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/d0f3be26d37bd39fc01a45aacd525aa7"
+        },
+        {
+            "rank": 2,
+            "title": "小鸟撞商场玻璃墙死亡",
+            "content": "西安万象城多只小鸟撞击玻璃幕墙死亡，商场回应将挪移树木并加装防撞贴纸。",
+            "source_platform": "河山新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1856688370445247191",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/bee55bd2ec7e39859f1183d2ac299d6e"
+        },
+        {
+            "rank": 3,
+            "title": "中国经济最强县GDP超5600亿",
+            "content": "昆山市2025年GDP达5615.34亿元，连续22年位居全国百强县市榜首。",
+            "source_platform": "第一财经",
+            "source_url": "https://baijiahao.baidu.com/s?id=1856647973869608282",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/2c741b399cd9ae7e16956c63b0dd5e30"
+        },
+        {
+            "rank": 4,
+            "title": "保姆分房睡老人离世成被告",
+            "content": "保姆按合同分房睡，老人摔倒去世后家属起诉被驳回，法院认定保姆已尽义务。",
+            "source_platform": "河山新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1856564109263136477",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/64b9cbe534a71e46e5fc1f8e98d96313"
+        },
+        {
+            "rank": 5,
+            "title": "罐车运输食用油迎新规",
+            "content": "市场监管总局针对罐车运输食用植物油乱象，将出台新规解决“能运什么、用什么运”。",
+            "source_platform": "南方都市报",
+            "source_url": "https://news.qq.com/rain/a/20260209A06EJV00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/om_ls/O3xO5YEKGfvTaam8NMl65R2FeNY614dtrxvfVMhMvvofAAA_640330/0"
+        },
+        {
+            "rank": 6,
+            "title": "人民币汇率升破6.93关口",
+            "content": "人民币对美元即期汇率升破6.93，创33个月新高，离岸市场同步上涨。",
+            "source_platform": "澎湃新闻",
+            "source_url": "https://news.qq.com/rain/a/20260209A04ZSH00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/om_ls/OVi9bMEhG-Xn-00gWW74xlm_ssjJApXtNw0fOBIhc7YfUAA_640330/0"
+        },
+        {
+            "rank": 7,
+            "title": "8部影片定档春节档",
+            "content": "2026年春节档长达9天，8部电影定档，涵盖喜剧、谍战、动画等多种类型。",
+            "source_platform": "21世纪经济报道",
+            "source_url": "https://www.toutiao.com/article/7604723152949723688/",
+            "source": "toutiao",
+            "image": "https://lf3-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/216.png"
+        },
+        {
+            "rank": 8,
+            "title": "女孩穿丑相亲竟被相中",
+            "content": "女孩自称故意穿丑去相亲，结果意外被对方相中，引发网友热议。",
+            "source_platform": "观象视频",
+            "source_url": "https://www.toutiao.com/video/7604693212051046427/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-3qtffzwd0j/oQ1NAQfBBEwAgd0IWTxsCxcKJBCFviYAiAAWIQ~tplv-tt-profile_shortvideo:720:1280.jpeg?_iz=3710&bid=8&from=shortvideo&gid=7604693212051046427&lk3s=06827d14&x-expires=1771281294&x-signature=MyH1gGfILZEtTmf9JzIuLgLu4cE%3D"
+        },
+        {
+            "rank": 9,
+            "title": "黄光裕2.23亿股权被冻结",
+            "content": "黄光裕所持北京鹏润投资有限公司2.23亿元股权被冻结，期限三年。",
+            "source_platform": "界面快讯",
+            "source_url": "https://www.toutiao.com/article/7604675684690084362/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/8177028b8c7feb9cb4984cbef1c819c9~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOeVjOmdouW_q-iurw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1771281308&x-signature=j7OeiJ7drjlpkWe%2Fc3%2FWKLtjkl8%3D"
+        }
+    ]
+}
