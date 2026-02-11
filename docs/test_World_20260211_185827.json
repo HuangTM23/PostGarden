@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "突发！校园血案震惊全球",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "加拿大校园枪击致九死二十五伤",
+            "title0": "Tumbler Ridge mass shooting: What we know so far",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c1e98w35qyjo",
+            "content": "加拿大不列颠哥伦比亚省一偏远社区发生校园枪击案，造成九人死亡，二十五人受伤，枪手已身亡。",
+            "content0": "Canadian police say nine people have been killed in a mass shooting at a school and home in the remote rural community of Tumbler Ridge in the western British Columbia province.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/94b7/live/29ec70c0-072d-11f1-811d-d70cdc846ab3.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "奥斯卡提名者齐聚年度午宴",
+            "title0": "12 things we spotted in the Oscars class photo",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cgl5k6ygk57o",
+            "content": "好莱坞明星齐聚奥斯卡提名者午宴并拍摄年度“班级合影”，提莫西·查拉梅、艾玛·斯通等大咖悉数到场。",
+            "content0": "There's no such thing as a free lunch, unless you're a Hollywood A-lister who's nominated for an Oscar.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8747/live/ac7af110-0737-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "英女在美被父枪杀，疑因特朗普争论",
+            "title0": "Dad shot daughter after 'arguing about Donald Trump'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwyk917xy8no",
+            "content": "一名英国女子在美国探亲时被父亲枪杀，据称事发前父女曾就特朗普相关话题发生激烈争吵。",
+            "content0": "A British woman who was shot dead by her father while visiting his home in Texas had argued with him about US President Donald Trump earlier that day, an inquest has heard.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d478/live/2c408410-0697-11f1-9c2e-13936a78ae9c.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美商务部长承认曾到访爱泼斯坦岛",
+            "title0": "Under-fire Trump commerce secretary confirms he visited Epstein's island",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwyx9vq0ne0o",
+            "content": "美国商务部长霍华德·卢特尼克在国会听证会上承认，他曾在2012年携家人到访杰弗里·爱泼斯坦的私人岛屿。",
+            "content0": "US Commerce Secretary Howard Lutnick has confirmed he visited Jeffrey Epstein's island in 2012, contradicting previous claims that he had cut ties with the sex offender years earlier, before he was convicted.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e71f/live/260ce6e0-06d0-11f1-a088-6db44f8964b4.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "布里斯班公布23亿澳元奥运主场馆设计",
+            "title0": "Plans for $2.3 billion stadium ignite debate in 2032 Olympics host city",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/01/07/style/australia-brisbane-olympic-stadium-victoria-park-hnk-intl",
+            "content": "澳大利亚布里斯班公布2032年奥运会主场馆设计方案，耗资23亿澳元，灵感源自当地特色民居，引发争议。",
+            "content0": "Officials in Brisbane, Australia, have revealed plans for 2032’s Olympic stadium: a $2.3 billion venue inspired by the state’s typical suburban homes, known as “Queenslanders” — residential architecture that may be familiar to fans of Brisbane-based cartoon, “Bluey.”",
+            "index": 1,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2-20260106054802176.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 6,
+            "title": "K-pop明星带火澳洲悬崖景点引危机",
+            "title0": "A K-pop star, a cliff edge and 2,000 daily visitors: How one Australian beauty spot spiraled into crisis",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/11/travel/lincolns-rock-blue-mountains-sydney-overtourism-intl-hnk",
+            "content": "韩国女团BLACKPINK成员Jennie一张悬崖照，导致澳大利亚林肯岩游客激增，引发安全与环境担忧。",
+            "content0": "Lincoln’s Rock has long been one of the Blue Mountains’ quieter sunset spots — a rocky overhang with sweeping views across eucalyptus valleys just outside Sydney. But in recent years, the once-sleepy Australian lookout has found itself at the center of a global social media storm.",
+            "index": 2,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/j3tywy.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "说唱歌手Snoop Dogg出任冬奥教练",
+            "title0": "Coach Snoop is having a blast at the Olympics",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/11/style/milan-cortina-winter-olympics-snoop-dogg",
+            "content": "美国说唱歌手Snoop Dogg以教练身份亮相米兰-科尔蒂纳冬奥会，其时尚造型引发关注。",
+            "content0": "After delighting onlookers with a series of stylish cameos at the Paris Games in 2024, Snoop Dogg is back at the Olympics with a new, slightly more official, job: coach. The gig comes with a fresh wardrobe of looks cooler than the snow-capped Italian alps.",
+            "index": 3,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2260208671.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "乌克兰运动员坚持佩戴阵亡战友头盔",
+            "title0": "Ukrainian Olympian tells CNN he will continue honoring athletes killed in war: ‘Some things are more important than sports’",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/10/sport/heraskevych-ukraine-helmet-olympics-ban",
+            "content": "乌克兰钢架雪车运动员表示，将不顾国际奥委会规定，继续佩戴印有阵亡战友图像的头盔参赛。",
+            "content0": "Ukrainian skeleton racerVladyslav Heraskevychtells CNN he will defy the International Olympic Committee (IOC) and wear his helmet featuring images of athletes killed during the war inUkraine.",
+            "index": 6,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2260142032.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "北约拟加强北极军事存在应对俄罗斯",
+            "title0": "NATO Is Expected to Step Up Arctic Security. Here’s Why.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/11/world/europe/nato-arctic-russia-military.html",
+            "content": "北约预计将宣布加强在北极地区的军事存在，以应对俄罗斯在该地区日益频繁的军事活动。",
+            "content0": "Bombers, fighter jets and nuclear-capable submarines. Over the past year alone,analysts have documenteddozens of times Russia has displayed these machines of military might in the Arctic.",
+            "index": 70,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/11/multimedia/11int-nato-arctic-gjlz/11int-nato-arctic-gjlz-facebookJumbo.jpg"
+        }
+    ]
+}
