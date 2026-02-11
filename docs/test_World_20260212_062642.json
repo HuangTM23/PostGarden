@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "巨星陨落，枪击惨案，爱泼斯坦余震",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "《恋爱时代》男星詹姆斯·范德比克因肠癌去世，享年48岁",
+            "title0": "Dawson's Creek star James Van Der Beek dies aged 48",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/ce3x0lnyxd3o",
+            "content": "美国青春剧《恋爱时代》主演詹姆斯·范德比克因肠癌去世，享年48岁。他于2024年11月公开诊断结果，此前已与病魔抗争一段时间。",
+            "content0": "Actor James Van Der Beek, best known for his starring role in US teen drama Dawson's Creek, has died aged 48 after being diagnosed with bowel cancer.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/2b57/live/74269880-0784-11f1-b2b9-0593a020cf50.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "加拿大校园枪击致九死二十五伤，嫌犯系18岁女性",
+            "title0": "Live Updates: Police Identify Suspect in Mass Shooting in Canada",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/live/2026/02/11/world/canada-shooting-tumbler-ridge",
+            "content": "加拿大不列颠哥伦比亚省发生校园枪击案，一名18岁女性枪手杀害其母、继兄及六名师生后自杀，共致九人死亡，二十五人受伤。",
+            "content0": "The 18-year-old fatally shot her mother and stepbrother as well as six people at a school, before killing herself. Her motive was unclear, but police had visited her home several times for mental health issues.",
+            "index": 75,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/11/multimedia/11canada-shooting-promo315p-tzjp/11canada-shooting-promo315p-tzjp-facebookJumbo.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "特朗普被指2006年已知晓爱泼斯坦恶行",
+            "title0": "Ex-police chief said Trump told him in 2006 'everyone' knew of Epstein's behaviour",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2407jrn83o",
+            "content": "据FBI文件，前佛州警长称特朗普2006年致电他时表示“每个人”都知道爱泼斯坦的恶行，并称已将其赶出俱乐部。特朗普方面否认知情。",
+            "content0": "A former Florida police chief said he received a call from Donald Trump in 2006 in which the now-president told him \"everyone\" knows about Jeffrey Epstein’s behaviour, according to an FBI document released by the justice department.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/205d/live/2f9455e0-068a-11f1-8eb8-1bf61d08e521.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "安德鲁王子被指向爱泼斯坦发送涉阿富汗矿产机密简报",
+            "title0": "Brief sent by Andrew to Epstein included gold investments, file seen by BBC suggests",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cjd95r1k279o",
+            "content": "BBC所见文件显示，安德鲁王子曾向爱泼斯坦发送一份涉阿富汗黄金、铀等矿产投资机会的机密政府简报。警方正评估是否调查其渎职行为。",
+            "content0": "A document apparently sent by Andrew Mountbatten-Windsor to Jeffrey Epstein included information on investment opportunities in gold and uranium in Afghanistan.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1f2b/live/f9c73870-075a-11f1-925d-919faf925e25.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "曼联老板称英国“被移民殖民”，首相要求道歉",
+            "title0": "'UK has been colonised by immigrants', says INEOS boss and Man Utd co-owner Sir Jim Ratcliffe",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/the-uk-has-been-colonised-by-immigrants-says-ineos-boss-and-man-utd-co-owner-sir-jim-ratcliffe-13506333",
+            "content": "曼联联合老板、亿万富翁吉姆·拉特克利夫爵士称英国“被移民殖民”，引发争议。英国首相斯塔默谴责其言论“冒犯且错误”，并要求其道歉。",
+            "content0": "Britain has been \"colonised\" by immigrants, who are draining resources from the state, Sir Jim Ratcliffe, one of the country's richest and most influential men, has told Sky News.",
+            "index": 10,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-jim-ratcliffe-ed-conway_7162321.jpg?20260211155405"
+        },
+        {
+            "rank": 6,
+            "title": "伊朗纪念革命周年，美军舰集结海湾施压",
+            "title0": "Iran Commemorates Revolution, With U.S. Warships Lurking Off the Coast",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/11/world/europe/iran-revolution-anniversary.html",
+            "content": "伊朗举行大规模集会纪念1979年伊斯兰革命周年。与此同时，特朗普派遣的美国军舰舰队在波斯湾水域集结，对伊核谈判施压。",
+            "content0": "Iran’s government on Wednesday marked the anniversary of the 1979 Islamic Revolution with mass rallies across the country, a show of defiance at a time when precariousnuclear negotiations with Washingtoncould give way to another regional war.",
+            "index": 74,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/11/multimedia/11-int-iran-anniversary-mtkj/11-int-iran-anniversary-mtkj-facebookJumbo.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "瑞士将公投决定是否设1000万人口上限以限制移民",
+            "title0": "Switzerland to Vote on Capping Population at 10 Million",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/11/world/europe/switzerland-to-vote-on-capping-population-at-10-million.html",
+            "content": "瑞士将于6月举行全民公投，决定是否在2050年前将人口上限设定为1000万，并通过限制移民来实现。此举凸显欧洲反移民情绪加剧。",
+            "content0": "Switzerland will hold a referendum in June on whether to cap its population at 10 million until 2050 by limiting immigration, sharply illustrating how anti-foreigner sentiment in Europe has hardened since the continent’s migration crisis a decade ago.",
+            "index": 70,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/11/multimedia/11int-switzerland-population-wkbt/11int-switzerland-population-wkbt-facebookJumbo.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "美国21岁速滑天才斯托尔茨破奥运纪录夺金",
+            "title0": "Jordan Stolz finds a new gear to break an Olympic record.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/11/world/jordan-stolz-hits-another-gear-to-set-an-olympic-record.html",
+            "content": "21岁的美国速滑选手乔丹·斯托尔茨在米兰-科尔蒂纳冬奥会男子1000米比赛中轻松夺金，并创造了新的奥运纪录，打破了荷兰在该项目的长期统治。",
+            "content0": "ByVictor MatherandDoug Mills",
+            "index": 69,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/05/multimedia/05olympics-fast-photos-speed-skating-1000-men-GRID-PROMO-01-ckhp/05olympics-fast-photos-speed-skating-1000-men-GRID-PROMO-01-ckhp-facebookJumbo.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "巴基斯坦女律师就“月经税”起诉政府，挑战健康禁忌",
+            "title0": "A young lawyer is taking Pakistan’s government to court over ‘period tax.’ She hopes the case will break sexual health taboos",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/10/asia/pakistan-pink-tax-womens-rights-intl-cmd",
+            "content": "巴基斯坦年轻律师马赫努尔·奥马尔就卫生巾等女性卫生产品征收“月经税”起诉政府，希望此案能打破社会对性健康话题的禁忌。",
+            "content0": "For years, Mahnoor Omer didn’t talk about it.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2014-02-25t120000z-1391763790-gm1ea2p0sb001-rtrmadp-3-pakistan-sex-education.JPG?c=16x9&q=h_438,w_780,c_fill"
+        }
+    ]
+}
