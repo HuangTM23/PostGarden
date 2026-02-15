@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "毒蛙杀政敌，手套藏DNA",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "乌克兰前能源部长试图离境时被捕",
+            "title0": "Ukraine's ex-energy minister detained while attempting to leave country",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4g5380xwqjo",
+            "content": "乌克兰前能源部长加卢申科在试图乘火车离境时被拘留，他涉嫌卷入一起价值1亿美元的能源部门腐败案。",
+            "content0": "A former energy minister in Ukraine has been detained while attempting to leave the country, authorities have said.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3d97/live/25367f30-0a61-11f1-b7e1-afb6d0884c18.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "FBI分析疑似绑架案嫌犯手套DNA",
+            "title0": "FBI analysing recovered glove that appears to match those worn in Guthrie suspect video",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yrv2g16e2o",
+            "content": "FBI在距受害者家两英里处发现一只手套，其DNA与监控视频中嫌犯所戴手套相符，正等待最终确认。",
+            "content0": "Investigators have found DNA on a glove that appears to match one a suspect was wearing in doorbell camera footage taken the night Nancy Guthrie disappeared.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/477d/live/2a7c5500-0aac-11f1-b5e2-dd58fc65f0f6.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "奥巴马回应特朗普分享种族主义视频",
+            "title0": "Obama addresses racist video shared by Trump depicting him as an ape",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c74754j7qwgo",
+            "content": "美国前总统奥巴马间接回应特朗普分享的将其描绘成猿猴的视频，称曾经约束公职人员的“羞耻感”和“礼仪”现已丧失。",
+            "content0": "Former US President Barack Obama has indirectly addressed a racist video posted on President Donald Trump's social media, telling a podcast host that the \"shame\" and \"decorum\" that once guided public officials is now lost.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/dfb9/live/6d4a11c0-09d9-11f1-bfd9-a1813d3ca61e.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美司法部称爱泼斯坦文件已全部公布",
+            "title0": "Bondi criticised after saying all Epstein files have been released",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cz7genjx9njo",
+            "content": "美国司法部称已依法公布所有爱泼斯坦相关文件，但国会议员批评其披露不充分，要求公布内部备忘录。",
+            "content0": "The US Department of Justice (DoJ) has said it has released all of the files required by the Epstein Files Transparency Act, but lawmakers have argued the release is insufficient.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d134/live/2a2760c0-0ab8-11f1-99f8-175d6377faa5.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "英欧指控俄用箭毒蛙毒素杀害纳瓦尔尼",
+            "title0": "What is the dart frog toxin allegedly used to kill Alexei Navalny?",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cm289we7jzdo",
+            "content": "英国及欧洲盟友称，在纳瓦尔尼体内发现南美箭毒蛙毒素“epibatidine”，并称只有俄罗斯国家有动机和能力使用此罕见毒素。",
+            "content0": "Russian opposition leader Alexei Navalny was killed using a deadly toxin found in poison dart frogs in South America, the UK and some of its European allies have said.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/7fc2/live/a4c47040-0a98-11f1-9640-7f85e4d0c189.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "亚马逊货车被困“英国最致命步道”",
+            "title0": "Delivery van 'stuck on deadliest mudflat footpath'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn9e32yv9g5o",
+            "content": "一辆亚马逊送货货车因跟随GPS路线，被困在被称为“英国最致命步道”的埃塞克斯郡泥滩上，司机已安全撤离。",
+            "content0": "A delivery van appeared to be stuck on mudflats, which locals described as the \"deadliest footpath in Britain\".",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/7448/live/4d0bc0a0-0a85-11f1-8b85-1da9bd0ede97.png"
+        },
+        {
+            "rank": 7,
+            "title": "特朗普政府撤走关键气候研究中心超算",
+            "title0": "Trump admin is pulling supercomputers out of key weather and climate research center",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/13/weather/trump-colorado-lab-ncar-supercomputer-climate",
+            "content": "特朗普政府计划将关键超算设施从美国国家大气研究中心移走，该中心被视为气候变化警报的来源。",
+            "content0": "A leading American research lab is slated to lose its critical supercomputing facility, according to aletter released Thursdayby the National Science Foundation.",
+            "index": 4,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2252442980a.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "孟加拉国反对党大选获胜，前统治者之子将任总理",
+            "title0": "Bangladesh’s BNP wins big in first election since Gen Z uprising, son of former ruler set to become prime minister",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/12/asia/bangladesh-election-results-rahman-bnp-win-intl-hnk",
+            "content": "孟加拉国民族主义党在近二十年后赢得议会选举，其领导人、前总理之子塔里克·拉赫曼将出任总理。",
+            "content0": "Bangladesh’sopposition Bangladesh Nationalist Party (BNP) won a landslide parliamentary election on Friday, returning to power after nearly two decades and positioning party leader Tarique Rahman to become prime minister as the country emerges frommonths of unrestand economic disruption.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/shutterstock-editorial-16590076a.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "英国队冬奥单日夺两金创历史",
+            "title0": "Team GB enjoy record-breaking day at Winter Olympics, with two gold medals",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/team-gb-enjoy-record-breaking-day-at-winter-olympics-with-two-gold-medals-13508033",
+            "content": "英国队在冬奥会混合团体单板滑雪和混合团体钢架雪车项目中夺冠，首次实现单日收获两枚金牌。",
+            "content0": "Team GB will leave the 2026 Olympic Winter Games as history makers after securing two titles on the same day for the first time.",
+            "index": 8,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-skeleton-olympics_7165974.jpg?20260215184131"
+        }
+    ]
+}
