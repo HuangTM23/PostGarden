@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "毒蛙杀政敌，银行被掏空",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美民主党高层安抚欧洲：特朗普三年后就走人",
+            "title0": "'Trump will be gone in three years': Top Democrats try to reassure Europe",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cjrq2r9y278o",
+            "content": "美国民主党高层在慕尼黑安全会议上安抚欧洲盟友，称特朗普总统是暂时的，美国将继续是欧洲的坚定伙伴。",
+            "content0": "US Secretary of State Marco Rubio was the centre of attention at the Munich Security Summit, as European leaders wondered apprehensively what tone he would strike in his remarks on Saturday.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/46c7/live/7b51bcd0-0a03-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "奥巴马回应特朗普分享将其比作猿猴的种族主义视频",
+            "title0": "Obama addresses racist video shared by Trump depicting him as an ape",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c74754j7qwgo",
+            "content": "美国前总统奥巴马间接回应了特朗普分享的种族主义视频，称曾经约束公职人员的“羞耻感”和“礼仪”如今已不复存在。",
+            "content0": "Former US President Barack Obama has indirectly addressed a racist video posted on President Donald Trump's social media, telling a podcast host that the \"shame\" and \"decorum\" that once guided public officials is now lost.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/dfb9/live/6d4a11c0-09d9-11f1-bfd9-a1813d3ca61e.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "伊朗称愿为达成核协议做出妥协",
+            "title0": "Iran ready to discuss compromises to reach nuclear deal, minister tells BBC in Tehran",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/clyz4y3zwz5o",
+            "content": "伊朗副外长表示，如果美国愿意讨论解除制裁，伊朗准备考虑妥协以达成核协议。",
+            "content0": "Iran is ready to consider compromises to reach a nuclear deal with the US if the Americans are willing to discuss lifting sanctions, an Iranian minister has told the BBC.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/b307/live/c12f3310-0a0b-11f1-b5e2-dd58fc65f0f6.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "俄“搭讪艺术家”被控在加纳偷拍女性并分享视频",
+            "title0": "Russian 'pick-up artist' accused of secretly filming women in Ghana",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c9wn5p299eko",
+            "content": "加纳要求引渡一名俄罗斯男子，指控其非法录制与多名女性的性接触视频，并在未经同意的情况下在线分享。",
+            "content0": "Ghana has requested the extradition of a Russian man accused of illegally recording his sexual encounters with several women and sharing the videos online without their consent.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/96de/live/9a51cc40-0a41-11f1-b7e1-afb6d0884c18.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "英国等多国指控俄用箭毒蛙毒素杀害纳瓦尔尼",
+            "title0": "Russia killed opposition leader Alexei Navalny using dart frog toxin, UK says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwyk4lz4e3eo",
+            "content": "英国及欧洲多国称，俄罗斯反对派领袖纳瓦尔尼是被一种从箭毒蛙毒素中提取的毒物杀害的。",
+            "content0": "Russian opposition leader Alexei Navalny was killed using a poison developed from a dart frog toxin, the UK and European allies have said.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/33db/live/23d175f0-0a2a-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "德国发生“最壮观”银行劫案，数千保险箱被洗劫",
+            "title0": "The spectacular multimillion-euro heist nobody noticed",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cm2y2538lz8o",
+            "content": "德国盖尔森基兴一家银行遭窃贼钻孔破墙，超过3000个保险箱被洗劫一空，损失或达数千万欧元。",
+            "content0": "It has been described as Germany's most \"spectacular\" bank heist in years.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/b7ff/live/73820fb0-0395-11f1-a0ef-03774d8753d9.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "曼迪·摩尔夫妇在洛杉矶山火后重建梦想家园",
+            "title0": "Mandy Moore and Taylor Goldsmith nearly lost their dream home in the LA fires. Here’s how they rebuilt",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/11/style/mandy-moore-home-altadena-ad",
+            "content": "美国演员曼迪·摩尔夫妇在洛杉矶山火中几乎失去梦想家园，目前正进行重建，并分享了他们的心路历程。",
+            "content0": "In 2020, Mandy Moore and her musician husband Taylor Goldsmith bought their dream home in Altadena, California, as a family of two, hiring a team to begin renovating the romantic Spanish Colonial Revival property and update its 1930s charm. In 2023, as a family of four, with another baby on the way, they moved in and began living their new life in Altadena’s enclave of historic architecture, mountain views and small-town charm.",
+            "index": 1,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/ad0326-moore-1.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "布里斯班公布23亿美元奥运场馆设计引争议",
+            "title0": "Plans for $2.3 billion stadium ignite debate in 2032 Olympics host city",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/01/07/style/australia-brisbane-olympic-stadium-victoria-park-hnk-intl",
+            "content": "澳大利亚布里斯班公布2032年奥运会主场馆设计，灵感源于当地住宅风格，但耗资23亿美元在遗产公园内建新馆引发争议。",
+            "content0": "Officials in Brisbane, Australia, have revealed plans for 2032’s Olympic stadium: a $2.3 billion venue inspired by the state’s typical suburban homes, known as “Queenslanders” — residential architecture that may be familiar to fans of Brisbane-based cartoon, “Bluey.”",
+            "index": 5,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2-20260106054802176.jpg?c=16x9&q=w_800,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "AI公司Anthropic投入2000万美元推动技术监管",
+            "title0": "Why OpenAI says it isn’t spending on Super PACs",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/13/tech/openai-political-spending-super-pacs",
+            "content": "AI公司Anthropic宣布投入2000万美元支持推动AI技术监管的政治团体，而其竞争对手OpenAI则表示暂无类似捐款计划。",
+            "content0": "AI companyAnthropic announced this week it is giving $20 millionto a political group campaigning for more regulation of the technology – but its main rival, OpenAI, is telling its employees it won’t be making similar donations.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/shutterstock-editorial-15149274ai.jpg?c=16x9&q=h_438,w_780,c_fill"
+        }
+    ]
+}
