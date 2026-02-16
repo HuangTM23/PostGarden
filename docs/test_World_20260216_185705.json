@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "欧洲慌了！特朗普新秩序已定",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "特朗普计划访问委内瑞拉，但石油计划障碍重重",
+            "title0": "Trump eyes Venezuela visit – but obstacles to his oil plan remain",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4gjx1j1nkjo",
+            "content": "美国总统特朗普计划访问委内瑞拉，意图开发其世界最大石油储备，但该国能源基础设施破败，投资风险巨大。",
+            "content0": "After US President Donald Trump oversaw the seizure of his Venezuelan counterpart Nicolás Maduro last month, he vowed to tap the country's oil reserves – the world's largest.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a1d6/live/398af810-065d-11f1-ad0b-39fef3bf1fc8.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "新证据显示英国警方曾构陷男子谋杀罪",
+            "title0": "Police framed man for murder, new evidence suggests",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg36pknpl5o",
+            "content": "BBC调查发现，一名因谋杀罪入狱23年的男子可能被警方构陷，关键证人证词与监控录像矛盾，多名证人称遭警方胁迫作伪证。",
+            "content0": "New evidence in the case of a man who has spent 23 years in prison for murder suggests he was framed by police, BBC Panorama has found.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/2a02/live/3afa9960-08e9-11f1-b7e1-afb6d0884c18.png"
+        },
+        {
+            "rank": 3,
+            "title": "以色列女兵遭极端正统派男子追赶，警方介入解救",
+            "title0": "Female Israeli soldiers rescued after being chased by ultra-Orthodox men",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/clyzen2lgw9o",
+            "content": "两名以色列女兵被误认为递送征兵令，遭极端正统派犹太男子群体追赶，警方使用震爆弹驱散人群并逮捕23人。",
+            "content0": "Two female Israeli soldiers had to be rescued by police after being chased by a crowd of ultra-Orthodox Jewish men.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d42a/live/7139f310-0aa9-11f1-adb1-dfcb996ae067.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "悉尼八旬老人被误绑架，警方紧急寻人",
+            "title0": "Sydney police plead for return of man, 85, kidnapped by mistake",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0ljzye1zgno",
+            "content": "悉尼一名85岁独居老人被至少三名袭击者从家中绑走，警方认为这是一起误绑案，呼吁绑匪放人。",
+            "content0": "Sydney police have appealed for the return of an 85-year-old whom they believe was kidnapped by mistake.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/9db6/live/4a163370-0aea-11f1-b38f-dfbde52a66fe.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "《美食、祈祷、恋爱》出版20周年，如何征服全球读者",
+            "title0": "Eat, Pray, Love – go! How Elizabeth Gilbert and her readers conquered the world",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/16/travel/eat-pray-love-remember-20th-anniversary",
+            "content": "伊丽莎白·吉尔伯特的回忆录《美食、祈祷、恋爱》出版20周年，该书从个人游记演变为全球现象，激励无数读者踏上自我发现之旅。",
+            "content0": "It was when she got to San Diego, of all places, that Elizabeth Gilbert realized everything had changed. She had left home as the author of a reasonably successful, year-old memoir titled “Eat, Pray, Love,” a first-person fusion of travelogue, confessional, and self-help manual, tracing her post-divorce journeys to Italy, India and Indonesia. On tour to promote the book’s paperback release, Gilbert recalls, she’d been speaking to audiences of “10, 15, 20 people.”",
+            "index": 2,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/epl-card-split-v2.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 6,
+            "title": "为何滑雪永远是“最时髦”的运动",
+            "title0": "Why skiing will forever be the most glamorous sport",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/15/style/the-timeless-allure-of-apres-ski-culture",
+            "content": "滑雪运动一个多世纪以来不仅是交通或体育，更是一种时髦的生活方式，其魅力在于下山的快感与滑雪后的社交乐趣。",
+            "content0": "For over a century, skiing has been more than transportation or sport. It’s been a lifestyle, emphasis on the second syllable.",
+            "index": 3,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-53397608.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "泰勒·雷迪克为乔丹旗下车队赢得戴通纳500大赛",
+            "title0": "Tyler Reddick wins the Daytona 500 for Michael Jordan-owned 23XI Racing",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/15/sport/tyler-reddick-michael-jordan-daytona-500",
+            "content": "车手泰勒·雷迪克在最后时刻超越对手，为迈克尔·乔丹与丹尼·哈姆林共同拥有的23XI Racing车队赢得戴通纳500大赛冠军。",
+            "content0": "Tyler Reddick won theDaytona 500in a car owned byMichael Jordanwhen Chase Elliott crashed as he and Reddick were battling for the win.",
+            "index": 6,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-2261841143.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "加拿大枪支回购计划遇阻，控枪虽受欢迎但执行困难",
+            "title0": "Gun control is popular in Canada. So why is a major buyback program attracting criticism?",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/14/americas/canada-shooting-gun-buyback-criticism-latam-intl",
+            "content": "加拿大开始实施针对攻击性武器的全国性回购计划，但该计划因实际和后勤问题面临延误，并遭到警方、省级官员和枪主反对。",
+            "content0": "Thedeadly mass shootingat a school in British Columbia came as Canadian authorities face significant obstacles in rolling out a nationwide firearms buyback that is mired in practical and logistical complications.",
+            "index": 9,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-1241109823.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "奥运奖牌归宿令人意外：许多冠军将其藏在袜子里",
+            "title0": "You’d Be Surprised to See Where Many Olympians Keep Their Medals",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/15/world/europe/olympic-medals-sock-drawers.html",
+            "content": "许多奥运冠军并未将来之不易的奖牌展示于众，而是选择将其存放在袜子抽屉等不起眼的地方，认为放在保险箱里“很荒谬”。",
+            "content0": "Olympic medals are among the most coveted prizes in sports. Athletes can spend decades in their pursuit, and only the greatest in the world succeed.",
+            "index": 67,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/15/multimedia/15olympics-medals-04-fvtm-promo/15olympics-medals-04-fvtm-promo-facebookJumbo.jpg"
+        }
+    ]
+}
