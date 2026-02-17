@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "扎克伯格遭围堵！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美参议员凯利称将“认真考虑”竞选总统",
+            "title0": "US Senator Mark Kelly tells BBC he will 'seriously consider' White House run",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy9gdvl4zv4o",
+            "content": "美国民主党参议员马克·凯利表示，他将在2028年“认真考虑”竞选总统，同时正就一段敦促军人拒绝非法命令的视频与特朗普政府交锋。",
+            "content0": "US Democratic Senator Mark Kelly has said he will \"seriously consider\" running for president in 2028 as he battles the Trump administration over a video in which he urged military personnel to refuse illegal orders.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/598d/live/e05941f0-0bb8-11f1-b5e2-dd58fc65f0f6.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "冬奥冰壶作弊丑闻令加拿大人不安",
+            "title0": "'A sad day' - curling cheating row at Winter Games unsettles Canadians",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c9dne166pwlo",
+            "content": "冬奥会冰壶赛场曝出作弊丑闻，加拿大男女队均被指控违规触球，引发国内对体育精神的广泛质疑。",
+            "content0": "A scandal at the Winter Olympics has left the Canadian curling teams on the defensive and Canadians reeling over the crack in their country's polite persona.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ce46/live/f0dc41b0-097b-11f1-9479-1f22ed0be724.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "罗德岛冰球场枪击案致三人死亡",
+            "title0": "Police identify suspect in Rhode Island ice rink shooting",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c75e7wqqq6no",
+            "content": "美国罗德岛州一场高中冰球赛发生枪击，包括枪手在内共三人死亡，三人受伤。警方称枪手系自杀。",
+            "content0": "Police have identified the suspect in a shooting at a high school ice hockey game in Rhode Island that killed two people and injured three others.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/6c65/live/d2ef7ff0-0c0f-11f1-ad4b-755d3b02c9a5.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "法国极右翼学生遇害案九人被捕",
+            "title0": "Nine arrested in France over death of far-right student",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvgj1qrqd47o",
+            "content": "法国一名极右翼学生在里昂遭极左翼分子袭击身亡，警方已逮捕九人，其中包括一名极左翼政党议员的助手。",
+            "content0": "Nine people have been arrested in France following an investigation into the murder of a far-right nationalist student by suspected militants from the far-left.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8265/live/5290eb40-0c42-11f1-b8ba-135d136c986f.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "《宛如处女》词作者去世，灵感源于失恋",
+            "title0": "The man whose bad break-up gave Madonna her breakthrough hit Like A Virgin",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvgveqzld59o",
+            "content": "格莱美获奖词作家比利·斯坦伯格去世，享年75岁。他创作的麦当娜金曲《宛如处女》灵感源于其个人失恋经历。",
+            "content0": "Grammy-winning US songwriter Billy Steinberg, a key figure behind a string of chart-topping hits including Madonna's Like a Virgin, has died at the age of 75.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e452/live/28c50bf0-0c08-11f1-b5e2-dd58fc65f0f6.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "英国将收紧双重国籍者入境规定",
+            "title0": "Dual nationals face scramble for UK passports as new rules come into force",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2d9yk2kpjo",
+            "content": "英国新规要求双重国籍者入境时必须持英国护照或居留权证明，引发部分长期居民担忧，有人或因此无法返英。",
+            "content0": "When Jelena returns home from a \"holiday of a lifetime\" travelling around South America later this year, she faces being told she can no longer enter the UK.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3ccd/live/05b6af50-0c0e-11f1-b5e2-dd58fc65f0f6.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "美国说唱歌手“狗爷”出任冬奥教练",
+            "title0": "Coach Snoop is having a blast at the Olympics",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/11/style/milan-cortina-winter-olympics-snoop-dogg",
+            "content": "美国说唱歌手“狗爷”斯努普·狗狗以教练身份亮相米兰-科尔蒂纳冬奥会，其时尚造型引发关注。",
+            "content0": "After delighting onlookers with a series of stylish cameos at the Paris Games in 2024, Snoop Dogg is back at the Olympics with a new, slightly more official, job: coach. The gig comes with a fresh wardrobe of looks cooler than the snow-capped Italian alps.",
+            "index": 3,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/ap26043723190624a.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "西班牙将调查三大社媒平台涉传播AI生成儿童性虐内容",
+            "title0": "Spain to Investigate Social Media Giants, Escalating Trans-Atlantic Tech Dispute",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/17/world/europe/spain-investigate-social-media.html",
+            "content": "西班牙首相桑切斯宣布，将要求检察官调查X、Meta和TikTok涉嫌传播AI生成的儿童性虐待材料。",
+            "content0": "Prime Minister Pedro Sánchez of Spain said on Tuesday that his government will ask prosecutors to investigate social media giants X, Meta and TikTok for allegedly spreading child sexual abuse material generated by artificial intelligence, the latest salvo in a Europe-wide effort to regulate big tech companies.",
+            "index": 73,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/17/multimedia/17int-Spain-Tech-pmbv/17int-Spain-Tech-pmbv-facebookJumbo.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "扎克伯格将就社媒成瘾问题出庭作证",
+            "title0": "Tough questions — and grieving families — await Mark Zuckerberg at social media addiction trial Wednesday",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/17/tech/meta-mark-zuckerberg-addiction-trial-testimony",
+            "content": "Meta首席执行官扎克伯格将就社交媒体成瘾问题出庭作证，面临失去子女的家长的尖锐质询。",
+            "content0": "Joann Bogard stood in a Capitol Hill hearing room two years ago and watched Mark Zuckerbergapologizeto grieving parents who traced the deaths of their children to the online world he helped create.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/shutterstock-editorial-15471941t.jpg?c=16x9&q=h_438,w_780,c_fill"
+        }
+    ]
+}
