@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "扎克伯格出庭，炸锅！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "特朗普警告英国勿移交迪戈加西亚军事基地",
+            "title0": "Do not give away Diego Garcia, Trump tells UK in fresh attack on Chagos deal",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c309qqyer8yo",
+            "content": "美国总统特朗普公开警告英国首相斯塔默，反对将查戈斯群岛主权移交毛里求斯并回租迪戈加西亚军事基地的计划。",
+            "content0": "\"Do not give away Diego Garcia,\" US President Donald Trump has said as he criticised the UK's plan to hand over the Chagos Islands to Mauritius and lease back an important military base.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/63ef/live/533a9e50-0c7a-11f1-bbff-03527479c958.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "加拿大第三位保守党议员转投自由党",
+            "title0": "Third Conservative Canadian MP defects to Carney's Liberals",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cqxd495pvy5o",
+            "content": "加拿大阿尔伯塔省保守党议员马特·杰内鲁转投自由党，使卡尼总理领导的政府距离议会多数席位仅差三席。",
+            "content0": "A Conservative member of parliament from Alberta has defected to the Liberal Party, bringing Prime Minister Mark Carney closer to a majority in the House of Commons.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/60d8/live/422c7120-0cec-11f1-9eba-53aaa3c37de6.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "美国空军一号将换装金色新涂装",
+            "title0": "Air Force One set for makeover paint job with new colours",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cpd8zx4qdz6o",
+            "content": "美国总统专机“空军一号”将进行涂装更新，采用金色、深红和海军蓝的新配色方案，其中金色是特朗普偏爱的颜色。",
+            "content0": "The US presidential jet is getting a new paint design that will include one of President Donald Trump's preferred colour choices for the White House and his hotels, gold.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e006/live/75d782f0-0d0d-11f1-8d41-01fb20988fd2.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "加州雪崩致八名滑雪者遇难",
+            "title0": "Eight skiers found dead after California avalanche",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg19dp4vxgo",
+            "content": "美国加州太浩湖偏远地区发生雪崩，救援人员已发现八名失踪滑雪者遗体，另有一人仍下落不明。",
+            "content0": "Rescue teams combing through the backcountry of California's Lake Tahoe region say they have found the bodies of eight skiers who went missing in an avalanche on Tuesday.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/31a3/live/87f7fc50-0d10-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "亿万富翁韦克斯纳称被爱泼斯坦欺骗",
+            "title0": "Billionaire Les Wexner tells US lawmakers he was 'naive' and 'conned' by Epstein",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy57rrrpvg7o",
+            "content": "美国亿万富翁、前维密老板莱斯·韦克斯纳向国会作证，称自己“天真、愚蠢、轻信”，被已故性犯罪者杰弗里·爱泼斯坦欺骗并窃取巨额资金。",
+            "content0": "US billionaire Les Wexner, who is alleged to have played a key role in helping Jeffrey Epstein build his wealth, has said he was \"naive, foolish and gullible\" for trusting the late sex offender.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/f405/live/7313d010-0d02-11f1-9797-cb73f0113553.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "YouTube首个视频被博物馆收藏",
+            "title0": "YouTube’s earliest video has been deemed museum-worthy",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/18/style/youtube-first-video-victoria-and-albert-museum",
+            "content": "伦敦维多利亚与阿尔伯特博物馆新展览收录了YouTube诞生之初的网页重建及联合创始人上传的首个视频《我在动物园》。",
+            "content0": "A new exhibit at the Victoria and Albert Museum (V&A) in London captures the moment YouTube was born more than 20 years ago.",
+            "index": 3,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/me-at-the-zoo-video-and-player.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "美国平原野火烧毁芝加哥大小区域",
+            "title0": "Plains megafire burns a Chicago-sized area spanning two states with more dangerous weather to come",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/18/weather/ranger-road-wildfire-wind-forecast-climate",
+            "content": "美国平原地区“游骑兵路”野火已发展为跨州特大火灾，在俄克拉荷马州和堪萨斯州烧毁约14.5万英亩土地，面积相当于芝加哥市。",
+            "content0": "Dangerous, critical fire weather conditions persist Wednesday after more than a dozen new wildfires torched tens of thousands of acres andforced evacuations in the Plainsamid bone-dry conditions and powerful winds on Tuesday.",
+            "index": 4,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/sequence-01-00-00-50-23-still001.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "扎克伯格就社媒成瘾问题出庭作证",
+            "title0": "Meta’s Zuckerberg testifies about social media’s effects on children in landmark trial",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/18/tech/meta-mark-zuckerberg-testifies-social-media-addiction-trial",
+            "content": "Meta首席执行官马克·扎克伯格在洛杉矶出庭作证，就Instagram是否故意设计成令人上瘾并损害儿童心理健康接受质询。",
+            "content0": "Meta CEO Mark Zuckerberg was grilled Wednesday about whether his company intentionally designed Instagram to be addictive, in front of the young woman accusing Meta and YouTube of hooking her as a child and damaging her mental health.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2261793968.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "叙利亚权力更迭致ISIS监狱系统崩溃",
+            "title0": "Power Shift in Syria Upends an Archipelago for ISIS Prisoners",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/18/world/middleeast/syria-prisons-isis.html",
+            "content": "叙利亚政府军近期夺取东北部大片区域，导致由库尔德武装看守的数十个关押ISIS成员的高安全级别监狱系统陷入混乱。",
+            "content0": "Orange jump suits lay strewed on the ground, dropped in a trail as the prisoners made their escape, the only sign left of the former inmates. The guards’ quarters were abandoned and the prison gates swung in the wind.",
+            "index": 75,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/16/multimedia/00int-syria-prisons-promo/00int-syria-prisons-promo-facebookJumbo.jpg"
+        }
+    ]
+}
