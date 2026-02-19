@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "王室、战争、疫苗：全球炸锅！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "特朗普称世界将在十天内知晓伊朗协议结果",
+            "title0": "Trump says world has 10 days to see if Iran deal reached",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c86yjnw4x49o",
+            "content": "美国总统特朗普表示，世界将在未来约十天内知晓美国是与伊朗达成协议还是采取军事行动。",
+            "content0": "President Donald Trump says the world will find out \"over the next, probably, 10 days\" whether the US will reach a deal with Iran or take military action.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/043b/live/ff016940-0daa-11f1-9fe5-57999fe11004.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "英国未同意美使用其基地打击伊朗",
+            "title0": "UK has not given US permission to use RAF bases for Iran strikes",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cj98egkl7l1o",
+            "content": "英国政府尚未同意美国使用其军事基地支持对伊朗的潜在打击，包括迪戈加西亚和格洛斯特郡的基地。",
+            "content0": "The British government has not given permission for the US to use UK military bases to support potential US strikes on Iran, the BBC understands.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8aec/live/d7436510-0da1-11f1-8168-03d32f3820eb.png"
+        },
+        {
+            "rank": 3,
+            "title": "美议员呼吁在安德鲁被捕后追究爱泼斯坦同伙",
+            "title0": "'Who's next?' - American lawmakers call for 'justice' in the US after Andrew arrest",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c86yj2vjp5go",
+            "content": "美国国会议员敦促政府效仿英国，对与杰弗里·爱泼斯坦关系密切者采取更强硬行动。",
+            "content0": "US lawmakers have urged their government to follow the UK's suit and push harder on those who were close to Jeffrey Epstein, following the arrest of  Andrew Mountbatten-Windsor on suspicion of misconduct in public office.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/adeb/live/ef6b9c20-0dd8-11f1-8aca-8d545890fa70.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "研究称单一鼻喷疫苗或可抵御所有呼吸道疾病",
+            "title0": "Single vaccine could protect against all coughs, colds and flus, researchers say",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2g8rz7yedo",
+            "content": "美国研究人员称，一种单一鼻喷疫苗或可抵御所有咳嗽、感冒、流感及细菌性肺部感染，甚至缓解过敏。",
+            "content0": "A single nasal spray vaccine could protect against all coughs, colds and flus, as well as bacterial lung infections, and may even ease allergies, say US researchers.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/93b9/live/4a4f60e0-0dd4-11f1-9972-d3f265c101c6.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "特朗普和平委员会成员承诺提供70亿美元加沙援助",
+            "title0": "Trump's Board of Peace members pledge $7bn in Gaza relief",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cp8rke05kv4o",
+            "content": "特朗普宣布，加入其“和平委员会”的数个国家已承诺为加沙“援助计划”提供超过70亿美元。",
+            "content0": "Several countries which have signed up to Donald Trump's Board of Peace have contributed more than $7bn (£5.2bn) towards a Gaza \"relief package\", the US president has said.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a39b/live/c6cf6130-0db4-11f1-a954-b3152d2d59e8.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "美国贸易逆差创历史新高",
+            "title0": "US trade deficit hits fresh high despite Trump's tariffs",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4ge4yxwnlno",
+            "content": "尽管特朗普实施广泛关税，美国去年商品进口额仍远超出口，贸易逆差创下约1.2万亿美元新高。",
+            "content0": "US goods imports continued to outpace its exports last year, sending the country's trade deficit to a new high despite sweeping tariffs introduced by US President Donald Trump.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/58ba/live/1aa74fd0-0daa-11f1-a6a3-652c60b5e4d5.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "西弗吉尼亚州就儿童性虐材料起诉苹果公司",
+            "title0": "State sues Apple for negligence over the alleged distribution of child sexual abuse materials on iCloud and devices",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/19/tech/apple-west-virginia-lawsuit-icloud",
+            "content": "西弗吉尼亚州总检察长办公室起诉苹果公司，指控其允许儿童性虐材料在其iCloud服务上存储和传播。",
+            "content0": "The West Virginia attorney general’s office sued Apple on Thursday, claiming the tech giant allowed child sexual abuse materials (CSAM) to be stored and distributed on its iCloud service.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1139478850.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "秘鲁总统因“中餐门”丑闻遭罢免",
+            "title0": "Peru’s leader José Jerí ousted over ‘Chifa-gate’ scandal, as presidential ‘curse’ strikes again",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/17/americas/peru-president-jose-jeri-ousted-intl-latam",
+            "content": "秘鲁国会通过不信任动议，罢免总统何塞·杰里，这是该国近十年来的第八次领导人更迭。",
+            "content0": "Peru’s president has been ousted after being censured by Congress, marking the country’s eighth change of leader in nearly a decade ofpolitical instability.",
+            "index": 9,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-01-21t203716z-1550850308-rc2p5jaxkvkg-rtrmadp-3-peru-politics.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "俄罗斯“英雄”军官被控策划士兵自伤骗补",
+            "title0": "Russia Celebrated Him. Now He’s Accused of Having Troops Shoot Themselves.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/19/world/europe/russia-military-corruption.html",
+            "content": "一名曾被俄罗斯宣传为英雄的军官被指控策划让30多名士兵和医护人员开枪自伤，以骗取战场伤害补助。",
+            "content0": "The lieutenant colonel, call sign Executioner, was celebrated in Russian propaganda. He had four Orders of Courage pinned to his chest. In avideoshared by the Ministry of Defense, he expressed a defiant wish not to rest from battle until Russia’s “victory” in Ukraine. He bragged about shrapnel wounds from what he said had been a close call.",
+            "index": 72,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/02/multimedia/00int-russia-military-corruption-jhfz/00int-russia-military-corruption-jhfz-facebookJumbo.jpg"
+        }
+    ]
+}
