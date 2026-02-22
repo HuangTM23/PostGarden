@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "返程堵哭？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "谷爱凌冬奥刷爆纪录",
+            "content": "谷爱凌卫冕自由式滑雪女子U型场地金牌，成冬奥该项目首位卫冕者，生涯6枚冬奥奖牌追平王濛。",
+            "source_platform": "大象新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1857831740590133089",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/2eba72bc352dbe06a54f6c5bf0b1d86d"
+        },
+        {
+            "rank": 2,
+            "title": "6元塑料盆用41年未坏",
+            "content": "网友称1984年买的6元塑料盆成“传家盆”，用了41年仍完好，洗过澡、洗过衣、淘过麦。",
+            "source_platform": "封面新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1857840772955118179",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/d474501a6f7afaddb258f846bd43906e"
+        },
+        {
+            "rank": 3,
+            "title": "济南“出逃”鳌鱼被找到",
+            "content": "济南全网关注的“出逃”鳌鱼在章丘一水域被网友发现，主人已赶往现场核实情况。",
+            "source_platform": "九派新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1857827244171052199",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/fff90002829ca00a8213239bc13a2fb2"
+        },
+        {
+            "rank": 4,
+            "title": "上海空气重度污染",
+            "content": "2月22日上海市实时空气质量指数为250，重度污染，儿童、老年人等应停止户外运动。",
+            "source_platform": "鲁中晨报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1857832237442230159",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/785bb31974a82f0355e7c9f399431fc6"
+        },
+        {
+            "rank": 5,
+            "title": "韩国二次电池技术被中国反超",
+            "content": "韩媒数据显示，韩国在战略技术领域中唯一保持领先的二次电池技术水平已被中国反超。",
+            "source_platform": "环球时报新媒体",
+            "source_url": "https://news.qq.com/rain/a/20260222A044IK00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/OR3ZGh9eZ07BvU7w-YtvFN7LJdwDbds2t80NpadZnzBCwAA_640330/0"
+        },
+        {
+            "rank": 6,
+            "title": "瑞银唱多“中国锂”",
+            "content": "瑞银接连发布报告，看好“中国锂”，大幅上调锂辉石、碳酸锂价格预测，称市场进入第三次锂价超级周期。",
+            "source_platform": "每日经济新闻",
+            "source_url": "https://news.qq.com/rain/a/20260222A05B1900",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/om_ls/OwUr5oB9d1UaciJWw1Aa7TIPmZEnNO0IuOmDFiMRI8qD4AA_640330/0"
+        },
+        {
+            "rank": 7,
+            "title": "存储巨头称今年涨价贯穿全年",
+            "content": "SK海力士称全球存储器产业已彻底转向卖方市场，2026年价格涨势将贯穿全年，基于AI需求爆发与供应端约束。",
+            "source_platform": "每日经济新闻",
+            "source_url": "https://news.qq.com/rain/a/20260222A044CV00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/om_ls/OKzjdQJjs1CI33KSYKwWfIpyho2kaTuw_PkTYByowChN4AA_640330/0"
+        },
+        {
+            "rank": 8,
+            "title": "中美AI同步加速更新",
+            "content": "2026年中美AI节奏几乎同步，硅谷与中国高频技术脉冲平均每2-3天一次，47天30次更新。",
+            "source_platform": "量子位",
+            "source_url": "https://news.qq.com/rain/a/20260222A055GK00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/Otw1tmF0ve4a759ko9UnTrTViN7HiXLkWSQZexBnPBCbIAA_640330/0"
+        },
+        {
+            "rank": 9,
+            "title": "一家人春节自驾游7城花8千",
+            "content": "一家人春节自驾11天游7城仅花费8000元，展示了经济实惠的旅行方式。",
+            "source_platform": "浪涨新闻",
+            "source_url": "https://www.toutiao.com/video/7609113970485493800/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-3qtffzwd0j/o0kAkgnVEigZKCjxwaAiNC1IQAaAIAABvnPZw~tplv-tt-profile_shortvideo:720:1280.jpeg?_iz=3710&bid=676&from=shortvideo&gid=7609113970485493800&lk3s=06827d14&x-expires=1772403716&x-signature=BnH%2FyJI1ge0pKxPpBIOYN5%2BIZT8%3D"
+        }
+    ]
+}
