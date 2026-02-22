@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "王室危机！伊朗抗议！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "安德鲁丑闻成威廉未来国王的难题",
+            "title0": "Andrew is Prince William's problem too - and it makes his future job harder",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5y6kgky2evo",
+            "content": "安德鲁王子被捕事件持续发酵，分析指出这给未来国王威廉王子的工作带来巨大挑战，并可能损害王室声誉。",
+            "content0": "School holidays are precious, protected time for the Prince and Princess of Wales.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/56bb/live/ff9be8b0-0f64-11f1-8bee-8d6be8e22497.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "巴基斯坦空袭阿富汗致数十人死伤",
+            "title0": "Pakistan launches strikes on Afghanistan, with Taliban saying dozens killed",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cdxgln3gnd6o",
+            "content": "巴基斯坦对阿富汗境内目标发动空袭，塔利班称袭击造成数十人伤亡，包括妇女儿童。巴方称此举是对近期自杀式袭击的回应。",
+            "content0": "Pakistan has carried out multiple overnight air strikes on Afghanistan, which the Taliban has said killed and wounded dozens of people, including women and children.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a6f5/live/87fcb140-0fc3-11f1-8b12-b5b1975625e0.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "伊朗学生举行大规模反政府抗议",
+            "title0": "Iran students stage first large anti-government protests since deadly crackdown",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yj2kzkrj0o",
+            "content": "伊朗多所大学学生举行反政府抗议活动，这是自上月当局血腥镇压以来的首次大规模集会。",
+            "content0": "Students at several universities in Iran have staged anti-government protests - the first such rallies on this scale since last month's deadly crackdown by the authorities.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a75b/live/6cc1b4f0-0fd9-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "特朗普将全球关税提高至15%",
+            "title0": "Trump says he will increase his new global tariffs to 15%",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn8z48xwqn3o",
+            "content": "美国总统特朗普宣布，将把新的全球进口关税税率从10%提高至15%，以回应最高法院此前推翻其关税政策的裁决。",
+            "content0": "US President Donald Trump has said he will impose global tariffs of 15%, as he has continued to rail against a Supreme Court ruling that struck down his previous import taxes.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/00cd/live/51167dd0-0f43-11f1-9610-6bdfe89c38bb.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "特朗普政策蓝图“2025计划”过半已实施",
+            "title0": "From Venezuela to immigration crackdown, Project 2025 provided Trump's roadmap",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yvvjw8pdvo",
+            "content": "分析显示，特朗普第二任期过半政策与保守派智库“遗产基金会”制定的“2025计划”蓝图相符，包括移民打击和外交转向。",
+            "content0": "When Donald Trump gives his State of the Union address on Tuesday evening, he is expected to tout his policies from his first year back in the White House.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5306/live/b0f39890-3c96-11ef-8b26-8df2085234c9.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "研究质疑英国Z世代“宗教复兴”数据",
+            "title0": "We thought Gen Z had started going to church in droves. But the truth is more complicated",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0k1jddl51no",
+            "content": "一份报告称英国Z世代涌向教堂，但专家质疑其调查方法，其他数据显示基督教长期衰退趋势未变。",
+            "content0": "When Jay Painter's grandfather died in May 2024, the 27-year-old from Wiltshire felt he saw his soul leave his body.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1a16/live/21422880-0e5c-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "俄前出租车司机被指策划欧洲破坏行动",
+            "title0": "The Ex-Taxi Driver at the Center of Russia’s Shadow War",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/22/world/europe/russia-sabotage-europe.html",
+            "content": "西方安全官员称，一名俄罗斯前出租车司机在俄情报部门协助下，策划了针对波兰、立陶宛等欧洲多国的破坏行动。",
+            "content0": "The plots, say Western security officials, are part of a shadow war by Russia’s intelligence services. An arson attack that destroyed more than 1,000 businesses outside Warsaw. Another that burned an IKEA in Lithuania. A plan to put incendiary devices on cargo planes in Britain, Germany and Poland.",
+            "index": 74,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/11/multimedia/00int-russia-sabotage-01-pqgz/00int-russia-sabotage-01-pqgz-facebookJumbo.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "加州雪崩致九名滑雪者遇难",
+            "title0": "Close friends and sisters among nine skiers killed in California avalanche",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/close-friends-and-sisters-among-nine-skiers-killed-in-california-avalanche-13510632",
+            "content": "美国加州发生雪崩，九名越野滑雪者遇难，其中包括六位关系密切的朋友和母亲。恶劣天气阻碍了救援。",
+            "content0": "Six close friends and mothers are among the nine off-piste skiers who were killed in an avalanche in California.",
+            "index": 6,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-caroline-sekar-liz-clabaugh_7171554.jpg?20260222022409"
+        },
+        {
+            "rank": 9,
+            "title": "挪威速滑老将40岁再夺奥运金牌",
+            "title0": "For Dutch speedskater, age doesn’t matter.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/21/world/speedskating-jordan-stolz.html",
+            "content": "40岁的荷兰速滑名将伯格兹马在冬奥会男子集体出发项目中夺冠，为荷兰男子项目赢得本届赛事首金。",
+            "content0": "ByVictor MatherandDoug Mills",
+            "index": 71,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/05/multimedia/05olympics-fast-photos-speedskating-mass-start-GRID-PROMO-01-gvwb/05olympics-fast-photos-speedskating-mass-start-GRID-PROMO-01-gvwb-facebookJumbo.jpg"
+        }
+    ]
+}
