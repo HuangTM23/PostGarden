@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "毒枭毙命，墨西哥炸了！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "泽连斯基称普京已开启第三次世界大战",
+            "title0": "Zelensky tells BBC Putin has started WW3 and must be stopped",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvgj9p15y87o",
+            "content": "乌克兰总统泽连斯基接受BBC专访时表示，俄罗斯总统普京已开启第三次世界大战，必须通过军事和经济压力迫使其停止。",
+            "content0": "Ukraine's President Volodymyr Zelensky continues to send out a firm message of defiance.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/c62e/live/777b4930-1081-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "墨西哥头号毒枭被击毙，全国暴力升级",
+            "title0": "Violence erupts in Mexico after drug lord El Mencho killed",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c795qgejzpxo",
+            "content": "墨西哥头号毒枭“门乔”在军事行动中被击毙，引发其所属贩毒集团在全国多地发动报复性袭击，包括设置路障和纵火。",
+            "content0": "A wave of violence has broken out in Mexico after the country's most wanted drug baron was killed in an operation seeking his arrest.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/7840/live/29774360-1086-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "金正恩再次当选朝鲜劳动党总书记",
+            "title0": "Kim Jong Un re-appointed leader of North Korea's ruling party",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg18588mdko",
+            "content": "朝鲜劳动党在代表大会上再次选举金正恩为总书记，巩固其领导地位，并强调该国核威慑力量得到“根本性改善”。",
+            "content0": "North Korea's ruling Workers' Party has again chosen Kim Jong Un to be its general secretary, state media report.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/d27d/live/16e50db0-1089-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "历史性暴风雪袭击美国东北部，纽约发布旅行禁令",
+            "title0": "Powerful winter storm slams US north-east as NYC issues travel ban",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c75ere6z4weo",
+            "content": "一场历史性冬季风暴袭击美国东北部，纽约市发布全面旅行禁令，多州进入紧急状态，数千航班取消，数十万人断电。",
+            "content0": "An historic winter storm has started lashing the north-east US, placing 59 million people under weather warnings, and causing power outages and a travel ban in New York City.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/98aa/live/9e343710-1056-11f1-b156-e56668b8644e.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "挪威为何称霸冬奥会？美国能学到什么",
+            "title0": "Why Norway is dominating the Winter Olympics and what could US learn",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/22/sport/norway-dominating-sports-winter-olympics-wellness",
+            "content": "挪威在米兰-科尔蒂纳冬奥会以创纪录的18枚金牌和41枚总奖牌称霸，其精英体育主管分享了该国在体育文化和体系上的成功经验。",
+            "content0": "Norway’s director of elite sport sounded a little hoarse when he answered the phone toCNN Sports. Tore Øvebrø said he had just caught a cold, but he admitted that his raspy voice might also have something to do with his cheering over the last two weeks.",
+            "index": 6,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-02-21t134632z-875957665-up1em2l1086sd-rtrmadp-3-olympics-2026-crosscountry.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 6,
+            "title": "扎克伯格首次就社交媒体成瘾案出庭作证",
+            "title0": "A ‘bellwether’ social media addiction trial is underway. It could set off a chain reaction",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/22/tech/social-media-addiction-trial-tobacco-moment",
+            "content": "Meta CEO扎克伯格首次就社交媒体成瘾诉讼案出庭作证，内部文件显示公司知晓其平台对青少年可能有害。",
+            "content0": "Big Tech may be on the verge of its Big Tobacco moment.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/01-2026-02-19t005530z-856671674-rc2ooja85uni-rtrmadp-3-socialmedia-trial.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "巴基斯坦空袭阿富汗境内“武装分子”营地",
+            "title0": "Pakistan launches airstrikes against Afghan-based ‘militants’ it blames for cross-border attacks",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/22/asia/pakistan-strikes-afghanistan-militant-camps-intl-hnk",
+            "content": "巴基斯坦对阿富汗境内的武装分子营地发动空袭，称其应对近期跨境袭击负责，阿富汗谴责此举侵犯其主权。",
+            "content0": "Pakistan said Sunday it carried out airstrikes on militant camps across the border in Afghanistan, in a serious test of an uneasy peace between the neighbors.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2262391441.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "伊朗学生连续第二天举行反政府抗议",
+            "title0": "Iran Students Protest for Second Day Despite State Crackdown",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/22/world/middleeast/iran-student-protests.html",
+            "content": "尽管面临国家镇压，伊朗学生在德黑兰和马什哈德等多所大学校园连续第二天举行反政府抗议活动。",
+            "content0": "A second day of antigovernment protests erupted on university campuses in Iran’s two largest cities, according to student and human rights groups as well as videos, which were verified by The New York Times, despite a deadly state crackdown on unrest.",
+            "index": 73,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/22/world/22int-iran-protests/22int-iran-protests-facebookJumbo-v2.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "圣方济各遗骸在意大利阿西西罕见展出",
+            "title0": "St. Francis’ Remains, Rarely Seen, Go on Display in Assisi",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/22/world/europe/italy-saint-francis-remains-assisi.html",
+            "content": "意大利阿西西的圣方济各大教堂罕见地向公众展示天主教圣人圣方济各的遗骸，吸引了数百名朝圣者前往瞻仰。",
+            "content0": "One of the first pilgrims to see the remains of St. Francis, Brother Marco Borgioli, a Franciscan friar from Florence, arrived early on Sunday, so he could see dawn break over Assisi.",
+            "index": 72,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/22/multimedia/22int-italy-bones-vhkq/22int-italy-bones-vhkq-facebookJumbo.jpg"
+        }
+    ]
+}
