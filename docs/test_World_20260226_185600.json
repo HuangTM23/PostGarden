@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美伊谈判，世界屏息",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "纽约市长因雪仗事件与警方高层产生分歧",
+            "title0": "A New York City snowball fight gone wrong leaves Mayor Mamdani at odds with police",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwyxlgkj0k3o",
+            "content": "纽约一场雪仗中有人向警察投掷雪球致警员受伤，市长称不应起诉，引发警方高层强烈不满。",
+            "content0": "What started as an innocent snowball fight during the New York City blizzard has, in fact, snowballed, landing Mayor Zohran Mamdani and the city's police leadership in a row.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a9ab/live/6213c380-12e1-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "古巴边防部队击沉美籍快艇致4死6伤",
+            "title0": "Cuba says it shot dead four people on US-registered speedboat",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c24drvj8yl2o",
+            "content": "古巴称一艘美国注册快艇进入其水域并向巡逻船开火，边防部队还击致4名古巴籍乘客死亡，6人受伤被拘。",
+            "content0": "Four people shot dead by Cuban border guards in a US-registered speedboat were Cuban nationals living in the United States, Cuba's government said.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3dae/live/ac40bdc0-12e9-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "视频显示以军士兵射杀巴勒斯坦少年后任其流血致死",
+            "title0": "Israeli soldiers shot a Palestinian boy and stood around as he bled to death, video shows",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cpqwv9vvzx9o",
+            "content": "视频显示一名14岁巴勒斯坦少年被以军近距离射伤后，士兵围住他并阻止救护车接近，少年最终流血身亡。",
+            "content0": "This story contains details and video that some readers may find distressing.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/feab/live/9482f0a0-1257-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "美伊在日内瓦举行关键会谈以避免冲突",
+            "title0": "US and Iran begin talks seen as crucial to prevent conflict",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg1vd95nl9o",
+            "content": "美伊官员在日内瓦举行第三轮间接会谈，被视为避免冲突的关键。特朗普威胁若无法达成核协议将打击伊朗。",
+            "content0": "US and Iranian officials are meeting in Geneva for a third round of indirect talks seen as crucial to averting conflict, with President Donald Trump threatening to strike Iran if a nuclear deal is not reached.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3d0a/live/096ee5b0-12fb-11f1-801d-ed3cff6bf876.png"
+        },
+        {
+            "rank": 5,
+            "title": "墨西哥毒枭内斗致城市沦为战区",
+            "title0": "'Fear is everywhere': BBC reports from Mexican city turned into war zone by drug cartel feud",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2g3vmde0eo",
+            "content": "墨西哥锡那罗亚贩毒集团内斗导致库利亚坎市暴力激增，城市沦为战区，平民生活于恐惧之中。",
+            "content0": "Mexico's president has praised the special forces for \"bringing down\" the country's most wanted man, drug lord Nemesio Oseguera Cervantes.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1f16/live/170d1a60-10d1-11f1-97cc-8b3c62c7814d.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "匈牙利总理指责乌克兰实施“石油封锁”",
+            "title0": "Orban steps up oil accusations against Ukraine after vetoing EU loan to Kyiv",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5ykq0vqn5go",
+            "content": "匈牙利总理欧尔班指责乌克兰故意中断“友谊”输油管道，对匈实施“石油封锁”，并已派兵保护关键能源设施。",
+            "content0": "Hungarian Prime Minister Viktor Orban says he has stationed soldiers at key energy facilities across the country after he blamed Ukraine for disrupting energy supplies.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3e2f/live/7706b0e0-12af-11f1-836e-2d4c9511f83a.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "加拿大财长称美国不大可能取消关税",
+            "title0": "Canada's finance minister says US is unlikely to lift tariffs",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cq57j8nqn67o",
+            "content": "加拿大财长称，支付一定关税可能是进入美国市场的“代价”，暗示美国不大可能取消对加关税。",
+            "content0": "A baseline tariff may be the \"price\" Canada has to pay to continue shipping goods to the US, Canada's finance minister said.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/2c48/live/797bcb30-1291-11f1-81b9-cd8f695e4938.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "澳总理为称性侵幸存者“难相处”道歉",
+            "title0": "Australian PM apologises after calling child sex abuse survivor and advocate 'difficult'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg3jvkpdn2o",
+            "content": "澳大利亚总理阿尔巴尼斯在词语联想游戏中称性侵幸存者、前年度人物格雷斯·泰姆“难相处”，引发争议后道歉。",
+            "content0": "Australia's prime minister has apologised for calling a former Australian of the Year and sexual abuse survivor \"difficult\", saying it was only in reference to the hardships she has faced.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/a305/live/c35f8f00-12bb-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "金正恩称若美尊重朝核地位两国可“相处”",
+            "title0": "North Korea could 'get along' with US, says Kim Jong Un",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0q3747jvnwo",
+            "content": "朝鲜领导人金正恩表示，若美国尊重朝鲜的核国家地位并放弃敌对政策，朝美两国可以“相处良好”。",
+            "content0": "Kim Jong Un has declared his intent to expand North Korea's nuclear arsenal and operational range - calling on the United States to respect his country's nuclear power, in a rare message to Washington.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/56bd/live/f858dfa0-12c4-11f1-96ff-ab92a506340d.jpg"
+        }
+    ]
+}
