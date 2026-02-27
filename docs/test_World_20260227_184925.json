@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美伊谈判破局？",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美伊核谈判获“重大进展”，下周继续",
+            "title0": "A Deal or War? Talks Will Continue Between U.S. and Iran Next Week",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/26/world/middleeast/iran-us-nuclear-talks.html",
+            "content": "美伊在日内瓦结束关键会谈，双方称取得“重大进展”，技术团队将于下周在维也纳继续谈判，以避免冲突。",
+            "content0": "The United States and Iran concluded a day of high-stakes diplomatic talks in Geneva on Thursday with negotiations to avert a war and reach an agreement on Iran’s nuclear program to continue next week.",
+            "index": 75,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/26/multimedia/26int-iran-talks-explaine-sub-zhvp/26int-iran-talks-explaine-sub-zhvp-facebookJumbo.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "巴基斯坦与阿富汗爆发跨境空袭",
+            "title0": "Afghanistan and Pakistan exchange cross-border strikes in escalating retaliatory attacks",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/26/asia/afghanistan-pakistan-border-attack-intl-latam",
+            "content": "巴基斯坦对阿富汗境内多个目标发动空袭，包括首都喀布尔。阿富汗塔利班称已开始反击，双方冲突升级。",
+            "content0": "Pakistan continued to strike areas in several provinces of Afghanistan early on Friday morning, including the capital, Kabul, according to the Afghan Taliban, as Islamabad said it was responding to an attack launched by Kabul on Thursday.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-02-22t081517z-719549494-rc2iwg8iti32-rtrmadp-3-pakistan-afghanistan.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 3,
+            "title": "派拉蒙或1110亿美元收购华纳兄弟",
+            "title0": "Paramount set for $111bn Warner Bros takeover after Netflix drops bid",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5y6p5ypgmzo",
+            "content": "Netflix退出竞购，派拉蒙影业有望以约1110亿美元收购华纳兄弟探索公司，或将重塑好莱坞格局。",
+            "content0": "Netflix has backed away from its proposal to buy Warner Bros Discovery, clearing the way for Paramount Skydance to win a months-long battle for one of Hollywood's most storied studios in a deal worth around $111bn (£82.2bn).",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/153b/live/ee983d20-1397-11f1-85bc-a1a4626a110e.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "AI芯片短缺致智能手机价格飙升",
+            "title0": "AI is gobbling up the world’s memory chips, sending smartphone prices to record highs, report says",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/27/tech/ai-memory-chips-smartphones-intl-hnk",
+            "content": "报告称，人工智能引发的全球内存芯片短缺对智能手机行业造成冲击，预计今年手机价格将创历史新高。",
+            "content0": "A global shortage in memory chips sparked by artificial intelligence has dealt a “tsunami-like shock” to the smartphone industry, pushing prices to all-time highs, according to a new report.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2242151767.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 5,
+            "title": "印度AI峰会现“赤膊”抗议引风波",
+            "title0": "'Shirtless' protest at AI summit sparks political storm in India",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cp81w4dpx8yo",
+            "content": "印度主要反对党青年成员在AI峰会上脱衣抗议，批评政府政策，导致八人被捕并引发政治风暴。",
+            "content0": "A \"shirtless\" protest staged by members of the youth wing of India's main opposition party at the recent high-profile AI summit in Delhi has led to arrests and sparked a political storm in the country.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/afb1/live/6c49bb00-12e8-11f1-8aab-5db5bc9cf939.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "英国绿党赢得关键补选",
+            "title0": "Greens win Gorton and Denton by-election, dealing blow to Keir Starmer - follow latest",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/politics-latest-mandelson-starmer-labour-farage-badenoch-12593360",
+            "content": "英国绿党在戈顿和登顿选区补选中获胜，赢得其首个补选议席，对工党领袖斯塔默构成打击。",
+            "content0": "The Green Party have won the Gorton and Denton by-election - their first ever by-election win. Hannah Spencer becomes the new MP, winning by more than 4,000 votes. Reform came second, with Labour trailing in third. Stick with us for all the news and reaction.",
+            "index": 10,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-hannah-spence-zack-polanski_7176427.jpg?20260227071909"
+        },
+        {
+            "rank": 7,
+            "title": "丘吉尔雕像遭涂鸦“犹太复国主义战犯”",
+            "title0": "Man, 38, arrested after Churchill statue defaced with 'Zionist war criminal'",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/churchill-statue-in-parliament-square-defaced-with-zionist-war-criminal-13512850",
+            "content": "伦敦议会广场的丘吉尔雕像被涂鸦“犹太复国主义战犯”等字样，一名38岁男子因涉嫌刑事损害被捕。",
+            "content0": "The statue of Sir Winston Churchill in Parliament Square in Westminster was defaced overnight with \"Zionist war criminal\" and other graffiti.",
+            "index": 7,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-winston-churchill-statue_7176494.jpg?20260227082347"
+        },
+        {
+            "rank": 8,
+            "title": "大猩猩迁居新家数日后死亡",
+            "title0": "Gorilla dies days after moving to new home",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yr5n3p8j5o",
+            "content": "一只42岁的西部低地大猩猩银背在迁至新家十天后健康状况恶化，被实施安乐死。",
+            "content0": "A silverback western lowland gorilla has died days after he was moved to a new home.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/0fed/live/4544f510-1329-11f1-8080-b36026ca95b4.png"
+        },
+        {
+            "rank": 9,
+            "title": "水下摄影师大奖赛展示惊人影像",
+            "title0": "Incredible images showcased in Underwater Photographer of the Year 2026 awards",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/27/travel/underwater-photographer-year-2026-scli-intl",
+            "content": "2026年度水下摄影师大奖赛结果揭晓，澳大利亚摄影师拍摄的福克兰群岛小海豹照片获得总冠军。",
+            "content0": "Australian photographer Matty Smith has been namedUnderwater Photographer of the Year(UPY) 2026 for his image of a pair of southern elephant seal pups in a rockpool on the Falkland Islands.",
+            "index": 2,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/401kazushigehoriguchi.jpg?c=16x9&q=h_438,w_780,c_fill"
+        }
+    ]
+}
