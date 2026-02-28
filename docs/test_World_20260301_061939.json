@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美伊开战，中东炸锅！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "伊朗报复性袭击迪拜豪华酒店，中东多国拦截导弹",
+            "title0": "Luxury Dubai hotel hit as Iran launches retaliatory strikes across region",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c204px4zddro",
+            "content": "伊朗对美以联合打击发起报复，导弹击中迪拜豪华酒店，并袭击多个海湾国家。多国启动防空系统拦截，造成人员伤亡。",
+            "content0": "A luxury hotel in Dubai was hit as Iran launched strikes across the region in retaliation for a \"massive\" and ongoing attack against it by the US and Israel.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/4283/live/85aa0020-14d0-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "伊朗袭击暴露美军中东防空漏洞",
+            "title0": "Iran retaliation raises questions about US air defences",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cg5nm6v2p4no",
+            "content": "伊朗成功袭击美军巴林海军基地，凸显美国及其盟友在该地区的防空系统存在薄弱环节，引发担忧。",
+            "content0": "Iran has targeted the US Navy base in Bahrain, highlighting gaps in air defences, which will worry Washington and its allies in the region.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/f435/live/78689930-14d0-11f1-b106-cbf633dcab7a.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "国际社会对美以打击伊朗反应不一",
+            "title0": "How the world has reacted to US and Israeli strikes on Iran",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yj9kr31y7o",
+            "content": "美以联合打击伊朗后，联合国、欧洲多国及沙特等谴责军事升级，呼吁克制。俄罗斯称此举“鲁莽”。",
+            "content0": "American and Israeli forces have carried out strikes on cities across Iran, in what US President Donald Trump has described as \"major combat operations\".",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/afe7/live/3c458a30-14c1-11f1-8007-5bc8640dd651.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "特朗普称伊朗最高领袖哈梅内伊已身亡",
+            "title0": "What we know so far: Supreme Leader Khamenei killed, Trump says, as Iran launches retaliatory strikes",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2dyz6p3weo",
+            "content": "特朗普宣布伊朗最高领袖哈梅内伊在美以联合打击中死亡。伊朗发动区域报复，袭击以色列及多个美军基地。",
+            "content0": "President Donald Trump has said Iran's Supreme Leader, Ayatollah Ali Khamenei, is dead, hours after the US and Iran launched a large-scale attack on the country.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/65fc/live/6d5bfb50-14ca-11f1-b048-c9424b2cf5fd.png"
+        },
+        {
+            "rank": 5,
+            "title": "特朗普授权向古巴私营企业出售石油",
+            "title0": "Trump Gives Green Light to Private Oil Sales to Cuba",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/28/world/americas/trump-cuba-oil-sales.html",
+            "content": "特朗普政府开始允许美国公司向古巴私营企业出售燃料，旨在绕过古巴政府，扶持其私营经济。",
+            "content0": "After blocking foreign oil shipments to Cuba, plunging the country into its worst crisis in decades, the Trump administration has begun allowing U.S. companies to send fuel to private businesses in Cuba.",
+            "index": 73,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/28/multimedia/28int-cuba-oil-gtzb/28int-cuba-oil-gtzb-facebookJumbo.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "OpenAI与五角大楼达成AI军事应用协议",
+            "title0": "OpenAI strikes deal with Pentagon hours after Trump admin bans Anthropic",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/27/tech/openai-pentagon-deal-ai-systems",
+            "content": "OpenAI宣布与五角大楼达成协议，其AI工具将用于美军机密系统，但设定了使用限制。",
+            "content0": "OpenAI CEO Sam Altman announced late Friday that the company had signeda deal with the Pentagonfor its AI toolsto be used in the military’s classified systems, but with seemingly similar guardrails rival Anthropic had also requested.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/ap26050290048122.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "古巴称击毙四名武装渗透者",
+            "title0": "Cuba says its forces kill four in gunfight after Florida speedboat tries to ‘infiltrate’ island",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/25/americas/cuba-florida-speedboat-intl-latam",
+            "content": "古巴称其边防部队击毙四名试图从佛罗里达乘快艇“渗透”的武装人员，另有六人受伤被捕。",
+            "content0": "Cuba said its forces fatally shot four heavily armed people attempting to “infiltrate” its territory on a Florida-registered speedboat on Wednesday, amid simmering tensions between the communist island and the US.",
+            "index": 9,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-02-26t041351z-1511785103-rc2dtjaw03x5-rtrmadp-3-cuba-crisis-gunfire.JPG?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "布里斯班公布23亿美元奥运主场馆设计",
+            "title0": "Plans for $2.3 billion stadium ignite debate in 2032 Olympics host city",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/01/07/style/australia-brisbane-olympic-stadium-victoria-park-hnk-intl",
+            "content": "澳大利亚布里斯班公布2032年奥运会主场馆设计，灵感源于当地住宅风格，耗资23亿美元，引发争议。",
+            "content0": "Officials in Brisbane, Australia, have revealed plans for 2032’s Olympic stadium: a $2.3 billion venue inspired by the state’s typical suburban homes, known as “Queenslanders” — residential architecture that may be familiar to fans of Brisbane-based cartoon, “Bluey.”",
+            "index": 5,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/2-20260106054802176.jpg?c=16x9&q=w_800,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "英国跳伞者在德文郡坠亡",
+            "title0": "Skydiver dies after jump in Devon",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/skydiver-dies-after-jump-in-devon-13511188",
+            "content": "一名49岁男子在英国德文郡进行跳伞活动后不幸身亡，警方和急救人员已介入调查。",
+            "content0": "A 49-year-old man has died after jumping from a plane in Devon on Saturday afternoon.",
+            "index": 2,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/02/1600x900/skynews-dunkeswell-aerodrome_7178285.jpg?20260228210358"
+        }
+    ]
+}
