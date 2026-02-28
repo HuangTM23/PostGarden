@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美以联手，伊朗遭袭！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美以联合对伊朗发动大规模军事打击",
+            "title0": "What we know about the joint US-Israel attack on Iran",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2dyz6p3weo",
+            "content": "美国与以色列联合对伊朗发动军事打击，特朗普宣布“大规模作战行动”开始，呼吁伊朗政府军放下武器。",
+            "content0": "The US and Israel have launched an attack on Iran.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/946f/live/0241ffa0-148d-11f1-8d66-9b0d49d7a97e.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "安德鲁王子与爱泼斯坦的隐秘中间人",
+            "title0": "The third man who links Andrew with Jeffrey Epstein",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c98gne0z0rxo",
+            "content": "德国商人戴维·斯特恩被揭露是安德鲁王子与已故性犯罪者爱泼斯坦之间的关键联系人，协助处理财务并建立商业联系。",
+            "content0": "In the high-tech megacity of Shenzhen in southern China, Prince Andrew looked on as dancers spun and waved streamers to entertain an audience of investors and innovators.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/0b14/live/40780c60-0cd6-11f1-b054-335fa224f76a.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "加拿大总理访印修复关系，聚焦贸易",
+            "title0": "A 'delicate' balance for Canada and a 'win-win' for Modi as Carney visits India",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c1l7q871gnro",
+            "content": "加拿大总理卡尼访问印度，旨在修复因锡克教分离主义者遇害指控而破裂的双边关系，重点推动贸易协议以降低对美依赖。",
+            "content0": "Prime Minister Mark Carney is in India for a pivotal trip aimed at repairing ties with the world's largest democracy, as both countries seek to reduce their trade reliance on the US.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5afc/live/0c738cc0-1404-11f1-8e3a-e7cecfbdc12f.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "克林顿就爱泼斯坦案作证，否认知情",
+            "title0": "Bill Clinton asked about hot tub photo and testifies he knew 'nothing' of Epstein crimes",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cvg345qvld5o",
+            "content": "美国前总统比尔·克林顿向国会委员会作证，称对爱泼斯坦的罪行“一无所知”，并回答了关于一张热水浴缸照片的提问。",
+            "content0": "Former President Bill Clinton told a congressional panel he \"saw nothing,\" and \"did nothing wrong\" in relation to the late sex offender Jeffrey Epstein.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5c11/live/a930bc20-143d-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "特朗普下令联邦机构停用Anthropic的AI技术",
+            "title0": "Trump orders government to stop using Anthropic in battle over AI use",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cn48jj3y8ezo",
+            "content": "美国总统特朗普下令所有联邦机构立即停止使用AI公司Anthropic的技术，起因是该公司拒绝向军方提供无限制访问权限。",
+            "content0": "US President Donald Trump has said he would direct every federal agency to immediately stop using technology from AI developer Anthropic.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e2e0/live/32bf1ff0-1433-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "美国传奇歌手尼尔·西达卡逝世，享年86岁",
+            "title0": "Neil Sedaka, singer of Breaking Up Is Hard To Do, dies at 86",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yrdr5d43yo",
+            "content": "创作并演唱了《分手太难》等经典歌曲的美国传奇歌手兼词曲作家尼尔·西达卡去世，享年86岁。",
+            "content0": "American singer-songwriter Neil Sedaka, who wrote and performed hits through the 1950s and 60s, including Oh! Carol, Breaking Up Is Hard To Do, Bad Blood, Laughter in the Rain and Calendar Girl, has died at the age of 86.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1e01/live/54cff4a0-142b-11f1-8555-7352a9da2846.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "玻利维亚军机坠毁致15死，载有未发行纸币",
+            "title0": "At least 15 killed after military plane carrying banknotes crashes in Bolivia",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0rjpxxpp49o",
+            "content": "玻利维亚一架载有未发行纸币的军用运输机在埃尔阿尔托市坠毁，造成至少15人死亡，现场发生民众哄抢纸币事件。",
+            "content0": "At least 15 people have been killed and others injured after a Bolivian air force cargo plane crashed in the western city of El Alto, the country's authorities say.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/4910/live/90f34430-145a-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "失明难民被美移民局释放后冻死街头",
+            "title0": "Blind refugee found dead in New York after being released by immigration authorities",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cq57j559eq4o",
+            "content": "一名来自缅甸的失明、不会英语的难民被美国海关和边境保护局释放后，在纽约州布法罗市被冻死，引发调查呼吁。",
+            "content0": "A nearly-blind, non-English-speaking refugee from Myanmar has been found dead in upstate New York after being released from federal immigration custody.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8bf2/live/53511050-137c-11f1-bff0-79e5e20f8a65.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "墨西哥头号毒枭“门乔”的崛起与覆灭",
+            "title0": "The Bloody Rise and Fall of Mexico’s Top Crime Boss",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/02/28/world/americas/mexico-mencho-career-death.html",
+            "content": "墨西哥头号毒枭“门乔”通过严格纪律建立庞大犯罪帝国，最终被击毙，其生平揭示了该国毒品战争的残酷现实。",
+            "content0": "El Mencho, arguably the world’s most powerful criminal, did not have a cellphone.",
+            "index": 74,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/02/28/multimedia/28int-mexico-mencho-wlvc/28int-mexico-mencho-wlvc-facebookJumbo.jpg"
+        }
+    ]
+}

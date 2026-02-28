@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "金价暴涨，谁在买单？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "山姆部分产品大降价",
+            "content": "山姆会员店部分产品近日大幅降价，但热门商品如羊绒背心、卫衣等已售罄，具体降价幅度和时间未公布。",
+            "source_platform": "九派新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858329364835156430",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/2dacac724987c2822b83e92d93f7fa60"
+        },
+        {
+            "rank": 2,
+            "title": "男子同学聚会饮酒猝死",
+            "content": "男子与同学聚会饮酒后猝死，家属索赔187万元，法院一审、二审均驳回诉讼请求。",
+            "source_platform": "红星新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858341885584924696",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/6b3f900fc3dabdfd21c1e2ff6e5a1210"
+        },
+        {
+            "rank": 3,
+            "title": "春节小城旅游成新宠",
+            "content": "春节旅游市场呈现新趋势，游客转向文化独特、客流适中的特色小城，传统年味成为吸引游客的核心IP。",
+            "source_platform": "新华社",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858337363051770752",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/04e65a982d3d6a7694d6a6aa67a79465"
+        },
+        {
+            "rank": 4,
+            "title": "比尔·盖茨婚外情人曝光",
+            "content": "比尔·盖茨在内部会议上承认曾与两名俄罗斯女性发生婚外情，并向员工道歉，相关照片被媒体曝光。",
+            "source_platform": "红星新闻",
+            "source_url": "https://www.toutiao.com/article/7611684779229987378/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-6w9my0ksvp/e89a8bf76cc6487b8499d2392a527cbe~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOe6ouaYn-aWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1772879903&x-signature=xeNGqdTezWxM4%2BPdgb2a6JAdxlI%3D"
+        },
+        {
+            "rank": 5,
+            "title": "金饰克价冲上1600元",
+            "content": "国内黄金饰品价格大幅上涨，多数金店金饰价格突破1600元/克，最高达1608元/克，较昨日上涨约32元。",
+            "source_platform": "直播日照",
+            "source_url": "https://www.toutiao.com/article/7611798252387729958/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/55094a9f62f7bb55838526b0c633d50a~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOebtOaSreaXpeeFpw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1772879909&x-signature=99yb%2FYEFtn4NcLOtDixMl2h83pg%3D"
+        },
+        {
+            "rank": 6,
+            "title": "硬核科研成果密集上新",
+            "content": "近期多项硬核科研成果密集发布，涵盖科技前沿领域，展现创新活力。",
+            "source_platform": "今日头条",
+            "source_url": "https://www.toutiao.com/article/7611608243755860530",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-qvj2lq49k0/5df34939791d430096336e2faccec7e9~tplv-tt-shrink:960:540.jpeg?_iz=30575&from=sign_default&lk3s=8d617dac&x-expires=1774828800&x-signature=xyH%2BNIDXrvWeEHjER%2F%2BmC7yka%2Fc%3D"
+        },
+        {
+            "rank": 7,
+            "title": "默茨：脱钩中国如自残",
+            "content": "德国总理默茨访华时表示，脱钩中国就像朝自己的脚开枪，强调合作重要性。",
+            "source_platform": "潮深度",
+            "source_url": "https://www.toutiao.com/article/7611381242927399424/",
+            "source": "toutiao",
+            "image": "https://lf3-static.bytednsdoc.com/obj/eden-cn/pipieh7nupabozups/toutiao_web_pc/share_default_cover.png"
+        },
+        {
+            "rank": 8,
+            "title": "黑客洗劫虚拟币内幕",
+            "content": "揭秘美国家黑客洗劫陈志虚拟币事件内幕，涉及网络安全与虚拟资产保护问题。",
+            "source_platform": "今日头条",
+            "source_url": "https://www.toutiao.com/trending/7611722572937612826/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227611722572937612826%22%2C%22hot_board_impr_id%22%3A%222026022818340376A8F7D3460456DA2CB7%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8F%AD%E7%A7%98%E7%BE%8E%E5%9B%BD%E5%AE%B6%E9%BB%91%E5%AE%A2%E6%B4%97%E5%8A%AB%E9%99%88%E5%BF%97%E8%99%9A%E6%8B%9F%E5%B8%81%E5%86%85%E5%B9%95%22%7D&rank=&style_id=40132&topic_id=7611722572937612826",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/top-static-files-outer/breaknews/429983a8-e2fb-41e8-9681-d5862ea7a0c8~tplv-tt-shrink:960:540.jpeg?_iz=30575&from=sign_default&lk3s=8d617dac&x-expires=1774828800&x-signature=JrG12ulK%2FZqoFEGVVXeDxL6EQPs%3D"
+        },
+        {
+            "rank": 9,
+            "title": "回国后默茨急了",
+            "content": "德国总理默茨回国后表达急切情绪，强调中国的发展努力值得关注。",
+            "source_platform": "新浪",
+            "source_url": "https://www.baidu.com/s?wd=%E5%9B%9E%E5%9B%BD%E5%90%8E%E9%BB%98%E8%8C%A8%E6%80%A5%E4%BA%86%EF%BC%9A%E7%9C%8B%E7%9C%8B%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%A4%9A%E5%8A%AA%E5%8A%9B&sa=fyb_news&rsv_dl=fyb_news",
+            "source": "baidu",
+            "image": "https://fyb-1.cdn.bcebos.com/fyb/de6163834f53ca92c1273fff98ac9078.jpeg"
+        }
+    ]
+}
