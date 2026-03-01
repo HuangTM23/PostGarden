@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "中东战火，全球炸锅！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "得州酒吧枪击案或涉恐，FBI介入调查",
+            "title0": "Deadly Texas bar shooting is 'potentially an act of terrorism', FBI says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cgjznzgly0po",
+            "content": "美国得克萨斯州奥斯汀市一啤酒花园发生枪击，致2死十余伤。FBI称事件可能与恐怖主义有关，嫌疑人已被警方击毙。",
+            "content0": "Two people were killed and over a dozen injured in a shooting outside a beer garden in Austin, Texas, in an incident the FBI says may be related to terrorism.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5d76/live/bdafc400-15b6-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "美以联合打击伊朗，三名美军人员阵亡",
+            "title0": "How were three US service members killed in Iran conflict? Here's what to know",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c626ljyvmg3o",
+            "content": "美以联合对伊朗发动“大规模作战行动”，伊朗最高领袖哈梅内伊身亡。美军中央司令部证实，已有三名美军人员在行动中阵亡。",
+            "content0": "Urging Iranians to overthrow their clerical rulers, the US launched \"major combat operations\" along with Israel against Iran early on Saturday.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/47a7/live/9b29b2a0-14ea-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "霍尔木兹海峡附近三艘船只遇袭，油价恐飙升",
+            "title0": "Three ships attacked near Strait of Hormuz as fears grow of oil price rises",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c75evve6l63o",
+            "content": "伊朗持续在中东发动报复性袭击，霍尔木兹海峡附近至少三艘船只遭袭。该海峡是全球约20%石油和天然气的运输通道，航运几近停滞。",
+            "content0": "At least three ships have been attacked near the Strait of Hormuz, as Iran continues to launch strikes across the Middle East in response to an ongoing attack against it by the US and Israel.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e9ba/live/514ebed0-1578-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "迪拜遭伊朗袭击，居民闭门不出",
+            "title0": "'It's eerie' - Dubai on edge as city comes under attack by Iran",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c20lggwk134o",
+            "content": "迪拜连续两日遭伊朗导弹和无人机袭击，豪华酒店和全球最繁忙机场受损。居民大多留在家中，城市气氛诡异，数千航班被取消。",
+            "content0": "For two days now, Dubai residents have mainly stayed indoors as their city is hit by missiles and drones - part of an attack launched by Iran across the region in response to the latest massive and ongoing attack against it by US and Israel.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/bc54/live/7b1019d0-1591-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "伊朗政权面临1979年以来最危险时刻",
+            "title0": "Iran's regime is still intact - the coming days will show if it can hold out",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2lgvg5rl1o",
+            "content": "伊朗最高领袖哈梅内伊在美以联合打击中身亡，将伊斯兰共和国推向1979年以来最危险的时刻。政权能否在持续空袭下维持内部控制，尚待观察。",
+            "content0": "The killing of Iran's Supreme Leader, Ali Khamenei, in the opening wave of joint US-Israeli strikes has pushed the Islamic Republic into its most precarious moment since 1979.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e0bd/live/dfbdff70-1594-11f1-9199-ed1f26c0ffa2.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "中东多国航班因伊朗袭击大规模取消",
+            "title0": "Flights cancelled and new travel warnings issued after Iran strikes",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0rjpr575g9o",
+            "content": "美以打击伊朗后，中东多国航班持续取消和改道。迪拜、多哈等国际枢纽机场关闭，英国外交部发布旅行警告，建议公民避免前往。",
+            "content0": "Airlines are continuing to cancel and divert flights in the Middle East after the US and Israel launched strikes against Iran.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e36c/live/1840b2a0-1556-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "美以数月策划，利用情报窗口击杀哈梅内伊",
+            "title0": "Months of planning behind US-Israeli mission to target Iran's supreme leader",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c86y5540vnno",
+            "content": "美以利用关键情报，在伊朗最高领袖哈梅内伊于周六上午出现在德黑兰一建筑群时发动袭击。此次行动经过数月策划，旨在启动更广泛的军事行动。",
+            "content0": "The attack that killed Iran's Supreme Leader Ayatollah Ali Khamenei came not in the middle of the night, as might have been expected, but in the middle of the morning.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/03d0/live/feee2cf0-158d-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "塔利班新法令：允许丈夫殴打妻子，只要不伤筋动骨",
+            "title0": "Taliban allows men to beat their wives as long as they don’t break bones or leave open wounds",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/01/asia/taliban-afghanistan-domestic-violence-legal",
+            "content": "阿富汗塔利班当局颁布严苛法令，规定鸡奸可判死刑，并允许丈夫殴打妻子，只要不造成骨折或留下可见的持久伤口。人权活动人士谴责此举。",
+            "content0": "Taliban authorities in Afghanistan have issued a draconian decree that makes sodomy punishable by death and allows men to beat their wives so long as they don’t break bones or leave visible, lasting wounds.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/c-ap26057630464408.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "比利时与法国在北海扣押疑似俄罗斯“影子船队”油轮",
+            "title0": "'Russian shadow fleet' tanker seized in Belgian-French North Sea raid",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/russian-shadow-fleet-tanker-seized-in-belgian-french-north-sea-raid-13513905",
+            "content": "比利时与法国在北海联合行动，扣押一艘名为“Ethera”的油轮，该船被怀疑属于俄罗斯“影子船队”，并已被列入欧盟制裁名单。",
+            "content0": "An oil tanker suspected of belonging to the Russian shadow fleet has been seized in the North Sea in a joint Belgian-French operation.",
+            "index": 2,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/03/1600x900/skynews-russia-france-belgium_7178904.jpg?20260301163208"
+        }
+    ]
+}
