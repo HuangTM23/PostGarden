@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "油价暴涨！中东战火蔓延",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "油价飙升股市下跌，中东冲突升级冲击全球经济",
+            "title0": "Oil prices jump and shares fall as conflict escalates",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c75evve6l63o",
+            "content": "伊朗持续在中东发动报复性袭击，导致全球油价上涨，股市下跌，霍尔木兹海峡航运几近停滞。",
+            "content0": "Global oil prices rose as Iran continues to launch strikes across the Middle East in response to ongoing attacks by the US and Israel.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/6d5e/live/fb98d410-1614-11f1-9697-634d5add2261.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "伊朗无人机击中塞浦路斯英军基地",
+            "title0": "Iranian drone hit RAF base, Cyprus president says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cm2r0q310e3o",
+            "content": "一架伊朗无人机周日坠毁在塞浦路斯的英国皇家空军基地，未造成人员伤亡，但基地受到轻微损坏。",
+            "content0": "An Iranian drone crashed into a British RAF base in Cyprus on Sunday, Cypriot President Nikos Christodoulides has said.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3dd7/live/e69b31c0-1619-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "得州酒吧枪击案或涉恐，FBI介入调查",
+            "title0": "Deadly Texas bar shooting 'potentially act of terrorism', FBI says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cgjznzgly0po",
+            "content": "美国得州奥斯汀一酒吧外发生枪击，致2死十余伤，FBI称可能与恐怖主义有关，嫌犯被警方击毙。",
+            "content0": "Two people were killed and over a dozen injured in a shooting outside a beer garden in Austin, Texas, in an incident the FBI says may be related to terrorism.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8cf5/live/91d0c540-1602-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "迈克尔·B·乔丹爆冷获演员奖，奥斯卡影帝之争悬念再起",
+            "title0": "Michael B Jordan upends Oscars race as Sinners wins big at Actor Awards",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/clyzklvk79yo",
+            "content": "迈克尔·B·乔丹凭《罪人》爆冷获演员奖最佳男主角，该片亦获最佳群戏奖，为奥斯卡影帝之争增添变数。",
+            "content0": "US actor Michael B Jordan has scored a surprise win at the Actor Awards, formerly known as the Screen Actors Guild Awards, giving him a surge of momentum in the final weeks before the Oscars.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/15de/live/f4feca00-15f7-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "迪拜遭袭居民闭门不出，豪华酒店与机场受损",
+            "title0": "'It's eerie' - Dubai on edge as city comes under attack by Iran",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c20lggwk134o",
+            "content": "迪拜连续两日遭伊朗导弹和无人机袭击，居民闭门不出，豪华酒店和机场受损，数千航班取消。",
+            "content0": "For two days now, Dubai residents have mainly stayed indoors as their city is hit by missiles and drones - part of an attack launched by Iran across the region in response to the latest massive and ongoing attack against it by US and Israel.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/bc54/live/7b1019d0-1591-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "美国伊朗裔民众对哈梅内伊之死反应复杂",
+            "title0": "Hopes and fears as US Iranians take to streets after toppling of supreme leader",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cy4w728kl4ko",
+            "content": "伊朗最高领袖哈梅内伊身亡后，美国伊朗裔社区反应不一，部分人上街庆祝，部分人担忧冲突持续。",
+            "content0": "Fatemeh Shams watched with bated breath as her native country came under military attack from the US and Israel over the weekend.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3865/live/d694bc60-15e2-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "中东多国航班因伊朗袭击大规模取消，旅行警告升级",
+            "title0": "Flights cancelled and new travel warnings issued after Iran strikes",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c0rjpr575g9o",
+            "content": "美以打击伊朗后，中东多国机场关闭，数千航班取消，英国等多国发布旅行警告，建议公民非必要不前往。",
+            "content0": "Airlines are continuing to cancel and divert flights in the Middle East after the US and Israel launched strikes against Iran.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e36c/live/1840b2a0-1556-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "巴基斯坦防长称与阿富汗塔利班“公开开战”",
+            "title0": "Pakistan’s defense minister says latest clashes with Taliban mean ‘open war.’ What’s happening?",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/27/asia/afghanistan-pakistan-strikes-what-we-know-intl-hnk",
+            "content": "巴基斯坦与阿富汗塔利班在边境地区交火，巴防长称其耐心已耗尽，宣布对塔利班政权“公开开战”。",
+            "content0": "Afghanistan and Pakistan are fighting again, trading deadly shelling and mortar fire across their rugged border, with Islamabad’s defense minister saying his country’s patience had “run out” and declaring “open war” on its Taliban-run neighbor.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2262420459.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "美国多架军机在科威特坠毁，机组人员状况稳定",
+            "title0": "US plane on fire as several aircraft crash in Kuwait",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/us-plane-on-fire-as-several-aircraft-crash-in-kuwait-13514146",
+            "content": "科威特国防部证实，多架美国军机在该国坠毁，所有机组人员状况稳定，具体原因正在调查。",
+            "content0": "Kuwait's defence ministry confirmed all crew member were in a 'stable' condition, following reports 'several' US aircrafts crashed.",
+            "index": 2,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/03/1600x900/skynews-kuwait-plane-military_7179514.jpg?20260302094453"
+        }
+    ]
+}
