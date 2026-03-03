@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "机器人称霸全球？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "宝爸带女首飞送礼致歉",
+            "content": "宝爸带女儿首次坐飞机，担心孩子哭闹影响乘客，提前道歉并准备礼物，获网友称赞。",
+            "source_platform": "star星视频",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858636989246678763",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/e9043ae9baa347f441fe91364844454e"
+        },
+        {
+            "rank": 2,
+            "title": "中国人形机器人全球占九成",
+            "content": "2025年全球人形机器人出货1.3万台，中国占据90%份额，中国企业包揽出货量榜单前六名。",
+            "source_platform": "人民日报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858611599400056173",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/c7df1e754c92b77f43a86137742edba8"
+        },
+        {
+            "rank": 3,
+            "title": "委员建议禁16岁以下用社媒",
+            "content": "全国政协委员建议研究制定未成年人社交媒体保护规定，将十六周岁设为注册使用社交平台的“数字成年年龄”。",
+            "source_platform": "中工网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858625974762684313",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/bf7c06ddb9ac81b40fe24c845da40c78"
+        },
+        {
+            "rank": 4,
+            "title": "本年度唯一月全食上演",
+            "content": "3月3日傍晚，本年度唯一一次月全食上演，我国大部分地区可看到“红月”带食而升。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858401212601232624",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/56651378bbe9a9b25d15c19d9c85e9d4"
+        },
+        {
+            "rank": 5,
+            "title": "中国女足亚洲杯迎开门红",
+            "content": "2026年女足亚洲杯B组，中国队以2比0战胜孟加拉国队，赢得小组赛开门红。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858635195465048260",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/9ad0de9718f4deaa8bc81f565788caf9"
+        },
+        {
+            "rank": 6,
+            "title": "孟加拉国门将身高闹乌龙",
+            "content": "亚足联官网显示孟加拉国女足门将身高仅1米4，直播画面证实数据错误，真实身高与中国女足齐平。",
+            "source_platform": "小鱼新闻",
+            "source_url": "https://www.toutiao.com/article/7612947916528878131/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-6w9my0ksvp/2d895cee763449d889ec8f8cc1421867~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOWwj-mxvOaWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1773140020&x-signature=r%2FpAJpOTlJIYd4FaNoqLKSs%2B64U%3D"
+        },
+        {
+            "rank": 7,
+            "title": "90后夫妻春节跑网约车赚上万",
+            "content": "90后夫妻春节期间在上海跑网约车，收入超过一万元，展现灵活就业潜力。",
+            "source_platform": "海报新闻",
+            "source_url": "https://www.toutiao.com/video/7612905772174802985/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-dy/ba3ab07b28ac48958944fc1076d68ded~tplv-tt-profile_shortvideo:720:1280.jpeg?_iz=3710&bid=676&from=shortvideo&gid=7612905772174802985&lk3s=06827d14&x-expires=1773140035&x-signature=B4D4RMvoVQIotMlitXE3zZ9IVdo%3D"
+        },
+        {
+            "rank": 8,
+            "title": "企业员工生三胎奖励183万",
+            "content": "宁波一企业推出重磅福利，员工生三胎可获得总额183万元奖励，包括现金育儿补贴等。",
+            "source_platform": "闪电新闻",
+            "source_url": "https://www.toutiao.com/article/7612585973389558326/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/1ea2ffdfe6d2309bea49973670ca170d~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOmXqueUteaWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1773140040&x-signature=tAi2VlgsuqRJONTrtfXfgsAitKc%3D"
+        },
+        {
+            "rank": 9,
+            "title": "委员建议推广全国秋假",
+            "content": "全国政协委员建议优化假期分布，推广“秋假”，从中小学生延伸至大学生，并配套家长灵活休假。",
+            "source_platform": "看看新闻Knews",
+            "source_url": "https://baijiahao.baidu.com/s?id=1858630681812327228",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/6757df40185560ac1a304bafc26d0e7b"
+        }
+    ]
+}
