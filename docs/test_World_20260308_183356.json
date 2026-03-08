@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "美使馆遇袭，英航母急动",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美国驻奥斯陆大使馆遭爆炸袭击",
+            "title0": "US embassy in Oslo hit by explosion, Norway police say",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c5yjegg892lo",
+            "content": "挪威警方称，美国驻奥斯陆大使馆清晨遭遇爆炸袭击，使馆建筑轻微受损，暂无人员伤亡报告。",
+            "content0": "The US embassy in Oslo has been hit by an explosion in the early hours of the morning, Norway's police say.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/26b4/live/2d368920-1aa9-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "加勒比海深处发现未知海洋生物与原始珊瑚礁",
+            "title0": "Spectacular images reveal unique sea creatures and corals off Caribbean islands",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cgmllk32g72o",
+            "content": "科学家首次深入英国加勒比领海探险，发现未知海洋生物、巨大蓝洞及未受气候变化影响的原始珊瑚礁。",
+            "content0": "The waters off the glittering coastlines of Britain's Caribbean territories have long been a mystery.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5c38/live/36d191f0-1978-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "新加坡舞者因占用公共通道练习遭投诉",
+            "title0": "Dancers loved practising in this Singapore walkway. Then the complaints came",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4g4q9xl4p6o",
+            "content": "新加坡一处连接地铁站与滨海湾花园的地下通道因舞者长期练习引发投诉，管理方最终将通道镜子磨砂处理。",
+            "content0": "With its wide floors, floor-to-ceiling mirrors and a ready audience, the underground passage connecting a train station to Singapore's iconic Gardens by the Bay had served as a practice ground for aspiring dancers for years.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/2c38/live/d5992c60-1966-11f1-a1cd-a71e69f1cf89.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "英国航母进入高级戒备状态",
+            "title0": "UK aircraft carrier given five days to be ready to deploy",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c39w2nj1rk8o",
+            "content": "英国“威尔士亲王”号航母进入高级戒备状态，准备时间缩短至五天，可能部署至地中海以应对中东冲突。",
+            "content0": "One of the UK's two aircraft carriers has been placed on advanced readiness to sail from Portsmouth.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/619f/live/ccf608d0-1a2e-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "特朗普指责英国首相“战后才参战”",
+            "title0": "Trump accuses Starmer of seeking to 'join wars after we've already won'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c9dn3j04lydo",
+            "content": "美国总统特朗普在社交媒体上指责英国首相斯塔默试图在“战争结束后才加入”，并表示美国不再需要英国的航母。",
+            "content0": "US President Donald Trump has told the UK he does not need its aircraft carriers and accused Prime Minister Sir Keir Starmer of seeking to \"join wars after we've already won\", as the US and Israel continue to launch strikes on Iran.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/abe7/live/8b13fc20-1a73-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "特朗普组建美洲联盟以军事打击贩毒集团",
+            "title0": "Trump Assembles a New Coalition to ‘Eradicate’ Cartels",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/03/07/world/americas/trump-latin-american-coalition-cartels.html",
+            "content": "特朗普宣布成立“美洲反卡特尔联盟”，联合拉美及加勒比国家，计划动用军事力量打击贩毒集团。",
+            "content0": "At the first Shield of the Americas summit in Florida on Saturday, President Trump said a new organization of Latin American and Caribbean countries that he called the Americas Counter Cartel Coalition would employ military force to defeat drug trafficking groups.",
+            "index": 73,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/07/multimedia/07int-shield-americas-summit-01-bplg/07int-shield-americas-summit-01-bplg-facebookJumbo.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "前说唱歌手在尼泊尔大选中获压倒性胜利",
+            "title0": "Gen Z-Backed Rapper Is on Course to Lead Nepal With Landslide Win",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/03/07/world/asia/nepal-election-rapper-balen-genz.html",
+            "content": "尼泊尔大选初步结果显示，由Z世代支持的35岁前说唱歌手巴伦德拉·沙阿领导的政党获得压倒性胜利。",
+            "content0": "In a resounding affirmation of Gen Z’s power to overthrow the political old guard, Nepali voters have handed a commanding majority to a party headlined by a 35-year-old ex-rapper.",
+            "index": 67,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/07/multimedia/07-int-nepal-election-zfqw-PROMO/07-int-nepal-election-zfqw-facebookJumbo.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "马航MH370新一轮深海搜寻无果",
+            "title0": "Malaysia Airlines flight MH370: New update on search - 12 years after it disappeared",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/new-search-for-malaysia-airlines-flight-mh370-unsuccessful-13516801",
+            "content": "马来西亚官方称，为期28天、覆盖7500平方公里的新一轮马航MH370深海搜寻行动未发现新线索。",
+            "content0": "A renewed deep-sea search for missing Malaysia Airlines flight MH370 has been unsuccessful.",
+            "index": 6,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/25/12/1600x900/skynews-mh370-malaysia-airlines_7100810.jpg?20251209074540"
+        },
+        {
+            "rank": 9,
+            "title": "特朗普行政令保护除草剂，亦保护战争武器原料",
+            "title0": "A Trump Order Protected a Weedkiller. And Also a Weapon of War.",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/03/08/climate/bayer-white-phosphate-glyphosate-roundup-trump-executive-order-munition.html",
+            "content": "特朗普下令强制生产除草剂草甘膦，其原料白磷也是美军烟雾弹和燃烧弹的关键成分。",
+            "content0": "When President Trump issued an abrupt order last month compelling the production of glyphosate, the controversial weedkiller known as Roundup, heangered health activistswho have long campaigned to ban the product for its links to cancer.",
+            "index": 69,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/08/multimedia/08CLI-BAYER-WEAPONS-jbpg/08CLI-BAYER-WEAPONS-jbpg-facebookJumbo.jpg"
+        }
+    ]
+}
