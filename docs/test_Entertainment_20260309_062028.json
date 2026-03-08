@@ -1,0 +1,116 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "【轰动】风波再起！众明星卷入，谁能独善其身？",
+            "title0": "",
+            "content": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "韩国出现2026年首部千万观影人次电影",
+            "title0": "",
+            "content": "韩国出现2026年首部千万观影人次电影",
+            "index": 0,
+            "author": "tencent",
+            "source_platform": "腾讯娱乐",
+            "source_url": "https://news.qq.com/rain/a/20260308A06THC00",
+            "image": "https://inews.gtimg.com/om_ls/OcrY94nT3f5NLvifKcTbGBlFAvttmeYuFv23fzRFMM5NIAA_294195/0"
+        },
+        {
+            "rank": 2,
+            "title": "AI短片《霍去病》导演辟谣",
+            "title0": "",
+            "content": "AI短片《霍去病》导演辟谣",
+            "index": 0,
+            "author": "tencent",
+            "source_platform": "腾讯娱乐",
+            "source_url": "https://news.qq.com/rain/a/20260308V03F2800",
+            "image": "https://inews.gtimg.com/om_ls/OAOcqNoc05OpLJfMIWvTcF-LJthlq-XkGUIV8nX81T5doAA_870492/0"
+        },
+        {
+            "rank": 3,
+            "title": "Ella演唱会展示“真空腹”",
+            "title0": "",
+            "content": "Ella演唱会展示“真空腹”",
+            "index": 0,
+            "author": "tencent",
+            "source_platform": "腾讯娱乐",
+            "source_url": "https://news.qq.com/rain/a/20260308A05V8200",
+            "image": "https://inews.gtimg.com/om_ls/Ou2gUxHvOQahxX5b-lVgADSvtbY-OJYJ9E3VAIG_d0AE8AA_294195/0"
+        },
+        {
+            "rank": 4,
+            "title": "叶童回应何时退休",
+            "title0": "",
+            "content": "叶童回应何时退休",
+            "index": 0,
+            "author": "tencent",
+            "source_platform": "腾讯娱乐",
+            "source_url": "https://news.qq.com/rain/a/20260308V05G0T00",
+            "image": "https://inews.gtimg.com/om_ls/OK8cAXdRhvUk7zJpYsljLQBpHbgvR871GC8Qf6fAbDO6sAA_870492/0"
+        },
+        {
+            "rank": 5,
+            "title": "何广智diss两大世界冠军",
+            "title0": "",
+            "content": "何广智diss两大世界冠军",
+            "index": 0,
+            "author": "tencent",
+            "source_platform": "腾讯娱乐",
+            "source_url": "https://news.qq.com/rain/a/20260307V03VDV00",
+            "image": "https://inews.gtimg.com/om_ls/O9WaeMQYhssC3tqqoAq2iMyYdb4upbA7vree_wxWJpUTAAA_870492/0"
+        },
+        {
+            "rank": 6,
+            "title": "抖音精选为每一种选择喝彩",
+            "title0": "",
+            "content": "抖音精选为每一种选择喝彩",
+            "index": 10229229,
+            "author": "douyin",
+            "source_platform": "抖音热榜",
+            "source_url": "https://www.douyin.com/hot/2422892",
+            "image": "https://p3-sign.douyinpic.com/tos-cn-p-0015c000-ce/oAVV7WcePQ8BBeJLaClL42UIgzGCYzAz7gexcE~noop.jpeg?lk3s=bfd515bb&x-expires=1773028800&x-signature=Y69G%2BnhFWQU%2FZCd%2BjECgCzLZfUY%3D&from=3218412987"
+        },
+        {
+            "rank": 7,
+            "title": "CBA全明星正赛",
+            "title0": "",
+            "content": "CBA全明星正赛",
+            "index": 9118811,
+            "author": "douyin",
+            "source_platform": "抖音热榜",
+            "source_url": "https://www.douyin.com/hot/2423296",
+            "image": "https://p3-sign.douyinpic.com/tos-cn-p-0015/ocjBBWJEmgAc1TfF2zzyZeE00AIwLCGVTQ17fL~noop.jpeg?lk3s=bfd515bb&x-expires=1773028800&x-signature=7S%2FrTuKEu%2BGQQ4NwBfD3NwaZ%2Bi4%3D&from=3218412987"
+        },
+        {
+            "rank": 8,
+            "title": "不该让爷爷看b站的",
+            "title0": "",
+            "content": "不该让爷爷看b站的",
+            "index": 6147395,
+            "author": "bilibili",
+            "source_platform": "逗比的雀巢",
+            "source_url": "https://www.bilibili.com/video/BV1xuPYzcEdo",
+            "image": "http://i1.hdslb.com/bfs/archive/bec46259e40b2044b103c673b4efbca2db3349ef.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "「妄想天使」首场直播",
+            "title0": "",
+            "content": "「妄想天使」首场直播",
+            "index": 1388260,
+            "author": "bilibili",
+            "source_platform": "妄想天使唯一指定官号",
+            "source_url": "https://www.bilibili.com/video/BV1WBPszMEkQ",
+            "image": "http://i0.hdslb.com/bfs/archive/933f429dc0551aabc1fcbc5762e53ad3323d18fb.jpg"
+        }
+    ],
+    "timestamp": "20260309_062450",
+    "total": 10
+}
