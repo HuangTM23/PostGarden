@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "战火、炸弹与逃亡",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "俄罗斯欲从伊朗战争中谋取外交与经济利益",
+            "title0": "Steve Rosenberg: Russia seeks diplomatic and economic gains from Iran war",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4gjyg0djvmo",
+            "content": "普京在与特朗普通话中提出解决伊朗冲突的外交思路，同时俄罗斯正从飙升的油价中获益，以支持其在乌克兰的战争。",
+            "content0": "It's happened twice now in a week.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3146/live/722b1ae0-1cb2-11f1-9ab1-b9f56adefedf.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "巴黎时装周落幕：赞达亚婚戒引猜测，麦卡特尼秀场现马匹",
+            "title0": "Zendaya's ring and Stella McCartney's horses - the sights and trends at Paris Fashion Week",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/ckg277pemzno",
+            "content": "巴黎时装周秋冬系列发布，赞达亚佩戴疑似婚戒引发结婚猜测，斯特拉·麦卡特尼秀场引入12匹舞蹈马庆祝中国马年。",
+            "content0": "As our thoughts turn to the hope of spring following a grey and dreary start to the year, fashion is always one step ahead.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/02d4/live/94befbe0-1ca2-11f1-a15a-07cc22e70c6f.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "多伦多美国领事馆遭枪击，警方定性为国家安全事件",
+            "title0": "Canada police investigate after shots fired at US consulate in Toronto",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwy8lrq9rg2o",
+            "content": "两名嫌疑人驾车向多伦多美国领事馆开枪后逃离，建筑受损但内部人员无恙。警方正调查动机，并加强美以外交机构安保。",
+            "content0": "Unidentified suspects fired multiple shots at the US consulate in Toronto in what officials have described as a \"national security incident\", as police work to determine the motive behind the attack.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/3c45/live/05b90340-1cb7-11f1-b1d9-07bfa4549444.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "未亲手杀人，阿拉巴马州死囚获州长赦免免于处决",
+            "title0": "Alabama death row inmate who didn't kill anyone is spared execution",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2jx7q7dn6o",
+            "content": "75岁的伯顿因参与抢劫被判死刑，但开枪者并非他本人。在受害者女儿等人呼吁下，州长艾维介入，将其刑期改为终身监禁。",
+            "content0": "A man who was set to be executed in Alabama over a killing that he did not carry out has been spared death after the governor's intervention.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/02ec/live/2d558bd0-1cb7-11f1-b1d9-07bfa4549444.png"
+        },
+        {
+            "rank": 5,
+            "title": "联合国报告：俄强行转移乌克兰儿童构成反人类罪",
+            "title0": "Russia's deportation of Ukrainian children amounts to crime against humanity, UN says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cz7g5xnvl2eo",
+            "content": "联合国报告称，俄罗斯最高层系统性地将数千名乌克兰儿童转移至俄境内并授予国籍，此举构成反人类罪和战争罪。",
+            "content0": "The deportation and forcible transfer of Ukrainian children to Russia constitutes a crime against humanity and a war crime, the UN has said.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e9a8/live/013a7dd0-1ca8-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "曼迪·摩尔夫妇在洛杉矶山火后重建梦想家园",
+            "title0": "Mandy Moore and Taylor Goldsmith nearly lost their dream home in the LA fires. Here’s how they rebuilt",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/02/11/style/mandy-moore-home-altadena-ad",
+            "content": "美国女星曼迪·摩尔与音乐家丈夫的西班牙殖民复兴风格住宅在去年山火中严重受损，目前主屋已完成重建，音乐工作室等仍在施工。",
+            "content0": "In 2020, Mandy Moore and her musician husband Taylor Goldsmith bought their dream home in Altadena, California, as a family of two, hiring a team to begin renovating the romantic Spanish Colonial Revival property and update its 1930s charm. In 2023, as a family of four, with another baby on the way, they moved in and began living their new life in Altadena’s enclave of historic architecture, mountain views and small-town charm.",
+            "index": 1,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/ad0326-moore-1.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "中东战事致超2.1万航班取消，旅行陷混乱",
+            "title0": "More than 21,000 canceled flights: Middle East travel chaos in 5 charts",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/travel/middle-east-flights-travel-conflict-vis",
+            "content": "自美以攻击伊朗以来，中东地区十个国家的主要机场累计取消超2.1万架次航班，大量旅客滞留，部分国家一度完全关闭空域。",
+            "content0": "Hundreds of thousands of travelers are stranded in the Middle East after the cancellation of thousands of flights as war rages across the region, though some airports are starting to get more flights out as the war continues its second week.",
+            "index": 2,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/260305-iranflighttracker-16x9-static.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "Meta收购AI机器人社交网络Moltbook",
+            "title0": "Meta just bought the social network for AI bots everyone’s been talking about",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/10/tech/meta-moltbook-bots-social-media",
+            "content": "Meta宣布收购AI机器人自主互动的社交网络Moltbook，以在日益激烈的AI技术竞争中争夺人才和用户注意力。",
+            "content0": "Meta, the company behind some of the world’s most popular social media platforms, just scooped up a new site – for bots.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2259268714.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "德累斯顿发现二战遗留炸弹，市中心大规模疏散",
+            "title0": "Large parts of Dresden to be evacuated after 250kg WW2 bomb found",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c1781gr5n9go",
+            "content": "德国德累斯顿市中心发现一枚250公斤重的二战时期英国未爆弹，约1.8万居民和游客需撤离，包括圣母教堂等标志性建筑区域。",
+            "content0": "Much of the centre of the German city of Dresden will be evacuated on Wednesday, after the discovery of a large unexploded British World War Two flying bomb.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8c4a/live/231635c0-1cc1-11f1-8452-d983fe428cc5.jpg"
+        }
+    ]
+}
