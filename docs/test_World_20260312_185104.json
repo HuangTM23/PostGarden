@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "战争、丑闻、奇闻，世界炸锅！",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "中国公民在肯尼亚机场因走私2000只蚁后被逮捕",
+            "title0": "Chinese national arrested over attempt to smuggle 2,000 queen ants from Kenya",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cz7gd57z33zo",
+            "content": "一名中国公民在肯尼亚内罗毕机场被拦截，其行李中被发现藏有超过2000只活体蚁后，涉嫌走私出境。",
+            "content0": "A Chinese national has been arrested in Kenya's main airport accused of attempting to smuggle more than 2,000 queen garden ants out of the country.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/f63b/live/49272250-1ddf-11f1-b78b-695aa1f5fbef.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "巴西女性揭露爱泼斯坦利用模特经纪人招募少女",
+            "title0": "Epstein used modelling agent to recruit girls, Brazilian women tell BBC",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cr4576v66kno",
+            "content": "巴西女性向BBC揭露，已故金融家爱泼斯坦曾利用法国模特经纪人让-吕克·布吕内尔，从南美招募年轻女性及少女。",
+            "content0": "Warning: This story contains graphic sexual descriptions.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ad37/live/f06de510-1deb-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "世界顶级餐厅Noma主厨因虐待指控辞职",
+            "title0": "Noma head chef resigns from restaurant amid abuse allegations",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c07jr2pe5j9o",
+            "content": "丹麦顶级餐厅Noma的主厨雷内·雷哲皮宣布辞职。此前，多名前员工指控他制造了有毒的工作环境，包括言语和身体虐待。",
+            "content0": "The head chef of Noma, one of the highest-rated restaurants in the world, has resigned amid allegations of abuse.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/2e00/live/374fa660-1dbc-11f1-ab28-9b4059b178c6.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "乌克兰战争议题渗入匈牙利大选竞选活动",
+            "title0": "War in Ukraine spills into Hungarian election campaign",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/crm8rxwyyz8o",
+            "content": "匈牙利政府声称乌克兰将“不择手段”阻止总理欧尔班连任，并指控其策划暴力袭击。乌克兰则指责匈牙利煽动仇恨。",
+            "content0": "War-torn Ukraine \"will stop at nothing\" to prevent Prime Minister Viktor Orbán and his Fidesz party winning the upcoming Hungarian elections, the Hungarian government claims. Physical violence against the prime minister and his family, and attacks or sabotage of key energy installations, are being prepared, ministers allege.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/19fd/live/c59dc9e0-1d69-11f1-9120-a910fc22c6ac.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "美国对欧盟、中国、印度等主要贸易伙伴发起新调查",
+            "title0": "US launches probe into trading partners including the EU, China and India",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c15x1dxp3wpo",
+            "content": "美国贸易代表宣布启动“301条款”调查，对象包括欧盟、中国、印度、日本等主要贸易伙伴，可能导致今年夏季加征新关税。",
+            "content0": "The US has launched a new investigation into some of its biggest trading partners after the Supreme Court struck down a key part of President Donald Trump's tariffs policies last month.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/6ef2/live/f9245fc0-1db6-11f1-baf5-4b69ff592416.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "富豪用私人飞机逃离中东冲突，包机价格飙升",
+            "title0": "Super-rich travelers are using private jets to escape Middle East conflict, pushing charter prices sky-high",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/12/travel/middle-east-private-jets-scli-intl",
+            "content": "美以与伊朗冲突爆发后，中东地区私人包机需求激增，富豪们支付天价费用以离开该地区，导致包机价格飙升。",
+            "content0": "Demand forprivate charter flightsout of theMiddle Easthas surged since the beginning of theUS-Israeli conflict with Iran, with those who can afford it paying astronomical prices to leave the region.",
+            "index": 2,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2160812639.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "龙卷风袭击美国印第安纳州致2人死亡",
+            "title0": "Tornado kills 2 in Indiana with another bout of dangerous storms ongoing",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/11/weather/severe-weather-thunderstorms-tornado-indiana-climate",
+            "content": "危险风暴携龙卷风和巨型冰雹席卷美国中部，在印第安纳州造成至少2人死亡，随后风暴继续向墨西哥湾沿岸移动。",
+            "content0": "Dangerous storms with tornadoes and giant hail tore across the Central US overnight Tuesday into Wednesday, killing at least two people.",
+            "index": 4,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2265445193.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 8,
+            "title": "新西兰慈善店收到误捐背包，内藏大麻和现金",
+            "title0": "Bag containing weed and cash accidentally donated to New Zealand charity shop",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/09/asia/weed-cash-new-zealand-charity-shop-intl-scli",
+            "content": "两名青少年误将装有43.2克大麻和3700新西兰元现金的背包捐给慈善店，随后惊慌返回试图取回，警方已介入。",
+            "content0": "Two teenagers mistakenly left a knapsack containing marijuana and cash at a donation area outside a New Zealand charity shop then returned in a panic to retrieve the bag, police said Monday.",
+            "index": 8,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/ap26068143889589.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 9,
+            "title": "苏丹无人机战争改变战争形态，平民陷死亡陷阱",
+            "title0": "Sudan shows how the nature of war is changing - and it's a death trap for civilians",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/sudan-shows-how-the-nature-of-war-is-changing-and-its-a-death-trap-for-civilians-13518316",
+            "content": "苏丹冲突中无人机使用激增，导致人道活动停止，平民伤亡惨重，战争形态的改变使4600万人口陷入死亡陷阱。",
+            "content0": "A drone is circling in the skies above Zaki Ramadan when he takes my call. As a humanitarian worker in Sudan's southeastern Blue Nile state, he is helplessly watching aid dwindle and civilians be killed by the meteoric rise in drone strikes.",
+            "index": 5,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/03/1600x900/skynews-sudan-drones_7189301.png?20260311193538"
+        }
+    ]
+}

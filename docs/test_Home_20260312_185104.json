@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "月薪七千招人种地？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "微信推出三大新功能",
+            "content": "微信最新版本更新，语音/视频来电可点击“忽略”，语音转文字支持“同声传译”等功能。",
+            "source_platform": "红星新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859425086981630908",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/9a41ee8518c2c289e8983ce6cc8cc511"
+        },
+        {
+            "rank": 2,
+            "title": "公司回应月薪7000招人种地",
+            "content": "金沙河集团月薪7000元招聘30-35岁男性种地，引发热议后公司回应招聘信息属实。",
+            "source_platform": "红星新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859446154459417048",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/bfbc5dc138ecb36f599c23809c9e210e"
+        },
+        {
+            "rank": 3,
+            "title": "研究发现30亿年前月球仍活跃",
+            "content": "中国研究团队发现月球在30亿年前仍有岩浆补给事件，为理解月球晚期热演化提供关键证据。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859444212900708653",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/11e0f59de94f3a82c00876d6208270a3"
+        },
+        {
+            "rank": 4,
+            "title": "代表建议禁止流量月底清零",
+            "content": "全国人大代表建议整治通信行业垄断行为，禁止“流量月底清零”等不公平条款，保护用户权益。",
+            "source_platform": "IT之家",
+            "source_url": "https://www.toutiao.com/article/7616305598749033006/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/5630157ff340f60c5aeb70d331ea52f2~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQElU5LmL5a62:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1773917555&x-signature=Z6rQqIv45KtLAePGI%2BuIBgcywKo%3D"
+        },
+        {
+            "rank": 5,
+            "title": "富力地产董事长被限制出境",
+            "content": "富力地产董事长李思廉在出境时被拦截，因被法院限制出境，公司及法院已证实此事。",
+            "source_platform": "经济观察报",
+            "source_url": "https://news.qq.com/rain/a/20260311A07LOP00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O1HZCLR6Aq_H20zut9gWxnbkX9m-P448_9dj_zk3miikAAA_640330/0"
+        },
+        {
+            "rank": 6,
+            "title": "93岁美食博主毛奶奶去世",
+            "content": "93岁美食博主毛奶奶去世，其生前通过短视频分享传统美食制作，受到网友喜爱。",
+            "source_platform": "国+社区",
+            "source_url": "https://www.toutiao.com/video/7616228640325713958/",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-3qtffzwd0j/oEFDDEAkImTAKriyQEkArEFA9ZaLjBfI2lUfeX~tplv-tt-profile_shortvideo:720:1280.jpeg?_iz=3710&bid=676&from=shortvideo&gid=7616228640325713958&lk3s=06827d14&x-expires=1773917565&x-signature=krLEPSkNx8sznLsm0nasrbY1kIo%3D"
+        },
+        {
+            "rank": 7,
+            "title": "专家：A股投资逻辑将转向",
+            "content": "专家指出A股投资逻辑将转向寻找新周期，中国“十五五”规划明确转向以人为本、脱虚向实。",
+            "source_platform": "证券时报",
+            "source_url": "https://www.toutiao.com/article/7616258523072119346/",
+            "source": "toutiao",
+            "image": "https://lf3-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/216.png"
+        },
+        {
+            "rank": 8,
+            "title": "国际能源署释放4亿桶石油",
+            "content": "国际能源署成员国同意释放4亿桶战略石油储备，以应对中东战争导致的全球能源供应中断风险。",
+            "source_platform": "央视新闻",
+            "source_url": "https://news.qq.com/rain/a/20260311A082VC00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/om_ls/Ox-QFQ9VMp5Q8qBd8EZLjZRYom751_WaPQWMQ-XXBxH50AA_640330/0"
+        },
+        {
+            "rank": 9,
+            "title": "特朗普称对伊朗行动将结束",
+            "content": "美国总统特朗普称伊朗境内“几乎已无可打击的目标”，美国对伊朗军事行动将很快结束。",
+            "source_platform": "新华社新闻",
+            "source_url": "https://news.qq.com/rain/a/20260311A0845000",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/OJ2CJw2tcssvOL9-VgpCM7FSv7paelVic5AbgDe52r6_QAA_640330/0"
+        }
+    ]
+}
