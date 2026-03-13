@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "油价破百！战争冲击全球",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "美法官驳回司法部对美联储调查",
+            "title0": "Judge says 'no evidence' to justify Federal Reserve probe",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cwy6z25y7z0o",
+            "content": "美国法官裁定司法部对美联储的调查缺乏证据支持，认为其目的是施压美联储降息。",
+            "content0": "A US judge has blocked efforts by the Department of Justice to investigate the Federal Reserve, delivering a victory for Fed chairman Jerome Powell, who had called the probe a \"pretext\" to try to pressure the central bank to lower interest rates.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/9d56/live/4a63c4b0-1f16-11f1-b77d-b919ce01dc64.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "加拿大年初流失超10万全职岗位",
+            "title0": "Canada sheds more than 100,000 jobs in first two months of year",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c1d6lk1n91xo",
+            "content": "加拿大2026年前两个月流失超10万个全职岗位，失业率升至6.7%，政府归因于美国关税影响。",
+            "content0": "Canadians have lost more than 100,000 full-time jobs since the beginning of 2026, adding pressure on Prime Minister Mark Carney's government as it seeks to shield the economy from the impact of US tariffs on Canada.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/f67f/live/997a6a70-1efa-11f1-8cb7-433d6fa8d367.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "特朗普称普京可能在“帮助”伊朗",
+            "title0": "Trump says Putin may be helping Iran 'a bit'",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cx2jzwpvz9jo",
+            "content": "美国总统特朗普表示，他认为俄罗斯总统普京可能在当前美伊冲突中“帮助”伊朗。",
+            "content0": "US President Donald Trump has said he believes that Vladimir Putin and Russia are helping Iran \"a bit\" amid the conflict with the US and Israel.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e7de/live/fde57020-1efc-11f1-ba8d-c985cd7dd7c1.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "FBI头号通缉犯创最快落网纪录",
+            "title0": "Fugitive from FBI's Top Ten Most Wanted list arrested at record speed",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cly0lpn76ygo",
+            "content": "一名男子被列入FBI十大通缉要犯名单后仅1小时13分钟即在墨西哥被捕，创下最快落网纪录。",
+            "content0": "The FBI added Samuel Ramirez Jr to its Top Ten Most Wanted list on Tuesday morning and less than two hours later he was in handcuffs, an arrest of record-breaking speed.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/e886/live/d2358460-1f0b-11f1-87bd-bb650a6d53bc.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "智利建筑师斯米利安·拉迪奇获普利兹克奖",
+            "title0": "Pritzker Prize 2026: Chile’s Smiljan Radić wins ‘Nobel’ of architecture",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/12/style/pritzker-prize-winner-smiljan-radic",
+            "content": "智利建筑师斯米利安·拉迪奇凭借其实验性设计，荣获2026年被誉为建筑界“诺贝尔奖”的普利兹克奖。",
+            "content0": "Chilean architect Smiljan Radić, whose often-experimental designs include a doughnut-shaped pavilion in London and a restaurant held up by boulders in Santiago, was named the winner of this year’s Pritzker Prize — an award often dubbed the field’s equivalent to a Nobel Prize — on Thursday.",
+            "index": 1,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/sr2-courtesy-of-tom-welsh-for-the-pritzker-architecture-prize.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 6,
+            "title": "Meta收购AI机器人社交网络Moltbook",
+            "title0": "Meta just bought the social network for AI bots everyone’s been talking about",
+            "source_platform": "CNN",
+            "source_url": "https://edition.cnn.com/2026/03/10/tech/meta-moltbook-bots-social-media",
+            "content": "Meta公司宣布收购AI机器人自主交互的社交网络Moltbook，以在人工智能领域展开竞争。",
+            "content0": "Meta, the company behind some of the world’s most popular social media platforms, just scooped up a new site – for bots.",
+            "index": 7,
+            "author": "CNN",
+            "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2259268714.jpg?c=16x9&q=h_438,w_780,c_fill"
+        },
+        {
+            "rank": 7,
+            "title": "古巴总统承认与特朗普政府进行谈判",
+            "title0": "Cuban President Acknowledges Talks With Trump Administration",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/03/13/world/americas/cuba-us-talks-trump-oil.html",
+            "content": "古巴总统迪亚斯-卡内尔承认其政府正与特朗普政府进行谈判，以应对严重的燃料短缺危机。",
+            "content0": "In what was seen as a last-ditch effort to save his hobbled government, President Miguel Díaz-Canel of Cuba announced on Friday that his government had been holding talks with the Trump administration while managing an increasingly severe lack of fuel.",
+            "index": 73,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/13/multimedia/13cuba-crisis-hjkp/13cuba-crisis-hjkp-facebookJumbo-v2.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "美国利用乌克兰经验对抗伊朗无人机",
+            "title0": "To Fight Iran’s Drones, U.S. Taps Ukraine’s Hard-Earned Knowledge",
+            "source_platform": "New York Times",
+            "source_url": "https://www.nytimes.com/2026/03/13/world/middleeast/ukraine-drone-knowledge.html",
+            "content": "美国借鉴乌克兰在对抗俄罗斯无人机方面的实战经验，开发反无人机系统以应对伊朗威胁。",
+            "content0": "The Ukrainian drone operators were in the middle of fierce fighting when a white-haired American arrived at the front and began peppering them with questions. He wanted advice for producing battle drones like the ones Ukraine was then using, Sgt. Oleksandr Karpiuk, the commander of the drone unit, recalled.",
+            "index": 72,
+            "author": "NYTimes",
+            "image": "https://static01.nyt.com/images/2026/03/14/multimedia/14US-Ukraine-Drones-01-mbfj/14US-Ukraine-Drones-01-mbfj-facebookJumbo.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "英国司机撞死两少年后度假被判刑",
+            "title0": "Driver who went on skiing holiday months after killing teens given 14 months' youth detention",
+            "source_platform": "Sky News",
+            "source_url": "https://news.sky.com/story/driver-who-went-on-skiing-holiday-months-after-killing-teens-given-14-months-youth-detention-13519282",
+            "content": "一名英国司机超速驾驶撞树致两名青少年死亡，事后竟去滑雪度假，最终被判14个月青少年拘留。",
+            "content0": "A driver who went on a skiing holiday months after killing two teenage passengers has been sentenced to 14 months' youth detention.",
+            "index": 9,
+            "author": "Sky News",
+            "image": "https://e3.365dm.com/26/03/1600x900/skynews-madeleine-lonsdale_7191476.jpg?20260313161807"
+        }
+    ]
+}
