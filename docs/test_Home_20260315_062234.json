@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "5元造假软件能骗谁？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "驼奶粉实为豆粉燕麦粉",
+            "content": "消费者网购驼奶蛋白粉，发现主要成分是大豆粉和燕麦粉，市场存在挂羊头卖狗肉现象。",
+            "source_platform": "环球网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859632170143951685",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/c7da638b924e09ff55ac700ad36847dc"
+        },
+        {
+            "rank": 2,
+            "title": "新华社批应用跳转乱象",
+            "content": "新华社批评手机应用强制跳转和弹窗骚扰，称其侵害消费者选择权，为数字牛皮癣。",
+            "source_platform": "新华社",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859654568059649965",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/fe9019be26d91f4d8874366abc679734"
+        },
+        {
+            "rank": 3,
+            "title": "猪肉丸加硼砂销售4000斤",
+            "content": "不法分子在猪肉丸和猪肉酱中非法添加硼砂，销售4000斤，被判支付惩罚性赔偿金90万元。",
+            "source_platform": "环球网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859632673227491724",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/93f5d6b62a9c70ae9a42d5fc39779761"
+        },
+        {
+            "rank": 4,
+            "title": "5元造假软件微信余额过亿",
+            "content": "电商平台销售微信造假软件，售价5元，可显示余额过亿，被不法分子用于诈骗。",
+            "source_platform": "齐鲁壹点",
+            "source_url": "https://baijiahao.baidu.com/s?id=1849123706605788717",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/e4b23cb1f937d84eea6fbeaf236eb7ca"
+        },
+        {
+            "rank": 5,
+            "title": "妻子买5000元电影票返现",
+            "content": "杭州一男子报警称妻子操作买5000元电影票返1400元的买票返现，怀疑是骗局。",
+            "source_platform": "光明网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859634056573191501",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/6ad9452d6344a36b17431224927bc78f"
+        },
+        {
+            "rank": 6,
+            "title": "王楚钦不敌松岛辉空止步八强",
+            "content": "WTT重庆冠军赛男单1/4决赛，王楚钦2比4不敌松岛辉空，止步八强。",
+            "source_platform": "新京报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859641331506809845",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/407336282622f8aac50d0daa12b1519e"
+        },
+        {
+            "rank": 7,
+            "title": "6人餐位费48元比菜贵",
+            "content": "网友反映部分中高端餐厅餐位费过高，6人餐位费48元比一道菜还贵，收费标准模糊。",
+            "source_platform": "大河报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859623562408909553",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/30854085f4264c7abae9ab00c927516d"
+        },
+        {
+            "rank": 8,
+            "title": "向12345投诉遭信息泄露",
+            "content": "上海一市民实名投诉小区违建后隐私泄露，物业经理违规泄露信息被撤职并行政处罚。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859623455155978205",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/e1e064a08e26bb100c0364f8236dc730"
+        },
+        {
+            "rank": 9,
+            "title": "胖东来分配店长每人2000万",
+            "content": "胖东来创始人于东来回应资产分配，店长每人2000万，普通员工人均20万，为持续20多年的分配体制。",
+            "source_platform": "每日经济新闻",
+            "source_url": "https://news.qq.com/rain/a/20260314A06CRE00",
+            "source": "tencent",
+            "image": "https://inews.gtimg.com/news_ls/O9bgjGrONjPNXowchAs8wdn0cKU48rYu47WpCBJO_nDTYAA_640330/0"
+        }
+    ]
+}
