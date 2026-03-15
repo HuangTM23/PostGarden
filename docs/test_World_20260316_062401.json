@@ -1,0 +1,124 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "战火、红毯与病毒",
+            "title0": "",
+            "content": "",
+            "content0": "",
+            "index": 0,
+            "author": "",
+            "source_platform": "",
+            "source_url": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "奥斯卡红毯：星光与时尚图集",
+            "title0": "Oscars red carpet: Stars and fashion in pictures",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cd9g331v315o",
+            "content": "好莱坞巨星齐聚奥斯卡红毯，展示年度最受瞩目的时尚造型，角逐“最佳着装”非官方奖项。",
+            "content0": "If the Oscars gave out an award for best dressed, it would be the most hotly contested prize of the night.",
+            "index": 10,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/aec4/live/abb2be60-20ba-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 2,
+            "title": "威廉王子分享戴安娜王妃未公开照片庆母亲节",
+            "title0": "William shares unseen photo of Princess Diana for Mother's Day",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cgjz9zx3xl5o",
+            "content": "威廉王子在母亲节分享了一张与已故母亲戴安娜王妃的未公开合照，以表怀念。",
+            "content0": "Prince William has paid tribute to his late mother, Princess Diana, by sharing a photograph of the two together to mark Mother's Day.",
+            "index": 9,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/70e3/live/076e8de0-2059-11f1-a5bd-118cf5a4e65c.jpg"
+        },
+        {
+            "rank": 3,
+            "title": "泽连斯基指责欧盟盟友在石油管道问题上“敲诈”",
+            "title0": "Zelensky accuses EU allies of 'blackmail' in oil pipeline row",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c3v7q6d0nq0o",
+            "content": "乌克兰总统泽连斯基指责欧盟盟友试图“敲诈”基辅，迫使其重开一条向匈牙利和斯洛伐克输送俄罗斯石油的管道。",
+            "content0": "Ukrainian President Volodymyr Zelensky has accused European allies of seeking to \"blackmail\" Kyiv into reopening a pipeline transporting Russian oil to Hungary and Slovakia.",
+            "index": 8,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/889d/live/bdc18c80-2065-11f1-99b3-4b0aa65020b6.jpg"
+        },
+        {
+            "rank": 4,
+            "title": "FCC主席威胁吊销广播公司执照",
+            "title0": "FCC chair threatens to revoke broadcasters' licences over Iran coverage",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c626ye5gq16o",
+            "content": "美国联邦通信委员会主席威胁吊销广播公司执照，此前特朗普总统批评了媒体对伊朗战争的报道。",
+            "content0": "The chair of the US Federal Communications Commission (FCC) has threatened to revoke broadcasters' licences after US President Donald Trump criticised their coverage of the US-Israel war with Iran.",
+            "index": 7,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/1d40/live/e628e6b0-2087-11f1-8af0-cf4f458e05d4.jpg"
+        },
+        {
+            "rank": 5,
+            "title": "斯塔默与特朗普通话讨论重开霍尔木兹海峡",
+            "title0": "Starmer speaks to Trump about importance of reopening Strait of Hormuz",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cj0dlvl086eo",
+            "content": "英国首相斯塔默与美国总统特朗普通话，讨论重开霍尔木兹海峡以结束全球航运中断的重要性。",
+            "content0": "The prime minister has spoken to Donald Trump about the importance of reopening the Strait of Hormuz \"to end the disruption to global shipping\", Downing Street has said.",
+            "index": 6,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/8cd2/live/3a83cd80-2068-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+            "rank": 6,
+            "title": "警方调查伦敦抗议活动中“消灭以色列国防军”口号",
+            "title0": "Police investigate 'death to the IDF' chants led by Bobby Vylan at rally",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c93jz4gykwko",
+            "content": "伦敦警方正调查一场抗议活动中，由朋克歌手博比·维兰带领人群高呼“消灭以色列国防军”口号的事件。",
+            "content0": "The Metropolitan Police says it is investigating chants of \"death to the IDF [Israel Defense Forces]\" led by Bobby Vylan, of the punk duo Bob Vylan, at an Al Quds Day protest in central London.",
+            "index": 5,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/0caf/live/d1f04870-2094-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+            "rank": 7,
+            "title": "密歇根犹太教堂袭击者兄弟系真主党指挥官",
+            "title0": "Michigan synagogue attacker's brother was Hezbollah commander, IDF says",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/c4gj1135x7ro",
+            "content": "以色列国防军称，密歇根犹太教堂袭击者的兄弟是一名真主党指挥官，已于上周空袭中丧生。",
+            "content0": "A brother of the man accused of attacking a Michigan synagogue on Thursday had been a Hezbollah commander who was killed in an air strike last week, the Israel Defense Forces (IDF) says.",
+            "index": 4,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/f414/live/76d71040-20a3-11f1-af9b-29fbcd800e69.jpg"
+        },
+        {
+            "rank": 8,
+            "title": "英国肯特大学爆发脑膜炎疫情致两人死亡",
+            "title0": "Two die including uni student in meningitis outbreak",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/cdxg35dv7npo",
+            "content": "英国肯特大学及周边地区爆发“侵袭性”脑膜炎疫情，已造成两人死亡，另有11人住院。",
+            "content0": "Two people have died following an outbreak of \"invasive\" meningitis, including one student at the University of Kent.",
+            "index": 3,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/c301/live/8017f630-20a6-11f1-b760-7d6278c3d0c0.jpg"
+        },
+        {
+            "rank": 9,
+            "title": "伊朗人如何突破网络封锁与海外家人联系",
+            "title0": "How Iranians are evading internet blocks to contact family abroad",
+            "source_platform": "BBC News",
+            "source_url": "https://www.bbc.com/news/articles/ckgl58y5943o",
+            "content": "战争期间，伊朗人通过边境电话桥接、高价VPN等方式，艰难突破当局的网络封锁与海外亲人保持联系。",
+            "content0": "On the Iran-Turkey border a man sells a service that helpsIranians outside their country keep in touch with loved ones inside.",
+            "index": 2,
+            "author": "BBC",
+            "image": "https://ichef.bbci.co.uk/news/1024/branded_news/5548/live/584aed00-1d5f-11f1-9120-a910fc22c6ac.jpg"
+        }
+    ]
+}
