@@ -1,0 +1,94 @@
+{
+    "news": [
+        {
+            "rank": 0,
+            "title": "天才少女融资14亿？",
+            "content": "",
+            "source_platform": "",
+            "source_url": "",
+            "source": "",
+            "image": ""
+        },
+        {
+            "rank": 1,
+            "title": "00后天才学霸女生获14亿融资",
+            "content": "25岁华裔女孩洪乐潼从斯坦福退学创业，其AI公司获14亿元融资，估值达110亿元。",
+            "source_platform": "红星资本局",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859691574991795866",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/766f13466eb5193e5a0a8b820cd95923"
+        },
+        {
+            "rank": 2,
+            "title": "大厂月薪3万疯抢文科生",
+            "content": "AI浪潮下，阿里等企业为训练大模型开设“AI叙事设计师”等岗位，月薪普遍3万至5万元。",
+            "source_platform": "中国网科技",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859898734620906600",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/b912ee40f85e442d8b6e2a6f72df6233"
+        },
+        {
+            "rank": 3,
+            "title": "第二艘国产大型邮轮将出坞",
+            "content": "我国第二艘国产大型邮轮“爱达·花城号”总吨位超14万吨，能容纳5200多名乘客，即将正式出坞。",
+            "source_platform": "央视新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859879767808798385",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/04d74c6252c2dded405ea7a319598cf0"
+        },
+        {
+            "rank": 4,
+            "title": "猪价创7年新低",
+            "content": "春节以来国内生猪价格阴跌不止，3月16日报10.29元/公斤，距离历史最低值只差约3毛钱。",
+            "source_platform": "第一财经",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859812136138637138",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/b3785185da7c583a95cb90846adac2e0"
+        },
+        {
+            "rank": 5,
+            "title": "牙医仅收280元为女孩看牙",
+            "content": "江苏连云港牙医金先生为奶奶带的孙女看牙，1800元费用仅收280元，并承诺完成后续3次复查。",
+            "source_platform": "大象新闻",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859892456252392955",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/91e78cc6cc3f5109a2b46ef2ad5cc12d"
+        },
+        {
+            "rank": 6,
+            "title": "睡得晚和睡得少哪个更伤身体",
+            "content": "研究显示睡得少增加阿尔茨海默病等风险，睡得晚即便时长充足也会提升糖尿病、心血管疾病风险。",
+            "source_platform": "光明网",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859885965546264675",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/89718c7d6993015a7e0bf48394835174"
+        },
+        {
+            "rank": 7,
+            "title": "蚂蚁集团董事长捐赠1.3亿",
+            "content": "蚂蚁集团董事长井贤栋与夫人向上海交大捐赠1.3亿元现金与股份，用于AI领域科研与人才培养。",
+            "source_platform": "新京报",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859887286398094456",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/b3bb3cc34ae925b544d1bb8a5f17cd54"
+        },
+        {
+            "rank": 8,
+            "title": "“一人公司”爆火 银行坐不住了",
+            "content": "“一人公司”模式凭借个人+AI工具快速崛起，浦发银行、南京银行等多家机构推出专属服务方案。",
+            "source_platform": "中新经纬",
+            "source_url": "https://baijiahao.baidu.com/s?id=1859874649255425051",
+            "source": "baidu",
+            "image": "https://fyb-2.cdn.bcebos.com/hotboard_image/af30600f84eb3f3c16f0fb45d5c30e00"
+        },
+        {
+            "rank": 9,
+            "title": "进口头孢西力欣价格暴涨52倍",
+            "content": "原研进口药西力欣(头孢呋辛酯片)近日再度涨价，单盒价格最高达1600元，较两个月前已翻倍。",
+            "source_platform": "大象新闻",
+            "source_url": "https://www.toutiao.com/article/7618017599988761124",
+            "source": "toutiao",
+            "image": "https://p3-sign.toutiaoimg.com/tos-cn-i-tjoges91tu/d95deb22d939f390a1cf1f733cac7c81~tplv-tt-shrink-asy2-web:640:0:5aS05p2hQOWkp-ixoeaWsOmXuw==:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1774350036&x-signature=dJyB304CYk1wkP6vKLVXq%2BZnt38%3D"
+        }
+    ]
+}
